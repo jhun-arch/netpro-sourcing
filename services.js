@@ -1,0 +1,1 @@
+if(window.gsap&&window.ScrollTrigger&&!matchMedia('(prefers-reduced-motion: reduce)').matches){gsap.registerPlugin(ScrollTrigger);document.querySelectorAll('.service-section').forEach(el=>gsap.from(el,{y:18,opacity:0,duration:.5,scrollTrigger:{trigger:el,start:'top 94%',once:true},clearProps:'all'}));}

@@ -1,0 +1,18 @@
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:page-out .16s ease both}
+::view-transition-new(root){animation:page-in .28s ease both}
+@keyframes page-out{to{opacity:0}}
+@keyframes page-in{from{opacity:0}to{opacity:1}}
+@keyframes gentle-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes modal-in{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+@keyframes modal-out{to{opacity:0;translate:0 8px}}
+.product-dialog[open],.search-dialog[open],.info-dialog[open]{animation:modal-in .25s ease both}
+.product-dialog.modal-closing,.search-dialog.modal-closing,.info-dialog.modal-closing{animation:modal-out .18s ease both}
+.contact-information,.contact-form-panel,.quote-form-side,.quote-summary{animation:gentle-in .5s ease both}
+.contact-form-panel,.quote-summary{animation-delay:.07s}
+.checkout-step .step-content:not([hidden]){animation:gentle-in .28s ease both}
+.product-card{animation:gentle-in .35s ease both}
+.motion-visible{animation:gentle-in .5s ease both}
+input,textarea,select{transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease}
+input:focus,textarea:focus,select:focus{border-color:var(--blue)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}::view-transition-old(root),::view-transition-new(root){animation:none!important}}
