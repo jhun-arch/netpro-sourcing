@@ -33,16 +33,3 @@ main{max-width:100%;overflow-x:clip}h1,h2,h3{text-wrap:balance}p{text-wrap:prett
 .detail-copy>p:not(.product-color):not(.detail-note){width:min(100%,390px)}
 .detail-copy .price-explanation{width:min(100%,440px)}
 @media(max-width:760px){.product-dialog{width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}.detail-layout{grid-template-columns:1fr}.detail-gallery{aspect-ratio:1}.detail-copy{padding:28px 22px 30px}}
-
-/* Product quick view parity with the main branch. Keep dev procurement work, but present the modal exactly like main. */
-.product-dialog{width:min(1480px,96vw);max-width:none;max-height:94svh;overflow:auto;border-radius:3px}
-#product-detail{width:auto;max-width:none;min-width:0;overflow:visible}
-.detail-layout{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;width:auto;max-width:none;max-height:none;overflow:visible}
-.detail-gallery{position:relative;display:block;padding:0;width:auto;max-width:none;min-width:0;min-height:100%;align-self:stretch;overflow:hidden;aspect-ratio:1}
-.detail-gallery .detail-visual{overflow:hidden}
-.detail-gallery .detail-visual>.art-catalog-3{transform:scale(1.065)!important;transform-origin:center top}
-.detail-copy{width:auto;max-width:none;min-width:0;padding:52px 44px 35px;text-align:center;display:flex;flex-direction:column;align-items:center;overflow:visible}
-.detail-copy .detail-price{font-size:15px}
-.detail-copy>p:not(.product-color):not(.detail-note){width:auto;max-width:390px}
-.detail-copy .detail-note{font-size:10px;line-height:1.5;max-width:340px;margin-top:18px;margin-bottom:0}
-@media(max-width:760px){.product-dialog{width:96vw;max-height:92svh;overflow:auto}.detail-layout{grid-template-columns:1fr}.detail-gallery{min-height:0;aspect-ratio:1;width:100%;align-self:stretch}.detail-copy{padding:28px 23px}.detail-copy .detail-price{font-size:15px}}
