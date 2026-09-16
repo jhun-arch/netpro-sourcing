@@ -43,3 +43,11 @@
 /* Procurement-first navigation hierarchy. */
 .desktop-nav{align-items:center;gap:24px}.desktop-nav>a,.desktop-nav .nav-trigger{font-size:14px;font-weight:600;white-space:nowrap}.desktop-nav .nav-contact{background:var(--blue);color:white;padding:12px 17px;border-radius:3px;line-height:1.4;transition:background .2s,box-shadow .2s}.desktop-nav .nav-contact:hover{background:var(--blue-dark);box-shadow:0 4px 14px #2458e622}.desktop-nav .nav-contact:after{display:none}.desktop-nav .nav-dropdown{min-width:235px}.desktop-nav .nav-dropdown a:first-child{color:var(--blue);font-weight:600;border-bottom:1px solid var(--line);margin-bottom:5px}.desktop-nav .nav-dropdown a{font-size:14px;font-weight:400}.header-actions{gap:10px}
 @media(max-width:1100px){.desktop-nav{display:none}.menu-toggle{display:grid}.mobile-nav:not([hidden]){display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:white;padding:12px var(--gutter) 24px;box-shadow:0 14px 22px #10233f10;max-height:calc(100dvh - 95px);overflow-y:auto}.mobile-nav a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}.mobile-nav>.nav-contact{background:var(--blue);color:white;justify-content:center;border-radius:3px;margin:8px 0 14px;padding:12px}.mobile-nav details>div a{font-size:15px}.header-actions{margin-left:auto;gap:5px}}
+/* Hide checkout/enquiry scrollbars without disabling scrolling. */
+html:has(body.checkout-page),body.checkout-page,body.checkout-page .checkout-shell,body.checkout-page .checkout-summary,body.checkout-page .quote-form-side{scrollbar-width:none;-ms-overflow-style:none}
+html:has(body.checkout-page)::-webkit-scrollbar,body.checkout-page::-webkit-scrollbar,body.checkout-page .checkout-shell::-webkit-scrollbar,body.checkout-page .checkout-summary::-webkit-scrollbar,body.checkout-page .quote-form-side::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* Keep scrolling available without visible scrollbar tracks. */
+html,body,dialog,dialog *{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar,dialog::-webkit-scrollbar,dialog *::-webkit-scrollbar{display:none;width:0;height:0}
+html{scrollbar-gutter:auto}

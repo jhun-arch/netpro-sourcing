@@ -14,3 +14,8 @@ $$('.step-form').forEach((form,i)=>form.addEventListener('submit',e=>{e.preventD
 if(!bag.length){$$('.step-form button[type=submit]').forEach(el=>el.disabled=true);}
 openStep(0);
 })();
+ document.querySelector('#send-purchase-enquiry')?.addEventListener('click',()=>{
+ const text=['STANDARD PURCHASE ENQUIRY',document.querySelector('#review-name').textContent,document.querySelector('#review-email').textContent,document.querySelector('#review-address').textContent,document.querySelector('#checkout-items').innerText,'Preview subtotal: '+document.querySelector('.order-amount').textContent,'Please confirm availability, shipping, taxes and final payment arrangements.'].join('\n\n');
+ location.href='mailto:info@netpropatches.com?subject=Standard%20purchase%20enquiry&body='+encodeURIComponent(text);
+ document.querySelector('#purchase-enquiry-status').textContent='Email draft requested. Review and send it in your email app. No order or payment has been processed.';
+ });

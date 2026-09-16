@@ -5,7 +5,21 @@
   function read(key){try{return sessionStorage.getItem(key)}catch{return null}}
   function write(key,value){try{sessionStorage.setItem(key,value)}catch{}}
   const returnLink=document.querySelector('.continue-shopping');
-  if(returnLink){const saved=read('netpro-b2b-shopping-return');if(saved){try{const url=new URL(saved,location.href);if(url.origin===location.origin&&/\/(shop|index)\.html$/.test(url.pathname))returnLink.href=url.href;}catch{}}}
+  const returnKey='netpro-b2b-return:'+location.pathname;
+  function validReturn(value){try{const u=new URL(value,location.href);return u.origin===location.origin&&u.pathname.startsWith('/netpro-b2b/')&&!/\/(checkout|quote)\.html$/.test(u.pathname)?u.href:null}catch{return null}}
+  if(returnLink){
+    const destination=validReturn(read(returnKey))||validReturn(document.referrer);
+    if(destination)returnLink.href=destination;
+  }
+  // Record every entry point, including header, product and content links.
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href]');if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank')return;
+    const u=new URL(a.href,location.href);
+    if(u.origin===location.origin&&/\/(checkout|quote)\.html$/.test(u.pathname)&&!isCheckout){
+      write('netpro-b2b-return:'+u.pathname,location.href);
+      write('netpro-b2b-shopping-scroll',String(scrollY));
+    }
+  },true);
   const entering=read('netpro-b2b-navigation-motion');
   try{sessionStorage.removeItem('netpro-b2b-navigation-motion')}catch{}
   if(!reduced()&&entering){document.body.classList.add(entering==='checkout'?'checkout-entering':'shopping-entering');setTimeout(()=>document.body.classList.remove('checkout-entering','shopping-entering'),650);}
