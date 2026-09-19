@@ -14,8 +14,29 @@ $$('.step-form').forEach((form,i)=>form.addEventListener('submit',e=>{e.preventD
 if(!bag.length){$$('.step-form button[type=submit]').forEach(el=>el.disabled=true);}
 openStep(0);
 })();
- document.querySelector('#send-purchase-enquiry')?.addEventListener('click',()=>{
- const text=['STANDARD PURCHASE ENQUIRY',document.querySelector('#review-name').textContent,document.querySelector('#review-email').textContent,document.querySelector('#review-address').textContent,document.querySelector('#checkout-items').innerText,'Preview subtotal: '+document.querySelector('.order-amount').textContent,'Please confirm availability, shipping, taxes and final payment arrangements.'].join('\n\n');
- location.href='mailto:info@netpropatches.com?subject=Standard%20purchase%20enquiry&body='+encodeURIComponent(text);
- document.querySelector('#purchase-enquiry-status').textContent='Email draft requested. Review and send it in your email app. No order or payment has been processed.';
+ document.querySelector('#send-purchase-enquiry')?.addEventListener('click',async()=>{
+ const button=document.querySelector('#send-purchase-enquiry'),status=document.querySelector('#purchase-enquiry-status');
+ let items=[];try{items=JSON.parse(localStorage.getItem('netpro-b2b-purchase')||'[]').filter(x=>products.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0&&x.quantity<=100000).map(x=>{const p=products.find(p=>p.id===x.id);return {name:p.name,color:p.color,size:x.size,quantity:x.quantity};});}catch{}
+ if(!items.length){status.textContent='Your cart is empty. Add products before sending a purchase enquiry.';return;}
+ const subtotal=items.reduce((n,x)=>{const p=products.find(p=>p.name===x.name);return n+(p?p.price*x.quantity:0);},0);
+ const payload={
+  name:(document.querySelector('#first-name').value+' '+document.querySelector('#last-name').value).trim(),
+  email:document.querySelector('#email').value,
+  address:[document.querySelector('#address').value,document.querySelector('#city').value,document.querySelector('#region').value,document.querySelector('#postal').value,document.querySelector('#country').value].map(s=>s.trim()).filter(Boolean).join(', '),
+  payment:document.querySelector('[name=payment]:checked')?.value||'',
+  website:document.querySelector('#website')?.value||'',
+  items,
+  subtotal:new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(subtotal)
+ };
+ const originalLabel=button.textContent;button.disabled=true;button.textContent='Sending…';status.textContent='Sending your purchase enquiry…';
+ try{
+  const res=await fetch('/api/purchase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  if(!res.ok){const data=await res.json().catch(()=>null);throw new Error((data&&data.error)||'Request failed');}
+  try{localStorage.removeItem('netpro-b2b-purchase');}catch{}
+  status.textContent="Thank you. We've received your purchase enquiry and sent a confirmation to your email. No order or payment has been processed.";
+ }catch(err){
+  status.textContent=err.message&&err.message!=='Request failed'?err.message:'Sorry, your enquiry could not be sent right now. Please try again in a moment.';
+ }finally{
+  button.disabled=false;button.textContent=originalLabel;
+ }
  });
