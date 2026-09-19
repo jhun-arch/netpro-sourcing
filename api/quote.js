@@ -6,8 +6,9 @@ const {
   clientIp,
   rateLimitOk,
   emailCooldownOk,
-  isDuplicate,
-  payloadHash,
+  markEmailCooldown,
+  submissionHash,
+  bothSent,
   emailConfigReady,
   sendEnquiryPair,
   buildHtml,
@@ -61,6 +62,7 @@ module.exports = async function handler(req, res) {
   const artwork = text(body.artwork, 2000);
   const brief = text(body.brief, 5000);
   const items = sanitizeItems(body.items);
+  const shortlist = formatItems(items);
 
   if (!company || !name || !destination || !brief) {
     return fail(res, 400, 'Please complete all required fields.');
@@ -68,11 +70,20 @@ module.exports = async function handler(req, res) {
   if (!isEmail(email)) return fail(res, 400, 'Please provide a valid email address.');
   if (quantity === null) return fail(res, 400, 'Please provide a valid target quantity.');
 
+  // Stable id for this exact submission (same validated data -> same id).
+  const submissionId = submissionHash([
+    'quote', company, name, email, destination, project, quantity,
+    decoration, date, sample, budget, artwork, brief, shortlist,
+  ]);
+
+  // Both emails were already delivered for this submission:
+  // safe no-op for legitimate retries and double-clicks.
+  if (bothSent(submissionId)) {
+    return res.status(200).json({ ok: true });
+  }
+
   if (!rateLimitOk(clientIp(req)) || !emailCooldownOk(email)) {
     return fail(res, 429, 'Too many submissions. Please try again in a few minutes.');
-  }
-  if (isDuplicate(payloadHash(['quote', company, email, brief, quantity]))) {
-    return res.status(200).json({ ok: true });
   }
 
   if (!emailConfigReady()) {
@@ -80,7 +91,6 @@ module.exports = async function handler(req, res) {
     return fail(res, 503, 'The enquiry service is not available right now. Please try again later.');
   }
 
-  const shortlist = formatItems(items);
   const na = 'Not specified';
 
   const internalRows = [
@@ -110,6 +120,8 @@ module.exports = async function handler(req, res) {
 
   try {
     await sendEnquiryPair({
+      scope: 'quote',
+      submissionId,
       internal: {
         subject: `[Quote] Bulk & custom enquiry — ${line(company, 80)}`,
         html: buildHtml({
@@ -146,9 +158,14 @@ module.exports = async function handler(req, res) {
       },
     });
   } catch (err) {
+    // Never leak provider details. On partial failure a client retry only
+    // re-attempts the missing email (stable Idempotency-Key + per-email state).
     console.error('quote: send failed', err.code || '', err.detail || err.message);
     return fail(res, 502, 'Your enquiry could not be sent right now. Please try again in a few minutes.');
   }
+
+  // Cooldown is recorded only after BOTH emails were sent.
+  markEmailCooldown(email);
 
   return res.status(200).json({ ok: true });
 };

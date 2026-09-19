@@ -5,8 +5,9 @@ const {
   clientIp,
   rateLimitOk,
   emailCooldownOk,
-  isDuplicate,
-  payloadHash,
+  markEmailCooldown,
+  submissionHash,
+  bothSent,
   emailConfigReady,
   sendEnquiryPair,
   buildHtml,
@@ -33,12 +34,17 @@ module.exports = async function handler(req, res) {
   if (!name || !subject || !message) return fail(res, 400, 'Please complete all required fields.');
   if (!isEmail(email)) return fail(res, 400, 'Please provide a valid email address.');
 
+  // Stable id for this exact submission (same validated data -> same id).
+  const submissionId = submissionHash(['contact', name, email, subject, message]);
+
+  // Both emails were already delivered for this submission:
+  // safe no-op for legitimate retries and double-clicks.
+  if (bothSent(submissionId)) {
+    return res.status(200).json({ ok: true });
+  }
+
   if (!rateLimitOk(clientIp(req)) || !emailCooldownOk(email)) {
     return fail(res, 429, 'Too many submissions. Please try again in a few minutes.');
-  }
-  // Silently drop rapid duplicate submissions (e.g. double click / retry storms).
-  if (isDuplicate(payloadHash(['contact', name, email, subject, message]))) {
-    return res.status(200).json({ ok: true });
   }
 
   if (!emailConfigReady()) {
@@ -55,6 +61,8 @@ module.exports = async function handler(req, res) {
 
   try {
     await sendEnquiryPair({
+      scope: 'contact',
+      submissionId,
       internal: {
         subject: `[Contact] ${subject}`,
         html: buildHtml({
@@ -97,10 +105,15 @@ module.exports = async function handler(req, res) {
       },
     });
   } catch (err) {
-    // Never leak provider details to the client.
+    // Never leak provider details to the client. If the internal email went
+    // out but the confirmation failed, a client retry will only re-attempt
+    // the missing confirmation (stable Idempotency-Key + per-email state).
     console.error('contact: send failed', err.code || '', err.detail || err.message);
     return fail(res, 502, 'Your message could not be sent right now. Please try again in a few minutes.');
   }
+
+  // Cooldown is recorded only after BOTH emails were sent.
+  markEmailCooldown(email);
 
   return res.status(200).json({ ok: true });
 };

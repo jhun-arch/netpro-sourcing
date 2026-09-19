@@ -6,8 +6,9 @@ const {
   clientIp,
   rateLimitOk,
   emailCooldownOk,
-  isDuplicate,
-  payloadHash,
+  markEmailCooldown,
+  submissionHash,
+  bothSent,
   emailConfigReady,
   sendEnquiryPair,
   buildHtml,
@@ -58,11 +59,19 @@ module.exports = async function handler(req, res) {
   if (!isEmail(email)) return fail(res, 400, 'Please provide a valid email address.');
   if (!items.length) return fail(res, 400, 'Your enquiry has no products.');
 
+  // Stable id for this exact submission (same validated data -> same id).
+  const submissionId = submissionHash([
+    'purchase', name, email, address, payment, formatItems(items), subtotal,
+  ]);
+
+  // Both emails were already delivered for this submission:
+  // safe no-op for legitimate retries and double-clicks.
+  if (bothSent(submissionId)) {
+    return res.status(200).json({ ok: true });
+  }
+
   if (!rateLimitOk(clientIp(req)) || !emailCooldownOk(email)) {
     return fail(res, 429, 'Too many submissions. Please try again in a few minutes.');
-  }
-  if (isDuplicate(payloadHash(['purchase', name, email, formatItems(items)]))) {
-    return res.status(200).json({ ok: true });
   }
 
   if (!emailConfigReady()) {
@@ -89,6 +98,8 @@ module.exports = async function handler(req, res) {
 
   try {
     await sendEnquiryPair({
+      scope: 'purchase',
+      submissionId,
       internal: {
         subject: `[Purchase Enquiry] ${line(name, 80)}`,
         html: buildHtml({
@@ -125,9 +136,14 @@ module.exports = async function handler(req, res) {
       },
     });
   } catch (err) {
+    // Never leak provider details. On partial failure a client retry only
+    // re-attempts the missing email (stable Idempotency-Key + per-email state).
     console.error('purchase: send failed', err.code || '', err.detail || err.message);
     return fail(res, 502, 'Your enquiry could not be sent right now. Please try again in a few minutes.');
   }
+
+  // Cooldown is recorded only after BOTH emails were sent.
+  markEmailCooldown(email);
 
   return res.status(200).json({ ok: true });
 };
