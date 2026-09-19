@@ -16,8 +16,9 @@ openStep(0);
 })();
  document.querySelector('#send-purchase-enquiry')?.addEventListener('click',async()=>{
  const button=document.querySelector('#send-purchase-enquiry'),status=document.querySelector('#purchase-enquiry-status');
+ const setStatus=(kind,msg)=>{status.className='form-status'+(kind?' is-'+kind:'');status.textContent=msg;};
  let items=[];try{items=JSON.parse(localStorage.getItem('netpro-b2b-purchase')||'[]').filter(x=>products.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0&&x.quantity<=100000).map(x=>{const p=products.find(p=>p.id===x.id);return {name:p.name,color:p.color,size:x.size,quantity:x.quantity};});}catch{}
- if(!items.length){status.textContent='Your cart is empty. Add products before sending a purchase enquiry.';return;}
+ if(!items.length){setStatus('error','Your cart is empty. Add products before sending a purchase enquiry.');return;}
  const subtotal=items.reduce((n,x)=>{const p=products.find(p=>p.name===x.name);return n+(p?p.price*x.quantity:0);},0);
  const payload={
   name:(document.querySelector('#first-name').value+' '+document.querySelector('#last-name').value).trim(),
@@ -28,14 +29,14 @@ openStep(0);
   items,
   subtotal:new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(subtotal)
  };
- const originalLabel=button.textContent;button.disabled=true;button.textContent='Sending…';status.textContent='Sending your purchase enquiry…';
+ const originalLabel=button.textContent;button.disabled=true;button.textContent='Sending…';setStatus('sending','Sending your purchase enquiry…');
  try{
   const res=await fetch('/api/purchase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
   if(!res.ok){const data=await res.json().catch(()=>null);throw new Error((data&&data.error)||'Request failed');}
   try{localStorage.removeItem('netpro-b2b-purchase');}catch{}
-  status.textContent="Thank you. We've received your purchase enquiry and sent a confirmation to your email. No order or payment has been processed.";
+  setStatus('success','✓ Purchase enquiry sent successfully. A confirmation email has been sent to your inbox. No payment has been processed.');
  }catch(err){
-  status.textContent=err.message&&err.message!=='Request failed'?err.message:'Sorry, your enquiry could not be sent right now. Please try again in a moment.';
+  setStatus('error',err.message&&err.message!=='Request failed'?err.message:'Sorry, your enquiry could not be sent right now. Please try again in a moment.');
  }finally{
   button.disabled=false;button.textContent=originalLabel;
  }

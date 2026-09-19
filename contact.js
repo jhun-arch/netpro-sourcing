@@ -5,6 +5,10 @@ document.querySelector('#contact-form').addEventListener('submit', async (event)
   const status = document.querySelector('#contact-form-status');
   const button = form.querySelector('button[type=submit]');
   const originalLabel = button.textContent;
+  const setStatus = (kind, msg) => {
+    status.className = 'form-status' + (kind ? ' is-' + kind : '');
+    status.textContent = msg;
+  };
   const payload = {
     name: form.elements.name.value,
     email: form.elements.email.value,
@@ -14,7 +18,7 @@ document.querySelector('#contact-form').addEventListener('submit', async (event)
   };
   button.disabled = true;
   button.textContent = 'Sending…';
-  status.textContent = 'Sending your message…';
+  setStatus('sending', 'Sending your message…');
   try {
     const res = await fetch('/api/contact', {
       method: 'POST',
@@ -26,11 +30,11 @@ document.querySelector('#contact-form').addEventListener('submit', async (event)
       throw new Error((data && data.error) || 'Request failed');
     }
     form.reset();
-    status.textContent = "Thank you. We've received your message and sent a confirmation to your email.";
+    setStatus('success', '✓ Message sent successfully. A confirmation email has been sent to your inbox.');
   } catch (err) {
-    status.textContent = err.message && err.message !== 'Request failed'
+    setStatus('error', err.message && err.message !== 'Request failed'
       ? err.message
-      : 'Sorry, your message could not be sent right now. Please try again in a moment.';
+      : 'Sorry, your message could not be sent right now. Please try again in a moment.');
   } finally {
     button.disabled = false;
     button.textContent = originalLabel;
