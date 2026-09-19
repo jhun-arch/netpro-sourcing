@@ -1,0 +1,9 @@
+{
+  "name": "netpro-sourcing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Netpro Sourcing static website with Vercel serverless enquiry endpoints",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
