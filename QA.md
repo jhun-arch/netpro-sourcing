@@ -19,3 +19,9 @@ Email UI tests use controlled responses; they are not proof of inbox receipt. Pr
 
 ## Normal-motion follow-up
 A public Preview check found stale Home Story animation references. Removed the retired animation and limited Home-only GSAP initialization to pages with the Home hero. Retested all 10 main pages with normal motion: zero JS exceptions and zero console warnings/errors. Reduced-motion results above remain valid.
+
+## Public Preview acceptance
+- Public Preview (28ac367) opened without login. Desktop main pages and Home/Shop/Quote at 375/390/430/768: 22 checks, all HTTP 200, no overflow, no broken images, no console warnings/errors.
+- Real Contact submission: HTTP 200 / ok:true; success UI. Real Quote submission with blank Company, selected TEE-WHITE, size/quantity and PNG attachment: HTTP 200 / ok:true; success UI and shortlist cleared. Both marked QA / no action needed, using the existing Netpro contact email. Provider acceptance verified; inbox delivery was not independently observed.
+- Category follow-up found non-clothing details lost the information tabs together with the apparel examples. Separated those sections; all 9 catalogue products now pass open → add → remove → close with zero JS errors.
+- Social sharing image now uses the existing public hero.png URL (HTTP 200); retained that file in deployment so it also remains available after a future user-controlled release.

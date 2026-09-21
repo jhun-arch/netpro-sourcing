@@ -3,4 +3,5 @@ output/
 tests/
 *.md
 assets/*.png
+!assets/hero.png
 .env*
