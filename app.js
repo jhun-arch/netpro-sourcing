@@ -158,6 +158,11 @@
     if(!document.querySelector('#product-grid'))return;
     let items = products.filter(p => activeFilter === 'all' || (activeFilter === 'new' ? p.isNew : p.category === activeFilter));
     if (isShop) {
+      const colors=new Set(items.map(p=>p.color)),sizes=new Set(items.flatMap(p=>p.sizes));
+      if(!colors.has(shopState.color))shopState.color="all";
+      shopState.size=shopState.size.filter(size=>sizes.has(size));
+      $$('[data-shop-filter="color"] option').forEach(o=>o.hidden=o.value!=="all"&&!colors.has(o.value));
+      $$("[data-size]").forEach(b=>b.hidden=!sizes.has(b.dataset.size));
       items = items.filter(p => (shopState.color === 'all' || p.color === shopState.color) && (!shopState.size.length || shopState.size.some(size=>p.sizes.includes(size))));
       if (shopState.sort === 'name') items.sort((a,b)=>a.name.localeCompare(b.name));
       const total=items.length, pages=Math.max(1,Math.ceil(total/6)); shopState.page=Math.min(shopState.page,pages);
@@ -166,7 +171,7 @@
       const label={all:'All Products',new:'New Arrivals',clothing:'Clothing',socks:'Socks',headwear:'Headwear',patches:'Ready-Made Patches'}[activeFilter];
       $('#shop-title').textContent=label; $('#breadcrumb-current').textContent=label;
       const banner=$('.shop-banner-photo');
-      const bannerImages={all:'banner-new.png',new:'banner-new.png',clothing:'banner-clothing.png',socks:'banner-socks.png',headwear:'banner-headwear.png',patches:'banner-patches.png'};
+      const bannerImages={all:'banner-new.webp',new:'banner-new.webp',clothing:'banner-clothing.webp',socks:'banner-socks.webp',headwear:'banner-headwear.webp',patches:'banner-patches.webp'};
       const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics',clothing:'Plain everyday clothing in blue, white and cream',socks:'Basic ribbed crew socks in coordinated colors',headwear:'Plain baseball caps in blue, navy and cream',patches:'A collection of custom patch styles in blue and cream'};
       const bannerSrc='assets/'+bannerImages[activeFilter]+'?v=20260914-banner4';
       banner.dataset.category=activeFilter;
@@ -193,8 +198,7 @@
       document.title=label+' — Netpro Sourcing';
       $('#category-select').value=activeFilter;
       $$('#category-options input').forEach(input=>input.checked=input.value===activeFilter);
-      const priceLabels={'0':'Under $10','10':'$10 – $49.99','50':'$50 – $99.99','100':'$100 – $199.99','200':'$200 +'};
-      const tags=[...(activeFilter!=='all'?[['category',activeFilter,label]]:[]),...(shopState.color!=='all'?[['color',shopState.color,shopState.color]]:[]),...shopState.size.map(v=>['size',v,v]),...shopState.price.map(v=>['price',v,priceLabels[v]])];
+      const tags=[...(activeFilter!=='all'?[['category',activeFilter,label]]:[]),...(shopState.color!=='all'?[['color',shopState.color,shopState.color]]:[]),...shopState.size.map(v=>['size',v,v])];
       $('#active-filters').innerHTML=tags.length?tags.map(([kind,value,text])=>`<button class="filter-tag" data-remove-filter="${kind}" data-value="${value}" aria-label="Remove ${text} filter">${text}<span aria-hidden="true">×</span></button>`).join(''):'<span class="no-filters">All products</span>';
       $('#clear-filter-tags').hidden=!tags.length;
       $$('[data-size]').forEach(el=>el.setAttribute('aria-pressed',String(shopState.size.includes(el.dataset.size))));
@@ -204,7 +208,7 @@
     } else items=activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>products.find(p=>p.id===id)) : items.slice(0,4);
     $('#product-grid').innerHTML = items.map(p => `<article class="product-card" data-product="${p.id}">
       <button class="product-image" data-detail="${p.id}" aria-label="View ${p.name}">${art(p)}<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category==='patches'?'in use':'on model'}"></span></button>
-      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'PATCHES' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${p.name}</button></h3><p class="product-price">Request Pricing <small>· Custom quote available</small></p><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p></div>
+      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'PATCHES' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${p.name}</button></h3><p class="product-price">Request Pricing </p><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p></div>
     </article>`).join('') || '<p class="empty-results">Try another category or clear your filters to explore more basics.</p>';
     $$('.filters button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
   }

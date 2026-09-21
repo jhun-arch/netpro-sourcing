@@ -16,7 +16,7 @@
 .about-section-heading h2,.about-principles h2{font-size:clamp(32px,3vw,46px)}
 .about-category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .about-category-grid>a{min-width:0}
-.about-category-art{display:block;aspect-ratio:1;background-image:url('assets/catalog-basics.png');background-size:300% 300%;transition:filter .3s}
+.about-category-art{display:block;aspect-ratio:1;background-image:url('assets/catalog-basics.webp');background-size:300% 300%;transition:filter .3s}
 .about-category-grid>a:hover .about-category-art{filter:brightness(.96)}
 .about-category-grid h3{font-size:25px;margin:22px 0 8px}
 .about-category-grid p{font-size:15px;color:var(--muted)}

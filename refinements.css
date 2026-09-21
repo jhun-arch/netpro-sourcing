@@ -1,0 +1,15 @@
+/* Targeted shared refinements; retain the established palette and layouts. */
+:root{--content-max:1440px}
+.service-section,.b2b-section{padding-block:clamp(44px,5vw,80px)}
+.service-section,.b2b-section,.section,.about-belief,.about-principles{padding-inline:max(var(--gutter),calc((100vw - var(--content-max))/2))}
+h1,h2,h3{text-wrap:balance}p{overflow-wrap:break-word}
+.factory-wide{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;margin-bottom:24px;border-radius:3px}
+.trust-section>.factory-wide{max-height:460px;aspect-ratio:16/7;object-position:center}
+.service-grid figure{margin:0;min-width:0}.service-grid figcaption{font-size:14px;color:var(--muted)}
+.legal-content{max-width:1040px;margin:auto;min-height:65vh}.legal-content h2{font-size:28px;margin-top:36px}.legal-content p{max-width:70ch}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #2459c4;outline-offset:4px}
+input[type=file]{width:100%;max-width:100%;font-size:14px;padding:12px 0}input[type=file]::file-selector-button{border:1px solid #b8c6d8;background:#edf3f9;padding:10px 14px;margin-right:12px;color:#183451;border-radius:3px}
+[id]{scroll-margin-top:110px}.quote-fields>*{min-width:0}.form-status{overflow-wrap:anywhere}
+.header-actions .bag-button::before{content:'Enquiry';font-size:11px}.bag-button::after{content:none!important}.bag-button{min-width:60px}
+@media(max-width:768px){.service-section,.b2b-section{padding-inline:24px}.service-grid{grid-template-columns:1fr}.service-hero{grid-template-columns:1fr}.service-hero img{height:auto;aspect-ratio:3/2}.product-dialog{max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto}.product-dialog .detail-layout{max-height:none}.detail-copy{min-width:0}.detail-copy h2{font-size:30px}.info-tabs{overflow-x:auto}.footer-bottom>div{flex-wrap:wrap}.mobile-nav{max-height:calc(100dvh - 80px);overflow-y:auto}.button{max-width:100%}.service-section h2{font-size:32px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
