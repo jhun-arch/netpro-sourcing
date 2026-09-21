@@ -18,6 +18,7 @@ const {
   fail,
 } = require('./_lib/mail');
 
+const { validateAttachments } = require('./_lib/attachments');
 const MAX_ITEMS = 50;
 
 function sanitizeItems(raw) {
@@ -43,12 +44,14 @@ function formatItems(items) {
 module.exports = async function handler(req, res) {
   if (!postOnly(req, res)) return;
 
-  const body = readBody(req);
+  const body = readBody(req, 3 * 1024 * 1024);
   if (!body) return fail(res, 400, 'Invalid request.');
 
   // Honeypot: silently accept bots.
   if (text(body.website, 200)) return res.status(200).json({ ok: true });
 
+  let attachments;
+  try { attachments = validateAttachments(body.attachments); } catch { return fail(res, 400, "Use JPG, PNG, PDF or ZIP files, up to 2 MB in total (maximum 3 files)."); }
   const company = text(body.company, 120);
   const name = text(body.name, 100);
   const email = text(body.email, 200);
@@ -64,7 +67,7 @@ module.exports = async function handler(req, res) {
   const items = sanitizeItems(body.items);
   const shortlist = formatItems(items);
 
-  if (!company || !name || !destination || !brief) {
+  if (!name || !destination || !brief) {
     return fail(res, 400, 'Please complete all required fields.');
   }
   if (!isEmail(email)) return fail(res, 400, 'Please provide a valid email address.');
@@ -73,7 +76,7 @@ module.exports = async function handler(req, res) {
   // Stable id for this exact submission (same validated data -> same id).
   const submissionId = submissionHash([
     'quote', company, name, email, destination, project, quantity,
-    decoration, date, sample, budget, artwork, brief, shortlist,
+    decoration, date, sample, budget, artwork, brief, shortlist, JSON.stringify(attachments),
   ]);
 
   // Both emails were already delivered for this submission:
@@ -96,7 +99,7 @@ module.exports = async function handler(req, res) {
   const internalRows = [
     ['Company', company],
     ['Name', name],
-    ['Work email', email],
+    ['Email', email],
     ['Delivery country / region', destination],
     ['Project type', project || na],
     ['Total target quantity', String(quantity)],
@@ -105,6 +108,7 @@ module.exports = async function handler(req, res) {
     ['Sample requirement', sample || na],
     ['Target budget', budget || na],
     ['Artwork / reference link', artwork || na],
+    ['Attached files', attachments.map(a=>a.filename).join(', ') || na],
     ['Project brief', brief],
     ['Product shortlist', shortlist],
   ];
@@ -123,7 +127,8 @@ module.exports = async function handler(req, res) {
       scope: 'quote',
       submissionId,
       internal: {
-        subject: `[Quote] Bulk & custom enquiry — ${line(company, 80)}`,
+        attachments,
+        subject: `[Quote] Bulk & custom enquiry — ${line(company || name, 80)}`,
         html: buildHtml({
           heading: 'New bulk & custom enquiry',
           intro: 'A visitor submitted the Request a Quote form on the Netpro Sourcing website.',
