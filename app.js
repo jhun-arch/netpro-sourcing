@@ -359,7 +359,7 @@
 
     gsap.from('.shop-layout',{y:24,opacity:0,duration:.7,delay:.2,clearProps:'all'});
   }
-  if (window.gsap && window.ScrollTrigger && !isShop && !document.body.matches('.contact-page, .about-page')) {
+  if (window.gsap && window.ScrollTrigger && $('.hero')) {
     gsap.registerPlugin(ScrollTrigger);
     const motion = gsap.matchMedia();
     motion.add('(prefers-reduced-motion: no-preference)', () => {
@@ -371,14 +371,7 @@
       gsap.from('.accordion', { y: 35, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.accordion', start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
       gsap.from('.product-card', { y: 30, opacity: 0, duration: .8, stagger: .1, scrollTrigger: { trigger: '.product-grid', start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
       gsap.fromTo('.custom-visual>img', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.custom-section', start: 'top bottom', end: 'bottom top', scrub: 1 } });
-      gsap.fromTo('.story-visual img', { scale: 1.06 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.story-section', start: 'top bottom', end: 'bottom top', scrub: 1 } });
-      const story = $('.story-reveal');
-      const original = story.textContent;
-      story.setAttribute('aria-label', original);
-      story.innerHTML = original.split(' ').map(word => `<span class="story-word" aria-hidden="true">${escape(word)}</span>`).join(' ');
-      gsap.from('.story-word', { opacity: .25, stagger: .08, scrollTrigger: { trigger: story, start: 'top 86%', end: 'bottom 48%', scrub: .6 } });
       gsap.from('.footer-brand', { y: 22, opacity: 0, duration: .8, scrollTrigger: { trigger: '.footer', start: 'top 90%', once: true }, clearProps: 'all' });
-      return () => { story.textContent = original; story.removeAttribute('aria-label'); };
     });
     window.addEventListener('load', () => ScrollTrigger.refresh());
     if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());

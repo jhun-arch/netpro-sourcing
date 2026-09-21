@@ -16,3 +16,6 @@
 Product details remain in the stable existing modal; dedicated product URLs are deferred to a separate routing/SEO change. Existing product images are illustrative references; actual stock, specifications and approved commercial product photography still require business data. No fabricated prices, minimums, production times, testimonials or customer cases were added.
 
 Email UI tests use controlled responses; they are not proof of inbox receipt. Preview endpoint results are recorded in the delivery report after deployment. No Production deployment or main modification is permitted.
+
+## Normal-motion follow-up
+A public Preview check found stale Home Story animation references. Removed the retired animation and limited Home-only GSAP initialization to pages with the Home hero. Retested all 10 main pages with normal motion: zero JS exceptions and zero console warnings/errors. Reduced-motion results above remain valid.
