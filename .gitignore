@@ -1,8 +1,6 @@
-# Secrets — never commit
-.env
-.env.*
-!.env.example
-
-# Tooling
+.playwright-cli/
+output/
 node_modules/
-.vercel
+.vercel/
+.env*
+!.env.example
