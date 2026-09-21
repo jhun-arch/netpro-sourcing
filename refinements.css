@@ -16,3 +16,35 @@ input[type=file]{width:100%;max-width:100%;font-size:14px;padding:12px 0}input[t
 .product-dialog .detail-gallery{width:100%;min-width:0;max-width:100%}.product-dialog .detail-visual{min-width:0}
 @media(max-width:900px){.product-dialog .detail-layout{grid-template-columns:1fr;max-height:none;overflow:visible}.product-dialog .detail-gallery{height:auto;aspect-ratio:1}.product-dialog .detail-copy{padding:30px 24px}.product-dialog{overflow:auto;max-height:calc(100dvh - 24px)}}
 .enquiry-close{position:sticky;top:8px;margin-left:auto;z-index:3;background:white;border:1px solid var(--line);font-size:26px;display:flex;align-items:center;justify-content:center}
+
+/* Shared prose scale; small labels and product metadata retain their own sizes. */
+.about-category-grid p,.about-principles article p,.b2b-columns p,.category-details p{font-size:var(--text-description);line-height:1.7}
+.about-belief div p{font-size:var(--text-reading);line-height:1.75}
+
+/* Targeted About and Quality refinements. */
+.about-belief{padding-block:64px;gap:36px}
+.about-belief h2{margin-bottom:20px}
+.about-categories{padding-top:64px}
+.about-categories .about-section-heading{margin-bottom:24px}
+.about-range-note{max-width:850px;margin-bottom:36px;color:var(--muted);font-size:var(--text-description);line-height:1.7}
+.about-range-note .text-link{font-size:inherit;text-decoration:underline;text-underline-offset:3px}
+.quality-stages .service-grid{row-gap:40px}
+.quality-stages h3{display:flex;align-items:baseline;gap:16px;font-size:26px;line-height:1.3}
+.quality-stage-number{color:var(--blue);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
+.quality-stages .service-grid p{font-size:var(--text-reading);line-height:1.75}
+.quality-documentation{padding-block:56px}
+.documentation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.documentation-grid h3{font-size:22px;margin-bottom:14px;line-height:1.3}
+.documentation-grid p{font-size:var(--text-description);line-height:1.7;color:var(--muted)}
+.quality-production .factory-wide{margin-bottom:20px}
+.quality-production figcaption h3{font-size:22px;color:var(--ink);margin-bottom:10px}
+.quality-production figcaption p{font-size:var(--text-description);line-height:1.7}
+@media(max-width:768px){
+ .about-belief{padding-block:44px;gap:12px}
+ .about-categories{padding-top:44px}
+ .documentation-grid{grid-template-columns:1fr;gap:26px}
+ .quality-documentation{padding-block:40px}
+ .quality-stages h3{font-size:24px;gap:12px}
+ .quality-stage-number{font-size:28px}
+ .quality-stages .service-grid p,.about-belief div p{font-size:var(--text-description)}
+}
