@@ -13,7 +13,7 @@ document.querySelector('#contact-form').addEventListener('submit', async (event)
     name: form.elements.name.value,
     email: form.elements.email.value,
     subject: form.elements.subject.value,
-    message: form.elements.message.value,
+    message: form.elements.message.value + (form.elements.company.value ? '\nCompany: ' + form.elements.company.value : ''),
     website: form.elements.website ? form.elements.website.value : '',
   };
   button.disabled = true;

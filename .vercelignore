@@ -1,0 +1,6 @@
+output/
+.playwright-cli/
+tests/
+*.md
+assets/*.png
+.env*

@@ -1,26 +1,20 @@
-# Netpro — Buy standard styles or request customization
-Independent B2B/hybrid edition. Original retail files are unchanged.
+# Netpro Sourcing
 
-Standard products: Add to cart -> checkout.html. Preview prices restored from the retail edition. Payments and order processing are not connected; prices and availability need confirmation before launch.
-Custom products: Request customization -> separate enquiry list -> quote.html. Opens an email draft or downloads a brief. No automatic submission backend.
+Static HTML/CSS/JavaScript B2B catalogue with Vercel Node.js enquiry endpoints.
 
-Storage keys are separate: netpro-b2b-purchase and netpro-b2b-enquiry. Original retail storage remains unchanged.
-Validated standard purchase with 2 units and $48 subtotal, checkout quantity transfer, separate custom enquiry and mobile overflow.
+## Development
+Run `python -m http.server 8765` for static pages. Use Vercel Preview for serverless endpoint verification. `node --test tests/quote.test.js` verifies attachment validation and quote integration without sending email.
 
-Motion audit: six pages checked at 1440px and 390px; no horizontal overflow or page errors. Shared motion.css provides cross-document transitions in supporting browsers, entrance/step animations and reduced-motion handling. Product modal close tested with normal and reduced motion.
+## Enquiry flow
+Product details → Add to Enquiry → quantity/remove → Request a Quote. Existing `netpro-b2b-enquiry` browser storage remains in use. Product prices are requested through quotation. Retired checkout bookmarks redirect to the quote page.
 
-Content update: customization.html and buying-guide.html; product procurement checklist; quote sample and budget fields. Reference: http://netpropatch.tisindia.net/home (reviewed 2026-09-15). Only product directions and links used; placeholder contact information, rush guarantees and promotional terms were not transferred to apparel. Image assets/customization-studio.png generated with built-in imagegen: blue/cream studio textile still life with embroidery, print and patches; illustrative, not a customer case. Automatic sending and payment remain unconnected as agreed.
+Contact and Quote retain existing QQ SMTP / Resend delivery and idempotency. Artwork is submitted with the quote and attached to the internal notification. JPG/JPEG, PNG, PDF and ZIP: maximum 3 files, 2 MB combined. The server checks size, extension and file signature; attachments are included in the submission hash. Larger artwork can use the reference-link field. No new environment variables are needed. Existing values are managed in Vercel; never commit secrets.
 
-2026-09-15 image and copy review: all eight B2B pages checked on desktop and mobile. Removed unavailable XS filter; corrected homepage product artwork and outdated promotional copy; aligned checkout terminology and return navigation.
-Generated six illustrative technique photographs, not documented customer work or certified material samples:
-- assets/custom-embroidery.png: raised navy sun embroidery on cream cotton.
-- assets/custom-print.png: flat blue sun and wave print on cream tee.
-- assets/custom-embroidered-patch.png: thread patches with merrow borders.
-- assets/custom-pvc-patch.png: matte molded raised/recessed rubber patches.
-- assets/custom-chenille-patch.png: plush loop yarn on felt.
-- assets/custom-woven-patch.png: thin flat woven geometric labels.
-Image generation direction: horizontal premium product photography, pale cool blue surface, soft natural side lighting, cream/navy/blue palette, physically credible technique textures, no lettering or logos. Files generated with built-in imagegen and stored under assets; shared embroidered-patch image also illustrates the general patch category. Materials, MOQ, samples and delivery remain project-specific confirmation items.
+## Deployment
+This task uses branch `dev2`, based on `c1ef6c4`. Push only `origin/dev2`. `vercel deploy` creates Preview; do not use `--prod`, promote, or merge main.
 
-2026-09-16 demo completion: added quality.html with specification/sample/inspection/dispatch framework, two explicitly fictional projects and testimonials, documentation guidance and issue-resolution workflow. Added trust modules, contact support, indicative demo schedule and downloadable procurement checklist. Checkout review now opens a standard purchase email enquiry; no payment or order submission occurs. Nine pages passed desktop/mobile image, overflow and script-error checks. Replace fictional projects/testimonials and agree commercial terms before production launch.
-2026-09-16 Customization editorial update: matched images and copy across embroidery, print, four patch types, planning and sample approval. Added section links and responsive alternating layouts; reused generated concept assets. Removed duplicate general patch card. Local link and desktop/mobile checks passed.
-Factory photo changes reverted at user request. Prior concept imagery restored; navigation return behavior and scrollbar adjustments retained.
+See AUDIT.md for baseline, FACTORY-IMAGES.md for photo provenance, and QA.md for checks. Original source imagery is retained; web pages reference WebP copies.
+
+## Mail attachment references
+- https://nodemailer.com/message/attachments
+- https://resend.com/docs/send-with-attachments

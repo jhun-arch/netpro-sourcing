@@ -27,6 +27,7 @@ function sanitizeItems(raw) {
     const item = x && typeof x === 'object' ? x : {};
     return {
       name: text(item.name, 120),
+      sku: text(item.sku, 80),
       color: text(item.color, 60),
       size: text(item.size, 30),
       quantity: intInRange(item.quantity, 1, 1000000) || 1,
@@ -37,7 +38,7 @@ function sanitizeItems(raw) {
 function formatItems(items) {
   if (!items.length) return 'See project brief';
   return items
-    .map((x) => `${x.name} | ${x.color || '-'} | ${x.size || '-'} | ${x.quantity} units`)
+    .map((x) => `${x.name} | ${x.sku || "-"} | ${x.color || '-'} | ${x.size || '-'} | ${x.quantity} units`)
     .join('\n');
 }
 
