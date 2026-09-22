@@ -48,3 +48,12 @@ input[type=file]{width:100%;max-width:100%;font-size:14px;padding:12px 0}input[t
  .quality-stage-number{font-size:28px}
  .quality-stages .service-grid p,.about-belief div p{font-size:var(--text-description)}
 }
+
+.quality-evidence{grid-column:1/-1;display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:40px;margin:0;background:#f1f5f9}
+.quality-evidence img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.quality-evidence figcaption{padding:24px 40px 24px 0;color:var(--muted);font-size:var(--text-description);max-width:420px}
+.about-work{margin:36px 0 40px}
+.about-work img{display:block;width:100%;height:auto;aspect-ratio:2.1;object-fit:cover;object-position:center 60%}
+.about-work figcaption{font-size:15px;color:var(--muted);margin-top:12px}
+@media(max-width:768px){.quality-evidence{grid-template-columns:1fr;gap:0}.quality-evidence figcaption{padding:20px 24px}.about-work img{aspect-ratio:3/2}}
+@media(min-width:761px) and (max-width:768px){.custom-feature{grid-template-columns:1fr}.custom-feature.reverse>img,.custom-feature.reverse>div{grid-column:auto;grid-row:auto}.custom-feature>img{aspect-ratio:3/2}.about-custom{grid-template-columns:1fr}.about-custom>img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}}

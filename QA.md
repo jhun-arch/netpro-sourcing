@@ -26,3 +26,13 @@ A public Preview check found stale Home Story animation references. Removed the 
 - Category follow-up found non-clothing details lost the information tabs together with the apparel examples. Separated those sections; all 9 catalogue products now pass open → add → remove → close with zero JS errors.
 - Social sharing image now uses the existing public hero.png URL (HTTP 200); retained that file in deployment so it also remains available after a future user-controlled release.
 - Rapid cross-page navigation exposed a native View Transition cancellation exception. Removed the cross-document transition layer while retaining in-page and modal animation; the Customization → Quote → return flow passes without JS errors.
+
+
+## Demo visual refinement — 2026-09-22
+- Home, Shop, Customization, Quality, About tested at 1440, 390 and 768 CSS pixels in Chromium with normal motion: no horizontal overflow, missing images or console/page errors.
+- Desktop and responsive screenshots reviewed for crop, image/text ordering and spacing. At 768px, Customization process/approval and About sample split now stack; rechecked after adjustment.
+- 334 local internal link/anchor references validated (Vercel-only legal rewrites checked after deployment).
+- Actual mobile navigation: open menu → Customization submenu → Chenille anchor → Request chenille patches → Quote passed.
+- Main visible copy reduced approximately: Customization 617 → 396 words; Quality 328 → 248; About 388 → 343 (simple HTML-stripped count).
+- Two new AI images inspected for material, hands, text and logos; accepted. New files WebP 228 KB and 135 KB, intrinsic sizes reserved and below-fold images lazy-loaded. Existing six concept images tracked separately with provenance caveat in AI-PLACEHOLDERS.md.
+- Home and Shop inspected and retained without source changes. No backend, environment, email, enquiry or quote logic changes.

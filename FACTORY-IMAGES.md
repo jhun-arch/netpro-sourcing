@@ -10,3 +10,7 @@ Source directory: `G:\机台图片\工厂20260716` (read-only).
 |7X7A8437.JPG|assets/factory-press-workstation-01.webp|Quality|Crop 16–96% horizontally and 4–84% vertically; proportional resize to 1600 × 1067; WebP quality 85|
 
 Responsive image boxes may crop edges through object-fit: cover. No retouching, synthetic additions or original-file changes. Other existing product/concept images retain their illustrative role; they are not presented as customer case studies.
+
+## Visual refinement round
+- `7X7A8439.JPG` → `assets/production-patch-handling-01.webp` → About workflow. Proportional resize 1440 × 960, WebP quality 85; original unchanged. Caption describes the visible action without identifying the operator.
+- Quality retains its hero and both existing evidence photos; the latter now sit between stage pairs.

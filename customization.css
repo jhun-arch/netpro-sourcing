@@ -10,3 +10,24 @@
 .custom-final{text-align:center}.custom-final>p{margin-left:auto;margin-right:auto;max-width:700px}.custom-final .service-note{margin-top:30px;font-size:12px}.customization-page section[id]{scroll-margin-top:110px}
 @media(max-width:760px){.customization-page .service-section{padding:48px 24px}.custom-feature,.custom-patches{grid-template-columns:1fr}.custom-feature.reverse>img,.custom-feature.reverse>div{grid-column:auto;grid-row:auto}.custom-feature>img{aspect-ratio:3/2}.custom-feature+.custom-feature{margin-top:48px}.custom-jump{justify-content:flex-start;gap:18px 24px;padding:20px 24px}.custom-patches article>div{padding:24px}.custom-heading{margin-bottom:30px}.custom-final .button{display:flex;justify-content:center;margin-right:0}.customization-page h2{font-size:32px}}
 
+
+/* Visual material library: large garment finishes, staggered patch studies. */
+#finishes .custom-feature{grid-template-columns:1.35fr 1fr}
+#finishes .custom-feature.reverse{grid-template-columns:1fr 1.35fr}
+#finishes .custom-feature>img{aspect-ratio:3/2}
+#finishes .custom-feature .text-link{margin-top:22px}
+.custom-patches{grid-template-columns:1.12fr .88fr;align-items:start;gap:56px 48px}
+.custom-patches article{background:transparent;scroll-margin-top:110px}
+.custom-patches article:nth-child(even){margin-top:90px}
+.custom-patches article>div{padding:24px 0 0}
+.custom-patches article .text-link{margin-top:16px}
+.custom-patches article:nth-child(even) img{aspect-ratio:1}
+.custom-patches article img{border-radius:3px}
+#approval .custom-feature>img{aspect-ratio:3/2}
+@media(max-width:768px){
+ #finishes .custom-feature,#finishes .custom-feature.reverse,.custom-patches{grid-template-columns:1fr}
+ #finishes .custom-feature.reverse>img,#finishes .custom-feature.reverse>div{grid-column:auto;grid-row:auto}
+ .custom-patches article:nth-child(even){margin-top:0}
+ .custom-patches article:nth-child(even) img{aspect-ratio:3/2}
+ .custom-patches{gap:40px}
+}
