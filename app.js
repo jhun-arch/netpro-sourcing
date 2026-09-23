@@ -208,7 +208,7 @@
     } else items=activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>products.find(p=>p.id===id)) : items.slice(0,4);
     $('#product-grid').innerHTML = items.map(p => `<article class="product-card" data-product="${p.id}">
       <button class="product-image" data-detail="${p.id}" aria-label="View ${p.name}">${art(p)}<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category==='patches'?'in use':'on model'}"></span></button>
-      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'PATCHES' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${p.name}</button></h3><p class="product-price">Request Pricing </p><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p></div>
+      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${p.name}</button></h3><button class="product-price" data-detail="${p.id}" aria-label="Request pricing for ${escape(p.name)}">Request pricing</button><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p></div>
     </article>`).join('') || '<p class="empty-results">Try another category or clear your filters to explore more basics.</p>';
     $$('.filters button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
   }
