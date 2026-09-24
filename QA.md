@@ -46,3 +46,13 @@ A public Preview check found stale Home Story animation references. Removed the 
 - Customization normal-scroll screenshots show embroidery, garment printing, all four restored patch cards, the three-step sample review and the final CTA. The sample-review section was confirmed on a fresh cache-busted load after removing its `service-tint` class; `custom-desktop-review-white2.png` shows the intended white background.
 - Quality and About normal-scroll screenshots show the real production-line/stitching/hand-finishing evidence, the About hand-finishing hero, the process rows and lower CTAs. Buying Guide FAQ was scrolled and the first item opened; `buying-guide-faq-open2.png` shows its answer rendered. Contact empty-submit validation focused the required Name field in `contact-validation.png`; no network submission was made.
 - Remaining scope: this is local visual and interaction QA only. No real contact or quote API/email submission, deployment, or external preview was performed in this session.
+
+## Three-page editorial refinement — 2026-09-24
+
+- Customization now uses a broad headline/support row and panoramic existing studio image; all six techniques and existing anchor IDs remain.
+- Quality uses a wide real production hero, a continuous six-stage sequence, the existing real evidence gallery, and aligned documentation/support columns with a quote CTA.
+- About retains its real worker hero and adds a desktop sticky process introduction and clearer contact endpoint. Tablet stacking prevents the narrow hero layout.
+- Main-agent screenshot review completed at 1440px for all three pages, including final Quality/About endpoint crops; 768px About and 390/768px representative screenshots also reviewed.
+- Final local Chromium checks at 1440, 1920, 2560, 768 and 390px (15 page/viewport combinations): no horizontal overflow, broken completed images or page exceptions after scrolling. Existing motion scripts retained; no new animation dependency or JS changes.
+- 293 local href/src references resolve; each page keeps one H1 and all prior IDs. Git diff whitespace check passed.
+- No new image assets, AI generation, backend, form submission, configuration or AGENTS.md changes in this round. Public Preview acceptance is recorded in the delivery response.
