@@ -56,3 +56,15 @@ A public Preview check found stale Home Story animation references. Removed the 
 - Final local Chromium checks at 1440, 1920, 2560, 768 and 390px (15 page/viewport combinations): no horizontal overflow, broken completed images or page exceptions after scrolling. Existing motion scripts retained; no new animation dependency or JS changes.
 - 293 local href/src references resolve; each page keeps one H1 and all prior IDs. Git diff whitespace check passed.
 - No new image assets, AI generation, backend, form submission, configuration or AGENTS.md changes in this round. Public Preview acceptance is recorded in the delivery response.
+
+## Six inner pages rebuild — 2026-09-28
+
+- Work branch: `codex/about-pages-rebuild`, based on dev2 `5eeb6ce`. Reference structure mapping is in REBUILD-PLAN.md. Ten original generated assets and their prompts are recorded in AI-PLACEHOLDERS.md.
+- Main-agent first desktop review covered About, Case Studies, How It Works and What We Do at 1440px. It identified case-card overlay contrast, the remaining About label, and reference-layout differences; these were sent back for correction before final acceptance.
+- Case dialog opens, closes with Escape and restores focus to its trigger. About FAQ expands through native details/summary.
+- The new About button exposed an existing hover/click conflict: pointerenter opened the menu and the following mouse click closed it. The shared handler now preserves the open state for mouse clicks while keyboard/touch activation toggles it. Fresh-cache browser verification confirmed mouse activation opens the panel.
+- Basic checks on the first four pages, Home and Shop at 390px and 768px found no document horizontal overflow; the mobile menu and six-link About disclosure opened successfully.
+- Shop smoke flow: search for hoodie returns Basic Hoodie; select M and 50 units, add to Enquiry, then follow Request a quote. Quote retains Basic Hoodie and quantity input value 50. No form or email was submitted.
+- Final six-page checks at 1440, 1920, 768 and 390px: all 24 page/viewport combinations returned HTTP 200, one H1, no horizontal overflow, no broken images, no empty links and no page exceptions. Main agent visually reviewed all six desktop screenshots plus representative mobile screenshots.
+- Final interaction checks passed: mouse About activation, ArrowDown focus, Escape closure, Manufacturing FAQ, mobile About → Trends Digest navigation, and actual digest download (`netpro-trends-digest.txt`).
+- All 1,772 local HTML href/src references resolved, including anchors and existing Vercel legal rewrites. JavaScript syntax checks and git diff whitespace checks passed. No configuration, AGENTS.md, backend or email changes.

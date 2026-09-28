@@ -1,6 +1,6 @@
 # Demo visual replacement register
 
-No new AI images were generated this round. Eight existing concept images remain tracked: two generated in the preceding round, with prompts recorded below, and six inherited concepts whose original generator and prompts are not recorded. This is not a claim that all historical site imagery has verified provenance.
+The six-page rebuild adds ten generated concept images, recorded below. Eight earlier concept images remain tracked: two with recorded prompts and six inherited concepts whose original generator and prompts are not recorded. Historical notes below refer to the preceding round, not the current rebuild.
 
 All filenames below are under `assets/`. No image is evidence of a real customer, employee, certification or facility. No visible placeholder labels are added to the demo. Replace these concept assets before public commercial use when real samples are available.
 
@@ -29,3 +29,84 @@ The two generated assets above were inspected in the preceding round for hands, 
 
 ## Inspection and processing
 Existing concept assets remain untouched; only website references use the explicit placeholder filenames. No AI imagery was added to Quality, Home or Shop in this round.
+
+## Six inner pages rebuild — 2026-09-28
+
+Ten new images were generated with built-in imagegen for this preview. The eight earlier assets above remain tracked; preceding-round notes describe that earlier work only. All new assets are illustrative concepts, not evidence of Netpro customers, personnel, premises or completed orders. Case Studies explicitly identifies its projects as illustrative. Replace with approved original product, process and campaign photographs when available.
+
+All ten originals were visually inspected for unwanted text, branding, fabric construction and anatomy where applicable. They were exported without cropping or creative retouching at 1672 × 941 to WebP quality 85. Cropping is performed by responsive CSS. Reference-site imagery was not reused.
+
+| Asset | Intended content / replacement |
+|---|---|
+| placeholder-ai-np-studio.webp | Anonymous sample-development workspace; replace with an approved Netpro team or sample-review photograph. |
+| placeholder-ai-np-patches.webp | Embroidered patch concepts; replace with actual approved patch samples. |
+| placeholder-ai-np-apparel.webp | Unbranded sweatshirt and tee; replace with actual apparel samples. |
+| placeholder-ai-np-headwear.webp | Unbranded cap concepts; replace with actual cap samples. |
+| placeholder-ai-np-socks.webp | Ribbed sock concepts; replace with actual knit samples. |
+| placeholder-ai-np-artwork.webp | Illustrative sketch and material selection; replace with an actual development session. |
+| placeholder-ai-np-production.webp | Illustrative sewing detail, not a claimed Netpro facility; replace with verified production photography. |
+| placeholder-ai-np-packaging.webp | Illustrative packaging set; replace with approved packaging samples. |
+| placeholder-ai-np-texture.webp | Illustrative textile finish study; replace with actual material macros. |
+| placeholder-ai-np-campaign.webp | Fictional apparel editorial scene; replace with commissioned campaign photography. |
+
+### New generation prompts
+
+#### placeholder-ai-np-studio.webp
+
+Generate ONE original horizontal 16:9 editorial photograph asset for About hero. Quiet contemporary product-development workspace, pale gray table with cream sweatshirt, navy cap, blue embroidered patch samples and cotton swatch books at right. Two anonymous adult collaborators shown shoulders down with natural hands; left third calm studio negative space. Window light, navy dusty blue cream and cool gray. No text, UI, logos or watermarks.
+
+Source output: `exec-d55d353e-a349-4dd2-99f1-f8d104d81b21.png`.
+
+#### placeholder-ai-np-patches.webp
+
+One original horizontal 16:9 premium editorial product photograph for Netpro Sourcing custom patches. Three tactile embroidered patches: abstract topographic mountain outline, small geometric sun, and minimalist wave, with no lettering or brand logos. Navy and dusty blue thread on cream twill. Arranged on a cool stone gray tabletop with a folded cream cotton garment under one patch, large stitch detail in focus, realistic merrowed borders and thread density, subtle daylight shadows, sophisticated European independent fashion campaign, not a collage, no UI, no text, no watermarks. Subjects centered with enough breathing room for square and portrait crops.
+
+Source output: `exec-36412f1e-82dc-4d00-bc40-414f1885cd37.png`.
+
+#### placeholder-ai-np-apparel.webp
+
+One horizontal 16:9 editorial apparel product photograph for a premium independent fashion sourcing website. A heavyweight cream crewneck sweatshirt draped neatly over a low pale gray plinth, a folded dusty blue tee beneath, small understated navy geometric stitched emblem near chest (no letters). Close enough to show ribbed collar, seam construction and dense cotton texture. Cool stone studio, soft directional window light, restrained navy/cream/dusty blue palette, sophisticated clean DTC look. Garments centered so square/portrait crops work. Realistic textile product photography, no person, no lettering, no logos, no UI, no collage, no watermark.
+
+Source output: `exec-0e6d69bf-d6aa-43f4-9fc4-6b39148899cd.png`.
+
+#### placeholder-ai-np-headwear.webp
+
+One original horizontal 16:9 premium editorial product photo. A navy cotton six-panel baseball cap with tiny cream abstract wave embroidery (no words or logos), beside a folded cream unstructured cap on pale cool-gray stone pedestal. Three-quarter angle, precise stitching, matte brass back clasp visible on second cap, authentic washed cotton texture. High-end independent apparel brand catalog, directional soft window light, restrained navy, dusty blue and cream palette, subtle natural shadows. Centered product grouping suitable for portrait crops. No text, no people, no website UI, no collage, no watermark.
+
+Source output: `exec-c6d73d8d-eabc-444d-8a92-f7168273892a.png`.
+
+#### placeholder-ai-np-socks.webp
+
+One horizontal 16:9 high-end editorial still-life photograph of a coordinated crew-sock sample set for an independent apparel brand. Cream ribbed cotton socks with two navy stripes, dusty blue socks and navy socks folded into a tidy staggered arrangement on a cool pale gray concrete tabletop. Show ribbed cuffs, toe construction and knit texture in precise photographic detail. Slightly overhead angled composition, objects centered for portrait cropping, soft directional daylight and subtle shadows, muted navy blue and cream palette. No logo, no writing, no packaging text, no person, no UI, no collage, no watermark.
+
+Source output: `exec-1ad73ee5-2b10-4b8e-a804-688e1062e234.png`.
+
+#### placeholder-ai-np-artwork.webp
+
+One horizontal16:9 original editorial photograph for a custom product design process website section. Overhead close view of an anonymous adult designer's natural hands sketching a simple abstract mountain patch on unbranded paper, beside cream and navy fabric swatches, blue thread spools, metal ruler and a clean blank cream cap. Realistic pencil outline no writing or letters anywhere, correct anatomy. Cool light-gray working table, airy focused composition, soft window light, navy dusty blue cream palette, sophisticated tactile independent fashion atelier rather than corporate stock photo. No screen, no UI, no logos, no watermark, no multi-panel collage.
+
+Source output: `exec-34ba0685-9a6d-4aa3-9c45-b08eba01dd58.png`.
+
+#### placeholder-ai-np-production.webp
+
+One original horizontal16:9 premium editorial photograph of apparel manufacturing craft for an illustrative B2B sourcing website. Close low angle on an industrial sewing machine presser foot accurately stitching cream cotton twill, navy fabric edge nearby, blue thread spool and a neat stack of garment panels softly out of focus in background. No people, no brand logos or words on machine, no numbers, no writing. Authentic realistic metal and thread, precise clean stitches, airy workshop illuminated by soft windows, restrained cool gray, cream, navy palette. Clear central subject appropriate to circular and portrait crops; no collage, no UI, no watermark. Concept illustration, not a named company's real facility.
+
+Source output: `exec-01f270b2-10c2-4a36-b848-5687696b041d.png`.
+
+#### placeholder-ai-np-packaging.webp
+
+One original horizontal16:9 premium editorial packaging photograph for custom apparel sourcing. An open unbranded cream rigid mailer box with neatly folded dusty-blue cotton tee wrapped in white tissue, a navy embroidered wave patch on a blank cream backing card, plain navy ribbon and a small unprinted kraft hang tag. On cool gray stone table, clean luxurious but practical independent DTC presentation, soft side window light, authentic paper fibers and cloth. Three-quarter overhead view with central arrangement, plenty of negative space, navy cream gray blue palette. No words, no logo, no watermark, no UI, no collage, no people.
+
+Source output: `exec-a980a2c5-cfa0-4eb8-b54b-5e748c528f27.png`.
+
+#### placeholder-ai-np-texture.webp
+
+One horizontal16:9 highly detailed editorial macro photograph of textile textures for a premium custom-product trends article. Layered cream chenille looped yarn, densely woven navy geometric patch edge, dusty blue satin embroidery and heavyweight cotton swatches arranged as a tactile diagonal still life on a cool pale gray table. Authentic fabric fibers, refined product design magazine style, natural side lighting, shallow depth of field but main materials sharp. Restrained navy cream dustyblue monochromatic palette. No lettering, no logos, no UI, no split panels, no watermark. Focus on material contrast, not random objects.
+
+Source output: `exec-d1bd2338-47e4-4747-9b9c-c19b2da027e8.png`.
+
+#### placeholder-ai-np-campaign.webp
+
+One original horizontal16:9 luxury independent apparel editorial campaign photograph for a Netpro Sourcing Trends Digest website hero. Two anonymous adult models wearing understated cream heavyweight sweatshirt and navy overshirt, navy cap, wide-leg dark trousers, small abstract tonal embroidered patch without text. Models at right two-thirds, standing naturally against monumental pale cool-gray concrete architecture, soft morning light with long shadows. Calm negative space in left third for live headline. Contemporary European independent fashion lookbook, authentic cotton and twill texture, refined cool navy/cream/dustyblue grading, no commercial brand logos, no text, no UI, no watermark, not a collage. Medium wide full figure photographic composition, natural proportions and hands.
+
+Source output: `exec-5e09ad69-e9e5-49aa-a0cd-be597180270d.png`.

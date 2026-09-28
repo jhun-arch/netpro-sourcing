@@ -114,7 +114,13 @@
     const open = () => { closeDropdowns(); setDropdown(group, true); };
     group.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(); });
     group.addEventListener('pointerleave', () => { if (!group.contains(document.activeElement)) setDropdown(group, false); });
-    if (trigger.tagName === 'BUTTON') trigger.addEventListener('click', () => { const expanded = trigger.getAttribute('aria-expanded') === 'true'; closeDropdowns(); setDropdown(group, !expanded); });
+    if (trigger.tagName === 'BUTTON') trigger.addEventListener('click', event => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      // A mouse hover already opened the panel; the following click must keep it open.
+      const mouseClick = event.pointerType === 'mouse';
+      closeDropdowns();
+      setDropdown(group, mouseClick || !expanded);
+    });
     group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setDropdown(group, false); });
     group.addEventListener('keydown', e => {
       if (e.key === 'Escape') { trigger.focus(); closeDropdowns(); }
