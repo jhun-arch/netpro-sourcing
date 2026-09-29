@@ -106,7 +106,7 @@
 }
 
 .home-page .hero {
-  height: min(60vw, 1100px);
+  height: 100svh;
   min-height: 780px;
   max-height: none;
   background: #233d5e;
