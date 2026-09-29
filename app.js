@@ -350,10 +350,31 @@
   }));
 
   let ticking = false;
+  let directionReferenceY = window.scrollY;
   function updateScroll() {
-    header.classList.toggle('is-scrolled', window.scrollY > 70);
+    const scrollPosition = window.scrollY;
+    const hero = isHome ? $('.hero') : null;
+    const isPastHomeHero = hero ? hero.getBoundingClientRect().bottom <= 0 : false;
+    header.classList.toggle('is-pinned', isHome && scrollPosition > 70);
+    header.classList.toggle('is-scrolled', isHome ? isPastHomeHero : scrollPosition > 70);
+    if (isHome) {
+      const keepHeaderVisible = header.classList.contains('menu-is-open')
+        || navGroups.some(group => $('.nav-trigger', group).getAttribute('aria-expanded') === 'true')
+        || Boolean($('dialog[open]'))
+        || (header.contains(document.activeElement) && document.activeElement.matches(':focus-visible'));
+      if (scrollPosition <= 70 || keepHeaderVisible) {
+        header.classList.remove('is-hidden');
+        directionReferenceY = scrollPosition;
+      } else if (scrollPosition > directionReferenceY + 6) {
+        header.classList.add('is-hidden');
+        directionReferenceY = scrollPosition;
+      } else if (scrollPosition < directionReferenceY - 6) {
+        header.classList.remove('is-hidden');
+        directionReferenceY = scrollPosition;
+      }
+    }
     const max = document.documentElement.scrollHeight - innerHeight;
-    $('.scroll-progress').style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+    $('.scroll-progress').style.transform = `scaleX(${max > 0 ? Math.min(1, scrollPosition / max) : 0})`;
     ticking = false;
   }
   window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true });

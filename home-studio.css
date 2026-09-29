@@ -1,7 +1,8 @@
 /* Homepage design system: THE/STUDIO-inspired chapters, scoped to the home page. */
 .home-page {
+  --blue: #355EE1;
   --home-gutter: clamp(22px, 3.34vw, 48px);
-  --home-blue: #2d5d9f;
+  --home-blue: #355EE1;
   --home-charcoal: #2d2d2d;
   --home-surface: #f5f5f7;
   --home-pale-blue: #bfd4f1;
@@ -27,12 +28,21 @@
 }
 
 .home-page .site-header {
-  height: 72px;
+  height: 94px;
   padding-inline: var(--home-gutter);
   color: #fff;
-  background: rgba(45, 93, 159, .72);
-  backdrop-filter: blur(14px);
-  transition: background-color .25s var(--home-hover-ease), box-shadow .25s var(--home-hover-ease), color .2s var(--home-hover-ease);
+  background: transparent;
+  backdrop-filter: none;
+  transition: background-color .25s var(--home-hover-ease), box-shadow .25s var(--home-hover-ease), color .2s var(--home-hover-ease), transform .25s var(--home-hover-ease);
+}
+
+.home-page .site-header.is-hidden {
+  transform: translateY(-105%);
+  pointer-events: none;
+}
+
+.home-page .site-header.is-pinned {
+  position: fixed;
 }
 
 .home-page .site-header :is(.wordmark, .desktop-nav > a, .desktop-nav .nav-trigger, .header-actions .icon-button) {
@@ -46,16 +56,17 @@
 
 .home-page .site-header .desktop-nav .nav-contact {
   padding: 12px 16px;
-  border: 1px solid #fff;
+  border: 1px solid var(--home-blue);
   border-radius: 0;
-  color: #1e426e;
-  background: #fff;
+  color: #fff;
+  background: var(--home-blue);
   transition: color 200ms var(--home-hover-ease), background-color 200ms var(--home-hover-ease), border-color 200ms var(--home-hover-ease);
 }
 
 .home-page .site-header .desktop-nav .nav-contact:hover {
   color: #fff;
-  background: transparent;
+  background: #294CC4;
+  border-color: #294CC4;
   box-shadow: none;
 }
 
@@ -72,9 +83,10 @@
 }
 
 .home-page .site-header.is-scrolled {
-  height: 72px;
+  height: 76px;
   color: var(--home-charcoal);
-  background: rgba(255, 255, 255, .96);
+  background: #fff;
+  backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 rgba(28, 47, 71, .12);
 }
 
@@ -90,7 +102,8 @@
 
 .home-page .site-header.is-scrolled .desktop-nav .nav-contact:hover {
   color: #fff;
-  background: #244d84;
+  background: #294CC4;
+  border-color: #294CC4;
 }
 
 .home-page .site-header.is-scrolled .nav-trigger[aria-expanded='true'] {
@@ -619,7 +632,7 @@
 }
 
 .home-page .filters button:hover {
-  border-color: rgba(45, 93, 159, .55);
+  border-color: rgba(53, 94, 225, .55);
   color: var(--home-blue);
 }
 
@@ -937,7 +950,7 @@
   .home-page .site-header {
     height: 76px;
     padding-inline: 20px;
-    transition: height .25s var(--home-hover-ease), background-color .25s var(--home-hover-ease), box-shadow .25s var(--home-hover-ease), color .2s var(--home-hover-ease);
+    transition: height .25s var(--home-hover-ease), background-color .25s var(--home-hover-ease), box-shadow .25s var(--home-hover-ease), color .2s var(--home-hover-ease), transform .25s var(--home-hover-ease);
   }
 
   .home-page .site-header.is-scrolled {
