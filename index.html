@@ -8,12 +8,16 @@
   <title>Netpro Sourcing — Apparel, Headwear & Custom Patches</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/hero.webp" as="image" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260914-contact1">
   <script defer src="assets/vendor/gsap.min.js"></script>
   <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script defer src="app.js?v=nav6"></script>
-<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css"></head>
-<body>
+  <script defer src="app.js?v=home-studio-2"></script>
+<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=4">
+</head>
+<body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
@@ -51,14 +55,50 @@
   </header>
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <img class="hero-photo" src="assets/hero.webp" alt="Everyday Netpro style in blue and white on a sunlit seaside terrace" width="1672" height="941" fetchpriority="high">
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-photo hero-photo-coast is-active" src="assets/hero.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
+        <img class="hero-photo hero-photo-apparel" src="assets/clothing.webp" alt="" width="1024" height="1024" decoding="async">
+        <img class="hero-photo hero-photo-range" src="assets/shop-banner.webp" alt="" width="2172" height="724" decoding="async">
+      </div>
       <div class="hero-wash"></div>
       <div class="hero-copy">
-        <h1 id="hero-title"><span>SOURCE THE BASICS.</span><span>MAKE THEM YOURS.</span></h1>
+        <h1 id="hero-title"><span>Source the basics.</span><span>Make them yours.</span></h1>
         <p>Source clothing, headwear, socks and patches. Enquire about ready stock or develop a custom product for your business.</p>
         <div class="hero-actions"><a class="button primary" href="quote.html">Request a Quote <svg><use href="#i-arrow"/></svg></a><a class="button outline" href="shop.html">Explore Products <svg><use href="#i-external"/></svg></a></div>
       </div>
       <a class="scroll-cue" href="#catalog" aria-label="Scroll to collection"><span>EXPLORE</span><svg><use href="#i-arrow"/></svg></a>
+    </section>
+
+    <section class="home-story" id="sourcing-story" aria-labelledby="sourcing-title">
+      <div class="home-story-copy reveal">
+        <p class="eyebrow">APPAREL · HEADWEAR · SOCKS · PATCHES</p>
+        <h2 id="sourcing-title">A starting point<br><span>for your next range.</span></h2>
+        <p>Begin with plain clothing, headwear, socks or ready-made patches. Share the quantities, colors and artwork you have in mind to discuss your project.</p>
+        <a class="home-story-link" href="#catalog">Explore product categories <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="home-story-visual">
+        <img src="assets/story.webp" alt="Two people wearing blue and white casual apparel" width="1160" height="1450" loading="lazy">
+      </div>
+    </section>
+
+    <section class="b2b-section home-process" id="process" aria-labelledby="process-title">
+      <div class="home-process-intro reveal">
+        <p class="eyebrow">HOW TO MOVE FORWARD</p>
+        <h2 id="process-title">Choose a starting point.</h2>
+        <p>Explore ready stock or develop custom products around your artwork and requirements.</p>
+      </div>
+      <div class="service-grid">
+        <article>
+          <h3>Ready stock</h3>
+          <p>Shortlist standard styles and send your size mix. We confirm stock, specifications and pricing for your quantity.</p>
+          <a class="text-link" href="shop.html">Browse the catalogue <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article>
+          <h3>Custom production</h3>
+          <p>Develop apparel decoration or patches around your artwork. Agree a sample, production specification and delivery plan.</p>
+          <a class="text-link" href="customization.html">Explore customization <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
     </section>
 
     <section class="section catalog" id="catalog" aria-labelledby="catalog-title">
@@ -66,29 +106,29 @@
       <div class="accordion" aria-label="Shop by category">
         <article class="category is-active" data-category="clothing">
           <div class="category-photo clothing-photo" role="img" aria-label="Light blue Netpro hoodie"></div>
-          <h3><button id="category-clothing" class="category-toggle" aria-expanded="true" aria-controls="panel-clothing"><span class="category-number">01 —</span><span>Clothing</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <h3><button id="category-clothing" class="category-toggle" aria-expanded="true" aria-controls="panel-clothing"><span>Clothing</span><span class="category-plus" aria-hidden="true"></span></button></h3>
           <div class="category-details" id="panel-clothing" role="region" aria-labelledby="category-clothing"><h4>Clothing</h4><p>Plain everyday layers. Customization available.</p><a class="button primary" href="shop.html?category=clothing">Explore Clothing <svg><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="category" data-category="socks">
           <div class="category-photo product-art art-catalog-4" role="img" aria-label="Plain white ribbed crew socks"></div>
-          <h3><button id="category-socks" class="category-toggle" aria-expanded="false" aria-controls="panel-socks"><span class="category-number">02 —</span><span>Socks</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <h3><button id="category-socks" class="category-toggle" aria-expanded="false" aria-controls="panel-socks"><span>Socks</span><span class="category-plus" aria-hidden="true"></span></button></h3>
           <div class="category-details" id="panel-socks" role="region" aria-labelledby="category-socks" inert><h4>Socks</h4><p>Basic crew socks. Make them your own.</p><a class="button primary" href="shop.html?category=socks" tabindex="-1">Explore Socks <svg><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="category" data-category="headwear">
           <div class="category-photo product-art art-catalog-6" role="img" aria-label="Plain blue basic cotton cap"></div>
-          <h3><button id="category-headwear" class="category-toggle" aria-expanded="false" aria-controls="panel-headwear"><span class="category-number">03 —</span><span>Headwear</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <h3><button id="category-headwear" class="category-toggle" aria-expanded="false" aria-controls="panel-headwear"><span>Headwear</span><span class="category-plus" aria-hidden="true"></span></button></h3>
           <div class="category-details" id="panel-headwear" role="region" aria-labelledby="category-headwear" inert><h4>Headwear</h4><p>Plain caps. Ready to wear or customize.</p><a class="button primary" href="shop.html?category=headwear" tabindex="-1">Explore Headwear <svg><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="category" data-category="patches">
           <div class="category-photo patch-photo" role="img" aria-label="Blue embroidered mountain patch with raised stitching"></div>
-          <h3><button id="category-patches" class="category-toggle" aria-expanded="false" aria-controls="panel-patches"><span class="category-number">04 —</span><span>Ready-Made Patches</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <h3><button id="category-patches" class="category-toggle" aria-expanded="false" aria-controls="panel-patches"><span>Ready-Made Patches</span><span class="category-plus" aria-hidden="true"></span></button></h3>
           <div class="category-details" id="panel-patches" role="region" aria-labelledby="category-patches" inert><h4>Ready-Made Patches</h4><p>A little detail. A lot of personality.</p><a class="button primary" href="shop.html?category=patches" tabindex="-1">Ready-Made Patches <svg><use href="#i-arrow"/></svg></a></div>
         </article>
       </div>
       <p class="accordion-hint">Basic clothing, hats &amp; socks — all available for customization. <span>Hover or tap to explore.</span></p>
     </section>
 
-    <section class="b2b-section"><div class="service-grid"><article><h2>Ready stock</h2><p>Shortlist standard styles and send your size mix. We confirm stock, specifications and pricing for your quantity.</p><a class="text-link" href="shop.html">Browse the catalogue →</a></article><article><h2>Custom production</h2><p>Develop apparel decoration or patches around your artwork. Agree a sample, production specification and delivery plan.</p><a class="text-link" href="customization.html">Explore customization →</a></article></div></section><section class="section arrivals" id="arrivals" aria-labelledby="arrivals-title">
+    <section class="section arrivals" id="arrivals" aria-labelledby="arrivals-title">
       <div class="section-heading reveal"><div><p class="eyebrow">SELECTED STYLES</p><h2 id="arrivals-title">Product starting points</h2></div><button class="text-link" data-filter="all">Browse products <svg><use href="#i-arrow"/></svg></button></div>
       <div class="filters" aria-label="Filter products"><button data-filter="all" aria-pressed="true">All</button><button data-filter="clothing" aria-pressed="false">Clothing</button><button data-filter="socks" aria-pressed="false">Socks</button><button data-filter="headwear" aria-pressed="false">Headwear</button><button data-filter="patches" aria-pressed="false">Ready-Made Patches</button></div>
       <div class="product-grid" id="product-grid"></div>
@@ -102,8 +142,10 @@
 
     
 
-    <section class="service-section trust-section"><div class="trust-visual"><img class="factory-wide" src="assets/factory-embroidery-line-01.webp" alt="Multi-head embroidery line stitching pink lettering" width="1600" height="1067" loading="lazy"></div><div class="trust-copy"><p class="eyebrow">SPECIFICATION · SAMPLES · CHECKS</p><h2>A clear brief from sample to dispatch.</h2><p>Capture product, color, size mix, decoration and packing in one brief. Approve the sample and agree the checks before production.</p><a class="text-link" href="quality.html">Explore quality & project support <svg><use href="#i-arrow"/></svg></a></div></section><section class="closing-cta" aria-labelledby="closing-title">
-      <div class="closing-copy"><p class="eyebrow">YOUR NEXT SOURCING PROJECT</p><h2 id="closing-title">Plan your range.<br>Build your brand.</h2><p>Tell us your target products, quantities and design requirements.<br class="desktop-break"> Let’s discuss your project.</p><div class="closing-actions"><a class="button closing-primary" href="shop.html">Browse Products <svg><use href="#i-arrow"/></svg></a><a class="button closing-secondary" href="quote.html">Request a Quote <svg><use href="#i-external"/></svg></a></div></div>
+    <section class="service-section trust-section" aria-labelledby="quality-home-title"><div class="trust-visual"><img class="factory-wide" src="assets/factory-embroidery-line-01.webp" alt="Multi-head embroidery line stitching pink lettering" width="1600" height="1067" loading="lazy"></div><div class="trust-copy reveal"><p class="eyebrow">SPECIFICATION · SAMPLES · CHECKS</p><h2 id="quality-home-title">A clear brief from sample to dispatch.</h2><p>Capture product, color, size mix, decoration and packing in one brief. Approve the sample and agree the checks before production.</p><a class="text-link" href="quality.html">Explore quality & project support <svg><use href="#i-arrow"/></svg></a></div></section>
+
+    <section class="closing-cta" aria-labelledby="closing-title">
+      <div class="closing-copy reveal"><p class="eyebrow">YOUR NEXT SOURCING PROJECT</p><h2 id="closing-title">Plan your range.<br>Build your brand.</h2><p>Tell us your target products, quantities and design requirements.<br class="desktop-break"> Let’s discuss your project.</p><div class="closing-actions"><a class="button closing-primary" href="shop.html">Browse Products <svg><use href="#i-arrow"/></svg></a><a class="button closing-secondary" href="quote.html">Request a Quote <svg><use href="#i-external"/></svg></a></div></div>
       <div class="closing-art" aria-hidden="true"><div class="closing-orbit"></div><div class="closing-patch"><img src="assets/patch.webp" alt="" loading="lazy"></div><span class="closing-label">YOUR PRODUCTS.<br>MAKE THEM YOURS.</span><span class="closing-spark">✳</span></div>
     </section>
     

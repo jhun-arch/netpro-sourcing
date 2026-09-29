@@ -5,6 +5,7 @@
   const PATCHES_URL = 'customization.html#patches';
   const products = [{"id": "tee-white", "name": "Essential White Tee", "category": "clothing", "color": "White", "swatch": "#f0f0eb", "sizes": ["S", "M", "L", "XL"], "art": "catalog-0", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "tee-navy", "name": "Essential Navy Tee", "category": "clothing", "color": "Navy", "swatch": "#1d304c", "sizes": ["S", "M", "L", "XL"], "art": "catalog-1", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "sweatshirt", "name": "Classic Crewneck", "category": "clothing", "color": "Oatmeal", "swatch": "#d9ceba", "sizes": ["S", "M", "L", "XL"], "art": "catalog-2", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "hoodie", "name": "Basic Hoodie", "category": "clothing", "color": "Sky blue", "swatch": "#a4c6df", "sizes": ["S", "M", "L", "XL"], "art": "catalog-3", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "socks", "name": "Basic Crew Socks", "category": "socks", "color": "White", "swatch": "#f0f0eb", "sizes": ["S/M", "L/XL"], "art": "catalog-4", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "socks-black", "name": "Black Crew Socks", "category": "socks", "color": "Black", "swatch": "#252525", "sizes": ["S/M", "L/XL"], "art": "catalog-5", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "cap", "name": "Basic Blue Cap", "category": "headwear", "color": "Cobalt blue", "swatch": "#285cad", "sizes": ["One size"], "art": "catalog-6", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "cap-beige", "name": "Basic Beige Cap", "category": "headwear", "color": "Beige", "swatch": "#d6c5a8", "sizes": ["One size"], "art": "catalog-7", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "patch", "name": "Blank Shape Patches", "category": "patches", "color": "Mixed blues", "swatch": "#3d608e", "sizes": ["One size"], "art": "catalog-8", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}];
   const isShop = document.body.classList.contains("shop-page");
+  const isHome = document.body.classList.contains("home-page");
   const shopState = {color:"all",size:[],sort:"featured",page:1};
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -366,21 +367,103 @@
 
     gsap.from('.shop-layout',{y:24,opacity:0,duration:.7,delay:.2,clearProps:'all'});
   }
-  if (window.gsap && window.ScrollTrigger && $('.hero')) {
+  if (isHome && window.gsap && window.ScrollTrigger && $('.hero')) {
     gsap.registerPlugin(ScrollTrigger);
     const motion = gsap.matchMedia();
     motion.add('(prefers-reduced-motion: no-preference)', () => {
-      gsap.from('.hero-photo', { scale: 1.045, duration: 1.7, ease: 'power2.out' });
-      gsap.from('.hero-copy h1 span', { y: 28, opacity: 0, duration: 1, stagger: .12, delay: .18, ease: 'power3.out' });
-      gsap.from('.hero-copy>p, .hero-actions', { y: 20, opacity: 0, duration: .9, stagger: .12, delay: .5, ease: 'power3.out' });
-      gsap.to('.hero-photo', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .8 } });
-      $$('.reveal').forEach(el => gsap.from(el, { y: 35, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 91%', once: true }, clearProps: 'transform,opacity' }));
-      gsap.from('.accordion', { y: 35, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.accordion', start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
-      gsap.from('.product-card', { y: 30, opacity: 0, duration: .8, stagger: .1, scrollTrigger: { trigger: '.product-grid', start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
-      gsap.fromTo('.custom-visual>img', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.custom-section', start: 'top bottom', end: 'bottom top', scrub: 1 } });
-      gsap.from('.footer-brand', { y: 22, opacity: 0, duration: .8, scrollTrigger: { trigger: '.footer', start: 'top 90%', once: true }, clearProps: 'all' });
+      const slides = $$('.hero-photo');
+      let slideTimeline;
+      const syncSlidePlayback = () => {
+        if (!slideTimeline) return;
+        if (document.hidden) slideTimeline.pause();
+        else slideTimeline.resume();
+      };
+
+      if (slides.length > 1) {
+        gsap.set(slides, { opacity: 0, x: 0, xPercent: 100, scale: 1.005 });
+        gsap.set(slides[0], { opacity: 1, xPercent: 0, scale: 1.005 });
+        slideTimeline = gsap.timeline({ repeat: -1, paused: document.hidden });
+        slides.slice(1).forEach((slide, index) => {
+          const previous = slides[index];
+          slideTimeline.to(slide, { opacity: 1, xPercent: 0, duration: 1.1, ease: 'power2.out' }, '+=4.5');
+          slideTimeline.to(previous, { opacity: 0, xPercent: -100, duration: 1.1, ease: 'power2.out' }, '<');
+          slideTimeline.set(previous, { xPercent: 100 });
+        });
+        const lastSlide = slides[slides.length - 1];
+        slideTimeline.to(slides[0], { opacity: 1, xPercent: 0, duration: 1.1, ease: 'power2.out' }, '+=4.5');
+        slideTimeline.to(lastSlide, { opacity: 0, xPercent: -100, duration: 1.1, ease: 'power2.out' }, '<');
+        slideTimeline.set(lastSlide, { xPercent: 100 });
+        document.addEventListener('visibilitychange', syncSlidePlayback);
+      }
+
+      gsap.from('.hero-copy h1 span', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        stagger: .2,
+        delay: .12,
+        ease: 'power2.out',
+        clearProps: 'transform,opacity'
+      });
+      gsap.from('.hero-copy > p, .hero-actions', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        stagger: .2,
+        delay: .32,
+        ease: 'power2.out',
+        clearProps: 'transform,opacity'
+      });
+      $$('.home-page .reveal').forEach(el => gsap.from(el, {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 91%', once: true },
+        clearProps: 'transform,opacity'
+      }));
+      gsap.from('.accordion', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.accordion', start: 'top 88%', once: true },
+        clearProps: 'transform,opacity'
+      });
+      gsap.from('.home-process .service-grid article', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        stagger: .2,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.home-process .service-grid', start: 'top 88%', once: true },
+        clearProps: 'transform,opacity'
+      });
+      gsap.from('.product-card', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        stagger: .2,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.product-grid', start: 'top 88%', once: true },
+        clearProps: 'transform,opacity'
+      });
+      gsap.from('.footer-main > *', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        stagger: .08,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.footer', start: 'top 88%', once: true },
+        clearProps: 'transform,opacity'
+      });
+      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+      if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
+
+      return () => {
+        document.removeEventListener('visibilitychange', syncSlidePlayback);
+        if (slideTimeline) slideTimeline.kill();
+      };
     });
-    window.addEventListener('load', () => ScrollTrigger.refresh());
-    if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
   }
 })();
