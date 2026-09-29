@@ -68,3 +68,11 @@ A public Preview check found stale Home Story animation references. Removed the 
 - Final six-page checks at 1440, 1920, 768 and 390px: all 24 page/viewport combinations returned HTTP 200, one H1, no horizontal overflow, no broken images, no empty links and no page exceptions. Main agent visually reviewed all six desktop screenshots plus representative mobile screenshots.
 - Final interaction checks passed: mouse About activation, ArrowDown focus, Escape closure, Manufacturing FAQ, mobile About → Trends Digest navigation, and actual digest download (`netpro-trends-digest.txt`).
 - All 1,772 local HTML href/src references resolved, including anchors and existing Vercel legal rewrites. JavaScript syntax checks and git diff whitespace checks passed. No configuration, AGENTS.md, backend or email changes.
+
+## Sitewide motion refinement — 2026-09-29
+
+- Audit and implementation plans: plans/AUDIT.md and plans/001–003. Main-agent review: plans/REVIEW.md, verdict Approve for Preview.
+- Removed delayed quote navigation, duplicate product entrances, parallax, category flex animation and decorative form/footer entrances. Shared dialog/menu motion is cancellable and respects keyboard, coarse-pointer and reduced-motion policy.
+- Main-agent verification passed 30 page/viewport checks plus representative 1920/768 checks, actual menu/filter/dialog interactions, rapid reversal, no-WAAPI fallback, live reduced-motion entry/exit, touch emulation, JS-disabled readability and Hoodie M / 50 units → Quote without submission.
+- Desktop Home/Shop/Case Studies screenshots compared with baseline; existing static composition retained. Optional grid entrance variants stay isolated in prototypes/case-motion.html until user selection.
+- No main, dev2, Production, configuration, AGENTS.md, API, content or image changes. Preview URL and commit are recorded in the delivery response.

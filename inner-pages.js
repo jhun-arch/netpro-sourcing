@@ -9,13 +9,14 @@
     material: document.getElementById('case-dialog-material'),
     detail: document.getElementById('case-dialog-detail')
   };
-  cards.forEach(card => card.addEventListener('click', () => {
+  cards.forEach(card => card.addEventListener('click', event => {
     fields.category.textContent = card.dataset.category;
     fields.title.textContent = card.dataset.title;
     fields.brief.textContent = card.dataset.brief;
     fields.material.textContent = card.dataset.material;
     fields.detail.textContent = card.dataset.detail;
-    dialog.showModal();
+    if(window.NetproMotion)window.NetproMotion.openDialog(dialog,event);
+    else if(!dialog.open)dialog.showModal();
     document.body.classList.add('modal-open');
   }));
 })();

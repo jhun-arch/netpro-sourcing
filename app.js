@@ -33,36 +33,38 @@
     toast.classList.add('is-visible');
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3000);
   }
-  function openDialog(id) {
-    $$('dialog[open]').forEach(dialog => dialog.close());
+  function openDialog(id, event) {
     const dialog = document.getElementById(id);
+    $$('dialog[open]').forEach(openDialog => {
+      if(openDialog===dialog)return;
+      if(window.NetproMotion)window.NetproMotion.closeDialog(openDialog,event,{immediate:true});
+      else openDialog.close();
+    });
     if(id==='bag-dialog'){
       const rect=$('.bag-button').getBoundingClientRect();
       dialog.style.setProperty('--cart-close-right',`${document.body.getBoundingClientRect().right-rect.right}px`);
       dialog.style.setProperty('--cart-close-top',`${Math.max(12,rect.top)}px`);
     }
-    dialog.classList.remove('drawer-closing');
-    dialog.showModal();
+    if(window.NetproMotion)window.NetproMotion.openDialog(dialog,event);
+    else if(!dialog.open)dialog.showModal();
     document.body.classList.add('modal-open');
     return dialog;
   }
-  function dismissDialog(dialog){
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches){dialog.close();return;}
-    if(dialog.id!=='bag-dialog'){if(dialog.classList.contains('modal-closing'))return;dialog.classList.add('modal-closing');setTimeout(()=>{dialog.close();dialog.classList.remove('modal-closing');},180);return;}
-    if(dialog.classList.contains('drawer-closing'))return;
-    dialog.classList.add('drawer-closing');
-    setTimeout(()=>{dialog.close();dialog.classList.remove('drawer-closing');},280);
+  function dismissDialog(dialog,event,options){
+    if(window.NetproMotion)window.NetproMotion.closeDialog(dialog,event,options);
+    else if(dialog.open)dialog.close();
   }
   $$('dialog').forEach(dialog => {
-    dialog.addEventListener('cancel',event=>{event.preventDefault();dismissDialog(dialog);});
-    $('.close-dialog', dialog)?.addEventListener('click', () => dismissDialog(dialog));
+    dialog.addEventListener('cancel',event=>{event.preventDefault();dismissDialog(dialog,event);});
+    $('.close-dialog', dialog)?.addEventListener('click', event => dismissDialog(dialog,event));
     dialog.addEventListener('close', () => {
+      window.NetproMotion?.handleNativeClose(dialog);
       if (!$('dialog[open]')) document.body.classList.remove('modal-open');
     });
     dialog.addEventListener('click', event => {
       if (event.target !== dialog) return;
       const r = dialog.getBoundingClientRect();
-      if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dismissDialog(dialog);
+      if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dismissDialog(dialog,event);
     });
   });
 
@@ -104,31 +106,39 @@
 
   // Pointer and keyboard users share one dropdown state.
   const navGroups = $$('.nav-group');
-  function setDropdown(group, open) {
+  function setDropdown(group, open, event) {
+    const dropdown=$('.nav-dropdown', group);
     $('.nav-trigger', group).setAttribute('aria-expanded', String(open));
-    $('.nav-dropdown', group).hidden = !open;
+    if(window.NetproMotion)window.NetproMotion.setMenu(dropdown,open,event);
+    else dropdown.hidden = !open;
   }
-  function closeDropdowns() { navGroups.forEach(group => setDropdown(group, false)); }
+  function closeDropdowns(event) { navGroups.forEach(group => setDropdown(group, false,event)); }
   navGroups.forEach(group => {
     const trigger = $('.nav-trigger', group);
-    const open = () => { closeDropdowns(); setDropdown(group, true); };
-    group.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(); });
-    group.addEventListener('pointerleave', () => { if (!group.contains(document.activeElement)) setDropdown(group, false); });
+    const open = event => { closeDropdowns(event); setDropdown(group, true,event); };
+    group.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(e); });
+    group.addEventListener('pointerleave', e => { if (!group.contains(document.activeElement)) setDropdown(group, false,e); });
     if (trigger.tagName === 'BUTTON') trigger.addEventListener('click', event => {
       const expanded = trigger.getAttribute('aria-expanded') === 'true';
       // A mouse hover already opened the panel; the following click must keep it open.
-      const mouseClick = event.pointerType === 'mouse';
-      closeDropdowns();
-      setDropdown(group, mouseClick || !expanded);
+      const mouseClick = event.pointerType === 'mouse' || (!event.pointerType && event.detail>0 && matchMedia('(hover: hover) and (pointer: fine)').matches);
+      closeDropdowns(event);
+      setDropdown(group, mouseClick || !expanded,event);
     });
-    group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setDropdown(group, false); });
+    group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setDropdown(group, false,e); });
     group.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { trigger.focus(); closeDropdowns(); }
-      if (e.key === 'ArrowDown' && e.target === trigger) { e.preventDefault(); open(); $('a', group).focus(); }
+      if (e.key === 'Escape') { trigger.focus(); closeDropdowns(e); }
+      if (e.key === 'ArrowDown' && e.target === trigger) { e.preventDefault(); open(e); $('a', group).focus(); }
     });
     $$('a', group).forEach(a => a.addEventListener('click', closeDropdowns));
   });
-  document.addEventListener('click', e => { if (!e.target.closest('.nav-group')) closeDropdowns(); });
+  document.addEventListener('click', e => { if (!e.target.closest('.nav-group')) closeDropdowns(e); });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const group=e.target.closest?.('.nav-group');
+    if (group) $('.nav-trigger',group).focus();
+    closeDropdowns(e);
+  });
   mobileQuery.addEventListener('change', closeDropdowns);
 
   // Image accordion: hover, click, focus and keyboard share the same state.
@@ -192,11 +202,9 @@
         nextBanner.onload=()=>{
           const current=$('.shop-banner-photo');
           if(current.dataset.requestedSrc!==bannerSrc)return;
-          if(window.gsap)gsap.killTweensOf(current);
           nextBanner.dataset.category=current.dataset.category;
           nextBanner.alt=current.alt;
           current.replaceWith(nextBanner);
-          if(window.gsap&&!matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.fromTo(nextBanner,{opacity:.65},{opacity:1,duration:.3,clearProps:'opacity'});
         };
         nextBanner.src=bannerSrc;
       }
@@ -223,28 +231,27 @@
     if (filter) {
       activeFilter = filter.dataset.filter; shopState.page=1;
       renderProducts();
-      if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) gsap.from('.product-card', { opacity: 0, y: 20, duration: .45, stagger: .06, clearProps: 'all' });
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
+      window.NetproMotion?.feedbackGrid($('#product-grid'),e);
     }
     const detail = e.target.closest('[data-detail]');
-    if (detail) showProduct(detail.dataset.detail);
+    if (detail) showProduct(detail.dataset.detail,e);
   });
   renderProducts();
   if(isShop){
-    function updateShop(){shopState.page=1;const url=new URL(location.href);url.searchParams.set('category',activeFilter);history.replaceState(null,'',url);renderProducts();if(window.gsap&&!matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.fromTo('.product-card',{opacity:0,y:14},{opacity:1,y:0,duration:.4,stagger:.045,clearProps:'all'});}
-    $('#category-select').addEventListener('change',e=>{activeFilter=e.target.value;updateShop();});
-    $$('#category-options input').forEach(el=>el.addEventListener('change',()=>{activeFilter=el.value;updateShop();}));
-    $$('[data-shop-filter]').forEach(el=>el.addEventListener('change',()=>{shopState[el.dataset.shopFilter]=el.value;updateShop();}));
-    $('#clear-filters').addEventListener('click',()=>{activeFilter='all';Object.assign(shopState,{color:'all',size:[],price:[],sort:'featured'});$$('[data-shop-filter]').forEach(el=>el.value=shopState[el.dataset.shopFilter]);updateShop();});
+    function updateShop(event){shopState.page=1;const url=new URL(location.href);url.searchParams.set('category',activeFilter);history.replaceState(null,'',url);renderProducts();window.NetproMotion?.feedbackGrid($('#product-grid'),event);}
+    $('#category-select').addEventListener('change',e=>{activeFilter=e.target.value;updateShop(e);});
+    $$('#category-options input').forEach(el=>el.addEventListener('change',e=>{activeFilter=el.value;updateShop(e);}));
+    $$('[data-shop-filter]').forEach(el=>el.addEventListener('change',e=>{shopState[el.dataset.shopFilter]=el.value;updateShop(e);}));
+    $('#clear-filters').addEventListener('click',e=>{activeFilter='all';Object.assign(shopState,{color:'all',size:[],price:[],sort:'featured'});$$('[data-shop-filter]').forEach(el=>el.value=shopState[el.dataset.shopFilter]);updateShop(e);});
     $('#clear-filter-tags').addEventListener('click',()=>$('#clear-filters').click());
-    $$('[data-size]').forEach(el=>el.addEventListener('click',()=>{const v=el.dataset.size;shopState.size=shopState.size.includes(v)?shopState.size.filter(x=>x!==v):[...shopState.size,v];updateShop();}));
-    $$('[data-price]').forEach(el=>el.addEventListener('change',()=>{shopState.price=$$('[data-price]:checked').map(x=>x.dataset.price);updateShop();}));
-    $('#active-filters').addEventListener('click',e=>{const el=e.target.closest('[data-remove-filter]');if(!el)return;const k=el.dataset.removeFilter;if(k==='category')activeFilter='all';else if(k==='color')shopState.color='all';else shopState[k]=shopState[k].filter(x=>x!==el.dataset.value);updateShop();});
-    $('#pagination').addEventListener('click',e=>{const el=e.target.closest('[data-page]');if(el){shopState.page=Number(el.dataset.page);renderProducts();if(!$('#arrivals')){location.href='shop.html';return;}
+    $$('[data-size]').forEach(el=>el.addEventListener('click',e=>{const v=el.dataset.size;shopState.size=shopState.size.includes(v)?shopState.size.filter(x=>x!==v):[...shopState.size,v];updateShop(e);}));
+    $$('[data-price]').forEach(el=>el.addEventListener('change',e=>{shopState.price=$$('[data-price]:checked').map(x=>x.dataset.price);updateShop(e);}));
+    $('#active-filters').addEventListener('click',e=>{const el=e.target.closest('[data-remove-filter]');if(!el)return;const k=el.dataset.removeFilter;if(k==='category')activeFilter='all';else if(k==='color')shopState.color='all';else shopState[k]=shopState[k].filter(x=>x!==el.dataset.value);updateShop(e);});
+    $('#pagination').addEventListener('click',e=>{const el=e.target.closest('[data-page]');if(el){shopState.page=Number(el.dataset.page);renderProducts();window.NetproMotion?.feedbackGrid($('#product-grid'),e);if(!$('#arrivals')){location.href='shop.html';return;}
       $('#arrivals').scrollIntoView();}});
   }
 
-  function showProduct(id) {
+  function showProduct(id,event) {
     const p = products.find(p => p.id === id);
     if (!p) return;
     $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy"><span class="new-label">BULK & CUSTOM</span><h2>${p.name}</h2><div class="detail-price">Request Pricing</div><p>${p.description}</p><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p><fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options">${p.sizes.map((size,i)=>`<button type="button" data-detail-size="${size}" aria-pressed="${i===0}">${size}</button>`).join('')}</div></fieldset><div class="detail-quantity"><span>Quantity</span><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div><button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><p class="detail-note">MOQ, material specifications, sample availability and lead time are confirmed for each project.</p></div></div>`;
@@ -263,16 +270,15 @@
     $('#quantity-less').addEventListener('click',()=>{$('#detail-quantity').value=quantity=Math.max(1,quantity-1);});
     $('#quantity-more').addEventListener('click',()=>{$('#detail-quantity').value=quantity=Math.min(100000,quantity+1);});
     $('#detail-quantity').addEventListener('change', e => { quantity=Math.max(1,Math.min(100000,Math.floor(Number(e.target.value)||1)));e.target.value=quantity; });
-    const dialog = openDialog('product-dialog');
-    $('#add-to-bag').addEventListener('click', () => {
+    openDialog('product-dialog',event);
+    $('#add-to-bag').addEventListener('click', event => {
       const size = selectedSize;
       const item = bag.find(item => item.id === p.id && item.size === size);
       if (item) { if (item.quantity + quantity > 100000) return notify('For more than 100,000 units, include the quantity in your project notes.'); item.quantity+=quantity; }
       else bag.push({ id: p.id, size, quantity });
       saveBag();
-      dialog.close();
       renderBag();
-      openDialog('bag-dialog');
+      openDialog('bag-dialog',event);
       notify(`${p.name} added to your enquiry list`);
     });
   }
@@ -299,11 +305,11 @@
       }).join('');
       $('#bag-summary').innerHTML = `<div class="subtotal"><span>Requested units</span><span>${bag.reduce((n,item)=>n+item.quantity,0)}</span></div><p class="cart-tax-note">Indicative quantities only. Minimum quantities, unit pricing, samples and delivery will be confirmed in your quotation.</p><a class="button primary cart-checkout" href="quote.html">Request a quote →</a><p class="bag-note">Add your company and project details on the next page. This is an enquiry, not an order.</p>`;
     }
-    $$('.bag-continue').forEach(button => button.addEventListener('click', () => {
-      $('#bag-dialog').close();
+    $$('.bag-continue').forEach(button => button.addEventListener('click', event => {
+      dismissDialog($('#bag-dialog'),event,{immediate:true});
       activeFilter = 'all'; renderProducts();
       if(!$('#arrivals')){location.href='shop.html';return;}
-      $('#arrivals').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      $('#arrivals').scrollIntoView({ behavior: window.NetproMotion?.allowsMotion(event) ? 'smooth' : 'instant' });
     }));
   }
   $('#bag-dialog').addEventListener('click', e => {
@@ -328,10 +334,10 @@
     $('#search-results').innerHTML = results.length ? results.map(p => `<button class="result-item" data-detail="${p.id}">${art(p)}<span><strong>${p.name}</strong><small>${p.color}</small></span><span>Request pricing</span></button>`).join('') : '<p class="search-empty">No matches yet. Try “hoodie”, “cap” or “patch”.</p>';
   }
   $('#search-input').addEventListener('input', searchProducts);
-  $$('[data-open]').forEach(button => button.addEventListener('click', () => {
+  $$('[data-open]').forEach(button => button.addEventListener('click', event => {
     closeMenu();
-    if (button.dataset.open === 'search') { openDialog('search-dialog'); searchProducts(); $('#search-input').focus(); }
-    if (button.dataset.open === 'bag') { renderBag(); openDialog('bag-dialog'); }
+    if (button.dataset.open === 'search') { openDialog('search-dialog',event); searchProducts(); $('#search-input').focus(); }
+    if (button.dataset.open === 'bag') { renderBag(); openDialog('bag-dialog',event); }
   }));
   const info = {
     shipping: ['Shipping information', 'We’re preparing the store for launch. Delivery destinations, rates and estimated times will be published here before online ordering opens.'],
@@ -341,11 +347,11 @@
     privacy: ['Privacy Policy', 'Submitted contact and project details are used to respond to your request. Your enquiry list is stored in this browser.'],
     terms: ['Terms of Service', 'This catalogue accepts enquiries. Orders require a separately agreed quotation and commercial terms.']
   };
-  $$('[data-info]').forEach(button => button.addEventListener('click', () => {
+  $$('[data-info]').forEach(button => button.addEventListener('click', event => {
     const [title, body] = info[button.dataset.info];
     $('#info-title').textContent = title;
     $('#info-content').innerHTML = `<p>${body}</p>` + (button.dataset.info === 'contact' ? `<a class="button primary" href="${PATCHES_URL}" target="_blank" rel="noopener noreferrer">Visit Netpro Patches ↗</a>` : '');
-    openDialog('info-dialog');
+    openDialog('info-dialog',event);
   }));
 
   let ticking = false;
@@ -358,29 +364,4 @@
   window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true });
   updateScroll();
 
-  // Local GSAP files allow scroll animations to work offline as well as over HTTP.
-  if(isShop && window.gsap && window.ScrollTrigger && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo('.shop-banner-photo',{opacity:0},{opacity:1,duration:.8,overwrite:true});
-    gsap.from('.shop-banner>div:first-child>*',{y:22,opacity:0,duration:.7,stagger:.12,clearProps:'all'});
-
-    gsap.from('.shop-layout',{y:24,opacity:0,duration:.7,delay:.2,clearProps:'all'});
-  }
-  if (window.gsap && window.ScrollTrigger && $('.hero')) {
-    gsap.registerPlugin(ScrollTrigger);
-    const motion = gsap.matchMedia();
-    motion.add('(prefers-reduced-motion: no-preference)', () => {
-      gsap.from('.hero-photo', { scale: 1.045, duration: 1.7, ease: 'power2.out' });
-      gsap.from('.hero-copy h1 span', { y: 28, opacity: 0, duration: 1, stagger: .12, delay: .18, ease: 'power3.out' });
-      gsap.from('.hero-copy>p, .hero-actions', { y: 20, opacity: 0, duration: .9, stagger: .12, delay: .5, ease: 'power3.out' });
-      gsap.to('.hero-photo', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .8 } });
-      $$('.reveal').forEach(el => gsap.from(el, { y: 35, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 91%', once: true }, clearProps: 'transform,opacity' }));
-      gsap.from('.accordion', { y: 35, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.accordion', start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
-      gsap.from('.product-card', { y: 30, opacity: 0, duration: .8, stagger: .1, scrollTrigger: { trigger: '.product-grid', start: 'top 88%', once: true }, clearProps: 'transform,opacity' });
-      gsap.fromTo('.custom-visual>img', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.custom-section', start: 'top bottom', end: 'bottom top', scrub: 1 } });
-      gsap.from('.footer-brand', { y: 22, opacity: 0, duration: .8, scrollTrigger: { trigger: '.footer', start: 'top 90%', once: true }, clearProps: 'all' });
-    });
-    window.addEventListener('load', () => ScrollTrigger.refresh());
-    if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
-  }
 })();

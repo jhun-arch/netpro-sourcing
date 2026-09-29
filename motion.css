@@ -1,13 +1,73 @@
-@keyframes gentle-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes modal-in{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
-@keyframes modal-out{to{opacity:0;translate:0 8px}}
-.product-dialog[open],.search-dialog[open],.info-dialog[open]{animation:modal-in .25s ease both}
-.product-dialog.modal-closing,.search-dialog.modal-closing,.info-dialog.modal-closing{animation:modal-out .18s ease both}
-.contact-information,.contact-form-panel,.quote-form-side,.quote-summary{animation:gentle-in .5s ease both}
-.contact-form-panel,.quote-summary{animation-delay:.07s}
-.checkout-step .step-content:not([hidden]){animation:gentle-in .28s ease both}
-.product-card{animation:gentle-in .35s ease both}
-.motion-visible{animation:gentle-in .5s ease both}
+:root{--motion-ease-out:cubic-bezier(0.23,1,0.32,1);--motion-ease-drawer:cubic-bezier(0.32,0.72,0,1)}
+
+/* JS owns entry and exit interpolation so interrupted states can retarget cleanly. */
+dialog{transform-origin:center}
+.bag-dialog{transform-origin:right center}
+.nav-dropdown{transform-origin:top left}
+dialog[open],.bag-dialog,.bag-dialog::backdrop,.nav-dropdown{animation:none!important}
+
 input,textarea,select{transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease}
+
 input:focus,textarea:focus,select:focus{border-color:var(--blue)}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}::view-transition-old(root),::view-transition-new(root){animation:none!important}}
+
+/* Pointer feedback stays small, short and unavailable to coarse pointers. */
+@media(hover:hover) and (pointer:fine){
+  html[data-motion-input="pointer"] .button{transition:background 200ms ease-out,color 200ms ease-out,transform 100ms var(--motion-ease-out),box-shadow 200ms ease-out}
+  html[data-motion-input="pointer"] .button:hover{transform:none}
+  html[data-motion-input="pointer"] .button:hover svg{transform:none}
+  html[data-motion-input="pointer"] .button:active{transform:scale(.98);transition-duration:160ms}
+  html[data-motion-input="pointer"] .category-plus,html[data-motion-input="pointer"] .category-plus:after{transition:transform 180ms var(--motion-ease-out)}
+  html[data-motion-input="pointer"] .category-details{transition:opacity 180ms var(--motion-ease-out),visibility 0s linear 180ms}
+  html[data-motion-input="pointer"] .category.is-active .category-details{transition:opacity 180ms var(--motion-ease-out),visibility 0s linear 0s}
+  html[data-motion-input="pointer"] .product-image:hover .product-art{transform:scale(1.025)}
+  html[data-motion-input="pointer"] .product-image:hover .quick-view{opacity:1;transform:translateY(0)}
+  html[data-motion-input="pointer"] .detail-gallery .gallery-thumb:hover{transform:translateX(2px)}
+  html[data-motion-input="pointer"] .services svg,html[data-motion-input="pointer"] .services small span{transition:transform 200ms var(--motion-ease-out),color 200ms ease}
+  html[data-motion-input="pointer"] .services>button:hover svg{transform:translateY(-3px);color:var(--blue)}
+  html[data-motion-input="pointer"] .services>button:hover small span{transform:translate(2px,-1px)}
+  html[data-motion-input="pointer"] .ip-case-card:hover img,html[data-motion-input="pointer"] .ip-editorial-grid a:hover img,html[data-motion-input="pointer"] .ip-digest-card-grid a:hover img{transform:scale(1.02)}
+}
+
+html[data-motion-input="keyboard"] .category-plus,html[data-motion-input="keyboard"] .category-plus:after,html[data-motion-input="keyboard"] .category-details,html[data-motion-input="keyboard"] .quick-view,html[data-motion-input="keyboard"] .detail-gallery .gallery-thumb,html[data-motion-input="keyboard"] .services svg,html[data-motion-input="keyboard"] .services small span{transition:none!important}
+
+/* Product and editorial image motion only belongs on interactive fine-pointer targets. */
+.category{transition:none!important}
+.category-photo,.category.is-active .category-photo{transition:none!important;scale:1}
+.product-image .product-art{transition:transform 200ms var(--motion-ease-out)}
+.product-image:hover .product-art{transform:none}
+.quick-view{transition:opacity 200ms var(--motion-ease-out),transform 200ms var(--motion-ease-out)}
+.detail-gallery .gallery-thumb{transition:border-color 200ms var(--motion-ease-out),transform 200ms var(--motion-ease-out)}
+.detail-gallery .gallery-thumb:hover{transform:none}
+.closing-patch{transition:none}
+.technique-card img{transition:none}
+.technique-card:hover img{filter:none}
+.services svg,.services small span{transition:none}
+.services>button:hover svg,.services>button:hover small span{transform:none}
+.ip-case-card img,.ip-editorial-grid img,.ip-digest-card-grid img{transition:transform 200ms var(--motion-ease-out)}
+.ip-two-images img,.ip-wide-image img,.ip-process-image img{transition:none}
+.ip-case-card:hover img,.ip-editorial-grid a:hover img,.ip-digest-card-grid a:hover img{transform:none}
+.ip-two-images figure:hover img,.ip-wide-image:hover img,.ip-process-image:hover img{transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .button,.button:hover,.button:active,.button svg{transition:none!important;transform:none!important}
+  .category-plus,.category-plus:after,.category-details,.quick-view,.detail-gallery .gallery-thumb,.ip-case-card img,.ip-editorial-grid img,.ip-digest-card-grid img{transition:none!important;transform:none!important}
+  .product-image .product-art{transition:none!important;transform:none!important}
+  .ip-two-images img,.ip-wide-image img,.ip-process-image img{transition:none!important;transform:none!important}
+}
+
+/* Review corrections: later page styles must not override input policy. */
+@media(hover:hover) and (pointer:fine){
+ html[data-motion-input="pointer"] .text-link:after,html[data-motion-input="pointer"] .text-link svg,html[data-motion-input="pointer"] .desktop-nav a:after{transition:transform 180ms var(--motion-ease-out)}
+ html[data-motion-input="pointer"] .text-link:hover:after,html[data-motion-input="pointer"] .desktop-nav a:hover:after{transform:scaleX(1)}
+ html[data-motion-input="pointer"] .text-link:hover svg{transform:translateX(2px)}
+}
+html[data-motion-input="keyboard"]{scroll-behavior:auto!important}
+html[data-motion-input="keyboard"] .button,html[data-motion-input="keyboard"] .button svg,
+html[data-motion-input="keyboard"] .product-image .product-art,
+html[data-motion-input="keyboard"] .ip-case-card img,html[data-motion-input="keyboard"] .ip-editorial-grid img,html[data-motion-input="keyboard"] .ip-digest-card-grid img{transition:none!important;transform:none!important}
+html[data-motion-input="keyboard"] .nav-chevron,html[data-motion-input="keyboard"] .text-link:after,html[data-motion-input="keyboard"] .text-link svg,html[data-motion-input="keyboard"] .desktop-nav a:after{transition:none!important}
+@media(prefers-reduced-motion:reduce){
+ .text-link:after,.text-link svg,.desktop-nav a:after,.nav-chevron,.services svg,.services small span{transition:none!important}
+ html[data-motion-input="pointer"] .text-link:hover svg,html[data-motion-input="pointer"] .services>button:hover svg,html[data-motion-input="pointer"] .services>button:hover small span{transform:none}
+}
