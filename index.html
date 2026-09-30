@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="styles.css?v=20260914-contact1">
   <script defer src="assets/vendor/gsap.min.js"></script>
   <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script defer src="app.js?v=home-studio-4"></script>
-<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=8">
+  <script defer src="app.js?v=home-studio-5"></script>
+<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=9">
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -69,24 +69,36 @@
       <a class="scroll-cue" href="#catalog" aria-label="Scroll to collection"><span>EXPLORE</span><svg><use href="#i-arrow"/></svg></a>
     </section>
 
-    <section class="home-story" id="sourcing-story" aria-labelledby="sourcing-title">
+    <section class="home-story" id="catalog" aria-labelledby="catalog-title">
       <div class="home-story-copy reveal">
-        <p class="eyebrow">APPAREL · HEADWEAR · SOCKS · PATCHES</p>
-        <h2 id="sourcing-title">A starting point<br><span>for your next range.</span></h2>
-        <p>Begin with plain clothing, headwear, socks or ready-made patches. Share the quantities, colors and artwork you have in mind to discuss your project.</p>
-        <a class="home-story-link" href="#catalog">Explore product categories <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="eyebrow">THE COLLECTION</p>
+        <h2 id="catalog-title">Build your product<br>range.</h2>
+        <p>Start with clothing, socks, headwear or ready-made patches. Share your quantities, colors and artwork to discuss your project.</p>
+        <a class="home-story-link" href="shop.html">Explore all products <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="home-story-gallery" role="group" aria-label="Netpro apparel and production imagery">
-        <figure class="home-story-frame home-story-frame-range">
-          <img src="assets/story.webp" alt="Two people wearing blue and white everyday apparel and headwear" width="1160" height="1450" loading="lazy" decoding="async">
-        </figure>
-        <figure class="home-story-frame home-story-frame-patchwork">
-          <img src="assets/production-patch-handling-01.webp" alt="Worker handling embroidered pieces beside production equipment" width="1440" height="960" loading="lazy" decoding="async">
-        </figure>
-        <figure class="home-story-frame home-story-frame-embroidery">
-          <img src="assets/factory-embroidery-line-01.webp" alt="Multi-head embroidery line stitching textile pieces" width="1600" height="1067" loading="lazy" decoding="async">
-        </figure>
+      <div class="accordion" aria-label="Shop by category">
+        <article class="category is-active" data-category="clothing">
+          <div class="category-photo clothing-photo" role="img" aria-label="Light blue Netpro hoodie"></div>
+          <h3><button id="category-clothing" class="category-toggle" aria-expanded="true" aria-controls="panel-clothing"><span>Clothing</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <div class="category-details" id="panel-clothing" role="region" aria-labelledby="category-clothing"><h4>Clothing</h4><p>Plain everyday layers. Customization available.</p><a class="button primary" href="shop.html?category=clothing">Explore Clothing <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+        <article class="category" data-category="socks">
+          <div class="category-photo product-art art-catalog-4" role="img" aria-label="Plain white ribbed crew socks"></div>
+          <h3><button id="category-socks" class="category-toggle" aria-expanded="false" aria-controls="panel-socks"><span>Socks</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <div class="category-details" id="panel-socks" role="region" aria-labelledby="category-socks" inert><h4>Socks</h4><p>Basic crew socks. Make them your own.</p><a class="button primary" href="shop.html?category=socks" tabindex="-1">Explore Socks <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+        <article class="category" data-category="headwear">
+          <div class="category-photo product-art art-catalog-6" role="img" aria-label="Plain blue basic cotton cap"></div>
+          <h3><button id="category-headwear" class="category-toggle" aria-expanded="false" aria-controls="panel-headwear"><span>Headwear</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <div class="category-details" id="panel-headwear" role="region" aria-labelledby="category-headwear" inert><h4>Headwear</h4><p>Plain caps. Ready to wear or customize.</p><a class="button primary" href="shop.html?category=headwear" tabindex="-1">Explore Headwear <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+        <article class="category" data-category="patches">
+          <div class="category-photo patch-photo" role="img" aria-label="Blue embroidered mountain patch with raised stitching"></div>
+          <h3><button id="category-patches" class="category-toggle" aria-expanded="false" aria-controls="panel-patches"><span>Ready-Made Patches</span><span class="category-plus" aria-hidden="true"></span></button></h3>
+          <div class="category-details" id="panel-patches" role="region" aria-labelledby="category-patches" inert><h4>Ready-Made Patches</h4><p>A little detail. A lot of personality.</p><a class="button primary" href="shop.html?category=patches" tabindex="-1">Ready-Made Patches <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
       </div>
+      <p class="accordion-hint">Basic clothing, hats &amp; socks — all available for customization. <span>Hover or tap to explore.</span></p>
     </section>
 
     <section class="b2b-section home-process" id="process" aria-labelledby="process-title">
@@ -117,33 +129,6 @@
           </div>
         </article>
       </div>
-    </section>
-
-    <section class="section catalog" id="catalog" aria-labelledby="catalog-title">
-      <div class="section-heading reveal"><div><p class="eyebrow">THE COLLECTION</p><h2 id="catalog-title">Build your product range.</h2></div><a class="text-link" href="shop.html">Explore all products <svg><use href="#i-external"/></svg></a></div>
-      <div class="accordion" aria-label="Shop by category">
-        <article class="category is-active" data-category="clothing">
-          <div class="category-photo clothing-photo" role="img" aria-label="Light blue Netpro hoodie"></div>
-          <h3><button id="category-clothing" class="category-toggle" aria-expanded="true" aria-controls="panel-clothing"><span>Clothing</span><span class="category-plus" aria-hidden="true"></span></button></h3>
-          <div class="category-details" id="panel-clothing" role="region" aria-labelledby="category-clothing"><h4>Clothing</h4><p>Plain everyday layers. Customization available.</p><a class="button primary" href="shop.html?category=clothing">Explore Clothing <svg><use href="#i-arrow"/></svg></a></div>
-        </article>
-        <article class="category" data-category="socks">
-          <div class="category-photo product-art art-catalog-4" role="img" aria-label="Plain white ribbed crew socks"></div>
-          <h3><button id="category-socks" class="category-toggle" aria-expanded="false" aria-controls="panel-socks"><span>Socks</span><span class="category-plus" aria-hidden="true"></span></button></h3>
-          <div class="category-details" id="panel-socks" role="region" aria-labelledby="category-socks" inert><h4>Socks</h4><p>Basic crew socks. Make them your own.</p><a class="button primary" href="shop.html?category=socks" tabindex="-1">Explore Socks <svg><use href="#i-arrow"/></svg></a></div>
-        </article>
-        <article class="category" data-category="headwear">
-          <div class="category-photo product-art art-catalog-6" role="img" aria-label="Plain blue basic cotton cap"></div>
-          <h3><button id="category-headwear" class="category-toggle" aria-expanded="false" aria-controls="panel-headwear"><span>Headwear</span><span class="category-plus" aria-hidden="true"></span></button></h3>
-          <div class="category-details" id="panel-headwear" role="region" aria-labelledby="category-headwear" inert><h4>Headwear</h4><p>Plain caps. Ready to wear or customize.</p><a class="button primary" href="shop.html?category=headwear" tabindex="-1">Explore Headwear <svg><use href="#i-arrow"/></svg></a></div>
-        </article>
-        <article class="category" data-category="patches">
-          <div class="category-photo patch-photo" role="img" aria-label="Blue embroidered mountain patch with raised stitching"></div>
-          <h3><button id="category-patches" class="category-toggle" aria-expanded="false" aria-controls="panel-patches"><span>Ready-Made Patches</span><span class="category-plus" aria-hidden="true"></span></button></h3>
-          <div class="category-details" id="panel-patches" role="region" aria-labelledby="category-patches" inert><h4>Ready-Made Patches</h4><p>A little detail. A lot of personality.</p><a class="button primary" href="shop.html?category=patches" tabindex="-1">Ready-Made Patches <svg><use href="#i-arrow"/></svg></a></div>
-        </article>
-      </div>
-      <p class="accordion-hint">Basic clothing, hats &amp; socks — all available for customization. <span>Hover or tap to explore.</span></p>
     </section>
 
     <section class="section arrivals" id="arrivals" aria-labelledby="arrivals-title">

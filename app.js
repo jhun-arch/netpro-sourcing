@@ -451,16 +451,6 @@
         scrollTrigger: { trigger: '.accordion', start: 'top 88%', once: true },
         clearProps: 'transform,opacity'
       });
-      gsap.from('.home-story-gallery .home-story-frame img', {
-        yPercent: 12,
-        opacity: 0,
-        scale: 1.035,
-        duration: 1,
-        stagger: .12,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '.home-story-gallery', start: 'top 82%', once: true },
-        clearProps: 'transform,opacity'
-      });
       gsap.from('.home-process .service-grid .process-visual img', {
         yPercent: 12,
         opacity: 0,
