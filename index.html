@@ -15,7 +15,7 @@
   <script defer src="assets/vendor/gsap.min.js"></script>
   <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
   <script defer src="app.js?v=home-studio-14"></script>
-<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=19">
+<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=20">
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -103,49 +103,43 @@
 
     <section class="b2b-section home-process" id="process" aria-labelledby="process-title">
       <div class="home-process-inner">
-        <figure class="home-process-feature process-reveal">
-          <img src="assets/factory-embroidery-line-02.webp" alt="Embroidery machines running along a factory production line" width="1600" height="1067" loading="lazy" decoding="async">
-        </figure>
-        <div class="home-process-content">
-          <header class="home-process-header">
-            <h2 class="process-reveal" id="process-title"><span>From brief</span> <span>to production.</span></h2>
-          </header>
-          <div class="home-process-grid" role="list" aria-label="The sourcing process">
-            <article class="home-process-step process-reveal" role="listitem">
-              <span class="home-process-step-number" aria-hidden="true">01</span>
-              <div class="home-process-copy">
-                <h3>Your brief</h3>
-                <p>Choose ready stock or a custom product. Share your quantities, colors, sizes and artwork.</p>
-              </div>
-              <figure class="home-process-visual">
-                <img src="assets/placeholder-ai-np-artwork.webp" alt="Hands sketching a patch beside fabric swatches and a blank cap" width="1672" height="941" loading="lazy" decoding="async">
-              </figure>
-            </article>
-            <article class="home-process-step process-reveal" role="listitem">
-              <span class="home-process-step-number" aria-hidden="true">02</span>
-              <div class="home-process-copy">
-                <h3>Sampling</h3>
-                <p>Approve your custom sample, materials and decoration before production.</p>
-              </div>
-              <figure class="home-process-visual">
-                <img src="assets/placeholder-ai-sample-review-01.webp" alt="Hands reviewing a garment sample with fabric and thread swatches" width="1440" height="960" loading="lazy" decoding="async">
-              </figure>
-            </article>
-            <article class="home-process-step process-reveal" role="listitem">
-              <span class="home-process-step-number" aria-hidden="true">03</span>
-              <div class="home-process-copy">
-                <h3>Production</h3>
-                <p>Agree the production specification, product checks and packing before dispatch.</p>
-              </div>
-              <figure class="home-process-visual">
-                <img src="assets/factory-stitching-detail-01.webp" alt="Close detail of a machine stitching a garment panel" width="1600" height="1067" loading="lazy" decoding="async">
-              </figure>
-            </article>
-          </div>
-          <div class="home-process-actions process-reveal">
+        <header class="home-process-header process-reveal">
+          <h2 id="process-title"><span>From brief</span> <span>to production.</span></h2>
+          <div class="home-process-actions">
             <a class="home-process-primary" href="quote.html">Discuss your project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="home-process-secondary" href="shop.html">Browse ready stock <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
+        </header>
+        <div class="home-process-gallery process-reveal" role="group" aria-label="Product and sample references">
+          <figure class="home-process-gallery-primary">
+            <img src="assets/placeholder-ai-np-apparel.webp" alt="Illustrative cream sweatshirt with folded blue apparel" width="1672" height="941" loading="lazy" decoding="async">
+          </figure>
+          <figure class="home-process-gallery-secondary">
+            <img src="assets/placeholder-ai-sample-review-01.webp" alt="Illustrative sample review with fabric swatches and a sweatshirt" width="1440" height="960" loading="lazy" decoding="async">
+          </figure>
+        </div>
+        <div class="home-process-grid" role="list" aria-label="The sourcing process">
+          <article class="home-process-step process-reveal" role="listitem">
+            <span class="home-process-step-number" aria-hidden="true">01</span>
+            <div class="home-process-copy">
+              <h3>Your brief</h3>
+              <p>Choose ready stock or a custom product. Share your quantities, colors, sizes and artwork.</p>
+            </div>
+          </article>
+          <article class="home-process-step process-reveal" role="listitem">
+            <span class="home-process-step-number" aria-hidden="true">02</span>
+            <div class="home-process-copy">
+              <h3>Sampling</h3>
+              <p>Approve your custom sample, materials and decoration before production.</p>
+            </div>
+          </article>
+          <article class="home-process-step process-reveal" role="listitem">
+            <span class="home-process-step-number" aria-hidden="true">03</span>
+            <div class="home-process-copy">
+              <h3>Production</h3>
+              <p>Agree the production specification, product checks and packing before dispatch.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
