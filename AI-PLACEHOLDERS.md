@@ -110,3 +110,24 @@ Source output: `exec-d1bd2338-47e4-4747-9b9c-c19b2da027e8.png`.
 One original horizontal16:9 luxury independent apparel editorial campaign photograph for a Netpro Sourcing Trends Digest website hero. Two anonymous adult models wearing understated cream heavyweight sweatshirt and navy overshirt, navy cap, wide-leg dark trousers, small abstract tonal embroidered patch without text. Models at right two-thirds, standing naturally against monumental pale cool-gray concrete architecture, soft morning light with long shadows. Calm negative space in left third for live headline. Contemporary European independent fashion lookbook, authentic cotton and twill texture, refined cool navy/cream/dustyblue grading, no commercial brand logos, no text, no UI, no watermark, not a collage. Medium wide full figure photographic composition, natural proportions and hands.
 
 Source output: `exec-5e09ad69-e9e5-49aa-a0cd-be597180270d.png`.
+
+## Home category accordion — 2026-09-30
+
+Four original category photographs were generated **one at a time** with built-in imagegen for the Home accordion. They are illustrative concepts, not verified NetPro merchandise, customer work or factory evidence. Each source is 1024 × 1536 pixels and was exported uncropped as a 1024 × 1536 WebP at quality 90. CSS handles narrow and expanded panel crops. Replace each with an approved real category photograph when available.
+
+| Asset | Category and replacement | Source output |
+|---|---|---|
+| `placeholder-ai-home-accordion-clothing.webp` | Plain blue hoodie editorial portrait; replace with approved NetPro clothing photography. | `exec-1ebf88cd-59a1-4c19-98f6-24ca6524e835.png` |
+| `placeholder-ai-home-accordion-socks.webp` | Cream ribbed crew socks on model; replace with approved sock photography. | `exec-bc9d1488-b816-49c4-a470-c212c7308cff.png` |
+| `placeholder-ai-home-accordion-headwear.webp` | Plain blue cap editorial portrait; replace with approved headwear photography. | `exec-ce933174-022a-400f-b865-27fcaadeffc2.png` |
+| `placeholder-ai-home-accordion-patches.webp` | Blank embroidered shape patches; replace with approved ready-made patch photography. | `exec-7b67d7a0-4450-43ff-8286-e1ccb33cdfbc.png` |
+
+### Generation prompts
+
+**Clothing.** Generate one original high-resolution photorealistic editorial photograph for a premium B2B apparel sourcing website category accordion. Tall portrait 2:3 composition for narrow and expanded crops. One adult model wears an unbranded plain pale powder-blue heavyweight cotton hoodie, waist-up to three-quarter portrait, relaxed pose. Pale concrete architecture, soft daylight, realistic anatomy and garment construction, cool gray and muted blue. No lettering, logos, graphics, labels, badges, text, watermark, extra people, collage or claims.
+
+**Socks.** Generate one original high-resolution photorealistic editorial photograph for a premium B2B apparel sourcing website category accordion. Tall portrait 2:3 composition. Two plain cream-white ribbed cotton crew socks worn on a seated adult model's lower legs, feet resting on pale concrete steps. Socks are centered and large, with believable knit, heel and toe shape. No face or footwear hiding the socks. Soft daylight, pale gray and subtle powder blue. No stripes, lettering, logos, labels, graphics, text, watermark, collage or claims.
+
+**Headwear.** Generate one original high-resolution photorealistic editorial photograph for a premium B2B apparel sourcing website category accordion. Tall portrait 2:3 composition. Close three-quarter portrait of one adult woman wearing a completely plain muted cobalt-blue six-panel cotton baseball cap; cap and curved brim prominent and in frame. Off-white top, cool concrete wall, blue sky, daylight, visible cotton twill and stitching. No lettering, logos, graphics, embroidery, labels, text, watermark, other people, collage or claims.
+
+**Ready-made patches.** Generate one original high-resolution photorealistic editorial product photograph for a premium B2B apparel sourcing website category accordion. Tall portrait 2:3 composition. Several unbranded blank embroidered fabric patches in circle, oval, rectangle and rounded-square shapes on off-white cotton canvas. Muted cobalt, navy and cream, raised borders and woven texture; one adult hand gently selecting a patch. Soft daylight, realistic material detail. No designs inside patches, letters, logos, wording, printed motifs, watermark, collage, packaging or claims.

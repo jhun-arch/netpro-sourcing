@@ -270,9 +270,26 @@
 
 .home-page .home-story {
   display: block;
+  position: relative;
+  isolation: isolate;
   padding: 0 0 clamp(52px, 5.8vw, 84px);
-  color: #fff;
+  color: var(--home-charcoal);
+  background: #fff;
+}
+
+.home-page .home-story-wipe {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   background: var(--home-charcoal);
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: center bottom;
+}
+
+.home-page .home-story > :not(.home-story-wipe) {
+  position: relative;
+  z-index: 1;
 }
 
 .home-page .home-story-copy {
@@ -295,7 +312,7 @@
 
 .home-page .home-story h2 {
   max-width: 960px;
-  color: #fff;
+  color: var(--home-charcoal);
   font-size: clamp(58px, 7vw, 100px);
   font-weight: 500;
   letter-spacing: normal;
@@ -305,7 +322,7 @@
 .home-page .home-story-copy > p:not(.eyebrow) {
   max-width: 760px;
   margin-top: 22px;
-  color: rgba(255, 255, 255, .78);
+  color: #606c7b;
   font-size: clamp(15px, 1.25vw, 18px);
   line-height: 1.6;
 }
@@ -316,8 +333,8 @@
   gap: 22px;
   margin-top: 24px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(66, 96, 151, .7);
-  color: #fff;
+  border-bottom: 1px solid rgba(66, 96, 151, .38);
+  color: var(--home-accent-blue);
   font-size: 14px;
   font-weight: 500;
   transition: border-color 200ms var(--home-hover-ease), color 200ms var(--home-hover-ease);
@@ -330,8 +347,8 @@
 }
 
 .home-page .home-story-link:hover {
-  color: #fff;
-  border-color: #426097;
+  color: var(--home-accent-blue);
+  border-color: var(--home-accent-blue);
 }
 
 .home-page .home-story-link:hover svg {
@@ -341,16 +358,84 @@
 .home-page .home-story .accordion {
   width: 100%;
   max-width: none;
-  height: clamp(480px, 36vw, 680px);
+  height: clamp(700px, 55vw, 920px);
   margin-inline: auto;
   gap: 2px;
-  background: var(--home-charcoal);
+  background: transparent;
 }
 
 .home-page .home-story .accordion-hint {
   width: calc(100% - var(--home-gutter) - var(--home-gutter));
   max-width: 1840px;
   margin: 18px auto 0;
+  color: #657287;
+}
+
+.home-page .home-story .home-story-copy > .home-story-copy-overlay,
+.home-page .home-story .accordion-hint > .home-story-hint-overlay {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  clip-path: inset(100% 0 0 0);
+}
+
+.home-page .home-story .home-story-copy-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: inherit;
+  text-align: center;
+}
+
+.home-page .home-story .home-story-copy-overlay > p:not(.eyebrow) {
+  max-width: 760px;
+  margin-top: 22px;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.6;
+}
+
+.home-page .home-story .home-story-hint-overlay {
+  display: block;
+}
+
+.home-page .home-story .home-story-copy-overlay,
+.home-page .home-story .home-story-copy-overlay .eyebrow,
+.home-page .home-story .home-story-copy-overlay h2,
+.home-page .home-story .home-story-copy-overlay > p:not(.eyebrow),
+.home-page .home-story .home-story-copy-overlay .home-story-link,
+.home-page .home-story .home-story-hint-overlay {
+  color: #fff;
+}
+
+.home-page .home-story .home-story-copy-overlay .home-story-link {
+  border-color: rgba(255, 255, 255, .6);
+}
+
+.home-page .home-story.is-dark {
+  color: #fff;
+  background: var(--home-charcoal);
+}
+
+.home-page .home-story.is-dark .home-story-wipe {
+  transform: scaleY(1);
+}
+
+.home-page .home-story.is-dark .eyebrow,
+.home-page .home-story.is-dark h2,
+.home-page .home-story.is-dark .home-story-link {
+  color: #fff;
+}
+
+.home-page .home-story.is-dark .home-story-link {
+  border-color: rgba(255, 255, 255, .6);
+}
+
+.home-page .home-story.is-dark .home-story-copy > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, .78);
+}
+
+.home-page .home-story.is-dark .accordion-hint {
   color: rgba(255, 255, 255, .68);
 }
 
@@ -511,6 +596,26 @@
   border: 0;
   background: #d8e0e8;
   transition: flex 520ms var(--home-hover-ease);
+}
+
+.home-page .category[data-category='clothing'] .category-photo {
+  background-image: url('assets/placeholder-ai-home-accordion-clothing.webp');
+  background-position: center 44%;
+}
+
+.home-page .category[data-category='socks'] .category-photo {
+  background-image: url('assets/placeholder-ai-home-accordion-socks.webp');
+  background-position: center 54%;
+}
+
+.home-page .category[data-category='headwear'] .category-photo {
+  background-image: url('assets/placeholder-ai-home-accordion-headwear.webp');
+  background-position: center 35%;
+}
+
+.home-page .category[data-category='patches'] .category-photo {
+  background-image: url('assets/placeholder-ai-home-accordion-patches.webp');
+  background-position: center 52%;
 }
 
 .home-page .category.is-active {

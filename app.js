@@ -443,14 +443,105 @@
         scrollTrigger: { trigger: el, start: 'top 91%', once: true },
         clearProps: 'transform,opacity'
       }));
-      gsap.from('.accordion', {
-        y: 24,
-        opacity: 0,
-        duration: .95,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.accordion', start: 'top 88%', once: true },
-        clearProps: 'transform,opacity'
-      });
+      const chapter = $('.home-story');
+      const chapterAccordion = chapter && chapter.querySelector('.accordion');
+      const chapterWipe = chapter && chapter.querySelector('.home-story-wipe');
+      const chapterEntranceCleanup = [];
+      const chapterVisualClones = [];
+      if (chapterAccordion && chapterWipe) {
+        const makeVisualClone = (source, className) => {
+          if (!source) return null;
+          const content = source.cloneNode(true);
+          const clone = document.createElement('div');
+          clone.className = className;
+          clone.setAttribute('aria-hidden', 'true');
+          clone.setAttribute('inert', '');
+          content.removeAttribute('id');
+          content.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
+          content.querySelectorAll('a').forEach(link => {
+            const visualLink = document.createElement('span');
+            visualLink.className = link.className;
+            visualLink.innerHTML = link.innerHTML;
+            visualLink.setAttribute('aria-hidden', 'true');
+            link.replaceWith(visualLink);
+          });
+          while (content.firstChild) clone.appendChild(content.firstChild);
+          source.appendChild(clone);
+          chapterVisualClones.push(clone);
+          return clone;
+        };
+        const copy = chapter.querySelector('.home-story-copy');
+        const hint = chapter.querySelector('.accordion-hint');
+        const copyOverlay = makeVisualClone(copy, 'home-story-copy-overlay');
+        const hintOverlay = makeVisualClone(hint, 'home-story-hint-overlay');
+        const updateChapterOverlays = () => {
+          const scaleY = gsap.utils.clamp(0, 1, Number(gsap.getProperty(chapterWipe, 'scaleY')) || 0);
+          const chapterRect = chapter.getBoundingClientRect();
+          const boundaryY = (1 - scaleY) * chapterRect.height;
+          [[copy, copyOverlay], [hint, hintOverlay]].forEach(([source, overlay]) => {
+            if (!source || !overlay) return;
+            const sourceRect = source.getBoundingClientRect();
+            const sourceTop = sourceRect.top - chapterRect.top;
+            const clipTop = gsap.utils.clamp(0, sourceRect.height, boundaryY - sourceTop);
+            overlay.style.clipPath = `inset(${clipTop}px 0 0 0)`;
+          });
+        };
+        const chapterTheme = gsap.timeline({
+          onUpdate: updateChapterOverlays,
+          scrollTrigger: {
+            trigger: chapterAccordion,
+            start: 'top 85%',
+            end: 'top 45%',
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onRefresh: updateChapterOverlays
+          }
+        });
+        chapterTheme.fromTo(chapterWipe,
+          { scaleY: 0 },
+          { scaleY: 1, duration: 1, ease: 'none' },
+          0
+        );
+        updateChapterOverlays();
+
+        chapterAccordion.querySelectorAll('.category').forEach((category, index) => {
+          const startAt = 95 - index * 1.5;
+          const endAt = 72 - index * 1.5;
+          const entrance = gsap.fromTo(category,
+            { y: 48 },
+            {
+              y: 0,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: category,
+                start: () => `top ${startAt}%`,
+                end: () => `top ${endAt}%`,
+                scrub: 1.2,
+                invalidateOnRefresh: true
+              }
+            }
+          );
+          const events = ['pointerenter', 'pointerdown', 'focusin', 'click'];
+          let entranceResolved = false;
+          const revealForInteraction = () => {
+            if (entranceResolved) return;
+            entranceResolved = true;
+            entrance.scrollTrigger?.kill();
+            entrance.kill();
+            gsap.set(category, { clearProps: 'transform' });
+            events.forEach(event => category.removeEventListener(event, revealForInteraction));
+          };
+          events.forEach(event => category.addEventListener(event, revealForInteraction));
+          chapterEntranceCleanup.push(() => {
+            events.forEach(event => category.removeEventListener(event, revealForInteraction));
+            if (entranceResolved) return;
+            entranceResolved = true;
+            entrance.scrollTrigger?.kill();
+            entrance.kill();
+            gsap.set(category, { clearProps: 'transform' });
+          });
+        });
+      }
       gsap.from('.home-process .service-grid .process-visual img', {
         yPercent: 12,
         opacity: 0,
@@ -495,6 +586,27 @@
       return () => {
         document.removeEventListener('visibilitychange', syncSlidePlayback);
         if (slideTimeline) slideTimeline.kill();
+        chapterEntranceCleanup.forEach(cleanup => cleanup());
+        chapterVisualClones.forEach(clone => clone.remove());
+      };
+    });
+
+    motion.add('(prefers-reduced-motion: reduce)', () => {
+      const chapter = $('.home-story');
+      const chapterAccordion = chapter && chapter.querySelector('.accordion');
+      if (!chapterAccordion) return;
+
+      const themeTrigger = ScrollTrigger.create({
+        trigger: chapterAccordion,
+        start: 'top 55%',
+        onEnter: () => chapter.classList.add('is-dark'),
+        onEnterBack: () => chapter.classList.add('is-dark'),
+        onLeaveBack: () => chapter.classList.remove('is-dark')
+      });
+
+      return () => {
+        themeTrigger.kill();
+        chapter.classList.remove('is-dark');
       };
     });
   }
