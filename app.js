@@ -6,6 +6,14 @@
   const products = [{"id": "tee-white", "name": "Essential White Tee", "category": "clothing", "color": "White", "swatch": "#f0f0eb", "sizes": ["S", "M", "L", "XL"], "art": "catalog-0", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "tee-navy", "name": "Essential Navy Tee", "category": "clothing", "color": "Navy", "swatch": "#1d304c", "sizes": ["S", "M", "L", "XL"], "art": "catalog-1", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "sweatshirt", "name": "Classic Crewneck", "category": "clothing", "color": "Oatmeal", "swatch": "#d9ceba", "sizes": ["S", "M", "L", "XL"], "art": "catalog-2", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "hoodie", "name": "Basic Hoodie", "category": "clothing", "color": "Sky blue", "swatch": "#a4c6df", "sizes": ["S", "M", "L", "XL"], "art": "catalog-3", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "socks", "name": "Basic Crew Socks", "category": "socks", "color": "White", "swatch": "#f0f0eb", "sizes": ["S/M", "L/XL"], "art": "catalog-4", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "socks-black", "name": "Black Crew Socks", "category": "socks", "color": "Black", "swatch": "#252525", "sizes": ["S/M", "L/XL"], "art": "catalog-5", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "cap", "name": "Basic Blue Cap", "category": "headwear", "color": "Cobalt blue", "swatch": "#285cad", "sizes": ["One size"], "art": "catalog-6", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "cap-beige", "name": "Basic Beige Cap", "category": "headwear", "color": "Beige", "swatch": "#d6c5a8", "sizes": ["One size"], "art": "catalog-7", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "patch", "name": "Blank Shape Patches", "category": "patches", "color": "Mixed blues", "swatch": "#3d608e", "sizes": ["One size"], "art": "catalog-8", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}];
   const isShop = document.body.classList.contains("shop-page");
   const isHome = document.body.classList.contains("home-page");
+  const navigationEntry = performance.getEntriesByType('navigation')[0];
+  const shouldResetHomeReload = isHome
+    && navigationEntry?.type === 'reload'
+    && ['', '#home', '#top'].includes(location.hash);
+  const previousScrollRestoration = shouldResetHomeReload ? history.scrollRestoration : null;
+  if (shouldResetHomeReload) {
+    try { history.scrollRestoration = 'manual'; } catch { /* History may be unavailable in private embeds. */ }
+  }
   const shopState = {color:"all",size:[],sort:"featured",page:1};
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -353,10 +361,8 @@
   let directionReferenceY = window.scrollY;
   function updateScroll() {
     const scrollPosition = window.scrollY;
-    const hero = isHome ? $('.hero') : null;
-    const isPastHomeHero = hero ? hero.getBoundingClientRect().bottom <= 0 : false;
     header.classList.toggle('is-pinned', isHome && scrollPosition > 70);
-    header.classList.toggle('is-scrolled', isHome ? isPastHomeHero : scrollPosition > 70);
+    header.classList.toggle('is-scrolled', isHome ? scrollPosition > 2 : scrollPosition > 70);
     if (isHome) {
       const keepHeaderVisible = header.classList.contains('menu-is-open')
         || navGroups.some(group => $('.nav-trigger', group).getAttribute('aria-expanded') === 'true')
@@ -378,6 +384,24 @@
     ticking = false;
   }
   window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true });
+
+  if (shouldResetHomeReload) {
+    let homeReloadFinalized = false;
+    const finalizeHomeReload = () => {
+      if (homeReloadFinalized) return;
+      homeReloadFinalized = true;
+      window.ScrollTrigger?.clearScrollMemory?.();
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      updateScroll();
+      try { history.scrollRestoration = previousScrollRestoration; } catch { /* Ignore unsupported history controls. */ }
+    };
+    const resetHomeReload = event => {
+      if (event?.persisted) return;
+      requestAnimationFrame(() => requestAnimationFrame(finalizeHomeReload));
+    };
+    window.addEventListener('pageshow', resetHomeReload, { once: true });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }
   updateScroll();
 
   // Local GSAP files allow scroll animations to work offline as well as over HTTP.
