@@ -498,7 +498,6 @@
       if (chapterAccordion && chapterWipe) {
         const categoriesInChapter = $$('.category', chapterAccordion);
         const copy = chapter.querySelector('.home-story-copy');
-        const hint = chapter.querySelector('.accordion-hint');
 
         const makeVisualClone = (source, className) => {
           if (!source) return null;
@@ -523,7 +522,6 @@
 
         const createDesktopChapterTimeline = () => {
           const copyOverlay = makeVisualClone(copy, 'home-story-copy-overlay');
-          const hintOverlay = makeVisualClone(hint, 'home-story-hint-overlay');
           const chapterEntranceOffsets = [0, .10, .04, .15];
           const chapterStageOffsets = [0, .22, .10, .32];
           const entranceDuration = 1.5;
@@ -544,7 +542,7 @@
             const scaleY = gsap.utils.clamp(0, 1, Number(gsap.getProperty(chapterWipe, 'scaleY')) || 0);
             const chapterRect = chapter.getBoundingClientRect();
             const boundaryY = (1 - scaleY) * chapterRect.height;
-            [[copy, copyOverlay], [hint, hintOverlay]].forEach(([source, overlay]) => {
+            [[copy, copyOverlay]].forEach(([source, overlay]) => {
               if (!source || !overlay) return;
               const sourceRect = source.getBoundingClientRect();
               const sourceTop = sourceRect.top - chapterRect.top;
@@ -618,7 +616,6 @@
             chapterTimeline.scrollTrigger?.kill(true);
             chapterTimeline.kill();
             copyOverlay?.remove();
-            hintOverlay?.remove();
             chapter.classList.remove('is-dark');
             gsap.set(categoriesInChapter, { clearProps: 'transform' });
             gsap.set(chapterWipe, { clearProps: 'transform' });
@@ -658,6 +655,26 @@
         chapterMotion.add('(min-width: 900px)', createDesktopChapterTimeline);
         chapterMotion.add('(max-width: 899px)', createMobileChapterMotion);
       }
+      gsap.from('.home-starting-points .service-grid .process-visual img', {
+        yPercent: 12,
+        opacity: 0,
+        scale: 1.035,
+        duration: 1,
+        stagger: .16,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.home-starting-points .service-grid', start: 'top 84%', once: true },
+        clearProps: 'transform,opacity'
+      });
+      gsap.from('.home-starting-points .service-grid .process-copy', {
+        y: 24,
+        opacity: 0,
+        duration: .95,
+        stagger: .2,
+        delay: .18,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.home-starting-points .service-grid', start: 'top 88%', once: true },
+        clearProps: 'transform,opacity'
+      });
       gsap.from('.product-card', {
         y: 24,
         opacity: 0,
