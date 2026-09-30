@@ -272,6 +272,7 @@
   display: block;
   position: relative;
   isolation: isolate;
+  overflow: clip;
   padding: 0 0 clamp(52px, 5.8vw, 84px);
   color: var(--home-charcoal);
   background: #fff;

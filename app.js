@@ -446,9 +446,13 @@
       const chapter = $('.home-story');
       const chapterAccordion = chapter && chapter.querySelector('.accordion');
       const chapterWipe = chapter && chapter.querySelector('.home-story-wipe');
-      const chapterEntranceCleanup = [];
-      const chapterVisualClones = [];
+      const chapterMotion = gsap.matchMedia();
+
       if (chapterAccordion && chapterWipe) {
+        const categoriesInChapter = $$('.category', chapterAccordion);
+        const copy = chapter.querySelector('.home-story-copy');
+        const hint = chapter.querySelector('.accordion-hint');
+
         const makeVisualClone = (source, className) => {
           if (!source) return null;
           const content = source.cloneNode(true);
@@ -467,80 +471,145 @@
           });
           while (content.firstChild) clone.appendChild(content.firstChild);
           source.appendChild(clone);
-          chapterVisualClones.push(clone);
           return clone;
         };
-        const copy = chapter.querySelector('.home-story-copy');
-        const hint = chapter.querySelector('.accordion-hint');
-        const copyOverlay = makeVisualClone(copy, 'home-story-copy-overlay');
-        const hintOverlay = makeVisualClone(hint, 'home-story-hint-overlay');
-        const updateChapterOverlays = () => {
-          const scaleY = gsap.utils.clamp(0, 1, Number(gsap.getProperty(chapterWipe, 'scaleY')) || 0);
-          const chapterRect = chapter.getBoundingClientRect();
-          const boundaryY = (1 - scaleY) * chapterRect.height;
-          [[copy, copyOverlay], [hint, hintOverlay]].forEach(([source, overlay]) => {
-            if (!source || !overlay) return;
-            const sourceRect = source.getBoundingClientRect();
-            const sourceTop = sourceRect.top - chapterRect.top;
-            const clipTop = gsap.utils.clamp(0, sourceRect.height, boundaryY - sourceTop);
-            overlay.style.clipPath = `inset(${clipTop}px 0 0 0)`;
-          });
-        };
-        const chapterTheme = gsap.timeline({
-          onUpdate: updateChapterOverlays,
-          scrollTrigger: {
-            trigger: chapterAccordion,
-            start: 'top 85%',
-            end: 'top 45%',
-            scrub: 1,
-            invalidateOnRefresh: true,
-            onRefresh: updateChapterOverlays
-          }
-        });
-        chapterTheme.fromTo(chapterWipe,
-          { scaleY: 0 },
-          { scaleY: 1, duration: 1, ease: 'none' },
-          0
-        );
-        updateChapterOverlays();
 
-        chapterAccordion.querySelectorAll('.category').forEach((category, index) => {
-          const startAt = 95 - index * 1.5;
-          const endAt = 72 - index * 1.5;
-          const entrance = gsap.fromTo(category,
-            { y: 48 },
-            {
-              y: 0,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: category,
-                start: () => `top ${startAt}%`,
-                end: () => `top ${endAt}%`,
-                scrub: 1.2,
-                invalidateOnRefresh: true
+        const createDesktopChapterTimeline = () => {
+          const copyOverlay = makeVisualClone(copy, 'home-story-copy-overlay');
+          const hintOverlay = makeVisualClone(hint, 'home-story-hint-overlay');
+          const chapterEntranceOffsets = [0, .10, .04, .15];
+          const chapterStageOffsets = [0, .22, .10, .32];
+          const entranceDuration = 1.5;
+          const entranceEnd = Math.max(...chapterStageOffsets.map(offset => offset + entranceDuration));
+          const alignedHold = .25;
+          const wipeDuration = 1.2;
+          const wipeStart = entranceEnd + alignedHold;
+          const wipeEnd = wipeStart + wipeDuration;
+          const releaseHold = .2;
+
+          chapter.classList.remove('is-dark');
+          gsap.set(chapterWipe, { scaleY: 0 });
+
+          const initialCategoryY = index => Math.max(0, innerHeight - chapterAccordion.offsetTop)
+            + innerHeight * .08
+            + (chapterEntranceOffsets[index] || 0) * innerHeight;
+          const updateChapterOverlays = () => {
+            const scaleY = gsap.utils.clamp(0, 1, Number(gsap.getProperty(chapterWipe, 'scaleY')) || 0);
+            const chapterRect = chapter.getBoundingClientRect();
+            const boundaryY = (1 - scaleY) * chapterRect.height;
+            [[copy, copyOverlay], [hint, hintOverlay]].forEach(([source, overlay]) => {
+              if (!source || !overlay) return;
+              const sourceRect = source.getBoundingClientRect();
+              const sourceTop = sourceRect.top - chapterRect.top;
+              const clipTop = gsap.utils.clamp(0, sourceRect.height, boundaryY - sourceTop);
+              overlay.style.clipPath = `inset(${clipTop}px 0 0 0)`;
+            });
+          };
+
+          let chapterTimeline;
+          chapterTimeline = gsap.timeline({
+            onUpdate: updateChapterOverlays,
+            scrollTrigger: {
+              trigger: chapter,
+              start: 'top top',
+              end: () => `+=${Math.round(innerHeight * 1.8)}`,
+              pin: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+              anticipatePin: 1,
+              onRefresh: updateChapterOverlays,
+              onLeave: self => {
+                self.getTween?.()?.progress(1);
+                chapterTimeline?.progress(1);
+                updateChapterOverlays();
+              },
+              onLeaveBack: self => {
+                self.getTween?.()?.progress(0);
+                chapterTimeline?.progress(0);
+                updateChapterOverlays();
               }
             }
-          );
-          const events = ['pointerenter', 'pointerdown', 'focusin', 'click'];
-          let entranceResolved = false;
-          const revealForInteraction = () => {
-            if (entranceResolved) return;
-            entranceResolved = true;
-            entrance.scrollTrigger?.kill();
-            entrance.kill();
-            gsap.set(category, { clearProps: 'transform' });
-            events.forEach(event => category.removeEventListener(event, revealForInteraction));
-          };
-          events.forEach(event => category.addEventListener(event, revealForInteraction));
-          chapterEntranceCleanup.push(() => {
-            events.forEach(event => category.removeEventListener(event, revealForInteraction));
-            if (entranceResolved) return;
-            entranceResolved = true;
-            entrance.scrollTrigger?.kill();
-            entrance.kill();
-            gsap.set(category, { clearProps: 'transform' });
           });
-        });
+          const entranceTweens = categoriesInChapter.map((category, index) => {
+            chapterTimeline.fromTo(category,
+              { y: () => initialCategoryY(index) },
+              { y: 0, duration: entranceDuration, ease: 'none' },
+              chapterStageOffsets[index] || 0
+            );
+            const entranceTween = chapterTimeline
+              .getChildren(false, true, false)
+              .find(tween => tween.targets()[0] === category);
+            const cancelEntrance = () => {
+              entranceTween?.kill();
+              gsap.set(category, { clearProps: 'transform' });
+              category.removeEventListener('pointerdown', cancelEntrance);
+              category.removeEventListener('focusin', cancelEntrance);
+            };
+            category.addEventListener('pointerdown', cancelEntrance);
+            category.addEventListener('focusin', cancelEntrance);
+            if (entranceTween) entranceTween._chapterCancel = cancelEntrance;
+            return entranceTween;
+          });
+
+          chapterTimeline.addLabel('aligned', entranceEnd);
+          chapterTimeline.fromTo(chapterWipe,
+            { scaleY: 0 },
+            { scaleY: 1, duration: wipeDuration, ease: 'none' },
+            wipeStart
+          );
+          chapterTimeline.to(chapterWipe, { scaleY: 1, duration: releaseHold, ease: 'none' }, wipeEnd);
+          updateChapterOverlays();
+
+          return () => {
+            entranceTweens.forEach((entranceTween, index) => {
+              const cancelEntrance = entranceTween?._chapterCancel;
+              const category = categoriesInChapter[index];
+              if (cancelEntrance) cancelEntrance();
+              category.removeEventListener('pointerdown', cancelEntrance);
+              category.removeEventListener('focusin', cancelEntrance);
+            });
+            chapterTimeline.scrollTrigger?.kill(true);
+            chapterTimeline.kill();
+            copyOverlay?.remove();
+            hintOverlay?.remove();
+            chapter.classList.remove('is-dark');
+            gsap.set(categoriesInChapter, { clearProps: 'transform' });
+            gsap.set(chapterWipe, { clearProps: 'transform' });
+          };
+        };
+
+        const createMobileChapterMotion = () => {
+          const chapterEntrance = gsap.from(categoriesInChapter, {
+            y: 18,
+            opacity: 0,
+            duration: .55,
+            stagger: .08,
+            ease: 'power2.out',
+            clearProps: 'transform,opacity',
+            scrollTrigger: {
+              trigger: chapterAccordion,
+              start: 'top 84%',
+              once: true
+            }
+          });
+          const chapterTheme = ScrollTrigger.create({
+            trigger: chapterAccordion,
+            start: 'top 62%',
+            onEnter: () => chapter.classList.add('is-dark'),
+            onEnterBack: () => chapter.classList.add('is-dark'),
+            onLeaveBack: () => chapter.classList.remove('is-dark')
+          });
+          return () => {
+            chapterEntrance.scrollTrigger?.kill(true);
+            chapterEntrance.kill();
+            chapterTheme.kill();
+            chapter.classList.remove('is-dark');
+            gsap.set(categoriesInChapter, { clearProps: 'transform,opacity' });
+          };
+        };
+
+        chapterMotion.add('(min-width: 900px)', createDesktopChapterTimeline);
+        chapterMotion.add('(max-width: 899px)', createMobileChapterMotion);
       }
       gsap.from('.home-process .service-grid .process-visual img', {
         yPercent: 12,
@@ -586,8 +655,7 @@
       return () => {
         document.removeEventListener('visibilitychange', syncSlidePlayback);
         if (slideTimeline) slideTimeline.kill();
-        chapterEntranceCleanup.forEach(cleanup => cleanup());
-        chapterVisualClones.forEach(clone => clone.remove());
+        chapterMotion.revert();
       };
     });
 
