@@ -1,8 +1,9 @@
 /* Homepage design system: THE/STUDIO-inspired chapters, scoped to the home page. */
 .home-page {
-  --blue: #355EE1;
+  --home-accent-blue: #426097;
+  --home-button-blue: #355EE1;
+  --blue: var(--home-accent-blue);
   --home-gutter: clamp(22px, 3.34vw, 48px);
-  --home-blue: #355EE1;
   --home-charcoal: #2d2d2d;
   --home-surface: #f5f5f7;
   --home-pale-blue: #bfd4f1;
@@ -21,6 +22,11 @@
 
 .home-page :is(button, input, select, textarea) {
   font-family: 'Montserrat', sans-serif;
+}
+
+.home-page .button.primary,
+.home-page .button.primary:hover {
+  background: var(--home-button-blue);
 }
 
 .home-page .wordmark {
@@ -56,17 +62,17 @@
 
 .home-page .site-header .desktop-nav .nav-contact {
   padding: 12px 16px;
-  border: 1px solid var(--home-blue);
+  border: 1px solid var(--home-button-blue);
   border-radius: 0;
   color: #fff;
-  background: var(--home-blue);
+  background: var(--home-button-blue);
   transition: color 200ms var(--home-hover-ease), background-color 200ms var(--home-hover-ease), border-color 200ms var(--home-hover-ease);
 }
 
 .home-page .site-header .desktop-nav .nav-contact:hover {
   color: #fff;
-  background: #294CC4;
-  border-color: #294CC4;
+  background: var(--home-button-blue);
+  border-color: var(--home-button-blue);
   box-shadow: none;
 }
 
@@ -96,18 +102,18 @@
 
 .home-page .site-header.is-scrolled .desktop-nav .nav-contact {
   color: #fff;
-  background: var(--home-blue);
-  border-color: var(--home-blue);
+  background: var(--home-button-blue);
+  border-color: var(--home-button-blue);
 }
 
 .home-page .site-header.is-scrolled .desktop-nav .nav-contact:hover {
   color: #fff;
-  background: #294CC4;
-  border-color: #294CC4;
+  background: var(--home-button-blue);
+  border-color: var(--home-button-blue);
 }
 
 .home-page .site-header.is-scrolled .nav-trigger[aria-expanded='true'] {
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
 }
 
 .home-page .scroll-progress {
@@ -115,7 +121,7 @@
 }
 
 .home-page .site-header.is-scrolled .scroll-progress {
-  background: var(--home-blue);
+  background: var(--home-accent-blue);
 }
 
 .home-page .hero {
@@ -228,7 +234,7 @@
 
 .home-page .hero-actions .button.primary:hover {
   color: #fff;
-  background: var(--home-blue);
+  background: var(--home-button-blue);
   box-shadow: none;
 }
 
@@ -351,7 +357,7 @@
 .home-page .home-process {
   padding: 112px var(--home-gutter) 106px;
   color: #fff;
-  background: var(--home-blue);
+  background: var(--home-accent-blue);
 }
 
 .home-page .home-process-intro {
@@ -460,7 +466,7 @@
 }
 
 .home-page .section-heading .text-link {
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
   font-size: 14px;
   font-weight: 500;
 }
@@ -592,7 +598,7 @@
 
 .home-page .category-details .button:hover {
   color: #fff;
-  background: var(--home-blue);
+  background: var(--home-button-blue);
   box-shadow: none;
 }
 
@@ -632,13 +638,13 @@
 }
 
 .home-page .filters button:hover {
-  border-color: rgba(53, 94, 225, .55);
-  color: var(--home-blue);
+  border-color: rgba(66, 96, 151, .55);
+  color: var(--home-accent-blue);
 }
 
 .home-page .filters button[aria-pressed='true'] {
-  border-color: var(--home-blue);
-  color: var(--home-blue);
+  border-color: var(--home-accent-blue);
+  color: var(--home-accent-blue);
   background: transparent;
 }
 
@@ -693,7 +699,7 @@
 }
 
 .home-page .product-price {
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 }
@@ -738,7 +744,7 @@
 
 .home-page .custom-copy .eyebrow {
   margin-bottom: 14px;
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: .12em;
@@ -777,7 +783,7 @@
 }
 
 .home-page .custom-copy .caption a {
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -812,7 +818,7 @@
 
 .home-page .trust-copy .eyebrow {
   margin-bottom: 16px;
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: .12em;
@@ -837,7 +843,7 @@
 
 .home-page .trust-copy .text-link {
   margin-top: 28px;
-  color: var(--home-blue);
+  color: var(--home-accent-blue);
   font-size: 14px;
   font-weight: 500;
 }
@@ -890,7 +896,7 @@
 
 .home-page .closing-primary:hover {
   color: #fff;
-  background: var(--home-blue);
+  background: var(--home-button-blue);
 }
 
 .home-page .closing-secondary {
@@ -919,7 +925,7 @@
 }
 
 .home-page .footer.footer-studio {
-  background: var(--home-blue);
+  background: var(--home-accent-blue);
 }
 
 .home-page .motion-visible {
@@ -973,7 +979,7 @@
 
   .home-page .mobile-nav > .nav-contact {
     color: #fff;
-    background: var(--home-blue);
+    background: var(--home-button-blue);
   }
 
   .home-page .hero {
