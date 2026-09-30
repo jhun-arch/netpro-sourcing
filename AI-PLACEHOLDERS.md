@@ -30,6 +30,8 @@ The two generated assets above were inspected in the preceding round for hands, 
 ## Inspection and processing
 Existing concept assets remain untouched; only website references use the explicit placeholder filenames. No AI imagery was added to Quality, Home or Shop in this round.
 
+The Home process chapter also reuses `placeholder-ai-np-artwork.webp` for “Your brief” and `placeholder-ai-sample-review-01.webp` for “Sampling”. Its “Production” portrait uses the verified factory asset `factory-stitching-detail-01.webp`.
+
 ## Six inner pages rebuild — 2026-09-28
 
 Ten new images were generated with built-in imagegen for this preview. The eight earlier assets above remain tracked; preceding-round notes describe that earlier work only. All new assets are illustrative concepts, not evidence of Netpro customers, personnel, premises or completed orders. Case Studies explicitly identifies its projects as illustrative. Replace with approved original product, process and campaign photographs when available.

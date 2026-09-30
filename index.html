@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="styles.css?v=20260914-contact1">
   <script defer src="assets/vendor/gsap.min.js"></script>
   <script defer src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script defer src="app.js?v=home-studio-12"></script>
-<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=16">
+  <script defer src="app.js?v=home-studio-13"></script>
+<script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/"><meta property="og:title" content="Netpro Sourcing — Apparel, Headwear & Custom Patches"><meta property="og:description" content="Source clothing, headwear, socks and patches. Explore ready-stock options, custom decoration, sampling and project support."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">  <link rel="stylesheet" href="home-studio.css?v=17">
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -103,32 +103,44 @@
     </section>
 
     <section class="b2b-section home-process" id="process" aria-labelledby="process-title">
-      <div class="home-process-intro reveal">
-        <p class="eyebrow">HOW TO MOVE FORWARD</p>
-        <h2 id="process-title">Choose a starting point.</h2>
-        <p>Explore ready stock or develop custom products around your artwork and requirements.</p>
-      </div>
-      <div class="service-grid">
-        <article class="process-card process-card-stock">
-          <figure class="process-visual">
-            <img src="assets/banner-all.webp" alt="Illustrative product references for clothing, headwear, socks and patches" width="2172" height="724" loading="lazy" decoding="async">
-          </figure>
-          <div class="process-copy">
-            <h3>Ready stock</h3>
-            <p>Shortlist standard styles and send your size mix. We confirm stock, specifications and pricing for your quantity.</p>
-            <a class="text-link" href="shop.html">Browse the catalogue <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-        <article class="process-card process-card-custom">
-          <figure class="process-visual">
-            <img src="assets/factory-embroidery-line-01.webp" alt="Embroidery machines stitching textile pieces on a factory line" width="1600" height="1067" loading="lazy" decoding="async">
-          </figure>
-          <div class="process-copy">
-            <h3>Custom production</h3>
-            <p>Develop apparel decoration or patches around your artwork. Agree a sample, production specification and delivery plan.</p>
-            <a class="text-link" href="customization.html">Explore customization <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
+      <div class="home-process-inner">
+        <header class="home-process-header">
+          <h2 class="process-reveal" id="process-title">From brief to production.</h2>
+          <p class="home-process-wordmark process-reveal" aria-label="Netpro">NETPRO</p>
+        </header>
+        <div class="home-process-grid" role="list" aria-label="The Netpro sourcing process">
+          <article class="home-process-step" role="listitem">
+            <figure class="home-process-visual process-reveal">
+              <img src="assets/placeholder-ai-np-artwork.webp" alt="Hands sketching a patch beside fabric swatches and a blank cap" width="1672" height="941" loading="lazy" decoding="async">
+            </figure>
+            <div class="home-process-copy">
+              <h3 class="process-reveal process-reveal--delayed">Your brief</h3>
+              <p class="process-reveal process-reveal--delayed">Choose ready stock or a custom product. Share your quantities, colors, sizes and artwork.</p>
+            </div>
+          </article>
+          <article class="home-process-step" role="listitem">
+            <figure class="home-process-visual process-reveal">
+              <img src="assets/placeholder-ai-sample-review-01.webp" alt="Hands reviewing a garment sample with fabric and thread swatches" width="1440" height="960" loading="lazy" decoding="async">
+            </figure>
+            <div class="home-process-copy">
+              <h3 class="process-reveal process-reveal--delayed">Sampling</h3>
+              <p class="process-reveal process-reveal--delayed">Approve your custom sample, materials and decoration before production.</p>
+            </div>
+          </article>
+          <article class="home-process-step" role="listitem">
+            <figure class="home-process-visual process-reveal">
+              <img src="assets/factory-stitching-detail-01.webp" alt="Close detail of a machine stitching a garment panel" width="1600" height="1067" loading="lazy" decoding="async">
+            </figure>
+            <div class="home-process-copy">
+              <h3 class="process-reveal process-reveal--delayed">Production</h3>
+              <p class="process-reveal process-reveal--delayed">Agree the production specification, product checks and packing before dispatch.</p>
+            </div>
+          </article>
+        </div>
+        <div class="home-process-actions process-reveal process-reveal--delayed">
+          <a class="home-process-primary" href="quote.html">Discuss your project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="home-process-secondary" href="shop.html">Browse ready stock <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
     </section>
 

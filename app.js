@@ -404,6 +404,29 @@
   }
   updateScroll();
 
+  if (isHome) {
+    const processSection = $('.home-process');
+    const processReveals = processSection ? $$('.process-reveal', processSection) : [];
+    const reduceProcessMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (processSection && processReveals.length) {
+      if (reduceProcessMotion || !('IntersectionObserver' in window)) {
+        processReveals.forEach(element => element.classList.add('process-reveal--visible'));
+      } else {
+        const processObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('process-reveal--visible');
+            processObserver.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px', threshold: 0.1 });
+
+        processReveals.forEach(element => processObserver.observe(element));
+        processSection.classList.add('process-motion-ready');
+      }
+    }
+  }
+
   // Local GSAP files allow scroll animations to work offline as well as over HTTP.
   if(isShop && window.gsap && window.ScrollTrigger && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     gsap.registerPlugin(ScrollTrigger);
@@ -635,26 +658,6 @@
         chapterMotion.add('(min-width: 900px)', createDesktopChapterTimeline);
         chapterMotion.add('(max-width: 899px)', createMobileChapterMotion);
       }
-      gsap.from('.home-process .service-grid .process-visual img', {
-        yPercent: 12,
-        opacity: 0,
-        scale: 1.035,
-        duration: 1,
-        stagger: .16,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '.home-process .service-grid', start: 'top 84%', once: true },
-        clearProps: 'transform,opacity'
-      });
-      gsap.from('.home-process .service-grid .process-copy', {
-        y: 24,
-        opacity: 0,
-        duration: .95,
-        stagger: .2,
-        delay: .18,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.home-process .service-grid', start: 'top 88%', once: true },
-        clearProps: 'transform,opacity'
-      });
       gsap.from('.product-card', {
         y: 24,
         opacity: 0,
