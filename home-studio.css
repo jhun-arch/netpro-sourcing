@@ -369,7 +369,7 @@
   max-width: none;
   height: clamp(700px, 55vw, 920px);
   margin-inline: auto;
-  gap: 2px;
+  gap: 0;
   background: transparent;
 }
 
@@ -1697,6 +1697,7 @@
   .home-page .home-story .accordion {
     width: calc(100% - 40px);
     height: auto;
+    gap: 8px;
   }
 
   .home-page .category {
