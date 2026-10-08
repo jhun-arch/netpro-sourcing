@@ -493,6 +493,7 @@
       const chapter = $('.home-story');
       const chapterAccordion = chapter && chapter.querySelector('.accordion');
       const chapterWipe = chapter && chapter.querySelector('.home-story-wipe');
+      const processSection = $('.home-process');
       const chapterMotion = gsap.matchMedia();
 
       if (chapterAccordion && chapterWipe) {
@@ -575,6 +576,36 @@
               }
             }
           });
+
+          let processOverlapTween;
+          const setProcessOverlapLayer = active => {
+            chapter.classList.toggle('process-overlap-active', active);
+            processSection?.classList.toggle('process-overlap-layer', active);
+          };
+
+          if (processSection && chapterAccordion) {
+            processOverlapTween = gsap.fromTo(chapterAccordion,
+              { y: 0 },
+              {
+                y: () => innerHeight,
+                ease: 'none',
+                immediateRender: false,
+                scrollTrigger: {
+                  trigger: processSection,
+                  start: 'top bottom',
+                  end: 'top top',
+                  scrub: true,
+                  invalidateOnRefresh: true,
+                  onEnter: () => setProcessOverlapLayer(true),
+                  onEnterBack: () => setProcessOverlapLayer(true),
+                  onLeave: () => setProcessOverlapLayer(false),
+                  onLeaveBack: () => setProcessOverlapLayer(false)
+                }
+              }
+            );
+            setProcessOverlapLayer(Boolean(processOverlapTween.scrollTrigger?.isActive));
+          }
+
           const entranceTweens = categoriesInChapter.map((category, index) => {
             chapterTimeline.fromTo(category,
               { y: () => initialCategoryY(index) },
@@ -606,6 +637,10 @@
           updateChapterOverlays();
 
           return () => {
+            processOverlapTween?.scrollTrigger?.kill();
+            processOverlapTween?.kill();
+            setProcessOverlapLayer(false);
+            gsap.set(chapterAccordion, { clearProps: 'transform' });
             entranceTweens.forEach((entranceTween, index) => {
               const cancelEntrance = entranceTween?._chapterCancel;
               const category = categoriesInChapter[index];

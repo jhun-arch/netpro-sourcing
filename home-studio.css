@@ -278,6 +278,11 @@
   background: #fff;
 }
 
+.home-page .home-story.process-overlap-active {
+  overflow: visible;
+  z-index: 1;
+}
+
 .home-page .home-story-wipe {
   position: absolute;
   z-index: 0;
@@ -363,6 +368,13 @@
   margin-inline: auto;
   gap: 2px;
   background: transparent;
+}
+
+@media (min-width: 900px) {
+  .home-page .home-story .accordion {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
 }
 
 .home-page .home-story .home-story-copy > .home-story-copy-overlay {
@@ -543,6 +555,11 @@
   background: #f3f4f5;
 }
 
+.home-page .home-process.process-overlap-layer {
+  position: relative;
+  z-index: 2;
+}
+
 .home-page .home-process-inner {
   width: min(100%, 1720px);
   margin-inline: auto;
@@ -550,7 +567,7 @@
 
 .home-page .home-process-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   gap: 32px;
   margin: 0 0 clamp(48px, 4vw, 64px);
@@ -573,10 +590,10 @@
 .home-page .home-process-actions {
   display: flex;
   align-items: center;
-  justify-self: end;
-  align-self: end;
+  justify-content: flex-end;
   gap: 26px;
   flex-wrap: wrap;
+  margin-top: clamp(36px, 3vw, 48px);
 }
 
 .home-page .home-process-primary,
@@ -1536,8 +1553,7 @@
 
   .home-page .home-process-actions {
     align-items: flex-start;
-    justify-self: auto;
-    align-self: auto;
+    justify-content: flex-start;
     gap: 18px;
   }
 
