@@ -564,20 +564,10 @@
             scrollTrigger: {
               trigger: chapterPinStage || chapter,
               start: 'top top',
-              end: () => `+=${Math.round(innerHeight * 1.8)}`,
-              scrub: 1,
+              end: () => `+=${Math.round(innerHeight * 3.6)}`,
+              scrub: 1.35,
               invalidateOnRefresh: true,
-              onRefresh: updateChapterOverlays,
-              onLeave: self => {
-                self.getTween?.()?.progress(1);
-                chapterTimeline?.progress(1);
-                updateChapterOverlays();
-              },
-              onLeaveBack: self => {
-                self.getTween?.()?.progress(0);
-                chapterTimeline?.progress(0);
-                updateChapterOverlays();
-              }
+              onRefresh: updateChapterOverlays
             }
           });
 
