@@ -600,7 +600,7 @@
   background: #fff;
 }
 
-.home-page .home-process.process-overlap-layer {
+.home-page .home-process.process-overlap-layer .home-process-inner {
   will-change: transform;
 }
 

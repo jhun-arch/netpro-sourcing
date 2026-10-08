@@ -664,7 +664,12 @@
             let overlapViewportHeight = innerHeight;
             let overlapLayerActive = false;
             let overlapRefreshInProgress = false;
-            const setProcessY = gsap.quickSetter(processSection, 'y', 'px');
+            // Keep the white section background in document flow while its
+            // contents catch up with the cover motion. Moving the whole
+            // section can lift its bottom above the following blue section
+            // while scrub is settling in reverse.
+            const processOverlapTarget = processSection.querySelector('.home-process-inner') || processSection;
+            const setProcessY = gsap.quickSetter(processOverlapTarget, 'y', 'px');
             const setProcessOverlapLayer = active => {
               if (overlapLayerActive === active) return;
               overlapLayerActive = active;
@@ -672,7 +677,7 @@
             };
             clearProcessOverlapVisuals = () => {
               setProcessY(0);
-              gsap.set(processSection, { clearProps: 'transform' });
+              gsap.set(processOverlapTarget, { clearProps: 'transform' });
               setProcessOverlapLayer(false);
             };
 
