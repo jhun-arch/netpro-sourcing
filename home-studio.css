@@ -704,6 +704,11 @@
   will-change: opacity, transform;
 }
 
+.home-page .home-process.process-motion-ready .process-reveal--delayed,
+.home-page .home-process.process-motion-ready .process-reveal--visible.process-reveal--delayed {
+  transition-delay: 200ms;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .home-page .home-process-primary:hover {
     color: #fff;
@@ -733,6 +738,7 @@
     opacity: 1;
     transform: none;
     transition: none;
+    transition-delay: 0s;
     will-change: auto;
   }
 }
