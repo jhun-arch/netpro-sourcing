@@ -912,15 +912,18 @@
         scrollTrigger: { trigger: '.home-starting-points .service-grid', start: 'top 88%', once: true },
         clearProps: 'transform,opacity'
       });
-      gsap.from('.product-card', {
-        y: 24,
-        opacity: 0,
-        duration: .95,
-        stagger: .2,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.product-grid', start: 'top 88%', once: true },
-        clearProps: 'transform,opacity'
-      });
+      const productGrid = $('.product-grid');
+      if (productGrid) {
+        gsap.from('.product-card', {
+          y: 24,
+          opacity: 0,
+          duration: .95,
+          stagger: .2,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: productGrid, start: 'top 88%', once: true },
+          clearProps: 'transform,opacity'
+        });
+      }
       gsap.from('.footer-main > *', {
         y: 24,
         opacity: 0,
