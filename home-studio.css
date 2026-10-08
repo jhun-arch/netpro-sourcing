@@ -379,6 +379,10 @@
     min-height: 100svh;
   }
 
+  .home-page .home-story.process-sticky-ready .accordion {
+    background-color: #fff;
+  }
+
   .home-page .home-story-pin-stage.process-sticky-ready {
     padding-bottom: 0;
   }

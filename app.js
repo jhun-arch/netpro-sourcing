@@ -534,6 +534,7 @@
           const wipeStart = entranceEnd + alignedHold;
           const wipeEnd = wipeStart + wipeDuration;
           const releaseHold = .2;
+          const chapterDarkSurface = getComputedStyle(chapter).getPropertyValue('--home-charcoal').trim() || '#2d2d2d';
 
           chapter.classList.remove('is-dark');
           gsap.set(chapterWipe, { scaleY: 0 });
@@ -629,7 +630,7 @@
               { progress: 0 },
               {
                 progress: 1,
-                ease: 'power2.inOut',
+                ease: 'none',
                 immediateRender: false,
                 onUpdate: updateOverlapPositions,
                 scrollTrigger: {
@@ -688,6 +689,7 @@
             wipeStart
           );
           chapterTimeline.to(chapterWipe, { scaleY: 1, duration: releaseHold, ease: 'none' }, wipeEnd);
+          chapterTimeline.set(chapterAccordion, { backgroundColor: chapterDarkSurface }, wipeEnd);
           updateChapterOverlays();
 
           return () => {
@@ -706,6 +708,7 @@
             });
             chapterTimeline.scrollTrigger?.kill(true);
             chapterTimeline.kill();
+            chapterAccordion.style.removeProperty('background-color');
             copyOverlay?.remove();
             chapter.classList.remove('is-dark');
             gsap.set(categoriesInChapter, { clearProps: 'transform' });
