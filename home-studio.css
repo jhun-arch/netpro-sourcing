@@ -384,14 +384,13 @@
   }
 
   .home-page .home-story-pin-stage.process-sticky-ready {
-    --home-chapter-scroll-distance: 360svh;
     padding-bottom: 0;
   }
 
   .home-page .home-story-pin-stage.process-sticky-ready::after {
     content: '';
     display: block;
-    height: var(--home-chapter-scroll-distance);
+    height: 180svh;
   }
 
   .home-page .home-story-pin-stage.process-sticky-ready {
