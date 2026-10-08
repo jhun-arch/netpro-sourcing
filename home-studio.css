@@ -389,6 +389,10 @@
     height: 180svh;
   }
 
+  .home-page .home-story-pin-stage.process-sticky-ready {
+    isolation: isolate;
+  }
+
   .home-page .home-story.process-sticky-ready .home-story-accordion-stage {
     --home-accordion-cover-size: max(100svh, clamp(700px, 55vw, 920px));
     --home-accordion-cover-tail: min(240px, 25svh);
@@ -406,6 +410,11 @@
   .home-page .home-process.process-sticky-ready {
     position: relative;
     z-index: 2;
+  }
+
+  .home-page .home-story-pin-stage.process-sticky-ready ~ .home-starting-points {
+    position: relative;
+    z-index: 1;
   }
 }
 
