@@ -653,23 +653,26 @@
 
           let processOverlapTween;
           let processOverlapTrigger;
+          let processCoverTail;
           let clearProcessOverlapVisuals = () => {};
 
           if (processSection && chapterAccordion) {
             chapter.classList.add('process-sticky-ready');
             chapterPinStage?.classList.add('process-sticky-ready');
             processSection.classList.add('process-sticky-ready');
+            processCoverTail = document.createElement('div');
+            processCoverTail.className = 'home-process-cover-tail';
+            processCoverTail.setAttribute('aria-hidden', 'true');
+            processCoverTail.setAttribute('inert', '');
+            processSection.appendChild(processCoverTail);
+            gsap.set(processCoverTail, { scaleY: 0 });
             const overlapProxy = { progress: 0 };
             let rawProgress = 0;
             let overlapViewportHeight = innerHeight;
             let overlapLayerActive = false;
             let overlapRefreshInProgress = false;
-            // Keep the white section background in document flow while its
-            // contents catch up with the cover motion. Moving the whole
-            // section can lift its bottom above the following blue section
-            // while scrub is settling in reverse.
-            const processOverlapTarget = processSection.querySelector('.home-process-inner') || processSection;
-            const setProcessY = gsap.quickSetter(processOverlapTarget, 'y', 'px');
+            const setProcessY = gsap.quickSetter(processSection, 'y', 'px');
+            const setProcessCoverTailScale = gsap.quickSetter(processCoverTail, 'scaleY');
             const setProcessOverlapLayer = active => {
               if (overlapLayerActive === active) return;
               overlapLayerActive = active;
@@ -677,7 +680,8 @@
             };
             clearProcessOverlapVisuals = () => {
               setProcessY(0);
-              gsap.set(processOverlapTarget, { clearProps: 'transform' });
+              setProcessCoverTailScale(0);
+              gsap.set(processSection, { clearProps: 'transform' });
               setProcessOverlapLayer(false);
             };
 
@@ -694,7 +698,9 @@
               }
 
               setProcessOverlapLayer(true);
-              setProcessY((raw - smoothed) * overlapViewportHeight);
+              const offset = (raw - smoothed) * overlapViewportHeight;
+              setProcessY(offset);
+              setProcessCoverTailScale(gsap.utils.clamp(0, 1, -offset / overlapViewportHeight));
             };
             const syncOverlapScroll = self => {
               rawProgress = self.progress;
@@ -717,6 +723,8 @@
                   onRefreshInit: () => {
                     overlapRefreshInProgress = true;
                     setProcessY(0);
+                    setProcessCoverTailScale(0);
+                    gsap.set(processSection, { clearProps: 'transform' });
                   },
                   onRefresh: self => {
                     overlapViewportHeight = innerHeight;
@@ -837,6 +845,8 @@
             processOverlapTween?.scrollTrigger?.kill();
             processOverlapTween?.kill();
             clearProcessOverlapVisuals();
+            processCoverTail?.remove();
+            processCoverTail = null;
             chapter.classList.remove('process-sticky-ready');
             chapterPinStage?.classList.remove('process-sticky-ready');
             processSection?.classList.remove('process-sticky-ready');
