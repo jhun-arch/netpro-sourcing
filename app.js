@@ -578,32 +578,85 @@
           });
 
           let processOverlapTween;
-          const setProcessOverlapLayer = active => {
-            chapter.classList.toggle('process-overlap-active', active);
-            processSection?.classList.toggle('process-overlap-layer', active);
-          };
+          let processOverlapTrigger;
+          let clearProcessOverlapVisuals = () => {};
 
           if (processSection && chapterAccordion) {
-            processOverlapTween = gsap.fromTo(chapterAccordion,
-              { y: 0 },
+            const overlapProxy = { progress: 0 };
+            let rawProgress = 0;
+            let overlapViewportHeight = innerHeight;
+            let overlapLayerActive = false;
+            let overlapRefreshInProgress = false;
+            const setAccordionY = gsap.quickSetter(chapterAccordion, 'y', 'px');
+            const setProcessY = gsap.quickSetter(processSection, 'y', 'px');
+            const setProcessOverlapLayer = active => {
+              if (overlapLayerActive === active) return;
+              overlapLayerActive = active;
+              chapter.classList.toggle('process-overlap-active', active);
+              processSection.classList.toggle('process-overlap-layer', active);
+            };
+            clearProcessOverlapVisuals = () => {
+              setAccordionY(0);
+              setProcessY(0);
+              gsap.set(chapterAccordion, { clearProps: 'transform' });
+              gsap.set(processSection, { clearProps: 'transform' });
+              setProcessOverlapLayer(false);
+            };
+
+            const updateOverlapPositions = () => {
+              if (overlapRefreshInProgress) return;
+              const raw = gsap.utils.clamp(0, 1, rawProgress);
+              const smoothed = gsap.utils.clamp(0, 1, overlapProxy.progress);
+              const settledAtStart = raw <= .0001 && smoothed <= .0001;
+              const settledAtEnd = raw >= .9999 && smoothed >= .9999;
+
+              if (!processOverlapTrigger?.isActive && (settledAtStart || settledAtEnd)) {
+                clearProcessOverlapVisuals();
+                return;
+              }
+
+              setProcessOverlapLayer(true);
+              setAccordionY(raw * overlapViewportHeight);
+              setProcessY((raw - smoothed) * overlapViewportHeight);
+            };
+            const syncOverlapScroll = self => {
+              rawProgress = self.progress;
+              updateOverlapPositions();
+            };
+
+            processOverlapTween = gsap.fromTo(overlapProxy,
+              { progress: 0 },
               {
-                y: () => innerHeight,
-                ease: 'none',
+                progress: 1,
+                ease: 'power2.inOut',
                 immediateRender: false,
+                onUpdate: updateOverlapPositions,
                 scrollTrigger: {
                   trigger: processSection,
                   start: 'top bottom',
                   end: 'top top',
-                  scrub: true,
+                  scrub: .65,
                   invalidateOnRefresh: true,
-                  onEnter: () => setProcessOverlapLayer(true),
-                  onEnterBack: () => setProcessOverlapLayer(true),
-                  onLeave: () => setProcessOverlapLayer(false),
-                  onLeaveBack: () => setProcessOverlapLayer(false)
+                  onRefreshInit: () => {
+                    overlapRefreshInProgress = true;
+                    setProcessY(0);
+                  },
+                  onRefresh: self => {
+                    overlapViewportHeight = innerHeight;
+                    overlapRefreshInProgress = false;
+                    syncOverlapScroll(self);
+                  },
+                  onUpdate: syncOverlapScroll,
+                  onEnter: syncOverlapScroll,
+                  onEnterBack: syncOverlapScroll,
+                  onLeave: syncOverlapScroll,
+                  onLeaveBack: syncOverlapScroll
                 }
               }
             );
-            setProcessOverlapLayer(Boolean(processOverlapTween.scrollTrigger?.isActive));
+            processOverlapTrigger = processOverlapTween.scrollTrigger;
+            rawProgress = processOverlapTrigger?.progress ?? 0;
+            updateOverlapPositions();
           }
 
           const entranceTweens = categoriesInChapter.map((category, index) => {
@@ -639,8 +692,7 @@
           return () => {
             processOverlapTween?.scrollTrigger?.kill();
             processOverlapTween?.kill();
-            setProcessOverlapLayer(false);
-            gsap.set(chapterAccordion, { clearProps: 'transform' });
+            clearProcessOverlapVisuals();
             entranceTweens.forEach((entranceTween, index) => {
               const cancelEntrance = entranceTween?._chapterCancel;
               const category = categoriesInChapter[index];

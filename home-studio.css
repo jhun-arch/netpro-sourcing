@@ -283,6 +283,10 @@
   z-index: 1;
 }
 
+.home-page .home-story.process-overlap-active .accordion {
+  will-change: transform;
+}
+
 .home-page .home-story-wipe {
   position: absolute;
   z-index: 0;
@@ -558,6 +562,7 @@
 .home-page .home-process.process-overlap-layer {
   position: relative;
   z-index: 2;
+  will-change: transform;
 }
 
 .home-page .home-process-inner {
