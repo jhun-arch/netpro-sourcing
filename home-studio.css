@@ -595,8 +595,8 @@
 }
 
 .home-page .home-process {
-  padding: clamp(96px, 7vw, 112px) clamp(24px, 5vw, 96px);
-  color: var(--home-accent-blue);
+  padding: clamp(88px, 6vw, 100px) clamp(24px, 5vw, 96px) clamp(100px, 7vw, 112px);
+  color: var(--home-charcoal);
   background: #f3f4f5;
 }
 
@@ -605,39 +605,87 @@
 }
 
 .home-page .home-process-inner {
-  width: min(100%, 1720px);
+  width: min(100%, 1560px);
   margin-inline: auto;
 }
 
-.home-page .home-process-header {
+.home-page .home-process-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: end;
-  gap: 32px;
-  margin: 0 0 clamp(48px, 4vw, 64px);
+  grid-template-columns: minmax(0, 52fr) minmax(0, 40fr);
+  align-items: start;
+  gap: clamp(80px, 6.25vw, 100px);
+}
+
+.home-page .home-process-header {
+  margin: 0 0 32px;
 }
 
 .home-page .home-process-header h2 {
-  max-width: 760px;
+  max-width: 100%;
   margin: 0;
-  color: var(--home-accent-blue);
-  font-size: clamp(60px, 4.45vw, 80px);
+  color: var(--home-charcoal);
+  font-size: clamp(64px, 4.5vw, 88px);
   font-weight: 500;
-  line-height: .95;
-  letter-spacing: -.045em;
+  line-height: .96;
+  letter-spacing: -.055em;
+  text-wrap: balance;
 }
 
 .home-page .home-process-header h2 span {
   display: block;
 }
 
+.home-page .home-process-header h2 span:last-child {
+  color: var(--home-accent-blue);
+}
+
+.home-page .home-process-range {
+  width: min(100%, 620px);
+  aspect-ratio: 1122 / 1402;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.home-page .home-process-range img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1122 / 1402;
+  object-fit: cover;
+  object-position: center;
+  background: #e3e7ec;
+}
+
+.home-page .home-process-range figcaption {
+  margin-top: 12px;
+  color: rgba(45, 45, 45, .68);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.home-page .home-process-content {
+  min-width: 0;
+}
+
+.home-page .home-process-intro {
+  max-width: 36ch;
+  margin: 0 0 32px;
+  color: rgba(45, 45, 45, .76);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
 .home-page .home-process-actions {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 26px;
+  justify-content: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
-  margin-top: clamp(36px, 3vw, 48px);
+  margin-top: 28px;
 }
 
 .home-page .home-process-primary,
@@ -685,47 +733,13 @@
   transition: transform 200ms var(--home-hover-ease);
 }
 
-.home-page .home-process-gallery {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 16px;
-  width: 100%;
-  height: clamp(340px, 30vw, 480px);
-  margin: 0 0 clamp(36px, 3vw, 48px);
-}
-
-.home-page .home-process-gallery figure {
-  min-width: 0;
-  height: 100%;
+.home-page .home-process-steps {
   margin: 0;
-  overflow: hidden;
-  background: #e3e7ec;
-}
-
-.home-page .home-process-gallery img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.home-page .home-process-gallery-primary img {
-  object-position: center 45%;
-}
-
-.home-page .home-process-gallery-secondary img {
-  object-position: center 50%;
-}
-
-.home-page .home-process-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(24px, 3.8vw, 64px);
 }
 
 .home-page .home-process-step {
   min-width: 0;
-  padding-top: 18px;
+  padding: 22px 0 24px;
   border-top: 1px solid rgba(66, 96, 151, .34);
 }
 
@@ -733,27 +747,44 @@
   display: block;
   color: var(--home-accent-blue);
   font-family: 'Figtree', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   line-height: 1;
 }
 
 .home-page .home-process-copy h3 {
-  margin: 18px 0 0;
-  color: var(--home-accent-blue);
-  font-size: clamp(26px, 2vw, 32px);
+  margin: 16px 0 0;
+  color: var(--home-charcoal);
+  font-size: clamp(24px, 2vw, 28px);
   font-weight: 500;
-  line-height: 1.06;
+  line-height: 1.08;
+  letter-spacing: -.025em;
 }
 
 .home-page .home-process-copy p {
-  max-width: 390px;
-  margin: 14px 0 0;
-  color: var(--home-accent-blue);
+  max-width: 42ch;
+  margin: 10px 0 0;
+  color: rgba(45, 45, 45, .72);
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.55;
+}
+
+.home-page .home-process-detail {
+  width: 100%;
+  height: clamp(150px, 13.2vw, 190px);
+  margin: 28px 0 0;
+  overflow: hidden;
+  background: #e3e7ec;
+}
+
+.home-page .home-process-detail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
 /* The section stays readable without JavaScript; JS adds this class only after
@@ -1583,57 +1614,57 @@
   }
 
   .home-page .home-process-header {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 32px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
 
   .home-page .home-process-header h2 {
-    max-width: 520px;
-    font-size: clamp(46px, 13vw, 64px);
+    max-width: 560px;
+    font-size: clamp(48px, 13vw, 64px);
+  }
+
+  .home-page .home-process-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 64px;
+  }
+
+  .home-page .home-process-range {
+    width: 100%;
+    height: auto;
+  }
+
+  .home-page .home-process-range img {
+    height: auto;
+  }
+
+  .home-page .home-process-intro {
+    margin-bottom: 28px;
+    font-size: 17px;
+  }
+
+  .home-page .home-process-step {
+    padding: 20px 0 22px;
+  }
+
+  .home-page .home-process-copy h3 {
+    margin-top: 14px;
+    font-size: 24px;
+  }
+
+  .home-page .home-process-copy p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .home-page .home-process-detail {
+    height: 150px;
+    margin-top: 28px;
   }
 
   .home-page .home-process-actions {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 18px;
-  }
-
-  .home-page .home-process-gallery {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-    height: auto;
-    margin-bottom: 36px;
-  }
-
-  .home-page .home-process-gallery .home-process-gallery-primary {
-    height: clamp(240px, 68vw, 320px);
-  }
-
-  .home-page .home-process-gallery .home-process-gallery-secondary {
-    height: clamp(260px, 76vw, 360px);
-  }
-
-  .home-page .home-process-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-  }
-
-  .home-page .home-process-step {
-    padding-top: 16px;
-  }
-
-  .home-page .home-process-copy h3 {
-    margin-top: 16px;
-    font-size: 24px;
-  }
-
-  .home-page .home-process-copy p {
-    margin-top: 12px;
-    font-size: 14px;
-    line-height: 1.5;
   }
 
   .home-page .home-process-primary,
