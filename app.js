@@ -534,6 +534,8 @@
           const wipeStart = entranceEnd + alignedHold;
           const wipeEnd = wipeStart + wipeDuration;
           const releaseHold = .2;
+          const chapterTimelineDuration = wipeEnd + releaseHold;
+          const chapterScrollDistance = () => Math.round(innerHeight * 1.8);
           const chapterDarkSurface = getComputedStyle(chapter).getPropertyValue('--home-charcoal').trim() || '#2d2d2d';
 
           chapter.classList.remove('is-dark');
@@ -564,7 +566,7 @@
             scrollTrigger: {
               trigger: chapterPinStage || chapter,
               start: 'top top',
-              end: () => `+=${Math.round(innerHeight * 1.8)}`,
+              end: () => `+=${chapterScrollDistance()}`,
               scrub: 1,
               invalidateOnRefresh: true,
               onRefresh: updateChapterOverlays,
@@ -683,13 +685,35 @@
           });
 
           chapterTimeline.addLabel('aligned', entranceEnd);
-          chapterTimeline.fromTo(chapterWipe,
+          const chapterWipeProxy = { progress: 0 };
+          chapterTimeline.to(chapterWipeProxy, { progress: 1, duration: wipeDuration, ease: 'none' }, wipeStart);
+          chapterTimeline.to(chapterWipeProxy, { progress: 1, duration: releaseHold, ease: 'none' }, wipeEnd);
+
+          let chapterWipeTimeline;
+          chapterWipeTimeline = gsap.timeline({
+            onUpdate: updateChapterOverlays,
+            scrollTrigger: {
+              trigger: chapterPinStage || chapter,
+              start: () => {
+                const chapterTrigger = chapterTimeline.scrollTrigger;
+                return chapterTrigger.start + chapterScrollDistance() * (wipeStart / chapterTimelineDuration);
+              },
+              end: () => {
+                const chapterTrigger = chapterTimeline.scrollTrigger;
+                return chapterTrigger.start + chapterScrollDistance();
+              },
+              scrub: 1.6,
+              invalidateOnRefresh: true,
+              onRefresh: updateChapterOverlays
+            }
+          });
+          chapterWipeTimeline.fromTo(chapterWipe,
             { scaleY: 0 },
             { scaleY: 1, duration: wipeDuration, ease: 'none' },
-            wipeStart
+            0
           );
-          chapterTimeline.to(chapterWipe, { scaleY: 1, duration: releaseHold, ease: 'none' }, wipeEnd);
-          chapterTimeline.set(chapterAccordion, { backgroundColor: chapterDarkSurface }, wipeEnd);
+          chapterWipeTimeline.to(chapterWipe, { scaleY: 1, duration: releaseHold, ease: 'none' }, wipeDuration);
+          chapterWipeTimeline.set(chapterAccordion, { backgroundColor: chapterDarkSurface }, wipeDuration);
           updateChapterOverlays();
 
           return () => {
@@ -706,6 +730,8 @@
               category.removeEventListener('pointerdown', cancelEntrance);
               category.removeEventListener('focusin', cancelEntrance);
             });
+            chapterWipeTimeline.scrollTrigger?.kill(true);
+            chapterWipeTimeline.kill();
             chapterTimeline.scrollTrigger?.kill(true);
             chapterTimeline.kill();
             chapterAccordion.style.removeProperty('background-color');
