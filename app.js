@@ -491,7 +491,9 @@
         clearProps: 'transform,opacity'
       }));
       const chapter = $('.home-story');
+      const chapterPinStage = chapter && chapter.closest('.home-story-pin-stage');
       const chapterAccordion = chapter && chapter.querySelector('.accordion');
+      const chapterAccordionStage = chapter && chapter.querySelector('.home-story-accordion-stage');
       const chapterWipe = chapter && chapter.querySelector('.home-story-wipe');
       const processSection = $('.home-process');
       const chapterMotion = gsap.matchMedia();
@@ -536,7 +538,10 @@
           chapter.classList.remove('is-dark');
           gsap.set(chapterWipe, { scaleY: 0 });
 
-          const initialCategoryY = index => Math.max(0, innerHeight - chapterAccordion.offsetTop)
+          const chapterAccordionTop = () => chapterAccordionStage
+            ? chapterAccordionStage.offsetTop
+            : chapterAccordion.offsetTop;
+          const initialCategoryY = index => Math.max(0, innerHeight - chapterAccordionTop())
             + innerHeight * .08
             + (chapterEntranceOffsets[index] || 0) * innerHeight;
           const updateChapterOverlays = () => {
@@ -556,13 +561,11 @@
           chapterTimeline = gsap.timeline({
             onUpdate: updateChapterOverlays,
             scrollTrigger: {
-              trigger: chapter,
+              trigger: chapterPinStage || chapter,
               start: 'top top',
               end: () => `+=${Math.round(innerHeight * 1.8)}`,
-              pin: true,
               scrub: 1,
               invalidateOnRefresh: true,
-              anticipatePin: 1,
               onRefresh: updateChapterOverlays,
               onLeave: self => {
                 self.getTween?.()?.progress(1);
@@ -582,23 +585,22 @@
           let clearProcessOverlapVisuals = () => {};
 
           if (processSection && chapterAccordion) {
+            chapter.classList.add('process-sticky-ready');
+            chapterPinStage?.classList.add('process-sticky-ready');
+            processSection.classList.add('process-sticky-ready');
             const overlapProxy = { progress: 0 };
             let rawProgress = 0;
             let overlapViewportHeight = innerHeight;
             let overlapLayerActive = false;
             let overlapRefreshInProgress = false;
-            const setAccordionY = gsap.quickSetter(chapterAccordion, 'y', 'px');
             const setProcessY = gsap.quickSetter(processSection, 'y', 'px');
             const setProcessOverlapLayer = active => {
               if (overlapLayerActive === active) return;
               overlapLayerActive = active;
-              chapter.classList.toggle('process-overlap-active', active);
               processSection.classList.toggle('process-overlap-layer', active);
             };
             clearProcessOverlapVisuals = () => {
-              setAccordionY(0);
               setProcessY(0);
-              gsap.set(chapterAccordion, { clearProps: 'transform' });
               gsap.set(processSection, { clearProps: 'transform' });
               setProcessOverlapLayer(false);
             };
@@ -616,7 +618,6 @@
               }
 
               setProcessOverlapLayer(true);
-              setAccordionY(raw * overlapViewportHeight);
               setProcessY((raw - smoothed) * overlapViewportHeight);
             };
             const syncOverlapScroll = self => {
@@ -693,6 +694,9 @@
             processOverlapTween?.scrollTrigger?.kill();
             processOverlapTween?.kill();
             clearProcessOverlapVisuals();
+            chapter.classList.remove('process-sticky-ready');
+            chapterPinStage?.classList.remove('process-sticky-ready');
+            processSection?.classList.remove('process-sticky-ready');
             entranceTweens.forEach((entranceTween, index) => {
               const cancelEntrance = entranceTween?._chapterCancel;
               const category = categoriesInChapter[index];

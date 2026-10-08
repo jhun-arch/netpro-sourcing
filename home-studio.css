@@ -278,13 +278,12 @@
   background: #fff;
 }
 
-.home-page .home-story.process-overlap-active {
+.home-page .home-story.process-sticky-ready {
+  display: flow-root;
+  position: sticky;
+  top: 0;
   overflow: visible;
   z-index: 1;
-}
-
-.home-page .home-story.process-overlap-active .accordion {
-  will-change: transform;
 }
 
 .home-page .home-story-wipe {
@@ -378,6 +377,35 @@
   .home-page .home-story .accordion {
     min-height: 100vh;
     min-height: 100svh;
+  }
+
+  .home-page .home-story-pin-stage.process-sticky-ready {
+    padding-bottom: 0;
+  }
+
+  .home-page .home-story-pin-stage.process-sticky-ready::after {
+    content: '';
+    display: block;
+    height: 180svh;
+  }
+
+  .home-page .home-story.process-sticky-ready .home-story-accordion-stage {
+    --home-accordion-cover-size: max(100svh, clamp(700px, 55vw, 920px));
+    --home-accordion-cover-tail: min(240px, 25svh);
+    height: calc(var(--home-accordion-cover-size) + var(--home-accordion-cover-size) + var(--home-accordion-cover-tail));
+    margin-bottom: calc(0px - var(--home-accordion-cover-size) - var(--home-accordion-cover-tail));
+  }
+
+  .home-page .home-story.process-sticky-ready .home-story-accordion-stage > .accordion {
+    position: sticky;
+    top: 0;
+    height: var(--home-accordion-cover-size);
+    min-height: var(--home-accordion-cover-size);
+  }
+
+  .home-page .home-process.process-sticky-ready {
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -560,8 +588,6 @@
 }
 
 .home-page .home-process.process-overlap-layer {
-  position: relative;
-  z-index: 2;
   will-change: transform;
 }
 
