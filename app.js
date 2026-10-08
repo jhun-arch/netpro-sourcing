@@ -536,6 +536,10 @@
           const releaseHold = .2;
           const chapterTimelineDuration = wipeEnd + releaseHold;
           const chapterScrollDistance = () => Math.round(innerHeight * 1.8);
+          const chapterWheelHoldDuration = 650;
+          const chapterWheelReleaseThreshold = .999;
+          const chapterWheelRearmThreshold = .95;
+          const chapterWheelBoundaryTolerance = 2;
           const chapterDarkSurface = getComputedStyle(chapter).getPropertyValue('--home-charcoal').trim() || '#2d2d2d';
 
           chapter.classList.remove('is-dark');
@@ -582,6 +586,70 @@
               }
             }
           });
+
+          let chapterWipeTimeline;
+          let chapterWheelHoldTimer = 0;
+          let chapterWheelHoldStartedAt = 0;
+          let chapterWheelReleased = false;
+          const clearChapterWheelHoldTimer = () => {
+            if (!chapterWheelHoldTimer) return;
+            window.clearTimeout(chapterWheelHoldTimer);
+            chapterWheelHoldTimer = 0;
+          };
+          const rearmChapterWheelHold = () => {
+            clearChapterWheelHoldTimer();
+            chapterWheelHoldStartedAt = 0;
+            chapterWheelReleased = false;
+          };
+          const releaseChapterWheelHold = () => {
+            clearChapterWheelHoldTimer();
+            chapterWheelHoldStartedAt = 0;
+            chapterWheelReleased = true;
+          };
+          const getChapterWipeScale = () => gsap.utils.clamp(0, 1, Number(gsap.getProperty(chapterWipe, 'scaleY')) || 0);
+          const completeChapterWheelHold = () => {
+            if (!chapterWheelHoldStartedAt || performance.now() - chapterWheelHoldStartedAt < chapterWheelHoldDuration) return;
+            const chapterTrigger = chapterTimeline.scrollTrigger;
+            if (!chapterTrigger) return;
+            const scrollY = window.scrollY;
+            const atBoundary = scrollY >= chapterTrigger.end - chapterWheelBoundaryTolerance
+              && scrollY <= chapterTrigger.end + chapterWheelBoundaryTolerance;
+            const wipeComplete = getChapterWipeScale() >= chapterWheelReleaseThreshold;
+            if (scrollY > chapterTrigger.end + chapterWheelBoundaryTolerance) {
+              releaseChapterWheelHold();
+              return;
+            }
+            if (!atBoundary || !wipeComplete) {
+              if (!atBoundary || getChapterWipeScale() < chapterWheelRearmThreshold) rearmChapterWheelHold();
+              return;
+            }
+            releaseChapterWheelHold();
+          };
+          const syncChapterWheelHold = () => {
+            const chapterTrigger = chapterTimeline.scrollTrigger;
+            if (!chapterTrigger) return;
+            const scrollY = window.scrollY;
+            const wipeScale = getChapterWipeScale();
+            if (scrollY > chapterTrigger.end + chapterWheelBoundaryTolerance) {
+              releaseChapterWheelHold();
+              return;
+            }
+            if (scrollY < chapterTrigger.end - chapterWheelBoundaryTolerance || wipeScale < chapterWheelRearmThreshold) {
+              rearmChapterWheelHold();
+              return;
+            }
+            if (chapterWheelReleased || wipeScale < chapterWheelReleaseThreshold) return;
+            if (chapterWheelHoldStartedAt) {
+              completeChapterWheelHold();
+              return;
+            }
+            chapterWheelHoldStartedAt = performance.now();
+            chapterWheelHoldTimer = window.setTimeout(completeChapterWheelHold, chapterWheelHoldDuration);
+          };
+          const updateChapterWipe = () => {
+            updateChapterOverlays();
+            syncChapterWheelHold();
+          };
 
           let processOverlapTween;
           let processOverlapTrigger;
@@ -689,9 +757,8 @@
           chapterTimeline.to(chapterWipeProxy, { progress: 1, duration: wipeDuration, ease: 'none' }, wipeStart);
           chapterTimeline.to(chapterWipeProxy, { progress: 1, duration: releaseHold, ease: 'none' }, wipeEnd);
 
-          let chapterWipeTimeline;
           chapterWipeTimeline = gsap.timeline({
-            onUpdate: updateChapterOverlays,
+            onUpdate: updateChapterWipe,
             scrollTrigger: {
               trigger: chapterPinStage || chapter,
               start: () => {
@@ -704,7 +771,7 @@
               },
               scrub: 1.6,
               invalidateOnRefresh: true,
-              onRefresh: updateChapterOverlays
+              onRefresh: updateChapterWipe
             }
           });
           chapterWipeTimeline.fromTo(chapterWipe,
@@ -716,7 +783,52 @@
           chapterWipeTimeline.set(chapterAccordion, { backgroundColor: chapterDarkSurface }, wipeDuration);
           updateChapterOverlays();
 
+          const isChapterWheelIgnored = event => {
+            if (document.body.classList.contains('modal-open')) return true;
+            const target = event.target instanceof Element ? event.target : null;
+            if (!target) return false;
+            if (target.closest('dialog[open], input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"], [data-open="search"], [data-open="bag"]')) return true;
+            for (let node = target; node && node !== document.body; node = node.parentElement) {
+              const style = getComputedStyle(node);
+              if (['auto', 'scroll', 'overlay'].includes(style.overflowY) && node.scrollHeight > node.clientHeight + 1) return true;
+            }
+            return false;
+          };
+          const getChapterWheelDeltaY = event => {
+            const deltaY = Number(event.deltaY) || 0;
+            if (event.deltaMode === 1) return deltaY * (parseFloat(getComputedStyle(document.documentElement).lineHeight) || 16);
+            if (event.deltaMode === 2) return deltaY * innerHeight;
+            return deltaY;
+          };
+          const handleChapterWheel = event => {
+            if (!event.cancelable || event.defaultPrevented || event.ctrlKey) return;
+            const deltaY = getChapterWheelDeltaY(event);
+            if (!deltaY || (event.deltaX && Math.abs(event.deltaX) >= Math.abs(deltaY))) return;
+            const chapterTrigger = chapterTimeline.scrollTrigger;
+            if (!chapterTrigger) return;
+            if (deltaY < 0) {
+              rearmChapterWheelHold();
+              return;
+            }
+            completeChapterWheelHold();
+            const currentY = window.scrollY;
+            if (currentY > chapterTrigger.end + chapterWheelBoundaryTolerance) {
+              releaseChapterWheelHold();
+              return;
+            }
+            if (currentY + deltaY <= chapterTrigger.end || chapterWheelReleased) return;
+            if (isChapterWheelIgnored(event)) return;
+            event.preventDefault();
+            window.scrollTo({ top: Math.max(0, Math.round(chapterTrigger.end - 1)), left: window.scrollX, behavior: 'instant' });
+            syncChapterWheelHold();
+          };
+          window.addEventListener('wheel', handleChapterWheel, { passive: false });
+
           return () => {
+            window.removeEventListener('wheel', handleChapterWheel);
+            clearChapterWheelHoldTimer();
+            chapterWheelHoldStartedAt = 0;
+            chapterWheelReleased = false;
             processOverlapTween?.scrollTrigger?.kill();
             processOverlapTween?.kill();
             clearProcessOverlapVisuals();
