@@ -1451,6 +1451,11 @@
 }
 
 @media (min-width: 1101px) {
+  .home-page .home-starting-points-intro {
+    margin-left: max(0px, calc((100% - 1620px) / 2));
+    margin-right: 0;
+  }
+
   .home-page .home-process-heading h2 {
     font-size: clamp(52px, 4.4vw, 72px);
   }
