@@ -134,7 +134,7 @@
     group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setDropdown(group, false); });
     group.addEventListener('keydown', e => {
       if (e.key === 'Escape') { trigger.focus(); closeDropdowns(); }
-      if (e.key === 'ArrowDown' && e.target === trigger) { e.preventDefault(); open(); $('a', group).focus(); }
+      if (e.key === 'ArrowDown' && e.target === trigger) { e.preventDefault(); open(); $('.nav-dropdown a', group).focus(); }
     });
     $$('a', group).forEach(a => a.addEventListener('click', closeDropdowns));
   });
