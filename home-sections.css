@@ -93,7 +93,7 @@
 
 .home-page .home-about-gallery-controls {
   display: grid;
-  max-width: 1640px;
+  max-width: 1344px;
   align-items: center;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 18px;
@@ -309,7 +309,7 @@
 
 .home-page .home-why-inner {
   display: grid;
-  max-width: 1640px;
+  max-width: 1248px;
   grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
   align-items: start;
   gap: clamp(50px, 6.6vw, 92px);
@@ -459,10 +459,10 @@
 
 .home-page .home-faq-inner {
   display: grid;
-  max-width: 1640px;
-  grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
+  max-width: 1280px;
+  grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
   align-items: start;
-  gap: clamp(48px, 5vw, 80px);
+  gap: clamp(48px, 7vw, 96px);
   margin: 0 auto;
 }
 
@@ -722,7 +722,7 @@
 .home-page .home-footer .footer-main {
   display: flex;
   width: 100%;
-  max-width: 1640px;
+  max-width: 1248px;
   flex-direction: column;
   gap: 0;
   margin: 0 auto;
@@ -862,7 +862,7 @@
   display: grid;
   width: 100%;
   min-width: 0;
-  grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(300px, 1.3fr) repeat(4, minmax(0, 1fr));
   align-items: start;
   gap: clamp(24px, 4vw, 52px);
   padding: 62px 0 64px;
