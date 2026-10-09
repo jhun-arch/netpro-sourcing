@@ -14,37 +14,13 @@
   text-align: center;
 }
 
-.home-page .home-about-label {
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  gap: 9px;
-  margin: 0 0 24px;
-  padding: 7px 13px;
-  border: 1px solid rgba(66, 96, 151, .32);
-  border-radius: 999px;
-  color: var(--home-accent-blue);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 20px;
-  text-transform: none;
-}
-
-.home-page .home-about-label svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  stroke-width: 1.3;
-}
-
 .home-page .home-about-intro h2 {
   max-width: 920px;
   margin: 0 auto;
   color: var(--home-charcoal);
   font-size: clamp(40px, 4.1vw, 58px);
   font-weight: 500;
-  letter-spacing: -.042em;
+  letter-spacing: normal;
   line-height: 1.1;
 }
 
@@ -113,7 +89,7 @@
 
 .home-page .home-about-gallery-controls {
   display: grid;
-  max-width: 1344px;
+  max-width: 1640px;
   align-items: center;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 18px;
@@ -372,7 +348,7 @@
 
 .home-page .home-why-inner {
   display: grid;
-  max-width: 1248px;
+  max-width: 1640px;
   grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
   align-items: start;
   gap: clamp(50px, 6.6vw, 92px);
@@ -385,50 +361,12 @@
   align-self: start;
 }
 
-.home-page .home-why-intro .home-why-label {
-  width: fit-content;
-  min-height: 32px;
-  gap: 8px;
-  margin-bottom: 20px;
-  padding: 5px 11px;
-  border: 1px solid rgba(66, 96, 151, .32);
-  border-radius: 999px;
-  color: #426097;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 20px;
-  text-transform: none;
-}
-
-.home-page .home-why-label-dot {
-  width: 6px;
-  height: 6px;
-  flex: 0 0 6px;
-  border-radius: 50%;
-  background: #426097;
-}
-
-.home-page .home-section-label {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin: 0 0 20px;
-  color: var(--home-accent-blue);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
 .home-page .home-why-intro h2 {
-  max-width: 12ch;
   color: #242b35;
   font-size: clamp(42px, 4vw, 52px);
   font-weight: 500;
-  letter-spacing: -.04em;
-  line-height: 1.12;
+  letter-spacing: normal;
+  line-height: 1.1;
 }
 
 .home-page .home-why-lead {
@@ -538,16 +476,17 @@
 .home-page .home-why-item h3 {
   margin: 2px 0 9px;
   color: #27303d;
+  font-family: 'Figtree', sans-serif;
   font-size: 21px;
-  font-weight: 600;
-  letter-spacing: -.025em;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.28;
 }
 
 .home-page .home-why-item p {
   max-width: 490px;
   color: #667184;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.75;
 }
 
@@ -559,27 +498,19 @@
 
 .home-page .home-faq-inner {
   display: grid;
-  max-width: 1280px;
-  grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
+  max-width: 1640px;
+  grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
   align-items: start;
-  gap: clamp(48px, 7vw, 96px);
+  gap: clamp(48px, 5vw, 80px);
   margin: 0 auto;
 }
 
-.home-page .home-faq-label-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--home-accent-blue);
-}
-
 .home-page .home-faq-intro h2 {
-  max-width: 9ch;
   color: #242b35;
-  font-size: clamp(38px, 3.4vw, 44px);
+  font-size: clamp(42px, 3.4vw, 52px);
   font-weight: 500;
-  letter-spacing: -.04em;
-  line-height: 1.18;
+  letter-spacing: normal;
+  line-height: 1.1;
 }
 
 .home-page .home-faq-contact {
@@ -610,16 +541,17 @@
 .home-page .home-faq-contact h3 {
   margin-top: 18px;
   color: #2b3442;
+  font-family: 'Figtree', sans-serif;
   font-size: 19px;
-  font-weight: 600;
-  letter-spacing: -.02em;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.3;
 }
 
 .home-page .home-faq-contact p {
   margin-top: 8px;
   color: #667184;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -677,9 +609,11 @@
   padding: 16px 22px;
   color: #2c3440;
   background: transparent;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.45;
+  font-family: 'Figtree', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.3;
   text-align: left;
 }
 
@@ -742,7 +676,7 @@
 .home-page .home-faq-answer p {
   max-width: 72ch;
   color: #687486;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
 }
 
@@ -761,7 +695,7 @@
 .home-page .home-footer .footer-main {
   display: flex;
   width: 100%;
-  max-width: 1248px;
+  max-width: 1640px;
   flex-direction: column;
   gap: 0;
   margin: 0 auto;
@@ -810,7 +744,7 @@
   max-width: 390px;
   margin-top: 20px;
   color: rgba(255, 255, 255, .8);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -829,8 +763,8 @@
   color: #fff;
   font-family: 'Figtree', sans-serif;
   font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -.025em;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.25;
   text-align: right;
   white-space: nowrap;
@@ -841,7 +775,7 @@
   max-width: 420px;
   margin: 10px 0 0 auto;
   color: rgba(255, 255, 255, .8);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   text-align: right;
 }
@@ -927,7 +861,7 @@
 .home-page .home-footer-contact address {
   margin-top: 18px;
   color: rgba(255, 255, 255, .76);
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   line-height: 1.75;
 }
@@ -935,7 +869,7 @@
 .home-page .home-footer .contact-person {
   margin-top: 11px;
   color: rgba(255, 255, 255, .73);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
@@ -951,22 +885,22 @@
   margin: 0 0 5px;
   color: #fff;
   font-family: 'Figtree', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: .06em;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.4;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .home-page .home-footer .footer-column h3 {
   margin: 9px 0 -1px;
   color: rgba(255, 255, 255, .65);
   font-family: 'Figtree', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .08em;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.5;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .home-page .home-footer .footer-column a,
@@ -974,7 +908,7 @@
   max-width: 100%;
   color: rgba(255, 255, 255, .8);
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
@@ -1000,7 +934,7 @@
   padding: 26px 0 0;
   border: 0;
   color: rgba(255, 255, 255, .76);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -1023,8 +957,8 @@
 
 .home-page .home-footer-legal > span {
   color: rgba(255, 255, 255, .88);
-  font-size: 9px;
-  letter-spacing: .1em;
+  font-size: 11px;
+  letter-spacing: .04em;
   white-space: nowrap;
 }
 
@@ -1130,13 +1064,9 @@
     padding-inline: 24px;
   }
 
-  .home-page .home-about-label {
-    margin-bottom: 18px;
-  }
-
   .home-page .home-about-intro h2 {
     font-size: clamp(36px, 8.4vw, 48px);
-    letter-spacing: -.04em;
+    letter-spacing: normal;
     line-height: 1.12;
   }
 
@@ -1145,7 +1075,7 @@
   }
 
   .home-page .home-about-support > p {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7;
   }
 
@@ -1230,13 +1160,8 @@
     position: static;
   }
 
-  .home-page .home-section-label {
-    margin-bottom: 16px;
-    font-size: 10px;
-  }
-
   .home-page .home-why-intro h2 {
-    max-width: 12ch;
+    max-width: none;
     font-size: clamp(39px, 9vw, 50px);
     line-height: 1.1;
   }
@@ -1284,7 +1209,7 @@
   }
 
   .home-page .home-why-item p {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.7;
   }
 
@@ -1298,7 +1223,7 @@
   }
 
   .home-page .home-faq-intro h2 {
-    max-width: 12ch;
+    max-width: none;
     font-size: 40px;
   }
 
@@ -1316,7 +1241,7 @@
     min-height: 60px;
     gap: 14px;
     padding: 14px 16px;
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .home-page .home-faq-answer-inner {
@@ -1324,7 +1249,7 @@
   }
 
   .home-page .home-faq-answer p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .home-page .home-footer.footer.footer-studio {
@@ -1340,7 +1265,7 @@
   .home-page .home-footer-brand > p {
     max-width: 360px;
     margin-top: 15px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .home-page .home-footer .home-footer-subscribe {
@@ -1402,7 +1327,7 @@
   }
 
   .home-page .home-footer .footer-column h2 {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .home-page .home-footer .footer-column h3 {
@@ -1411,13 +1336,13 @@
 
   .home-page .home-footer .footer-column a,
   .home-page .home-footer .footer-column button {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .home-page .home-footer .home-footer-bottom {
     gap: 17px 12px;
     padding-top: 22px;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .home-page .home-footer-legal {
@@ -1425,7 +1350,7 @@
   }
 
   .home-page .home-footer-legal > span {
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .home-page .home-footer .footer-social-links {
