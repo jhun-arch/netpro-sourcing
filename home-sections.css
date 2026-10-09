@@ -646,6 +646,72 @@
   font-size: 13px;
 }
 
+.home-page .closing-cta.closing-cta--footer {
+  background: #426097;
+}
+
+@media (min-width: 761px) {
+  .home-page .closing-cta.closing-cta--footer {
+    display: flex;
+    min-height: 520px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(110px, 10vh, 130px) var(--home-gutter);
+    text-align: center;
+  }
+
+  .home-page .closing-cta--footer .closing-copy {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .home-page .closing-cta--footer .closing-copy h2 {
+    margin: 0;
+    color: #fff;
+    font-family: 'Figtree', sans-serif;
+    font-size: clamp(48px, 4.2vw, 72px);
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 1.1;
+  }
+
+  .home-page .closing-cta--footer .closing-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+  }
+
+  :root .home-page .closing-cta--footer .closing-primary {
+    min-width: 240px;
+    min-height: 58px;
+    padding: 0 30px;
+    border: 1px solid #fff;
+    border-radius: 0;
+    color: #263957;
+    background: #fff;
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 180ms ease;
+  }
+
+  :root .home-page .closing-cta--footer .closing-primary:hover {
+    border-color: #fff;
+    color: #263957;
+    background: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  :root .home-page .closing-cta--footer .closing-primary:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+  }
+}
+
 .home-page .home-footer.footer.footer-studio {
   overflow: hidden;
   padding: 80px var(--home-gutter) 25px;
