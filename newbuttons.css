@@ -3,6 +3,8 @@
 :root {
   --action-primary: #355EE1;
   --action-outline: #426097;
+  --action-outline-soft: rgba(66, 96, 151, .45);
+  --action-outline-light-soft: rgba(255, 255, 255, .45);
 }
 
 :root :is(
@@ -22,7 +24,8 @@
   justify-content: center;
   gap: 10px;
   padding: 0 21px;
-  border: 1px solid var(--action-outline);
+  border: 1px solid transparent;
+  border-bottom-color: var(--action-outline-soft);
   border-radius: 0;
   color: var(--action-outline);
   background: transparent;
@@ -32,13 +35,13 @@
   line-height: 1.4;
   text-align: center;
   text-decoration: none;
-  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  transition: color 160ms ease, border-color 160ms ease;
 }
 
-:root :is(.button, .text-link, .ip-text-link, .home-about-link, .home-faq-guide, .home-process-primary, .home-process-secondary, .footer-email-button, .contact-manifesto > a):hover {
+:root :is(.button, .text-link, .ip-text-link, .home-about-link, .home-faq-guide, .home-process-primary, .home-process-secondary, .footer-email-button, .contact-manifesto > a):is(:hover, :focus-visible) {
   color: var(--action-outline);
   border-color: var(--action-outline);
-  background: #f4f6fa;
+  background: transparent;
   text-decoration: none;
   transform: none;
   box-shadow: none;
@@ -85,16 +88,17 @@
 
 :root .button.outline,
 .button:not(.primary):not(.closing-primary):not(.closing-secondary):not(.outline):not(.ip-button-light):not(.ip-digest-outline):not(.ip-mf-cta-outline) {
-  border-color: var(--action-outline);
+  border-color: transparent;
+  border-bottom-color: var(--action-outline-soft);
   color: var(--action-outline);
   background: transparent;
 }
 
-:root .button.outline:hover,
-.button:not(.primary):not(.closing-primary):not(.closing-secondary):not(.outline):not(.ip-button-light):not(.ip-digest-outline):not(.ip-mf-cta-outline):hover {
+:root .button.outline:is(:hover, :focus-visible),
+.button:not(.primary):not(.closing-primary):not(.closing-secondary):not(.outline):not(.ip-button-light):not(.ip-digest-outline):not(.ip-mf-cta-outline):is(:hover, :focus-visible) {
   border-color: var(--action-outline);
   color: var(--action-outline);
-  background: #f4f6fa;
+  background: transparent;
 }
 
 :root .button.ip-button-light {
@@ -111,16 +115,17 @@
 
 :root .button.ip-digest-outline,
 :root .button.ip-mf-cta-outline {
-  border-color: #d4e0f3;
+  border-color: transparent;
+  border-bottom-color: var(--action-outline-light-soft);
   color: #fff;
   background: transparent;
 }
 
-:root .button.ip-digest-outline:hover,
-:root .button.ip-mf-cta-outline:hover {
+:root .button.ip-digest-outline:is(:hover, :focus-visible),
+:root .button.ip-mf-cta-outline:is(:hover, :focus-visible) {
   border-color: #fff;
-  color: #172235;
-  background: #fff;
+  color: #fff;
+  background: transparent;
 }
 
 .home-page .hero-actions .button,
@@ -149,27 +154,29 @@
 }
 
 :root .home-page .button.closing-secondary {
-  border-color: rgba(255, 255, 255, .58);
+  border-color: transparent;
+  border-bottom-color: var(--action-outline-light-soft);
   color: #fff;
   background: transparent;
 }
 
-:root .home-page .button.closing-secondary:hover {
+:root .home-page .button.closing-secondary:is(:hover, :focus-visible) {
   border-color: #fff;
-  color: var(--home-charcoal);
-  background: #fff;
+  color: #fff;
+  background: transparent;
 }
 
 :root .home-page .home-process-secondary {
   min-height: 48px;
   padding: 0 21px;
-  border: 1px solid var(--action-outline);
+  border: 1px solid transparent;
+  border-bottom-color: var(--action-outline-soft);
 }
 
-:root .home-page .home-process-secondary:hover {
+:root .home-page .home-process-secondary:is(:hover, :focus-visible) {
   color: var(--action-outline);
   border-color: var(--action-outline);
-  background: #f4f6fa;
+  background: transparent;
 }
 
 .home-page .hero-actions .button.primary {
@@ -185,15 +192,16 @@
 }
 
 .home-page .hero-actions .button.outline {
-  border-color: rgba(255, 255, 255, .82);
+  border-color: transparent;
+  border-bottom-color: var(--action-outline-light-soft);
   color: #fff;
-  background: rgba(16, 36, 62, .16);
+  background: transparent;
 }
 
-.home-page .hero-actions .button.outline:hover {
+:root .home-page .hero-actions .button.outline:is(:hover, :focus-visible) {
   border-color: #fff;
-  color: var(--home-charcoal);
-  background: #fff;
+  color: #fff;
+  background: transparent;
 }
 
 .home-page .home-faq-contact > a {
@@ -226,23 +234,51 @@
   color: var(--action-outline);
 }
 
-.home-page .home-about-link:hover,
-.home-page .home-faq-guide:hover {
+.home-page .home-about-link:is(:hover, :focus-visible),
+.home-page .home-faq-guide:is(:hover, :focus-visible) {
   color: var(--action-outline);
   border-color: var(--action-outline);
-  background: #f4f6fa;
+  background: transparent;
+}
+
+:root .home-page .home-story-link {
+  border: 1px solid transparent;
+  border-bottom-color: var(--action-outline-soft);
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+:root .home-page .home-story-link:is(:hover, :focus-visible) {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: transparent;
+  text-decoration: none;
+}
+
+:root .home-page .home-story .home-story-copy-overlay .home-story-link,
+:root .home-page .home-story.is-dark .home-story-link {
+  border: 1px solid transparent;
+  border-bottom-color: var(--action-outline-light-soft);
+}
+
+:root .home-page .home-story .home-story-copy-overlay .home-story-link:is(:hover, :focus-visible),
+:root .home-page .home-story.is-dark .home-story-link:is(:hover, :focus-visible) {
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+  text-decoration: none;
 }
 
 .home-page .home-starting-points .service-grid .text-link {
-  border-color: rgba(255, 255, 255, .78);
+  border-color: transparent;
+  border-bottom-color: var(--action-outline-light-soft);
   color: #fff;
   background: transparent;
 }
 
-.home-page .home-starting-points .service-grid .text-link:hover {
+.home-page .home-starting-points .service-grid .text-link:is(:hover, :focus-visible) {
   border-color: #fff;
   color: #fff;
-  background: rgba(255, 255, 255, .12);
+  background: transparent;
 }
 
 .home-page .home-starting-points .service-grid .text-link::before,
@@ -289,7 +325,8 @@
   justify-content: center;
   gap: 10px;
   padding: 0 21px;
-  border-color: rgba(255, 255, 255, .78);
+  border-color: transparent;
+  border-bottom-color: var(--action-outline-light-soft);
   color: #fff;
   background: transparent;
   font-size: 14px;
@@ -297,13 +334,13 @@
   letter-spacing: 0;
 }
 
-.footer-studio .footer-connect > .footer-email-button:hover {
+.footer-studio .footer-connect > .footer-email-button:is(:hover, :focus-visible) {
   border-color: #fff;
   color: #fff;
-  background: rgba(255, 255, 255, .12);
+  background: transparent;
 }
 
-.about-range-note .text-link {
+:root .about-range-note .text-link {
   display: inline;
   min-height: 0;
   padding: 0;
@@ -316,6 +353,22 @@
   transition: none;
 }
 
+:root .about-range-note .text-link:hover,
+:root .about-range-note .text-link:focus-visible {
+  border: 0;
+  color: inherit;
+  background: none;
+  text-decoration: underline;
+  transform: none;
+  box-shadow: none;
+}
+
+:root .about-range-note .text-link:focus-visible {
+  outline: 0;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 .customization-page .text-link {
   display: inline-flex;
 }
@@ -326,7 +379,8 @@
   align-items: center;
   justify-content: center;
   padding: 0 14px;
-  border: 1px solid var(--action-outline);
+  border: 1px solid transparent;
+  border-bottom-color: var(--action-outline-soft);
   border-radius: 0;
   color: var(--action-outline);
   background: transparent;
@@ -334,12 +388,13 @@
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease;
 }
 
-.detail-copy .custom-product-link:hover {
+.detail-copy .custom-product-link:is(:hover, :focus-visible) {
   border-color: var(--action-outline);
   color: var(--action-outline);
-  background: #f4f6fa;
+  background: transparent;
 }
 
 .shop-page .sidebar-note > a {
@@ -351,7 +406,8 @@
   gap: 8px;
   margin-top: 4px;
   padding: 0 12px;
-  border: 1px solid var(--action-outline);
+  border: 1px solid transparent;
+  border-bottom-color: var(--action-outline-soft);
   border-radius: 0;
   color: var(--action-outline);
   background: transparent;
@@ -361,12 +417,13 @@
   line-height: 1.35;
   text-align: center;
   text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease;
 }
 
-.shop-page .sidebar-note > a:hover {
+.shop-page .sidebar-note > a:is(:hover, :focus-visible) {
   border-color: var(--action-outline);
   color: var(--action-outline);
-  background: #f4f6fa;
+  background: transparent;
   text-decoration: none;
 }
 
@@ -588,10 +645,12 @@ input[type='file']::file-selector-button {
   .ip-text-link,
   .home-about-link,
   .home-faq-guide,
+  .home-story-link,
   .home-process-primary,
   .home-process-secondary,
   .footer-email-button,
   .contact-manifesto > a,
+  .detail-copy .custom-product-link,
   .shop-page .sidebar-note > a,
   button.product-price,
   .quick-view,
@@ -608,4 +667,17 @@ input[type='file']::file-selector-button {
 ):focus-visible {
   outline: 2px solid var(--action-outline);
   outline-offset: 3px;
+}
+
+:root :is(
+  .home-page .hero-actions .button.outline,
+  .home-page .button.closing-secondary,
+  .home-page .home-starting-points .service-grid .text-link,
+  .home-page .home-story .home-story-copy-overlay .home-story-link,
+  .home-page .home-story.is-dark .home-story-link,
+  .footer-studio .footer-connect > .footer-email-button,
+  .button.ip-digest-outline,
+  .button.ip-mf-cta-outline
+):focus-visible {
+  outline-color: #fff;
 }

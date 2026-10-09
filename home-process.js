@@ -5,8 +5,6 @@
   const toggles = Array.from(section.querySelectorAll('[data-process-toggle]'));
   const images = Array.from(section.querySelectorAll('[data-process-image]'));
   const visual = section.querySelector('[data-process-visual]');
-  const captionNumber = section.querySelector('[data-process-caption-number]');
-  const captionTitle = section.querySelector('[data-process-caption-title]');
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   const reflectMotionPreference = () => {
@@ -37,12 +35,6 @@
     });
 
     if (visual) visual.dataset.active = String(index);
-
-    const selectedToggle = toggles[index];
-    const number = selectedToggle.querySelector('.home-process-step-number')?.textContent.trim();
-    const title = selectedToggle.querySelector('.home-process-step-title')?.textContent.trim();
-    if (captionNumber && number) captionNumber.textContent = number;
-    if (captionTitle && title) captionTitle.textContent = title;
   };
 
   toggles.forEach((toggle, index) => {

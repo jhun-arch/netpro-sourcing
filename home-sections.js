@@ -60,24 +60,6 @@
       });
       setGalleryFilter('all');
 
-      gallery.addEventListener('focusin', () => {
-        gallery.dataset.focusPaused = 'true';
-      });
-      gallery.addEventListener('focusout', (event) => {
-        const nextTarget = event.relatedTarget;
-        const focusRemainsInGallery = nextTarget && gallery.contains(nextTarget);
-        gallery.dataset.focusPaused = String(Boolean(focusRemainsInGallery));
-      });
-
-      if (!reducedMotion && 'IntersectionObserver' in window) {
-        const galleryVisibilityObserver = new IntersectionObserver(([entry]) => {
-          gallery.dataset.visible = String(entry.isIntersecting);
-        }, { rootMargin: '80px 0px', threshold: 0 });
-        galleryVisibilityObserver.observe(gallery);
-      } else {
-        gallery.dataset.visible = 'false';
-      }
-
       gallery.dataset.ready = 'true';
     }
   }
