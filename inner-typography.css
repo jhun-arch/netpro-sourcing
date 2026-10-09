@@ -1,0 +1,26 @@
+/* Inner-page font pairing shared with the homepage, without changing page layout. */
+body:not(.home-page) {
+  --font-display: 'Figtree', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
+}
+
+html body:not(.home-page) :is(h1, h2, h3, h4):not(.home-footer *) {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+html body:not(.home-page) :is(.button, .ip-text-link, .text-link, .footer-email-button, .contact-manifesto > a):not(.home-footer *) {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+html body:not(.home-page) :is(.desktop-nav, .mobile-nav),
+html body:not(.home-page) :is(.desktop-nav, .mobile-nav) :is(a, button, summary) {
+  font-family: var(--font-body);
+}
+
+html body:not(.home-page) :is(button, input, select, textarea):not(.home-footer *) {
+  font-family: var(--font-body);
+}

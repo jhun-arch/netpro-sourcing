@@ -169,8 +169,7 @@
 :root .home-page .home-process-secondary {
   min-height: 48px;
   padding: 0 21px;
-  border: 1px solid transparent;
-  border-bottom-color: var(--action-outline-soft);
+  border: 1px solid var(--action-outline);
 }
 
 :root .home-page .home-process-secondary:is(:hover, :focus-visible) {
@@ -195,12 +194,42 @@
   border-color: #fff;
   color: #fff;
   background: transparent;
+  transition: background-color 240ms var(--ease), color 240ms var(--ease), border-color 240ms var(--ease);
 }
 
 :root .home-page .hero-actions .button.outline:is(:hover, :focus-visible) {
   border-color: #fff;
-  color: #fff;
-  background: transparent;
+  color: var(--home-charcoal);
+  background: #fff;
+}
+
+:root .home-page .hero-actions .button.outline .cta-label,
+:root .home-page .home-process-primary .cta-label,
+:root .home-page .home-process-secondary .cta-label {
+  display: inline-block;
+  transition: transform 280ms var(--ease);
+}
+
+:root .home-page .hero-actions .button.outline:is(:hover, :focus-visible) .cta-label,
+:root .home-page .home-process-primary:is(:hover, :focus-visible) .cta-label,
+:root .home-page .home-process-secondary:is(:hover, :focus-visible) .cta-label {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root .home-page .hero-actions .button.outline {
+    transition: none;
+  }
+
+  :root .home-page .hero-actions .button.outline .cta-label,
+  :root .home-page .home-process-primary .cta-label,
+  :root .home-page .home-process-secondary .cta-label,
+  :root .home-page .hero-actions .button.outline:is(:hover, :focus-visible) .cta-label,
+  :root .home-page .home-process-primary:is(:hover, :focus-visible) .cta-label,
+  :root .home-page .home-process-secondary:is(:hover, :focus-visible) .cta-label {
+    transform: none;
+    transition: none;
+  }
 }
 
 .home-page .home-faq-contact > a {
@@ -223,6 +252,16 @@
   padding: 0 21px;
 }
 
+:root .home-page .home-about-link {
+  border-color: transparent;
+  text-decoration: none;
+}
+
+:root .home-page .home-about-link:is(:hover, :focus-visible) {
+  border-color: transparent;
+  text-decoration: none;
+}
+
 .home-page .home-about-link-primary,
 .home-page .home-about-link-secondary {
   color: var(--action-outline);
@@ -241,13 +280,14 @@
 }
 
 :root .home-page .home-story-link {
-  border: 1px solid transparent;
-  border-bottom-color: var(--action-outline-soft);
+  border: 0;
+  border-bottom: 1px solid rgba(66, 96, 151, .38);
   transition: color 160ms ease, border-color 160ms ease;
 }
 
 :root .home-page .home-story-link:is(:hover, :focus-visible) {
-  border-color: var(--action-outline);
+  border: 0;
+  border-bottom: 1px solid var(--action-outline);
   color: var(--action-outline);
   background: transparent;
   text-decoration: none;
@@ -255,21 +295,21 @@
 
 :root .home-page .home-story .home-story-copy-overlay .home-story-link,
 :root .home-page .home-story.is-dark .home-story-link {
-  border: 1px solid transparent;
-  border-bottom-color: var(--action-outline-light-soft);
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .6);
 }
 
 :root .home-page .home-story .home-story-copy-overlay .home-story-link:is(:hover, :focus-visible),
 :root .home-page .home-story.is-dark .home-story-link:is(:hover, :focus-visible) {
-  border-color: #fff;
+  border: 0;
+  border-bottom: 1px solid #fff;
   color: #fff;
   background: transparent;
   text-decoration: none;
 }
 
 .home-page .home-starting-points .service-grid .text-link {
-  border-color: transparent;
-  border-bottom-color: var(--action-outline-light-soft);
+  border-color: #fff;
   color: #fff;
   background: transparent;
 }

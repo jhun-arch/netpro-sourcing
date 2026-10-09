@@ -15,8 +15,9 @@
 <script defer src="navigation-motion.js?v=4"></script><link rel="stylesheet" href="typography.css?v=20260915-1"><link rel="stylesheet" href="about.css?v=1"><link rel="stylesheet" href="b2b.css?v=nav7"><link rel="stylesheet" href="motion.css?v=1"><script defer src="motion.js?v=1"></script><link rel="stylesheet" href="services.css?v=3"><link rel="canonical" href="https://netprosourcing.vercel.app/terms"><meta property="og:title" content="Terms — Netpro Sourcing"><meta property="og:description" content="Terms for using the Netpro Sourcing product catalogue and submitting enquiries."><meta property="og:type" content="website"><meta property="og:url" content="https://netprosourcing.vercel.app/terms"><meta property="og:image" content="https://netprosourcing.vercel.app/assets/hero.png"><link rel="stylesheet" href="refinements.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="newbuttons.css?v=20261009-2">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="inner-typography.css?v=20261009-1">
+  <link rel="stylesheet" href="site-footer.css?v=20261009-1">
 </head>
 <body class="about-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -56,15 +57,81 @@
   </header>
   <main id="main"><section class="service-section legal-content"><p class="eyebrow">404</p><h1>Page not found.</h1><p>Browse the product catalogue or contact us for help with your sourcing project.</p><a class="button primary" href="/shop.html">Browse products</a><a class="button outline" href="/contact.html">Contact us</a></section></main>
 
-  <footer class="footer footer-redesign footer-studio">
+  <footer class="footer footer-redesign footer-studio home-footer">
     <div class="footer-main">
-      <div class="footer-brand footer-contact"><a class="footer-logo" href="index.html" aria-label="Netpro Sourcing home"><strong>NETPRO</strong><span>SOURCING</span></a><h2>Contact us</h2><address>Netpro Sourcing<br>Room 1202, Block A, Wanda Plaza,<br>Shiji Road, Meiling Street, Jinjiang,<br>Quanzhou 362200, China</address><a class="contact-email" href="mailto:info@netpropatches.com">info@netpropatches.com</a><p class="contact-person">Sales Manager: Stanley Poon</p></div>
-      <div class="footer-column"><h2>Product Categories</h2><a href="shop.html?category=new">New Arrivals</a><a href="shop.html?category=clothing">Clothing</a><a href="shop.html?category=socks">Socks</a><a href="shop.html?category=headwear">Headwear</a><a href="shop.html?category=patches">Ready-Made Patches</a></div>
-      <div class="footer-column"><h2>Custom Patches</h2><a href="customization.html#embroidered-patches">Embroidered Patches <span>↗</span></a><a href="customization.html#pvc-patches">PVC Patches <span>↗</span></a><a href="customization.html#chenille-patches">Chenille Patches <span>↗</span></a><a href="customization.html#woven-patches">Woven Patches <span>↗</span></a></div>
-      <div class="footer-column"><h2>Here to Help</h2><a href="quality.html">Quality & Project Support</a><a href="buying-guide.html">Buying Guide & FAQ</a><a href="customization.html">Customization</a><a href="contact.html">Contact Us</a><a href="quote.html">Request a Quote</a><button data-info="sizes">Size Guide</button><a href="about.html">Our Story</a><a href="case-studies.html">Case Studies</a><a href="how-it-works.html">How It Works</a><a href="what-we-do.html">What We Do</a><a href="custom-product-manufacturing.html">Custom Product Manufacturing</a><a href="trends-digest.html">Trends Digest</a></div>
-      <div class="footer-connect"><h2>Let's make it yours.</h2><p>Have an idea for custom clothing, hats, socks or patches? Tell us what you have in mind, and let's explore the details.</p><a class="footer-email-button" href="contact.html">GET IN TOUCH <svg><use href="#i-arrow"/></svg></a><a class="footer-custom-link" href="customization.html#patches">Explore Custom Patches ↗</a></div>
+      <div class="home-footer-top">
+        <section class="home-footer-brand" aria-labelledby="home-footer-brand-title">
+          <a class="footer-logo" href="index.html#home" aria-label="Netpro Sourcing home"><strong>NETPRO</strong><span>SOURCING</span></a>
+          <h2 id="home-footer-brand-title" class="sr-only">Netpro Sourcing</h2>
+          <p>Product sourcing and customization support for clothing, headwear, socks and patches.</p>
+        </section>
+        <section class="footer-connect home-footer-subscribe" aria-labelledby="home-footer-collective-title">
+          <h2 id="home-footer-collective-title">Join The Custom Collective</h2>
+          <p>Let’s stay in touch about your next product range.</p>
+          <div class="footer-signup" role="group" aria-labelledby="home-footer-collective-title" data-collective-signup>
+            <label class="sr-only" for="home-collective-email">Email address</label>
+            <input id="home-collective-email" type="email" placeholder="Email address" autocomplete="email">
+            <button class="footer-signup-button" type="button" disabled aria-disabled="true">Subscribe</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="home-footer-rule" aria-hidden="true"></div>
+
+      <div class="home-footer-middle">
+        <section class="home-footer-contact" aria-labelledby="home-footer-contact-title">
+          <h2 class="sr-only" id="home-footer-contact-title">Contact Netpro</h2>
+          <a class="contact-email" href="mailto:info@netpropatches.com">info@netpropatches.com</a>
+          <address>Netpro Sourcing<br>Room 1202, Block A, Wanda Plaza,<br>Shiji Road, Meiling Street, Jinjiang,<br>Quanzhou 362200, China</address>
+          <p class="contact-person">Sales Manager: Stanley Poon</p>
+        </section>
+        <nav class="footer-column footer-products" aria-label="Products">
+          <h2>Products</h2>
+          <a href="shop.html?category=new">New Arrivals</a>
+          <a href="shop.html?category=clothing">Clothing</a>
+          <a href="shop.html?category=socks">Socks</a>
+          <a href="shop.html?category=headwear">Headwear</a>
+          <a href="shop.html?category=patches">Ready-Made Patches</a>
+        </nav>
+        <nav class="footer-column footer-custom-patches" aria-label="Custom Patches">
+          <h2>Custom Patches</h2>
+          <a href="customization.html#embroidered-patches">Embroidered Patches</a>
+          <a href="customization.html#pvc-patches">PVC Patches</a>
+          <a href="customization.html#chenille-patches">Chenille Patches</a>
+          <a href="customization.html#woven-patches">Woven Patches</a>
+        </nav>
+        <nav class="footer-column footer-company" aria-label="Company">
+          <h2>Company</h2>
+          <a href="about.html">Our Story</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="what-we-do.html">What We Do</a>
+          <a href="custom-product-manufacturing.html">Custom Product Manufacturing</a>
+          <a href="trends-digest.html">Trends Digest</a>
+        </nav>
+        <nav class="footer-column footer-support" aria-label="Support">
+          <h2>Support</h2>
+          <a href="quality.html">Quality &amp; Project Support</a>
+          <a href="buying-guide.html">Buying Guide &amp; FAQ</a>
+          <a href="customization.html">Customization</a>
+          <a href="customization.html#patches">Explore Custom Patches</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="quote.html">Request a Quote</a>
+          <button type="button" data-info="sizes">Size Guide</button>
+        </nav>
+      </div>
+
+      <div class="home-footer-rule home-footer-rule-bottom" aria-hidden="true"></div>
+      <div class="footer-bottom home-footer-bottom">
+        <span>© 2026 Netpro. All rights reserved.</span>
+        <div class="home-footer-legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a><span>YOUR PRODUCTS. YOUR IDENTITY.</span></div>
+        <div class="footer-social-links" role="group" aria-label="Social profiles">
+          <span class="footer-social-icon" role="img" aria-label="Instagram" data-social="instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="footer-social-dot" cx="17.7" cy="6.5" r=".8"/></svg></span>
+          <span class="footer-social-icon" role="img" aria-label="Facebook" data-social="facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M13.6 21v-7.2H16l.4-2.9h-2.8V9c0-.8.2-1.4 1.4-1.4h1.5V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v2.9h2.5V21z"/></svg></span>
+          <span class="footer-social-icon" role="img" aria-label="LinkedIn" data-social="linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M5.1 8.7h3.2V19H5.1zM6.7 4.9a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8M10.5 8.7h3.1v1.4h.1c.4-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.1 3.9 4.8V19h-3.2v-5.2c0-1.2 0-2.7-1.7-2.7s-2 1.3-2 2.6V19h-3.2z"/></svg></span>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Netpro. All rights reserved.</span><div><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a><span>EVERYDAY. YOUR WAY.</span></div></div>
   </footer>
 
   <dialog id="search-dialog" class="search-dialog"><div class="dialog-top"><h2>Find your everyday.</h2><button class="icon-button close-dialog" aria-label="Close search"><svg><use href="#i-close"/></svg></button></div><label for="search-input">Search the collection</label><div class="search-field"><svg><use href="#i-search"/></svg><input id="search-input" type="search" placeholder="Try hoodie, socks or patches" autocomplete="off"></div><div id="search-results" class="search-results" aria-live="polite"></div></dialog>
