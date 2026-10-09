@@ -200,7 +200,7 @@
 }
 
 .home-page .hero-copy h1 span + span {
-  color: var(--home-pale-blue);
+  color: #3D609A;
 }
 
 .home-page .hero-copy > p {
@@ -474,6 +474,10 @@
 
 .home-page .home-story.is-dark .home-story-link {
   border-color: rgba(255, 255, 255, .6);
+}
+
+.home-page #catalog .home-story-link {
+  color: #3D609A;
 }
 
 .home-page .home-story.is-dark .home-story-copy > p:not(.eyebrow) {
@@ -1525,7 +1529,7 @@
 }
 
 .home-page .footer.footer-studio {
-  background: var(--home-accent-blue);
+  background: #3D609A;
 }
 
 .home-page .motion-visible {
@@ -2044,7 +2048,7 @@
 .home-page .footer.footer-studio {
   padding: 64px var(--home-gutter) 22px;
   color: #fff;
-  background: #426097;
+  background: #3D609A;
 }
 
 .home-page .footer-studio .footer-main {

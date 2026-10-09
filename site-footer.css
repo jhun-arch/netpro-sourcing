@@ -6,7 +6,7 @@
   overflow: hidden;
   padding: 80px var(--home-gutter) 25px;
   color: #fff;
-  background: #426097;
+  background: #3D609A;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -324,7 +324,7 @@
   height: 36px;
   place-items: center;
   border-radius: 50%;
-  color: #426097;
+  color: #3D609A;
   background: #fff;
 }
 
@@ -339,7 +339,7 @@
 
 .home-footer.footer.footer-studio .footer-social-icon svg .footer-social-fill,
 .home-footer.footer.footer-studio .footer-social-icon svg .footer-social-dot {
-  fill: #426097;
+  fill: #3D609A;
   stroke: none;
 }
 

@@ -720,3 +720,10 @@ input[type='file']::file-selector-button {
 ):focus-visible {
   outline-color: #fff;
 }
+
+:root .home-page .home-about-link-primary,
+:root .home-page .home-faq-guide,
+:root .home-page .home-about-link-primary:is(:hover, :focus-visible),
+:root .home-page .home-faq-guide:is(:hover, :focus-visible) {
+  color: #3D609A;
+}
