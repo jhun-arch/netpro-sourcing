@@ -1449,3 +1449,32 @@
     grid-column: auto;
   }
 }
+
+@media (min-width: 1101px) {
+  .home-page .home-process-inner {
+    width: min(100%, 1280px);
+  }
+
+  .home-page .home-process-layout {
+    grid-template-columns: minmax(0, .45fr) minmax(0, .55fr);
+  }
+
+  .home-page .home-process-visual {
+    align-self: stretch;
+  }
+
+  .home-page .home-process-image-stage {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .home-page .home-starting-points-intro,
+  .home-page .home-starting-points .service-grid {
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+
+  .home-page .home-about-intro h2 {
+    font-size: clamp(48px, 5.4vw, 80px);
+  }
+}
