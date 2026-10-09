@@ -1,0 +1,611 @@
+/* Shared action styles. Select explicit CTA and filter classes so navigation,
+   disclosure rows and small utility controls keep their own interaction model. */
+:root {
+  --action-primary: #355EE1;
+  --action-outline: #426097;
+}
+
+:root :is(
+  .button,
+  .text-link,
+  .ip-text-link,
+  .home-about-link,
+  .home-faq-guide,
+  .home-process-primary,
+  .home-process-secondary,
+  .footer-email-button,
+  .contact-manifesto > a
+) {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 21px;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+:root :is(.button, .text-link, .ip-text-link, .home-about-link, .home-faq-guide, .home-process-primary, .home-process-secondary, .footer-email-button, .contact-manifesto > a):hover {
+  color: var(--action-outline);
+  border-color: var(--action-outline);
+  background: #f4f6fa;
+  text-decoration: none;
+  transform: none;
+  box-shadow: none;
+}
+
+:root :is(.button, .text-link, .ip-text-link, .home-about-link, .home-faq-guide, .home-process-primary, .home-process-secondary, .footer-email-button, .contact-manifesto > a) svg {
+  flex: 0 0 auto;
+}
+
+:root .button.primary,
+:root .button.closing-primary,
+.contact-page #contact-form .button.primary,
+:root .home-page .home-process-primary,
+.home-page .home-faq-contact > a,
+.home-page .home-footer .footer-signup-button {
+  min-height: 48px;
+  padding: 0 21px;
+  border: 1px solid var(--action-primary);
+  border-radius: 0;
+  color: #fff;
+  background: var(--action-primary);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  transform: none;
+  box-shadow: none;
+}
+
+:root .button.primary:hover,
+:root .button.closing-primary:hover,
+.contact-page #contact-form .button.primary:hover,
+:root .home-page .home-process-primary:hover,
+.home-page .home-faq-contact > a:hover,
+.home-page .home-footer .footer-signup-button:not(:disabled):hover {
+  border-color: #294fc4;
+  color: #fff;
+  background: #294fc4;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+:root .button.outline,
+.button:not(.primary):not(.closing-primary):not(.closing-secondary):not(.outline):not(.ip-button-light):not(.ip-digest-outline):not(.ip-mf-cta-outline) {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: transparent;
+}
+
+:root .button.outline:hover,
+.button:not(.primary):not(.closing-primary):not(.closing-secondary):not(.outline):not(.ip-button-light):not(.ip-digest-outline):not(.ip-mf-cta-outline):hover {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: #f4f6fa;
+}
+
+:root .button.ip-button-light {
+  border-color: #fff;
+  color: #182338;
+  background: #fff;
+}
+
+:root .button.ip-button-light:hover {
+  border-color: #fff;
+  color: #182338;
+  background: #edf2f8;
+}
+
+:root .button.ip-digest-outline,
+:root .button.ip-mf-cta-outline {
+  border-color: #d4e0f3;
+  color: #fff;
+  background: transparent;
+}
+
+:root .button.ip-digest-outline:hover,
+:root .button.ip-mf-cta-outline:hover {
+  border-color: #fff;
+  color: #172235;
+  background: #fff;
+}
+
+.home-page .hero-actions .button,
+.home-page .closing-actions .button,
+.step-form .button,
+.review-details > .button,
+#contact-form .button,
+.detail-copy #add-to-bag {
+  min-height: 48px;
+  padding: 0 21px;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 500;
+  transform: none;
+  box-shadow: none;
+}
+
+.home-page .hero-actions .button:hover,
+.home-page .closing-actions .button:hover,
+.step-form .button:hover,
+.review-details > .button:hover,
+#contact-form .button:hover,
+.detail-copy #add-to-bag:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+:root .home-page .button.closing-secondary {
+  border-color: rgba(255, 255, 255, .58);
+  color: #fff;
+  background: transparent;
+}
+
+:root .home-page .button.closing-secondary:hover {
+  border-color: #fff;
+  color: var(--home-charcoal);
+  background: #fff;
+}
+
+:root .home-page .home-process-secondary {
+  min-height: 48px;
+  padding: 0 21px;
+  border: 1px solid var(--action-outline);
+}
+
+:root .home-page .home-process-secondary:hover {
+  color: var(--action-outline);
+  border-color: var(--action-outline);
+  background: #f4f6fa;
+}
+
+.home-page .hero-actions .button.primary {
+  border-color: var(--action-primary);
+  color: #fff;
+  background: var(--action-primary);
+}
+
+.home-page .hero-actions .button.primary:hover {
+  border-color: #294fc4;
+  color: #fff;
+  background: #294fc4;
+}
+
+.home-page .hero-actions .button.outline {
+  border-color: rgba(255, 255, 255, .82);
+  color: #fff;
+  background: rgba(16, 36, 62, .16);
+}
+
+.home-page .hero-actions .button.outline:hover {
+  border-color: #fff;
+  color: var(--home-charcoal);
+  background: #fff;
+}
+
+.home-page .home-faq-contact > a {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 42px 0 21px;
+  border-radius: 0;
+  color: #fff;
+  background: var(--action-primary);
+}
+
+.home-page .home-faq-contact > a:hover {
+  color: #fff;
+  background: #294fc4;
+}
+
+.home-page .home-about-link,
+.home-page .home-faq-guide {
+  min-height: 48px;
+  padding: 0 21px;
+}
+
+.home-page .home-about-link-primary,
+.home-page .home-about-link-secondary {
+  color: var(--action-outline);
+}
+
+.home-page .section-heading .text-link,
+.home-page .trust-copy .text-link {
+  color: var(--action-outline);
+}
+
+.home-page .home-about-link:hover,
+.home-page .home-faq-guide:hover {
+  color: var(--action-outline);
+  border-color: var(--action-outline);
+  background: #f4f6fa;
+}
+
+.home-page .home-starting-points .service-grid .text-link {
+  border-color: rgba(255, 255, 255, .78);
+  color: #fff;
+  background: transparent;
+}
+
+.home-page .home-starting-points .service-grid .text-link:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, .12);
+}
+
+.home-page .home-starting-points .service-grid .text-link::before,
+.home-page .home-starting-points .service-grid .text-link::after,
+.home-page .section-heading .text-link::before,
+.home-page .section-heading .text-link::after,
+.text-link::before,
+.text-link::after {
+  display: none;
+  content: none;
+}
+
+.home-page .home-footer .footer-signup input {
+  height: 48px;
+  min-height: 48px;
+  border-radius: 0;
+}
+
+.home-page .home-footer .footer-signup-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 1px solid var(--action-primary);
+  border-radius: 0;
+  color: #fff;
+  background: var(--action-primary);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.home-page .home-footer .footer-signup-button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.footer-studio .footer-connect > .footer-email-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 21px;
+  border-color: rgba(255, 255, 255, .78);
+  color: #fff;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.footer-studio .footer-connect > .footer-email-button:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, .12);
+}
+
+.about-range-note .text-link {
+  display: inline;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: none;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: underline;
+  transition: none;
+}
+
+.customization-page .text-link {
+  display: inline-flex;
+}
+
+.detail-copy .custom-product-link {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.detail-copy .custom-product-link:hover {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: #f4f6fa;
+}
+
+.shop-page .sidebar-note > a {
+  display: inline-flex;
+  min-height: 40px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 0 12px;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+}
+
+.shop-page .sidebar-note > a:hover {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: #f4f6fa;
+  text-decoration: none;
+}
+
+.info-tabs {
+  gap: 8px;
+  border-bottom: 0;
+}
+
+.info-tabs button[role='tab'] {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.info-tabs button[role='tab']:hover {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: #f4f6fa;
+}
+
+.info-tabs button[role='tab'][aria-selected='true'] {
+  border-color: var(--action-primary);
+  color: #fff;
+  background: var(--action-primary);
+}
+
+.info-tabs button[role='tab'][aria-selected='true']:hover {
+  border-color: #294fc4;
+  color: #fff;
+  background: #294fc4;
+}
+
+button.product-price,
+.quick-view,
+#clear-filters,
+#clear-filter-tags,
+.filters button,
+.home-page .filters button,
+.home-page .home-about-filters button,
+.size-options button,
+.filter-tag,
+#pagination button,
+.quote-item [data-remove-quote],
+.purchase-item .purchase-remove {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+button.product-price:hover,
+.quick-view:hover,
+#clear-filters:hover,
+#clear-filter-tags:hover,
+.filters button:hover,
+.home-page .filters button:hover,
+.home-page .home-about-filters button:hover,
+.size-options button:hover,
+.filter-tag:hover,
+#pagination button:hover,
+.quote-item [data-remove-quote]:hover,
+.purchase-item .purchase-remove:hover {
+  border-color: var(--action-outline);
+  color: var(--action-outline);
+  background: #f4f6fa;
+}
+
+.filters button[aria-pressed='true'],
+.home-page .filters button[aria-pressed='true'],
+.home-page .home-about-filters button[aria-pressed='true'],
+.size-options button[aria-pressed='true'],
+#pagination button[aria-current='page'] {
+  border-color: var(--action-primary);
+  color: #fff;
+  background: var(--action-primary);
+  box-shadow: none;
+}
+
+.filters button[aria-pressed='true']:hover,
+.home-page .filters button[aria-pressed='true']:hover,
+.home-page .home-about-filters button[aria-pressed='true']:hover,
+.size-options button[aria-pressed='true']:hover,
+#pagination button[aria-current='page']:hover {
+  border-color: #294fc4;
+  color: #fff;
+  background: #294fc4;
+}
+
+button.product-price {
+  min-height: 40px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.quick-view {
+  min-height: 40px;
+  border-color: rgba(66, 96, 151, .55);
+}
+
+.filter-tag {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+#pagination button {
+  width: 38px;
+  height: 38px;
+  min-height: 38px;
+  padding: 0;
+}
+
+#clear-filters,
+#clear-filter-tags {
+  min-height: 40px;
+  padding: 0 14px;
+  text-decoration: none;
+}
+
+.quote-item [data-remove-quote],
+.purchase-item .purchase-remove {
+  min-height: 38px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.detail-copy #add-to-bag {
+  width: min(100%, 300px);
+}
+
+:root .detail-copy #add-to-bag {
+  border-color: var(--action-primary);
+  color: #fff;
+  background: var(--action-primary);
+}
+
+:root .detail-copy #add-to-bag:hover {
+  border-color: #294fc4;
+  color: #fff;
+  background: #294fc4;
+  filter: none;
+}
+
+.cart-products .remove-item {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  padding: 0;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: transparent;
+  line-height: 1;
+}
+
+.header-actions .bag-button {
+  border-radius: 0;
+}
+
+.icon-button,
+.footer-top,
+.detail-quantity > div,
+.detail-quantity button,
+.purchase-quantity button,
+.cart-products .quantity button {
+  border-radius: 0;
+}
+
+.home-page .home-faq-item {
+  border-radius: 0;
+}
+
+input[type='file']::file-selector-button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--action-outline);
+  border-radius: 0;
+  color: var(--action-outline);
+  background: #f4f6fa;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 650px) {
+  .bag-dialog .cart-products .remove-item {
+    width: 18px;
+    height: 18px;
+    min-height: 18px;
+  }
+}
+
+:root :is(
+  .button,
+  .text-link,
+  .ip-text-link,
+  .home-about-link,
+  .home-faq-guide,
+  .home-process-primary,
+  .home-process-secondary,
+  .footer-email-button,
+  .contact-manifesto > a,
+  .shop-page .sidebar-note > a,
+  button.product-price,
+  .quick-view,
+  #clear-filters,
+  #clear-filter-tags,
+  .info-tabs button[role='tab'],
+  .filters button,
+  .home-about-filters button,
+  .size-options button,
+  .filter-tag,
+  #pagination button,
+  .quote-item [data-remove-quote],
+  .purchase-item .purchase-remove
+):focus-visible {
+  outline: 2px solid var(--action-outline);
+  outline-offset: 3px;
+}

@@ -12,7 +12,6 @@
     const track = gallery.querySelector('[data-gallery-track]');
     const firstGroup = gallery.querySelector('[data-gallery-group]');
     const filterButtons = [...gallery.querySelectorAll('[data-gallery-filter]')];
-    const pauseButton = gallery.querySelector('[data-gallery-pause]');
 
     if (track && firstGroup) {
       const groups = [firstGroup];
@@ -61,25 +60,13 @@
       });
       setGalleryFilter('all');
 
-      if (pauseButton) {
-        pauseButton.disabled = reducedMotion;
-        if (!reducedMotion) {
-          pauseButton.addEventListener('click', () => {
-            const paused = gallery.dataset.paused !== 'true';
-            gallery.dataset.paused = String(paused);
-            pauseButton.setAttribute('aria-pressed', String(paused));
-            pauseButton.textContent = paused ? 'Resume gallery' : 'Pause gallery';
-          });
-        }
-      }
-
-      gallery.addEventListener('focusin', (event) => {
-        gallery.dataset.focusPaused = event.target.closest('[data-gallery-pause]') ? 'false' : 'true';
+      gallery.addEventListener('focusin', () => {
+        gallery.dataset.focusPaused = 'true';
       });
       gallery.addEventListener('focusout', (event) => {
         const nextTarget = event.relatedTarget;
         const focusRemainsInGallery = nextTarget && gallery.contains(nextTarget);
-        gallery.dataset.focusPaused = String(Boolean(focusRemainsInGallery && !nextTarget.closest('[data-gallery-pause]')));
+        gallery.dataset.focusPaused = String(Boolean(focusRemainsInGallery));
       });
 
       if (!reducedMotion && 'IntersectionObserver' in window) {
