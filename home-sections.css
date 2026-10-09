@@ -1451,6 +1451,10 @@
 }
 
 @media (min-width: 1101px) {
+  .home-page .home-process-heading h2 {
+    font-size: clamp(52px, 4.4vw, 72px);
+  }
+
   .home-page .home-about-intro h2 {
     font-size: clamp(48px, 5.4vw, 80px);
   }
