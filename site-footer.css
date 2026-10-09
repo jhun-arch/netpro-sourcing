@@ -35,28 +35,34 @@
 }
 
 .home-footer.footer.footer-studio .footer-logo {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: inline-block;
   margin: 0;
   color: #fff;
-  line-height: 1;
+  font-family: Netpro, 'Figtree', sans-serif;
+  font-size: clamp(20px, 1.8vw, 30px);
+  letter-spacing: -.055em;
+  line-height: 1.1;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-footer.footer.footer-studio .footer-logo strong,
+.home-footer.footer.footer-studio .footer-logo > span {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
 .home-footer.footer.footer-studio .footer-logo strong {
   color: #fff;
-  font-family: 'Figtree', sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -.055em;
+  font-weight: 850;
 }
 
 .home-footer.footer.footer-studio .footer-logo > span {
-  margin-top: 6px;
-  color: rgba(255, 255, 255, .84);
-  font-size: 11px;
-  letter-spacing: .28em;
+  margin: 0;
+  color: inherit;
+  font-weight: 400;
 }
 
 .home-footer.footer.footer-studio .home-footer-brand > p {
@@ -160,7 +166,7 @@
   display: grid;
   width: 100%;
   min-width: 0;
-  grid-template-columns: minmax(300px, 1.3fr) repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(330px, 1.3fr) repeat(4, minmax(0, 1fr));
   align-items: start;
   gap: clamp(24px, 4vw, 52px);
   padding: 62px 0 64px;
@@ -183,6 +189,15 @@
   letter-spacing: -.02em;
   line-height: 1.35;
   text-decoration: none;
+}
+
+@media (min-width: 1101px) {
+  .home-footer.footer.footer-studio .contact-email {
+    max-width: none;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    word-break: normal;
+  }
 }
 
 .home-footer.footer.footer-studio .home-footer-contact address {
