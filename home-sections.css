@@ -1026,6 +1026,25 @@
   stroke: none;
 }
 
+@media (min-width: 1101px) {
+  .home-page .closing-cta--footer .closing-copy {
+    width: min(100%, 1400px);
+  }
+
+  .home-page .home-footer.footer.footer-studio .home-footer-bottom {
+    justify-content: flex-end;
+  }
+
+  .home-page .home-footer.footer.footer-studio .home-footer-legal {
+    margin: 0 0 0 auto;
+  }
+
+  .home-page .home-footer.footer.footer-studio .footer-social-links {
+    justify-content: flex-start;
+    margin: 24px 0 0;
+  }
+}
+
 .home-page .home-footer :is(a, button, input):focus-visible {
   outline: 2px solid #fff;
   outline-offset: 4px;

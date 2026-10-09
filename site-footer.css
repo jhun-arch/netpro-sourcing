@@ -328,6 +328,21 @@
   stroke: none;
 }
 
+@media (min-width: 1101px) {
+  .home-footer.footer.footer-studio .home-footer-bottom {
+    justify-content: flex-end;
+  }
+
+  .home-footer.footer.footer-studio .home-footer-legal {
+    margin: 0 0 0 auto;
+  }
+
+  .home-footer.footer.footer-studio .footer-social-links {
+    justify-content: flex-start;
+    margin: 24px 0 0;
+  }
+}
+
 .home-footer.footer.footer-studio .sr-only {
   position: absolute;
   width: 1px;
