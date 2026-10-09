@@ -154,8 +154,7 @@
 }
 
 :root .home-page .button.closing-secondary {
-  border-color: transparent;
-  border-bottom-color: var(--action-outline-light-soft);
+  border-color: #fff;
   color: #fff;
   background: transparent;
 }
@@ -169,8 +168,7 @@
 :root .home-page .home-process-secondary {
   min-height: 48px;
   padding: 0 21px;
-  border: 1px solid transparent;
-  border-bottom-color: var(--action-outline-soft);
+  border: 1px solid var(--action-outline);
 }
 
 :root .home-page .home-process-secondary:is(:hover, :focus-visible) {
@@ -192,8 +190,7 @@
 }
 
 .home-page .hero-actions .button.outline {
-  border-color: transparent;
-  border-bottom-color: var(--action-outline-light-soft);
+  border-color: #fff;
   color: #fff;
   background: transparent;
 }
@@ -229,6 +226,12 @@
   color: var(--action-outline);
 }
 
+:root .home-page .text-link,
+:root .home-page .home-about-link,
+:root .home-page .home-faq-guide {
+  border-color: var(--action-outline);
+}
+
 .home-page .section-heading .text-link,
 .home-page .trust-copy .text-link {
   color: var(--action-outline);
@@ -242,8 +245,7 @@
 }
 
 :root .home-page .home-story-link {
-  border: 1px solid transparent;
-  border-bottom-color: var(--action-outline-soft);
+  border: 1px solid var(--action-outline);
   transition: color 160ms ease, border-color 160ms ease;
 }
 
@@ -256,8 +258,7 @@
 
 :root .home-page .home-story .home-story-copy-overlay .home-story-link,
 :root .home-page .home-story.is-dark .home-story-link {
-  border: 1px solid transparent;
-  border-bottom-color: var(--action-outline-light-soft);
+  border: 1px solid #fff;
 }
 
 :root .home-page .home-story .home-story-copy-overlay .home-story-link:is(:hover, :focus-visible),
@@ -269,8 +270,7 @@
 }
 
 .home-page .home-starting-points .service-grid .text-link {
-  border-color: transparent;
-  border-bottom-color: var(--action-outline-light-soft);
+  border-color: #fff;
   color: #fff;
   background: transparent;
 }
