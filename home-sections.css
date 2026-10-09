@@ -8,23 +8,27 @@
 }
 
 .home-page .home-about-intro {
-  max-width: 980px;
+  max-width: 1640px;
   margin: 0 auto;
   padding: 0 var(--home-gutter);
   text-align: center;
 }
 
 .home-page .home-about-intro h2 {
-  max-width: 920px;
+  max-width: 1500px;
   margin: 0 auto;
   color: var(--home-charcoal);
-  font-size: clamp(40px, 4.1vw, 58px);
+  font-size: clamp(52px, 6.4vw, 96px);
   font-weight: 500;
   letter-spacing: normal;
-  line-height: 1.1;
+  line-height: .98;
 }
 
-.home-page .home-about-color-word {
+.home-page .home-about-intro h2 .home-about-word {
+  color: var(--home-charcoal);
+}
+
+.home-page .home-about-intro h2 .home-about-color-word {
   color: var(--home-accent-blue);
 }
 
@@ -35,7 +39,7 @@
 
 .home-page .home-about-support > p {
   color: #5d6878;
-  font-size: 17px;
+  font-size: clamp(16px, 1.35vw, 19px);
   line-height: 1.75;
 }
 

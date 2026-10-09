@@ -186,15 +186,31 @@
       });
     });
 
-    const colorWords = [...page.querySelectorAll('[data-home-color-word]')];
-    if (colorWords.length) {
-      gsapInstance.fromTo(colorWords, { color: '#b9c9e0' }, {
-        color: '#426097',
-        duration: 0.88,
-        stagger: 0.08,
-        ease: 'power2.out',
-        clearProps: 'color',
-        scrollTrigger: { trigger: page.querySelector('[data-home-about]'), start: 'top 68%', once: true }
+    const aboutTitle = page.querySelector('[data-home-about-title]');
+    const aboutWords = aboutTitle ? [...aboutTitle.querySelectorAll('[data-home-about-word]')] : [];
+    if (aboutWords.length) {
+      const header = document.querySelector('.site-header');
+      const safeTop = () => Math.max(110, (header ? header.offsetHeight : 0) + 12);
+
+      gsapInstance.set(aboutWords, { opacity: 0.1 });
+      gsapInstance.to(aboutWords, {
+        opacity: 1,
+        duration: 0.45,
+        stagger: { each: 0.13 },
+        ease: 'none',
+        scrollTrigger: {
+          trigger: aboutTitle,
+          start: 'top 88%',
+          end: () => {
+            const viewportHeight = window.innerHeight;
+            const titleHeight = aboutTitle.getBoundingClientRect().height;
+            return titleHeight <= viewportHeight * 0.58 - safeTop()
+              ? 'bottom 58%'
+              : `top ${safeTop()}px`;
+          },
+          scrub: 0.4,
+          invalidateOnRefresh: true
+        }
       });
     }
   }
