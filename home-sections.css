@@ -647,7 +647,7 @@
 }
 
 .home-page .closing-cta.closing-cta--footer {
-  background: #426097;
+  background: linear-gradient(180deg,#233f6b 0%,#335387 45%,#426097 100%);
 }
 
 @media (min-width: 761px) {
