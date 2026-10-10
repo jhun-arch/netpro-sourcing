@@ -29,7 +29,7 @@
 }
 
 .home-page .home-about-intro h2 .home-about-color-word {
-  color: #3D609A;
+  color: var(--home-accent-blue);
 }
 
 .home-page .home-about-support {
@@ -72,9 +72,8 @@
   transition: transform 180ms var(--home-reveal-ease);
 }
 
-.home-page .home-about-link-primary,
-.home-page .home-faq-guide {
-  color: #3D609A;
+.home-page .home-about-link-primary {
+  color: var(--home-accent-blue);
 }
 
 .home-page .home-about-link-secondary {
@@ -353,7 +352,7 @@
   padding: 10px 20px;
   border: 1px solid rgba(66, 96, 151, .28);
   border-radius: 999px;
-  color: #3D609A;
+  color: #426097;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -1023,7 +1022,7 @@
   height: 36px;
   place-items: center;
   border-radius: 50%;
-  color: #3D609A;
+  color: #426097;
   background: #fff;
 }
 
@@ -1038,7 +1037,7 @@
 
 .home-page .footer.home-footer.footer-studio .footer-social-icon svg .footer-social-fill,
 .home-page .footer.home-footer.footer-studio .footer-social-icon svg .footer-social-dot {
-  fill: #3D609A;
+  fill: #426097;
   stroke: none;
 }
 

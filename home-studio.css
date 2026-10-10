@@ -200,7 +200,7 @@
 }
 
 .home-page .hero-copy h1 span + span {
-  color: #3D609A;
+  color: var(--home-pale-blue);
 }
 
 .home-page .hero-copy > p {
@@ -474,10 +474,6 @@
 
 .home-page .home-story.is-dark .home-story-link {
   border-color: rgba(255, 255, 255, .6);
-}
-
-.home-page #catalog .home-story-link {
-  color: #3D609A;
 }
 
 .home-page .home-story.is-dark .home-story-copy > p:not(.eyebrow) {
