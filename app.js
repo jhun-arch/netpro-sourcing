@@ -114,9 +114,19 @@
 
   // Pointer and keyboard users share one dropdown state.
   const navGroups = $$('.nav-group');
+  const dropdownCloseTimers = new WeakMap();
+  function clearDropdownClose(group) {
+    const timer = dropdownCloseTimers.get(group);
+    if (timer !== undefined) {
+      clearTimeout(timer);
+      dropdownCloseTimers.delete(group);
+    }
+  }
   function setDropdown(group, open) {
+    clearDropdownClose(group);
     $('.nav-trigger', group).setAttribute('aria-expanded', String(open));
     $('.nav-dropdown', group).hidden = !open;
+    if (group.classList.contains('has-customization-menu')) group.classList.toggle('customization-menu-open', open);
   }
   function closeDropdowns() { navGroups.forEach(group => setDropdown(group, false)); }
   $$('.nav-dropdown--customization').forEach(menu => {
@@ -153,9 +163,22 @@
   });
   navGroups.forEach(group => {
     const trigger = $('.nav-trigger', group);
+    const customizationMenu = $('.nav-dropdown--customization', group);
+    if (customizationMenu) group.classList.add('has-customization-menu');
     const open = () => { closeDropdowns(); setDropdown(group, true); };
+    const scheduleClose = () => {
+      if (!customizationMenu) return setDropdown(group, false);
+      clearDropdownClose(group);
+      dropdownCloseTimers.set(group, setTimeout(() => {
+        dropdownCloseTimers.delete(group);
+        if (!group.matches(':hover') && !group.contains(document.activeElement)) setDropdown(group, false);
+      }, 140));
+    };
     group.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(); });
-    group.addEventListener('pointerleave', () => { if (!group.contains(document.activeElement)) setDropdown(group, false); });
+    group.addEventListener('pointerleave', () => { if (!group.contains(document.activeElement)) scheduleClose(); });
+    customizationMenu?.addEventListener('pointerenter', e => {
+      if (e.pointerType === 'mouse') setDropdown(group, true);
+    });
     if ($('.nav-dropdown--customization', group)) trigger.addEventListener('focus', open);
     if (trigger.tagName === 'BUTTON') trigger.addEventListener('click', event => {
       const expanded = trigger.getAttribute('aria-expanded') === 'true';

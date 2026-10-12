@@ -43,6 +43,16 @@
 /* Procurement-first navigation hierarchy. */
 .desktop-nav{align-items:center;gap:24px}.desktop-nav>a,.desktop-nav .nav-trigger{font-size:14px;font-weight:600;white-space:nowrap}.desktop-nav .nav-contact{background:var(--blue);color:white;padding:12px 17px;border-radius:3px;line-height:1.4;transition:background .2s,box-shadow .2s}.desktop-nav .nav-contact:hover{background:var(--blue-dark);box-shadow:0 4px 14px #2458e622}.desktop-nav .nav-contact:after{display:none}.desktop-nav .nav-dropdown{min-width:235px}.desktop-nav .nav-dropdown a:first-child{color:var(--blue);font-weight:600;border-bottom:1px solid var(--line);margin-bottom:5px}.desktop-nav .nav-dropdown a{font-size:14px;font-weight:400}.header-actions{gap:10px}
 @media(min-width:1101px){
+  /* Keep the fixed panel connected to its trigger while the pointer crosses the header edge. */
+  .desktop-nav .nav-group.has-customization-menu.customization-menu-open::after{
+    content:"";
+    position:absolute;
+    z-index:51;
+    top:100%;
+    left:-8px;
+    right:-8px;
+    height:20px;
+  }
   .desktop-nav .nav-dropdown--customization{
     position:fixed;
     z-index:52;
