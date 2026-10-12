@@ -77,7 +77,7 @@
   document.querySelectorAll('[data-headwear-options]').forEach(widget => {
     const tabs = [...widget.querySelectorAll('[role="tab"]')];
     const panel = widget.querySelector('[role="tabpanel"]');
-    const image = widget.querySelector('[data-option-image]');
+    const image = widget.querySelector('.custom-option-image[data-option-image]');
     const heading = widget.querySelector('[data-option-heading]');
     const description = widget.querySelector('[data-option-description]');
     if (!tabs.length || !panel || !image || !heading || !description) return;
