@@ -71,3 +71,43 @@
     select(0);
   });
 })();
+
+
+(() => {
+  document.querySelectorAll('[data-headwear-options]').forEach(widget => {
+    const tabs = [...widget.querySelectorAll('[role="tab"]')];
+    const panel = widget.querySelector('[role="tabpanel"]');
+    const image = widget.querySelector('[data-option-image]');
+    const heading = widget.querySelector('[data-option-heading]');
+    const description = widget.querySelector('[data-option-description]');
+    if (!tabs.length || !panel || !image || !heading || !description) return;
+    function select(tab, moveFocus = false) {
+      tabs.forEach(item => {
+        const active = item === tab;
+        item.setAttribute('aria-selected', String(active));
+        item.tabIndex = active ? 0 : -1;
+      });
+      panel.setAttribute('aria-labelledby', tab.id);
+      heading.textContent = tab.dataset.optionTitle;
+      description.textContent = tab.dataset.optionCopy;
+      image.style.backgroundImage = 'url("' + tab.dataset.optionImage + '")';
+      image.style.backgroundSize = tab.dataset.optionSize || 'cover';
+      image.style.backgroundPosition = tab.dataset.optionPosition || 'center';
+      image.setAttribute('aria-label', tab.dataset.optionAlt || tab.dataset.optionTitle);
+      if (moveFocus) tab.focus();
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', event => {
+        let target = index;
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') target = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') target = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') target = 0;
+        else if (event.key === 'End') target = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        select(tabs[target], true);
+      });
+    });
+  });
+})();
