@@ -1,0 +1,1396 @@
+{
+  "styles": [
+    {
+      "slug": "custom-baseball-caps",
+      "name": "Baseball Caps",
+      "family": "Headwear",
+      "description": "Plan custom baseball caps around crown profile, bill shape, fit, closure and artwork placement with a clear product specification.",
+      "lead": "Set the crown, bill and fit first, then decide where your artwork belongs. A clear reference helps keep the cap profile consistent across a range.",
+      "image": "assets/custom-headwear-styles-v1.webp",
+      "position": "0% 0%",
+      "alt": "Navy baseball cap shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Headwear fabric and trim swatches arranged for material planning",
+        "caption": "Material and trim reference"
+      },
+      "overview_title": "Start With The Crown And Bill.",
+      "overview_copy": "Describe the cap profile you want to review. Crown height, panel layout, bill curve and closure all shape the finished silhouette.",
+      "points": [
+        [
+          "Crown",
+          "Panel layout, height and structure reference."
+        ],
+        [
+          "Bill",
+          "Curvature, length and edge-stitching direction."
+        ],
+        [
+          "Fit",
+          "Size range, adjustment type and head circumference."
+        ]
+      ],
+      "options_title": "Make The Cap Specification Clear.",
+      "options_intro": "Share the decisions that define the profile before artwork and finishing are approved.",
+      "options": [
+        [
+          "Crown & Panels",
+          "Mark the crown height, panel arrangement and any structured or softer feel you want assessed."
+        ],
+        [
+          "Bill Shape",
+          "Use a physical sample or drawing to show the curve, length and stitch detail."
+        ],
+        [
+          "Closure & Fit",
+          "Specify an adjustable or fixed fit, the closure reference and your intended size range."
+        ]
+      ],
+      "process_title": "From Profile Reference To Approved Sample.",
+      "process": [
+        [
+          "Share The Brief",
+          "Send a cap reference, target quantity, artwork and destination."
+        ],
+        [
+          "Confirm The Silhouette",
+          "Record crown, bill, closure, material and fit details in the product brief."
+        ],
+        [
+          "Review Scope & Sample",
+          "Confirm quotation terms and whether a sample or artwork proof is included."
+        ],
+        [
+          "Approve Production Details",
+          "Check the agreed specification, decoration placement, packing and inspection points."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I choose a curved or flat bill?",
+          "Yes. Include a sample, sketch or clear photo that shows the curve and length you want reviewed. The approved sample or written specification records the final shape."
+        ],
+        [
+          "What fit information should I provide?",
+          "Share your size range, head measurement reference and preferred adjustment or closure. The fit details are confirmed for the selected cap construction."
+        ],
+        [
+          "Can artwork go on more than the front panel?",
+          "Send each location and its artwork reference, such as side or back placement. The decoration method and available space are checked against the selected cap."
+        ]
+      ],
+      "related": [
+        "custom-trucker-caps",
+        "custom-snapbacks",
+        "custom-dad-hats"
+      ]
+    },
+    {
+      "slug": "custom-visors",
+      "name": "Visors",
+      "family": "Headwear",
+      "description": "Plan custom visors around the open crown, headband fit, bill profile, closure and artwork placement for a focused headwear range.",
+      "lead": "A visor pairs an open crown with a shaped bill and fitted band. Define coverage, comfort and adjustment details before choosing decoration.",
+      "image": "assets/headwear-extra-styles-v1.webp",
+      "position": "0% 0%",
+      "alt": "Blue visor shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-details-v2.webp",
+        "position": "0% 0%",
+        "size": "303% 202%",
+        "alt": "Close view of knit and woven material textures for headwear material planning",
+        "caption": "Material texture reference"
+      },
+      "overview_title": "Balance The Band And Bill.",
+      "overview_copy": "Describe the open-top profile, the coverage you want from the bill and how the headband should adjust. These choices set the visor's proportions.",
+      "points": [
+        [
+          "Open Profile",
+          "Headband height and top-opening shape."
+        ],
+        [
+          "Bill Coverage",
+          "Bill length, curve and edge finish reference."
+        ],
+        [
+          "Adjustment",
+          "Closure type, size range and fit preference."
+        ]
+      ],
+      "options_title": "Specify The Open Profile.",
+      "options_intro": "Use measurements or a sample to make the visor band and bill easier to assess.",
+      "options": [
+        [
+          "Headband",
+          "Set the band height, inside finish and the amount of structure you want reviewed."
+        ],
+        [
+          "Bill",
+          "Describe its curve, length and stitching, with a side-view reference where possible."
+        ],
+        [
+          "Fit & Closure",
+          "Include the closure style, adjustment range and size reference for the intended wearer."
+        ]
+      ],
+      "process_title": "From Open Profile To Approved Sample.",
+      "process": [
+        [
+          "Share A Reference",
+          "Send a visor sample or sketch, quantity, artwork and destination."
+        ],
+        [
+          "Define Band & Bill",
+          "Confirm opening shape, headband dimensions, bill profile and closure."
+        ],
+        [
+          "Review Quote & Sample",
+          "Agree the production scope and whether sampling or a proof is included."
+        ],
+        [
+          "Approve The Specification",
+          "Check fit, decoration position, packing and inspection details before production."
+        ]
+      ],
+      "faq": [
+        [
+          "Can the visor band be adjusted?",
+          "Share the closure style or a sample reference and the fit range you need reviewed. The accepted adjustment details are recorded in the quote and specification."
+        ],
+        [
+          "How should I describe bill coverage?",
+          "Provide a side view, dimensions or a physical reference for bill length and curve. The agreed sample confirms the final profile."
+        ],
+        [
+          "Where can a logo be placed?",
+          "Send the artwork and mark the preferred band or bill location. Available space and the suitable decoration method are confirmed for the chosen material."
+        ]
+      ],
+      "related": [
+        "custom-baseball-caps",
+        "custom-bucket-hats",
+        "custom-camper-hats"
+      ]
+    },
+    {
+      "slug": "custom-camper-hats",
+      "name": "Camper Hats",
+      "family": "Headwear",
+      "description": "Plan custom camper hats around their low-profile crown, panel layout, brim, fabric and adjustable fit with clear style references.",
+      "lead": "Camper hats are defined by a low profile and compact brim. Share the panel layout, crown depth and fit details that make your reference distinct.",
+      "image": "assets/custom-headwear-styles-v1.webp",
+      "position": "0% 100%",
+      "alt": "Blue camper hat shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Headwear fabric and trim swatches arranged for material planning",
+        "caption": "Material and trim reference"
+      },
+      "overview_title": "Keep The Low Profile In View.",
+      "overview_copy": "Start with crown depth and panel arrangement, then align the brim and closure. A top and side reference can make the compact shape easier to specify.",
+      "points": [
+        [
+          "Crown Depth",
+          "Low-profile height and front panel structure."
+        ],
+        [
+          "Brim",
+          "Short brim length, curve and edge stitch reference."
+        ],
+        [
+          "Back Fit",
+          "Adjustment hardware, strap length and size range."
+        ]
+      ],
+      "options_title": "Set The Camper Hat Proportions.",
+      "options_intro": "Use views from the top and side to communicate the panel shape and compact brim.",
+      "options": [
+        [
+          "Panel Layout",
+          "Share the seam pattern, crown depth and preferred front-panel structure."
+        ],
+        [
+          "Short Brim",
+          "Show the brim length and curve with a side profile or sample."
+        ],
+        [
+          "Material & Fit",
+          "Note the fabric feel, closure reference and intended size range."
+        ]
+      ],
+      "process_title": "From Low-Profile Reference To Sample.",
+      "process": [
+        [
+          "Share The Shape",
+          "Provide top, front and side references with quantity and artwork."
+        ],
+        [
+          "Confirm The Build",
+          "Record crown depth, panel seams, brim shape, material and closure."
+        ],
+        [
+          "Review Scope",
+          "Confirm quote terms and the scope for any requested sample or proof."
+        ],
+        [
+          "Approve The Details",
+          "Check the final profile, decoration, packing and inspection requirements."
+        ]
+      ],
+      "faq": [
+        [
+          "What makes a camper hat profile clear in a brief?",
+          "Share top and side views, crown depth and the panel or seam layout. A sample or annotated sketch helps confirm the compact proportions."
+        ],
+        [
+          "Can I request a shorter brim?",
+          "Include the target length and curve reference. The final brim is checked with the crown and overall proportions during sample review."
+        ],
+        [
+          "Which closure details should I specify?",
+          "Describe the adjuster, strap length and desired fit range. The selected closure is confirmed with the rest of the construction details."
+        ]
+      ],
+      "related": [
+        "custom-baseball-caps",
+        "custom-trucker-caps",
+        "custom-bucket-hats"
+      ]
+    },
+    {
+      "slug": "custom-beanies",
+      "name": "Beanies",
+      "family": "Headwear",
+      "description": "Plan custom beanies around knit structure, yarn composition, cuff or fold, crown depth and label placement for a considered cold-weather range.",
+      "lead": "Choose the knit, length and cuff treatment that fit your beanie concept. Share yarn, gauge, color and label references for review.",
+      "image": "assets/custom-headwear-styles-v1.webp",
+      "position": "100% 100%",
+      "alt": "Cream rib-knit beanie shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "33.333% 0%",
+        "size": "403% 403%",
+        "alt": "Close view of a sewn textile label and knit construction",
+        "caption": "Knit and label reference"
+      },
+      "overview_title": "Set The Knit Before The Cuff.",
+      "overview_copy": "For a beanie, knit texture and crown depth influence the overall fit. Confirm yarn composition, gauge, finished length and whether the cuff folds back.",
+      "points": [
+        [
+          "Knit Structure",
+          "Rib, plain or other texture reference and gauge."
+        ],
+        [
+          "Length & Cuff",
+          "Crown depth, turn-up amount and edge finish."
+        ],
+        [
+          "Label Placement",
+          "Fold label, patch or embroidery position reference."
+        ]
+      ],
+      "options_title": "Build A Beanie Around Its Knit.",
+      "options_intro": "A yarn and knit reference helps align the feel, finished dimensions and label treatment.",
+      "options": [
+        [
+          "Yarn & Gauge",
+          "Share fiber composition, knit density and a texture sample for review."
+        ],
+        [
+          "Cuff & Length",
+          "Specify the finished depth and whether the lower edge is folded or worn unfolded."
+        ],
+        [
+          "Top & Branding",
+          "Note crown shaping and label, patch or embroidery placement."
+        ]
+      ],
+      "process_title": "From Knit Reference To Fit Review.",
+      "process": [
+        [
+          "Share Yarn & Fit Goals",
+          "Send knit swatches, size range, target quantity and artwork."
+        ],
+        [
+          "Record The Construction",
+          "Confirm composition, gauge, depth, cuff and crown finish."
+        ],
+        [
+          "Review Quote & Sample",
+          "Agree the production scope and whether a sample is included."
+        ],
+        [
+          "Approve The Knit",
+          "Check dimensions, label placement, care information and packing details."
+        ]
+      ],
+      "faq": [
+        [
+          "Can a beanie have a fold-back cuff?",
+          "Yes. State the finished length and the cuff depth you want reviewed. The sample or approved measurement sheet records the fold and overall fit."
+        ],
+        [
+          "What knit information is useful?",
+          "Share a fabric or garment reference, fiber composition and texture preference. Gauge and construction are confirmed for the selected yarn and specification."
+        ],
+        [
+          "Can a label or patch be added?",
+          "Include the branding artwork and preferred location, such as the cuff or side seam. The application and placement are reviewed with the knit structure."
+        ]
+      ],
+      "related": [
+        "custom-trucker-caps",
+        "custom-camper-hats",
+        "custom-bucket-hats"
+      ]
+    },
+    {
+      "slug": "custom-trucker-caps",
+      "name": "Trucker Caps",
+      "family": "Headwear",
+      "description": "Plan custom trucker caps around the front crown, mesh back panels, bill shape, closure and artwork placement for a coordinated cap range.",
+      "lead": "Pair the front crown with your preferred back-panel mesh and closure. Define the bill and artwork placement to keep the cap balanced.",
+      "image": "assets/custom-headwear-styles-v1.webp",
+      "position": "100% 0%",
+      "alt": "Cream mesh-back trucker cap shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Headwear fabric and trim swatches arranged for material planning",
+        "caption": "Fabric and panel reference"
+      },
+      "overview_title": "Coordinate The Front And Mesh.",
+      "overview_copy": "Specify the front panel structure, mesh coverage and bill profile together. The back closure and artwork locations complete the trucker cap brief.",
+      "points": [
+        [
+          "Front Panels",
+          "Crown height, structure and artwork area."
+        ],
+        [
+          "Mesh Back",
+          "Panel coverage, color and mesh reference."
+        ],
+        [
+          "Closure",
+          "Adjustment style and fit range."
+        ]
+      ],
+      "options_title": "Align The Panels And Closure.",
+      "options_intro": "Share front and back references so the crown, mesh and fit can be reviewed as one design.",
+      "options": [
+        [
+          "Front Crown",
+          "Set the height and structure, then mark embroidery or patch placement."
+        ],
+        [
+          "Mesh Panels",
+          "Describe the mesh color, texture and coverage across the back."
+        ],
+        [
+          "Bill & Closure",
+          "Provide the bill profile and preferred adjustment hardware or strap reference."
+        ]
+      ],
+      "process_title": "From Panel Plan To Cap Sample.",
+      "process": [
+        [
+          "Share Front & Back Views",
+          "Send references for crown, mesh, bill and artwork with quantity and destination."
+        ],
+        [
+          "Confirm Panel Details",
+          "Record materials, mesh coverage, closure, fit and decoration placement."
+        ],
+        [
+          "Review Scope & Sample",
+          "Confirm pricing terms and whether a sample or proof is part of the project."
+        ],
+        [
+          "Approve The Build",
+          "Check the cap specification, packing request and inspection points before production."
+        ]
+      ],
+      "faq": [
+        [
+          "Can the mesh color differ from the front?",
+          "Provide a color reference for each panel and note any contrast you want reviewed. The color combination is confirmed in the sample or approved specification."
+        ],
+        [
+          "What should I show for the back panels?",
+          "Share the mesh type or a close reference, the panel coverage and a back view. These details are checked with the chosen crown and closure."
+        ],
+        [
+          "Can decoration go on the mesh?",
+          "Mark the desired location and share the artwork. Feasibility depends on the mesh and application, and is confirmed before the production specification is approved."
+        ]
+      ],
+      "related": [
+        "custom-baseball-caps",
+        "custom-snapbacks",
+        "custom-camper-hats"
+      ]
+    },
+    {
+      "slug": "custom-snapbacks",
+      "name": "Snapbacks",
+      "family": "Headwear",
+      "description": "Plan custom snapbacks around a structured crown, flat bill, rear snap closure, fit range and precise front or side artwork placement.",
+      "lead": "Define the structured crown, flat bill and rear snap fit. Add artwork placement and color references to complete the snapback direction.",
+      "image": "assets/headwear-extra-styles-v1.webp",
+      "position": "100% 0%",
+      "alt": "Navy snapback cap with a flat bill shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Headwear fabric and trim swatches arranged for material planning",
+        "caption": "Fabric and color reference"
+      },
+      "overview_title": "Make The Structure And Fit Specific.",
+      "overview_copy": "A snapback brief should call out crown structure, bill profile and the adjustment range. Include the front and side views used to check proportions.",
+      "points": [
+        [
+          "Structured Crown",
+          "Crown height and front-panel shape reference."
+        ],
+        [
+          "Flat Bill",
+          "Bill length, width and edge finish."
+        ],
+        [
+          "Snap Closure",
+          "Adjustment range and rear opening details."
+        ]
+      ],
+      "options_title": "Define The Snapback Profile.",
+      "options_intro": "Use front, side and rear references to capture the structured silhouette and adjustment details.",
+      "options": [
+        [
+          "Crown Structure",
+          "Describe the front panel support, crown height and seam layout."
+        ],
+        [
+          "Bill & Color",
+          "Confirm flatness, length, underside color and any contrast stitching."
+        ],
+        [
+          "Snap Range",
+          "Specify the closure reference and the head-size range it should accommodate."
+        ]
+      ],
+      "process_title": "From Flat-Bill Reference To Approved Cap.",
+      "process": [
+        [
+          "Share Profile Views",
+          "Send front, side and rear references with artwork and order details."
+        ],
+        [
+          "Confirm Crown & Snap",
+          "Record structure, bill, adjustment range, material and decoration."
+        ],
+        [
+          "Review Quote & Sample",
+          "Agree the quoted scope and whether a sample or artwork proof is included."
+        ],
+        [
+          "Approve Fit & Finish",
+          "Check the closure, artwork placement, packing and inspection criteria."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I specify the snap adjustment range?",
+          "Share the target size range or closure reference. The approved specification records the adjustment details for the selected crown and closure."
+        ],
+        [
+          "Can the flat bill have a contrasting underside?",
+          "Include a color reference and note the bill layers or stitching you want reviewed. The combination is confirmed with the sample or written approval."
+        ],
+        [
+          "What crown details should be included?",
+          "A front and side view with crown height, structure and seam preferences gives the clearest direction for sampling."
+        ]
+      ],
+      "related": [
+        "custom-baseball-caps",
+        "custom-trucker-caps",
+        "custom-dad-hats"
+      ]
+    },
+    {
+      "slug": "custom-dad-hats",
+      "name": "Dad Hats",
+      "family": "Headwear",
+      "description": "Plan custom dad hats around a relaxed crown, curved bill, adjustable back strap, washed fabric references and understated branding.",
+      "lead": "Shape a relaxed cap with a curved bill and adjustable back. Share the fabric, wash, fit and decoration details that set the tone.",
+      "image": "assets/headwear-extra-styles-v1.webp",
+      "position": "0% 100%",
+      "alt": "Charcoal relaxed-fit dad hat shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Headwear fabric and trim swatches arranged for material planning",
+        "caption": "Fabric and color reference"
+      },
+      "overview_title": "Keep The Fit Relaxed.",
+      "overview_copy": "Use a side view to show the crown depth and bill curve. Fabric hand, wash effect and a metal or fabric back adjustment help define the casual profile.",
+      "points": [
+        [
+          "Soft Crown",
+          "Unstructured feel and lower-profile reference."
+        ],
+        [
+          "Curved Bill",
+          "Curve, length and stitching direction."
+        ],
+        [
+          "Back Strap",
+          "Adjuster finish, strap length and fit range."
+        ]
+      ],
+      "options_title": "Refine The Relaxed Details.",
+      "options_intro": "Share fabric and fit references before choosing a subtle or more visible decoration treatment.",
+      "options": [
+        [
+          "Crown & Wash",
+          "Describe the crown structure and share a fabric or washed-color reference."
+        ],
+        [
+          "Bill Curve",
+          "Use a side profile to show the curve, length and edge stitching."
+        ],
+        [
+          "Strap & Branding",
+          "Set the rear adjustment style and mark the position for embroidery or a small patch."
+        ]
+      ],
+      "process_title": "From Relaxed Fit Reference To Sample.",
+      "process": [
+        [
+          "Share The Look",
+          "Send side and rear references, artwork, quantity and delivery destination."
+        ],
+        [
+          "Agree The Fit",
+          "Record crown softness, bill curve, wash, strap and size range."
+        ],
+        [
+          "Review Quote & Sample",
+          "Confirm the price scope and whether a sample or proof is included."
+        ],
+        [
+          "Approve The Finish",
+          "Check color, decoration, strap, care details and packout requirements."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I request a washed or faded finish?",
+          "Share a physical or visual color reference and describe the finish you want assessed. The approved sample sets the accepted appearance."
+        ],
+        [
+          "How do I describe a relaxed fit?",
+          "Provide a side view, crown-depth reference, size range and preferred rear adjustment. These details are reviewed together."
+        ],
+        [
+          "Can the back strap use a metal adjuster?",
+          "Include the desired adjuster and strap reference. The selected hardware and fit range are confirmed in the product specification."
+        ]
+      ],
+      "related": [
+        "custom-baseball-caps",
+        "custom-trucker-caps",
+        "custom-snapbacks"
+      ]
+    },
+    {
+      "slug": "custom-bucket-hats",
+      "name": "Bucket Hats",
+      "family": "Headwear",
+      "description": "Plan custom bucket hats around crown depth, downward brim width, shape, fabric weight, reversibility and artwork placement.",
+      "lead": "Set the crown depth and downward brim proportions, then confirm the material and whether the design should be reversible.",
+      "image": "assets/headwear-extra-styles-v1.webp",
+      "position": "100% 100%",
+      "alt": "Sand bucket hat with a stitched downward brim shown as a style reference",
+      "detail": {
+        "image": "assets/custom-headwear-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Headwear fabric and trim swatches arranged for material planning",
+        "caption": "Fabric and color reference"
+      },
+      "overview_title": "Set The Crown And Brim Proportions.",
+      "overview_copy": "Bucket hats vary in crown depth and brim width. Share a side and top view, the intended fabric weight and any reversible or contrast-panel details.",
+      "points": [
+        [
+          "Crown",
+          "Depth, circumference and panel seam reference."
+        ],
+        [
+          "Brim",
+          "Downward angle, width and topstitch detail."
+        ],
+        [
+          "Fabric",
+          "Weight, drape, color and reversible construction request."
+        ]
+      ],
+      "options_title": "Balance The Crown And Brim.",
+      "options_intro": "Use a side profile and finished measurements to make the bucket silhouette easy to assess.",
+      "options": [
+        [
+          "Crown Depth",
+          "Specify head circumference, crown height and how the hat should sit."
+        ],
+        [
+          "Brim Width",
+          "Share brim width, angle and stitch reference from the side and front."
+        ],
+        [
+          "Material & Panels",
+          "Note fabric weight, lining, contrast panels or reversible construction needs."
+        ]
+      ],
+      "process_title": "From Shape Sketch To Bucket-Hat Sample.",
+      "process": [
+        [
+          "Share Measurements",
+          "Provide crown and brim references, quantity, artwork and destination."
+        ],
+        [
+          "Confirm Construction",
+          "Record depth, brim width, panel seams, material and lining request."
+        ],
+        [
+          "Review Scope & Sample",
+          "Confirm quote terms and whether sampling is included in the project."
+        ],
+        [
+          "Approve The Proportions",
+          "Check the fit, brim shape, decoration and packout before production."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I set a specific brim width?",
+          "Yes. Include finished measurements and a side-view reference. The final width and angle are checked on the approved sample."
+        ],
+        [
+          "Can a bucket hat be reversible?",
+          "Include references for both sides and note any differences in color, fabric or artwork. Construction and finish are confirmed in the quote."
+        ],
+        [
+          "What measurements are most useful?",
+          "Share head circumference, crown depth and brim width, along with a fit reference. Tolerances are recorded in the approved specification."
+        ]
+      ],
+      "related": [
+        "custom-camper-hats",
+        "custom-visors",
+        "custom-baseball-caps"
+      ]
+    },
+    {
+      "slug": "custom-ankle-socks",
+      "name": "Ankle Socks",
+      "family": "Socks",
+      "description": "Plan custom ankle socks around the short cuff height, heel coverage, knit weight, size range and artwork placement for everyday collections.",
+      "lead": "Set the cuff height and heel coverage for the shoe profile. Add knit, size and artwork references to define the ankle-sock range.",
+      "image": "assets/custom-socks-styles-v1.webp",
+      "position": "100% 0%",
+      "alt": "Light blue ankle socks shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Set The Cuff And Heel Coverage.",
+      "overview_copy": "An ankle sock sits above the shoe line with a short shaft. State the finished cuff height, heel coverage and fit points you want reviewed.",
+      "points": [
+        [
+          "Cuff Height",
+          "Finished shaft length measured from the heel."
+        ],
+        [
+          "Heel & Toe",
+          "Coverage, color blocking and reinforcement references."
+        ],
+        [
+          "Knit & Fit",
+          "Fiber composition, size range and intended shoe profile."
+        ]
+      ],
+      "options_title": "Specify The Short-Shaft Fit.",
+      "options_intro": "A side view with finished measurements helps distinguish ankle height from lower-cut styles.",
+      "options": [
+        [
+          "Shaft & Cuff",
+          "Give the height above the heel and the cuff width or rib reference."
+        ],
+        [
+          "Heel Coverage",
+          "Show how far the sock should sit above the shoe opening and any heel detail."
+        ],
+        [
+          "Knit & Artwork",
+          "Share composition, knit texture and logo placement on the leg or foot."
+        ]
+      ],
+      "process_title": "From Cuff Measurement To Fit Review.",
+      "process": [
+        [
+          "Share The Shoe Context",
+          "Send an ankle-sock reference, shoe opening, size range and quantity."
+        ],
+        [
+          "Confirm Length & Knit",
+          "Record shaft height, heel coverage, composition and artwork locations."
+        ],
+        [
+          "Review Quote & Sample",
+          "Agree the quoted scope and whether a fit sample or artwork proof is included."
+        ],
+        [
+          "Approve The Size Run",
+          "Check measurements, color, care information, packing and inspection points."
+        ]
+      ],
+      "faq": [
+        [
+          "How high is an ankle sock meant to sit?",
+          "There is no single fit definition across ranges. Share the finished shaft measurement and the shoe profile you are designing around."
+        ],
+        [
+          "Can the heel tab or cuff color be changed?",
+          "Yes. Mark each color-blocked area on the artwork or reference image and list any contrast yarn requirements."
+        ],
+        [
+          "What sizes should I include?",
+          "Provide the target size range and any market-specific size labels. The size breakdown and measurement points are confirmed in the specification."
+        ]
+      ],
+      "related": [
+        "custom-no-show-socks",
+        "custom-crew-socks",
+        "custom-athletic-socks"
+      ]
+    },
+    {
+      "slug": "custom-crew-socks",
+      "name": "Crew Socks",
+      "family": "Socks",
+      "description": "Plan custom crew socks around mid-calf length, ribbed cuff, knit weight, leg artwork, heel and toe details, and a clear size range.",
+      "lead": "Define the shaft length and cuff first, then place stripes, logos or patterns across the leg, heel and toe.",
+      "image": "assets/custom-socks-styles-v1.webp",
+      "position": "0% 100%",
+      "alt": "Navy crew socks shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Map The Leg And Cuff.",
+      "overview_copy": "Crew socks provide more shaft area for rib structure, stripes and artwork. Confirm finished length, cuff tension reference and how the pattern should meet the heel and toe.",
+      "points": [
+        [
+          "Shaft Length",
+          "Finished height and size grading reference."
+        ],
+        [
+          "Cuff & Rib",
+          "Top band width, rib pattern and color placement."
+        ],
+        [
+          "Leg Artwork",
+          "Stripe scale, logo position and pattern repeat."
+        ]
+      ],
+      "options_title": "Use The Crew Shaft As A Canvas.",
+      "options_intro": "Mark vertical and horizontal placement against the finished sock length and size range.",
+      "options": [
+        [
+          "Length & Cuff",
+          "Specify the top edge, shaft height and preferred rib construction."
+        ],
+        [
+          "Pattern Placement",
+          "Map stripes, motifs or logos so they sit consistently above the heel."
+        ],
+        [
+          "Heel & Toe",
+          "Set contrast colors, reinforcement areas and the transition from leg to foot."
+        ]
+      ],
+      "process_title": "From Leg Layout To Approved Knit.",
+      "process": [
+        [
+          "Share The Pattern",
+          "Send artwork, stripe scale, size range, quantity and destination."
+        ],
+        [
+          "Confirm Length & Zones",
+          "Record shaft height, cuff, heel and toe colors and artwork placement."
+        ],
+        [
+          "Review Scope & Sample",
+          "Confirm quotation terms and whether a knit sample or proof is included."
+        ],
+        [
+          "Approve The Size Run",
+          "Check measurements, repeat alignment, packing and inspection details."
+        ]
+      ],
+      "faq": [
+        [
+          "Where does a crew sock typically finish?",
+          "Length varies by design and size. Provide the finished measurement and a worn or flat reference so the shaft can be graded to your target."
+        ],
+        [
+          "Can stripes wrap around the leg?",
+          "Include the stripe widths, spacing and color sequence. Placement is reviewed against the knit repeat and sock size range."
+        ],
+        [
+          "Can heel and toe colors be different?",
+          "Yes. Mark each area on the design reference and include the yarn colors you want reviewed."
+        ]
+      ],
+      "related": [
+        "custom-athletic-socks",
+        "custom-knee-high-socks",
+        "custom-ankle-socks"
+      ]
+    },
+    {
+      "slug": "custom-athletic-socks",
+      "name": "Athletic Socks",
+      "family": "Socks",
+      "description": "Plan custom athletic socks around shoe use, cuff stability, knit zones, heel and toe construction, team colors and size grading.",
+      "lead": "Describe the shoe and activity context, then map cuff, knit zones, heel and toe details around the intended fit.",
+      "image": "assets/socks-extra-styles-v1.webp",
+      "position": "0% 0%",
+      "alt": "White athletic crew socks with navy stripes shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Plan The Knit Around The Use.",
+      "overview_copy": "Athletic socks can combine a defined cuff, foot construction and color blocking. Share the shoe context and activity so sock length, knit zones and artwork can be specified around the intended fit.",
+      "points": [
+        [
+          "Cuff",
+          "Height, rib pattern and fit reference."
+        ],
+        [
+          "Foot Zones",
+          "Knit and reinforcement areas to review."
+        ],
+        [
+          "Team Details",
+          "Stripe, color-block and logo placement."
+        ]
+      ],
+      "options_title": "Detail The Cuff, Foot And Colors.",
+      "options_intro": "Share a sock diagram and intended shoe context to align construction and artwork zones.",
+      "options": [
+        [
+          "Cuff Structure",
+          "Set the cuff height, rib direction and top-band color."
+        ],
+        [
+          "Knit Zones",
+          "Mark heel, toe and sole areas where a different knit or reinforcement is requested."
+        ],
+        [
+          "Team Artwork",
+          "Supply stripe dimensions, logo files and color references for review."
+        ]
+      ],
+      "process_title": "From Activity Brief To Knit Sample.",
+      "process": [
+        [
+          "Share The Use Context",
+          "Include shoe type, activity, target sizes, team artwork and quantity."
+        ],
+        [
+          "Map Construction Zones",
+          "Confirm cuff, leg, foot, heel and toe details in a sock diagram."
+        ],
+        [
+          "Review Scope & Sample",
+          "Agree quoted terms and whether a sample or artwork proof is included."
+        ],
+        [
+          "Approve The Specification",
+          "Check the size run, decoration, packing and inspection criteria."
+        ]
+      ],
+      "faq": [
+        [
+          "What should I include about the activity?",
+          "Name the shoe type and activity, target sizes and construction preferences. These details help align sock length, cuff, knit zones and size grading with the intended use."
+        ],
+        [
+          "Can different knit zones be requested?",
+          "Mark the requested areas on a sock diagram and describe the preferred structure. Feasibility and the final knit map are confirmed during development."
+        ],
+        [
+          "Can I match team colors and stripes?",
+          "Provide color references, stripe widths and logo artwork. Placement and color matching are confirmed for the selected materials."
+        ]
+      ],
+      "related": [
+        "custom-crew-socks",
+        "custom-compression-socks",
+        "custom-ankle-socks"
+      ]
+    },
+    {
+      "slug": "custom-knee-high-socks",
+      "name": "Knee High Socks",
+      "family": "Socks",
+      "description": "Plan custom knee high socks around the extended shaft, calf fit, top band, full-length artwork, yarn and size grading.",
+      "lead": "An extended shaft calls for clear finished length and calf measurements. Define the top band and artwork placement from cuff to foot.",
+      "image": "assets/custom-socks-styles-v1.webp",
+      "position": "100% 100%",
+      "alt": "Cream knee-high socks shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Measure The Full Shaft And Calf.",
+      "overview_copy": "Knee high socks cover a longer leg area. Provide finished length and calf points by size, plus top-band construction and pattern alignment references.",
+      "points": [
+        [
+          "Shaft Length",
+          "Cuff-to-heel measurement and size grading."
+        ],
+        [
+          "Calf Fit",
+          "Circumference points and top-band width."
+        ],
+        [
+          "Full-Length Design",
+          "Stripe, motif or logo placement along the leg."
+        ]
+      ],
+      "options_title": "Align The Long Shaft With The Size Run.",
+      "options_intro": "Measurements at more than one leg point help describe the fit and keep artwork positioned as intended.",
+      "options": [
+        [
+          "Length & Calf",
+          "Share finished length and circumference points for each size group."
+        ],
+        [
+          "Top Band",
+          "Set band width, rib structure and any contrast color."
+        ],
+        [
+          "Leg Pattern",
+          "Map motifs or stripes from cuff toward the ankle and foot."
+        ]
+      ],
+      "process_title": "From Leg Measurements To Fit Approval.",
+      "process": [
+        [
+          "Share The Size Range",
+          "Provide target sizes, calf measurements, artwork and quantity."
+        ],
+        [
+          "Confirm Length & Band",
+          "Record shaft length, circumference points, cuff and knit details."
+        ],
+        [
+          "Review Sample Scope",
+          "Confirm quoted terms and whether size or fit sampling is included."
+        ],
+        [
+          "Approve The Grading",
+          "Check length, artwork alignment, labeling and packing for the range."
+        ]
+      ],
+      "faq": [
+        [
+          "Which measurements matter for knee high fit?",
+          "Share foot size, finished length and calf circumference at the points that matter to your design. Grading and tolerances are agreed in the specification."
+        ],
+        [
+          "Can a stripe continue from cuff to ankle?",
+          "Yes. Mark its width, spacing and position across the full shaft. The pattern is reviewed against knit construction and size grading."
+        ],
+        [
+          "Can the top band be a different knit?",
+          "Include a band reference and dimensions. The selected construction and fit are confirmed during sample review."
+        ]
+      ],
+      "related": [
+        "custom-crew-socks",
+        "custom-compression-socks",
+        "custom-athletic-socks"
+      ]
+    },
+    {
+      "slug": "custom-no-show-socks",
+      "name": "No Show Socks",
+      "family": "Socks",
+      "description": "Plan custom no show socks around the low-cut opening, heel hold details, shoe coverage, knit, size range and logo placement.",
+      "lead": "Keep the opening low while specifying heel coverage and fit inside the intended shoe. Share a worn reference and finished measurements.",
+      "image": "assets/custom-socks-styles-v1.webp",
+      "position": "0% 0%",
+      "alt": "Cream no-show socks shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Keep The Cut Low And The Fit Clear.",
+      "overview_copy": "No show styles sit below a shoe collar. Document the opening, heel coverage, size range and any requested heel grip or internal construction details.",
+      "points": [
+        [
+          "Opening",
+          "Low-cut height and shoe-collar reference."
+        ],
+        [
+          "Heel Fit",
+          "Coverage, tab shape and requested grip details."
+        ],
+        [
+          "Foot Knit",
+          "Sole, toe and logo placement references."
+        ]
+      ],
+      "options_title": "Match The Opening To The Shoe.",
+      "options_intro": "A worn or in-shoe reference can clarify how much of the sock should remain visible.",
+      "options": [
+        [
+          "Cut Line",
+          "Show the opening height against the shoe collar from a side view."
+        ],
+        [
+          "Heel Coverage",
+          "Specify heel depth, tab shape and any requested internal grip detail."
+        ],
+        [
+          "Toe & Sole",
+          "Set knit, reinforcement and optional branding placement across the foot."
+        ]
+      ],
+      "process_title": "From Shoe Reference To Low-Cut Fit.",
+      "process": [
+        [
+          "Share The Shoe Profile",
+          "Send the target shoe, sock reference, size range and quantity."
+        ],
+        [
+          "Confirm Opening & Heel",
+          "Record cut line, coverage, tab and any requested grip construction."
+        ],
+        [
+          "Review Fit Sample",
+          "Confirm quote terms and whether a fit sample is included in the scope."
+        ],
+        [
+          "Approve The Foot Details",
+          "Check toe, sole, care information, packing and inspection requirements."
+        ]
+      ],
+      "faq": [
+        [
+          "How low should a no show sock sit?",
+          "Share the shoe model or collar height and mark the desired opening. Fit is reviewed against the selected shoe and size range."
+        ],
+        [
+          "Can I request a heel grip?",
+          "Describe the requested internal detail or provide a reference. Its material, placement and suitability are confirmed for the sock construction."
+        ],
+        [
+          "Should a no show sock have a logo?",
+          "Provide artwork and show whether it belongs on the sole, toe or inside. Available placement is checked against the low-cut pattern."
+        ]
+      ],
+      "related": [
+        "custom-ankle-socks",
+        "custom-crew-socks",
+        "custom-athletic-socks"
+      ]
+    },
+    {
+      "slug": "custom-novelty-socks",
+      "name": "Novelty Socks",
+      "family": "Socks",
+      "description": "Plan custom novelty socks around playful motifs, repeat scale, knit colors, cuff design and clear placement across the sock shape.",
+      "lead": "Bring a motif, character or repeat pattern to life on the sock shape. Define scale, colors and placement before the knit is sampled.",
+      "image": "assets/socks-extra-styles-v1.webp",
+      "position": "100% 0%",
+      "alt": "Cream novelty crew socks with navy geometric motifs shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Make The Motif Work Across The Sock.",
+      "overview_copy": "Novelty designs depend on motif size and repeat placement across the leg, heel and foot. Supply a flat layout and a view of the finished pattern direction.",
+      "points": [
+        [
+          "Motif Scale",
+          "Repeat size, spacing and direction."
+        ],
+        [
+          "Color Palette",
+          "Yarn colors and contrast areas."
+        ],
+        [
+          "Placement",
+          "Cuff, leg, heel and toe pattern zones."
+        ]
+      ],
+      "options_title": "Keep The Pattern Legible In Knit.",
+      "options_intro": "Share artwork at full scale and show where motifs should sit on the finished sock.",
+      "options": [
+        [
+          "Repeat & Scale",
+          "Set motif dimensions, spacing and whether the pattern repeats around the leg."
+        ],
+        [
+          "Color Mapping",
+          "Name each yarn color and note any contrast cuff, heel or toe areas."
+        ],
+        [
+          "Placement",
+          "Mark artwork zones and keep important motifs clear of seams and shaping."
+        ]
+      ],
+      "process_title": "From Artwork Tile To Knit Review.",
+      "process": [
+        [
+          "Send Artwork",
+          "Include vector or high-resolution art, repeat scale, sizes and quantity."
+        ],
+        [
+          "Map The Pattern",
+          "Confirm colors, orientation and how artwork runs across the sock shape."
+        ],
+        [
+          "Review Knit Sample",
+          "Agree the quote and whether a color or pattern sample is included."
+        ],
+        [
+          "Approve Repeat & Finish",
+          "Check placement, size grading, care details and packing before production."
+        ]
+      ],
+      "faq": [
+        [
+          "Can a detailed illustration be knitted into a sock?",
+          "Send the artwork at its intended size. The smallest details and color count are reviewed for legibility in the selected knit construction."
+        ],
+        [
+          "How should I provide a repeating pattern?",
+          "Include a repeat tile, dimensions, direction and any alignment rules. A full-sock layout helps confirm placement."
+        ],
+        [
+          "Can each sock in a pair have different artwork?",
+          "Yes. Provide a left and right design, mark each placement and confirm whether the pair should be packed together."
+        ]
+      ],
+      "related": [
+        "custom-crew-socks",
+        "custom-athletic-socks",
+        "custom-wool-socks"
+      ]
+    },
+    {
+      "slug": "custom-wool-socks",
+      "name": "Wool Socks",
+      "family": "Socks",
+      "description": "Plan custom wool socks around fiber composition, knit texture, yarn thickness, sock length, care labeling and the intended fit.",
+      "lead": "Start with the wool composition and knit feel, then specify thickness, length and the care information required for the finished range.",
+      "image": "assets/socks-extra-styles-v1.webp",
+      "position": "0% 100%",
+      "alt": "Textured oatmeal wool-blend socks shown as a style reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 100%",
+        "size": "403% 403%",
+        "alt": "Sock yarn cones arranged as fiber and color planning references",
+        "caption": "Yarn and composition reference"
+      },
+      "overview_title": "Specify The Fiber And Knit Weight.",
+      "overview_copy": "Wool socks can vary in blend, yarn thickness and surface texture. State the composition target, finished weight, length and care-label needs.",
+      "points": [
+        [
+          "Fiber Blend",
+          "Wool percentage and companion fiber requirements."
+        ],
+        [
+          "Knit & Weight",
+          "Texture, thickness and fit reference."
+        ],
+        [
+          "Care Details",
+          "Label language and handling instructions to confirm."
+        ]
+      ],
+      "options_title": "Be Precise About Fiber And Care.",
+      "options_intro": "Name the requested composition and include any market or labeling requirements for review.",
+      "options": [
+        [
+          "Composition",
+          "Specify the wool content target, blend and any documentation you need to review."
+        ],
+        [
+          "Texture & Thickness",
+          "Share a knit sample or reference for yarn thickness, density and finished feel."
+        ],
+        [
+          "Length & Label",
+          "Choose the sock height and provide required fiber and care-label wording."
+        ]
+      ],
+      "process_title": "From Fiber Brief To Composition Review.",
+      "process": [
+        [
+          "Share Fiber Requirements",
+          "Provide composition target, size range, label text and quantity."
+        ],
+        [
+          "Confirm Knit & Weight",
+          "Record yarn thickness, surface texture, height and fit reference."
+        ],
+        [
+          "Review Quoted Scope",
+          "Confirm material availability, quote terms and whether sampling is included."
+        ],
+        [
+          "Approve Label & Sample",
+          "Review the sample, composition statement, care wording and packing details."
+        ]
+      ],
+      "faq": [
+        [
+          "Can I set a specific wool percentage?",
+          "State the required composition and any supporting documentation. The blend and available verification are confirmed for the selected yarn and order."
+        ],
+        [
+          "Can wool socks be made in different thicknesses?",
+          "Share a physical sample or describe the knit weight and intended shoe fit. Yarn and construction options are reviewed for the requested specification."
+        ],
+        [
+          "What care details should appear on the label?",
+          "Provide the market language and handling instructions you require. Final composition and care wording should be approved for the confirmed materials."
+        ]
+      ],
+      "related": [
+        "custom-crew-socks",
+        "custom-athletic-socks",
+        "custom-compression-socks"
+      ]
+    },
+    {
+      "slug": "custom-compression-socks",
+      "name": "Compression Socks",
+      "family": "Socks",
+      "description": "Plan custom compression-style socks around the requested fit, ankle and calf measurements, shaft length, knit zones and garment labeling.",
+      "lead": "Specify ankle and calf measurements, finished length, knit zones and the garment fit you want reviewed.",
+      "image": "assets/socks-extra-styles-v1.webp",
+      "position": "100% 100%",
+      "alt": "Navy knee-length compression-style socks shown as a clothing reference",
+      "detail": {
+        "image": "assets/custom-socks-editorial-v3.webp",
+        "position": "0% 33.333%",
+        "size": "403% 403%",
+        "alt": "Knit yarn and color swatches arranged for sock material planning",
+        "caption": "Knit and color reference"
+      },
+      "overview_title": "Treat Fit As A Measured Specification.",
+      "overview_copy": "Share ankle and calf measurement points, finished length, size grading and requested knit zones so the garment fit and construction can be reviewed.",
+      "points": [
+        [
+          "Measurements",
+          "Ankle and calf circumferences, shaft length and size grading."
+        ],
+        [
+          "Knit Construction",
+          "Requested knit zones and garment specification for review."
+        ],
+        [
+          "Garment Details",
+          "Cuff, toe, colors, labels and size marking."
+        ]
+      ],
+      "options_title": "Record Measurements And Construction.",
+      "options_intro": "Share the garment measurements and sock details you want represented in the approved specification.",
+      "options": [
+        [
+          "Fit Measurements",
+          "List ankle and calf points, finished length, size grading and tolerances."
+        ],
+        [
+          "Knit Construction",
+          "Describe the requested knit zones and garment specification for review."
+        ],
+        [
+          "Finish Details",
+          "Choose cuff, toe, colors, labels and packing reference."
+        ]
+      ],
+      "process_title": "From Measurement Brief To Sample Review.",
+      "process": [
+        [
+          "Share The Fit Brief",
+          "Provide size range, circumference points, finished length, artwork and quantity."
+        ],
+        [
+          "Map The Construction",
+          "Record knit zones, cuff details and the requested garment specification."
+        ],
+        [
+          "Review The Sample",
+          "Agree quoted terms and whether a sample or artwork proof is included."
+        ],
+        [
+          "Approve The Specification",
+          "Check graded measurements, labels, packing and inspection criteria."
+        ]
+      ],
+      "faq": [
+        [
+          "What measurements should I provide?",
+          "Share the ankle and calf measurement points, finished length, size range and tolerances. The measurement method and fit are recorded in the approved garment specification."
+        ],
+        [
+          "Can I request particular knit zones or a pressure specification?",
+          "Mark the requested construction zones or garment specification on a sock diagram. Feasibility and final construction details are reviewed during development and sample approval."
+        ],
+        [
+          "Which garment details can be customized?",
+          "Specify cuff height, length, heel and toe construction, colors, logo placement, size marks and packing details for review."
+        ]
+      ],
+      "related": [
+        "custom-athletic-socks",
+        "custom-knee-high-socks",
+        "custom-crew-socks"
+      ]
+    }
+  ]
+}

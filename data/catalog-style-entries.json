@@ -1,0 +1,235 @@
+{
+  "categories": [
+    {
+      "id": "clothing",
+      "label": "Apparel",
+      "entries": [
+        {
+          "slug": "custom-t-shirts",
+          "name": "T-Shirts",
+          "href": "custom-t-shirts.html",
+          "image": "assets/custom-t-shirts-styles-v1.webp",
+          "position": "0% 0%",
+          "size": "200% 200%",
+          "alt": "Classic fit short-sleeve T-shirt shown as a style reference"
+        },
+        {
+          "slug": "custom-sweatshirts",
+          "name": "Sweatshirts",
+          "href": "custom-sweatshirts.html",
+          "image": "assets/apparel-bags-range-v1.webp",
+          "position": "0% 0%",
+          "size": "300% 200%",
+          "alt": "Cream crewneck sweatshirt shown as a style reference"
+        },
+        {
+          "slug": "custom-hoodies",
+          "name": "Hoodies",
+          "href": "custom-hoodies.html",
+          "image": "assets/custom-hoodies-styles-v1.webp",
+          "position": "0% 0%",
+          "size": "200% 200%",
+          "alt": "Light blue pullover hoodie shown as a style reference"
+        },
+        {
+          "slug": "custom-varsity-jackets",
+          "name": "Varsity Jackets",
+          "href": "custom-varsity-jackets.html",
+          "image": "assets/apparel-bags-range-v1.webp",
+          "position": "50% 0%",
+          "size": "300% 200%",
+          "alt": "Navy and cream varsity jacket shown as a style reference"
+        },
+        {
+          "slug": "custom-jerseys",
+          "name": "Jerseys",
+          "href": "custom-jerseys.html",
+          "image": "assets/apparel-bags-range-v1.webp",
+          "position": "100% 0%",
+          "size": "300% 200%",
+          "alt": "Blue short-sleeve athletic jersey shown as a style reference"
+        }
+      ]
+    },
+    {
+      "id": "headwear",
+      "label": "Headwear",
+      "entries": [
+        {
+          "slug": "custom-baseball-caps",
+          "name": "Baseball Caps",
+          "href": "custom-baseball-caps.html",
+          "image": "assets/custom-headwear-styles-v1.webp",
+          "position": "0% 0%",
+          "size": "200% 200%",
+          "alt": "Navy baseball cap shown as a style reference"
+        },
+        {
+          "slug": "custom-visors",
+          "name": "Visors",
+          "href": "custom-visors.html",
+          "image": "assets/headwear-extra-styles-v1.webp",
+          "position": "0% 0%",
+          "size": "200% 200%",
+          "alt": "Blue visor shown as a style reference"
+        },
+        {
+          "slug": "custom-camper-hats",
+          "name": "Camper Hats",
+          "href": "custom-camper-hats.html",
+          "image": "assets/custom-headwear-styles-v1.webp",
+          "position": "0% 100%",
+          "size": "200% 200%",
+          "alt": "Blue camper hat shown as a style reference"
+        },
+        {
+          "slug": "custom-beanies",
+          "name": "Beanies",
+          "href": "custom-beanies.html",
+          "image": "assets/custom-headwear-styles-v1.webp",
+          "position": "100% 100%",
+          "size": "200% 200%",
+          "alt": "Cream rib-knit beanie shown as a style reference"
+        },
+        {
+          "slug": "custom-trucker-caps",
+          "name": "Trucker Caps",
+          "href": "custom-trucker-caps.html",
+          "image": "assets/custom-headwear-styles-v1.webp",
+          "position": "100% 0%",
+          "size": "200% 200%",
+          "alt": "Cream mesh-back trucker cap shown as a style reference"
+        },
+        {
+          "slug": "custom-snapbacks",
+          "name": "Snapbacks",
+          "href": "custom-snapbacks.html",
+          "image": "assets/headwear-extra-styles-v1.webp",
+          "position": "100% 0%",
+          "size": "200% 200%",
+          "alt": "Navy snapback cap with a flat bill shown as a style reference"
+        },
+        {
+          "slug": "custom-dad-hats",
+          "name": "Dad Hats",
+          "href": "custom-dad-hats.html",
+          "image": "assets/headwear-extra-styles-v1.webp",
+          "position": "0% 100%",
+          "size": "200% 200%",
+          "alt": "Charcoal relaxed-fit dad hat shown as a style reference"
+        },
+        {
+          "slug": "custom-bucket-hats",
+          "name": "Bucket Hats",
+          "href": "custom-bucket-hats.html",
+          "image": "assets/headwear-extra-styles-v1.webp",
+          "position": "100% 100%",
+          "size": "200% 200%",
+          "alt": "Sand bucket hat with a stitched downward brim shown as a style reference"
+        }
+      ]
+    },
+    {
+      "id": "socks",
+      "label": "Socks",
+      "entries": [
+        {
+          "slug": "custom-ankle-socks",
+          "name": "Ankle Socks",
+          "href": "custom-ankle-socks.html",
+          "image": "assets/custom-socks-styles-v1.webp",
+          "position": "100% 0%",
+          "size": "200% 200%",
+          "alt": "Light blue ankle socks shown as a style reference"
+        },
+        {
+          "slug": "custom-crew-socks",
+          "name": "Crew Socks",
+          "href": "custom-crew-socks.html",
+          "image": "assets/custom-socks-styles-v1.webp",
+          "position": "0% 100%",
+          "size": "200% 200%",
+          "alt": "Navy crew socks shown as a style reference"
+        },
+        {
+          "slug": "custom-athletic-socks",
+          "name": "Athletic Socks",
+          "href": "custom-athletic-socks.html",
+          "image": "assets/socks-extra-styles-v1.webp",
+          "position": "0% 0%",
+          "size": "200% 200%",
+          "alt": "White athletic crew socks with navy stripes shown as a style reference"
+        },
+        {
+          "slug": "custom-knee-high-socks",
+          "name": "Knee High Socks",
+          "href": "custom-knee-high-socks.html",
+          "image": "assets/custom-socks-styles-v1.webp",
+          "position": "100% 100%",
+          "size": "200% 200%",
+          "alt": "Cream knee-high socks shown as a style reference"
+        },
+        {
+          "slug": "custom-no-show-socks",
+          "name": "No Show Socks",
+          "href": "custom-no-show-socks.html",
+          "image": "assets/custom-socks-styles-v1.webp",
+          "position": "0% 0%",
+          "size": "200% 200%",
+          "alt": "Cream no-show socks shown as a style reference"
+        },
+        {
+          "slug": "custom-novelty-socks",
+          "name": "Novelty Socks",
+          "href": "custom-novelty-socks.html",
+          "image": "assets/socks-extra-styles-v1.webp",
+          "position": "100% 0%",
+          "size": "200% 200%",
+          "alt": "Cream novelty crew socks with navy geometric motifs shown as a style reference"
+        },
+        {
+          "slug": "custom-wool-socks",
+          "name": "Wool Socks",
+          "href": "custom-wool-socks.html",
+          "image": "assets/socks-extra-styles-v1.webp",
+          "position": "0% 100%",
+          "size": "200% 200%",
+          "alt": "Textured oatmeal wool-blend socks shown as a style reference"
+        },
+        {
+          "slug": "custom-compression-socks",
+          "name": "Compression Socks",
+          "href": "custom-compression-socks.html",
+          "image": "assets/socks-extra-styles-v1.webp",
+          "position": "100% 100%",
+          "size": "200% 200%",
+          "alt": "Navy knee-length compression-style socks shown as a clothing reference"
+        }
+      ]
+    },
+    {
+      "id": "bags",
+      "label": "Bags",
+      "entries": [
+        {
+          "slug": "custom-tote-bags",
+          "name": "Tote Bags",
+          "href": "custom-tote-bags.html",
+          "image": "assets/apparel-bags-range-v1.webp",
+          "position": "0% 100%",
+          "size": "300% 200%",
+          "alt": "Cream canvas tote bag with navy handles shown as a style reference"
+        },
+        {
+          "slug": "custom-backpacks",
+          "name": "Backpacks",
+          "href": "custom-backpacks.html",
+          "image": "assets/apparel-bags-range-v1.webp",
+          "position": "50% 100%",
+          "size": "300% 200%",
+          "alt": "Navy backpack shown as a style reference"
+        }
+      ]
+    }
+  ]
+}

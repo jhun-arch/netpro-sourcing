@@ -121,3 +121,8 @@ html{scrollbar-gutter:stable}
 .form-status.is-success{background:#e8f7ee;border-color:#b3e2c4;color:#1b5e33;font-weight:600}
 .form-status.is-error{background:#fdecec;border-color:#f3bcbc;color:#8c1d18}
 @media(max-width:760px){.form-status{font-size:15px}}
+
+/* Keep the category image navigable while its title and Explore action stay independent. */
+.category-image-link{position:absolute;inset:0;z-index:1;display:block}
+.category-image-link:focus-visible{outline:3px solid var(--blue);outline-offset:-7px}
+.category-details{z-index:3}

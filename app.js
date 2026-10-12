@@ -22,7 +22,7 @@
   const arrow = '<svg aria-hidden="true"><use href="#i-arrow"/></svg>';
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   let activeFilter = isShop ? (new URLSearchParams(location.search).get('category') || 'all') : 'all';
-  if (!['all','new','clothing','socks','headwear','patches'].includes(activeFilter)) activeFilter = 'all';
+  if (!['all','clothing','socks','headwear','patches'].includes(activeFilter)) activeFilter = 'all';
   let toastTimer;
   let bag = [];
   try {
@@ -187,7 +187,9 @@
       closeDropdowns();
       setDropdown(group, mouseClick || !expanded);
     });
-    group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setDropdown(group, false); });
+    group.addEventListener('focusout', e => {
+      if (!group.contains(e.relatedTarget)) scheduleClose();
+    });
     group.addEventListener('keydown', e => {
       if (e.key === 'Escape') { trigger.focus(); closeDropdowns(); }
       if (e.key === 'ArrowDown' && e.target === trigger) {
@@ -216,9 +218,11 @@
   }
   categories.forEach((category, i) => {
     const button = $('.category-toggle', category);
+    const imageLink = $('.category-image-link', category);
     category.addEventListener('pointerenter', e => {
       if (e.pointerType === 'mouse' && !mobileQuery.matches) activateCategory(i);
     });
+    imageLink?.addEventListener('focus', () => activateCategory(i));
     button.addEventListener('click', () => activateCategory(i));
     button.addEventListener('focus', () => activateCategory(i));
     button.addEventListener('keydown', e => {
@@ -361,7 +365,7 @@
   function renderBag() {
     updateBagCount();
     if (!bag.length) {
-      $('#bag-items').innerHTML = `<div class="empty-bag"><svg aria-hidden="true"><use href="#i-bag"/></svg><h3>${pageHeading('A little room for something new.', 'A Little Room For Something New.')}</h3><p>Add products to build your enquiry.</p><button class="button primary bag-continue">Explore new arrivals ${arrow}</button></div>`;
+      $('#bag-items').innerHTML = `<div class="empty-bag"><svg aria-hidden="true"><use href="#i-bag"/></svg><h3>${pageHeading('A little room for something new.', 'A Little Room For Something New.')}</h3><p>Add products to build your enquiry.</p><button class="button primary bag-continue">Explore products ${arrow}</button></div>`;
       $('#bag-summary').innerHTML = '<p class="cart-empty-summary">You can also request a quote without selecting products.</p>';
     } else {
       $('#bag-items').innerHTML = bag.map((item, i) => {

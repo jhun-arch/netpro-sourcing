@@ -126,7 +126,6 @@ body:not(.home-page) .header-actions .icon-button {
 }
 
 body:not(.home-page) .header-actions .bag-button {
-  min-width: 60px;
   border-radius: 0;
 }
 

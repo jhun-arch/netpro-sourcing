@@ -39,7 +39,7 @@
 
 .custom-product-breadcrumb a { transition: color .18s ease; }
 .custom-product-breadcrumb a:hover,
-.custom-product-breadcrumb a:focus-visible { color: var(--custom-blue); }
+.custom-product-breadcrumb a:focus-visible { color: var(--blue); }
 .custom-product-breadcrumb [aria-current="page"] { color: var(--custom-ink); }
 
 .custom-product-hero {
@@ -209,21 +209,6 @@
   line-height: 1.65;
 }
 .custom-product-action { display: block; margin-bottom: 24px; }
-.custom-product-action .button {
-  display: flex;
-  width: 100%;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 15px 24px;
-  border: 0;
-  background: var(--custom-blue);
-  color: #fff;
-  font-size: 14px;
-  text-align: center;
-}
-.custom-product-action .button:hover { background: #304e80; }
 .custom-product-action-note { margin: 9px 0 0; color: #788394; font-size: 13px; line-height: 1.5; }
 .custom-product-details { border-top: 1px solid var(--custom-line); }
 .custom-product-details details { border-bottom: 1px solid var(--custom-line); }
@@ -414,13 +399,11 @@
 
 .custom-product-cta {
   padding: clamp(60px, 7vw, 92px) 0;
-  background: linear-gradient(180deg, #294675 0%, #3d609a 100%);
-  color: #fff;
+  background: #eaf2fb;
+  color: var(--custom-ink);
 }
 .custom-product-cta-inner { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 26px; text-align: center; }
 .custom-product-cta h2 { max-width: 760px; margin: 0 auto 12px; font-size: clamp(38px, 4vw, 56px); line-height: 1.04; letter-spacing: -.04em; }
-.custom-product-cta .button { justify-self: center; min-width: 230px; min-height: 52px; margin: 0; padding: 15px 22px; background: #fff; color: #294a7e; text-align: center; }
-.custom-product-cta .button:hover { background: #eaf0f8; }
 
 @media (max-width: 980px) {
   .custom-product-hero { grid-template-columns: minmax(0, 1fr) minmax(0, .92fr); gap: 34px; }
@@ -467,7 +450,6 @@
   .custom-product-step h3 { margin: 0 0 5px; }
   .custom-product-faq .custom-product-section-heading { position: static; }
   .custom-product-cta-inner { grid-template-columns: 1fr; gap: 26px; }
-  .custom-product-cta .button { justify-self: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -489,8 +471,6 @@
 .custom-editorial-points { display: grid; gap: 0; margin: 22px 0; padding: 0; border-top: 1px solid #d4dce5; list-style: none; }
 .custom-editorial-points li { padding: 11px 0; border-bottom: 1px solid #d4dce5; color: #394b62; font-size: 15px; line-height: 1.45; }
 .custom-editorial-points li::before { content: "—"; margin-right: 12px; color: var(--custom-blue); }
-.custom-editorial-copy .text-link { display: inline-flex; align-items: center; gap: 10px; color: var(--custom-blue); font-size: 14px; font-weight: 600; text-decoration: none; }
-.custom-editorial-copy .text-link svg { width: 16px; height: 16px; }
 .custom-product-facts-section { padding: 0 0 54px; background: #fff; }
 .custom-product-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; }
 .custom-product-facts > div { padding: 16px 0 0; border-top: 1px solid #d5dce5; }
@@ -582,3 +562,87 @@
   .custom-concept-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .custom-concept-note-card { min-height: 0; padding: 20px 0; }
 }
+
+
+/* Independent style detail pages. */
+.custom-style-options { background: #f7f8fa; }
+.custom-product-card-grid.custom-style-option-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.custom-style-option { min-width: 0; padding: 23px; border-top: 2px solid var(--custom-blue); background: #fff; }
+.custom-style-option > span { color: var(--custom-blue); font-size: 12px; font-variant-numeric: tabular-nums; }
+.custom-style-option h3 { margin: 16px 0 8px; font-size: 18px; line-height: 1.35; }
+.custom-style-option p { margin: 0; color: var(--custom-muted); font-size: 14px; line-height: 1.6; }
+.custom-product-step-grid.custom-style-process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.custom-product-card-grid.custom-style-related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 980px) {
+  .custom-product-card-grid.custom-style-option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .custom-product-step-grid.custom-style-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .custom-product-card-grid.custom-style-option-grid,
+  .custom-product-step-grid.custom-style-process-grid,
+  .custom-product-card-grid.custom-style-related-grid { grid-template-columns: 1fr; }
+}
+
+/* Match the homepage's shared action system inside product content. */
+.custom-product-main .button.primary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 21px;
+  border: 1px solid #355ee1;
+  border-radius: 0;
+  color: #fff;
+  background: #355ee1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transform: none;
+  box-shadow: none;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+.custom-product-main .button.primary:is(:hover, :focus-visible) {
+  border-color: #294fc4;
+  color: #fff;
+  background: #294fc4;
+  text-decoration: none;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.custom-product-main .button.primary svg { flex: 0 0 auto; }
+.custom-product-main .button.primary:hover svg { transform: translate(3px, -1px); }
+
+.custom-product-main .text-link {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 21px;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(66, 96, 151, .45);
+  border-radius: 0;
+  color: #426097;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.custom-product-main .text-link:is(:hover, :focus-visible) {
+  border-color: #426097;
+  color: #426097;
+  background: transparent;
+  text-decoration: none;
+  transform: none;
+  box-shadow: none;
+}
+.custom-product-main .text-link svg { flex: 0 0 auto; }
