@@ -23,29 +23,50 @@ def crop_style(image: str, position: str, size: str = "200% 200%") -> str:
 
 
 def render_gallery(style: dict) -> str:
-    image, pos, alt = style["image"], style["position"], style["alt"]
-    aria = esc(alt)
+    detail = style["detail"]
+    slides = [
+        {
+            "image": style["image"],
+            "position": style.get("position", "center"),
+            "size": style.get("image_size", "cover"),
+            "alt": style["alt"],
+            "label": style.get("image_caption", f"{style['name']} profile"),
+        },
+        {
+            "image": detail["image"],
+            "position": detail.get("position", "center"),
+            "size": detail.get("size", "cover"),
+            "alt": detail["alt"],
+            "label": detail.get("caption", f"{style['name']} construction detail"),
+        },
+    ]
+    first = slides[0]
+    thumbnails = "".join(
+        f'''<button type="button" class="custom-product-thumb" data-gallery-thumb data-image="{esc(slide['image'])}" data-image-size="{esc(slide['size'])}" data-lightbox-size="{esc(slide['size'])}" data-position="{esc(slide['position'])}" data-alt="{esc(slide['alt'])}" data-label="{esc(slide['label'])}" aria-label="Show {esc(slide['label'])}" aria-pressed="{'true' if index == 0 else 'false'}">
+      <span class="custom-product-thumb-art" aria-hidden="true" style="{crop_style(slide['image'], slide['position'], slide['size'])}"></span>
+    </button>'''
+        for index, slide in enumerate(slides)
+    )
+    aria = esc(first["alt"])
     return f'''<div class="custom-product-gallery" data-custom-product-gallery>
   <div class="custom-product-gallery-body">
     <div class="custom-product-stage">
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: {aria}">
-        <span class="custom-product-view" data-gallery-view role="img" aria-label="{aria}" style="{crop_style(image, pos)}"></span>
+        <span class="custom-product-view" data-gallery-view role="img" aria-label="{aria}" style="{crop_style(first['image'], first['position'], first['size'])}"></span>
       </button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Style Reference</strong></div>
+    <div class="custom-product-gallery-caption"><strong data-gallery-caption>{esc(first['label'])}</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
-    <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="{esc(image)}" data-image-size="200% 200%" data-position="{esc(pos)}" data-alt="{aria}" data-label="Style Reference" aria-label="Style Reference: {aria}" aria-pressed="true">
-      <span class="custom-product-thumb-art" aria-hidden="true" style="{crop_style(image, pos)}"></span>
-    </button>
+    {thumbnails}
   </div>
   <dialog class="custom-product-lightbox" data-gallery-dialog aria-labelledby="gallery-dialog-title">
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">{esc(style['name'])} Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="{aria}"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Style Reference</p>
+      <p class="custom-product-lightbox-caption" data-lightbox-caption>{esc(first['label'])}</p>
     </div>
   </dialog>
 </div>'''
@@ -118,7 +139,7 @@ def render_related(style: dict, catalog: dict[str, dict]) -> str:
         related = catalog[slug]
         cards.append(
             f'''<article class="custom-product-card"><a class="custom-product-link-card" href="{esc(slug)}.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="{esc(related['alt'])}" style="{crop_style(related['image'], related['position'])}"></span></figure>
+  <figure><span class="custom-product-card-image" role="img" aria-label="{esc(related['alt'])}" style="{crop_style(related['image'], related['position'], related.get('image_size', 'cover'))}"></span></figure>
   <div class="custom-product-card-copy"><h3>{esc(related['name'])}</h3></div>
 </a></article>'''
         )

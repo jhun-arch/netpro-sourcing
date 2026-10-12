@@ -6,15 +6,15 @@
       "family": "Headwear",
       "description": "Plan custom baseball caps around crown profile, bill shape, fit, closure and artwork placement with a clear product specification.",
       "lead": "Set the crown, bill and fit first, then decide where your artwork belongs. A clear reference helps keep the cap profile consistent across a range.",
-      "image": "assets/custom-headwear-styles-v1.webp",
-      "position": "0% 0%",
-      "alt": "Navy baseball cap shown as a style reference",
+      "image": "assets/custom-baseball-caps-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Unbranded navy cotton baseball cap with curved bill and six-panel crown",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Headwear fabric and trim swatches arranged for material planning",
-        "caption": "Material and trim reference"
+        "image": "assets/custom-baseball-caps-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of navy baseball cap twill, bill stitching, crown seam and eyelet",
+        "caption": "Navy baseball cap twill, bill stitching, crown seam and eyelet"
       },
       "overview_title": "Start With The Crown And Bill.",
       "overview_copy": "Describe the cap profile you want to review. Crown height, panel layout, bill curve and closure all shape the finished silhouette.",
@@ -85,7 +85,9 @@
         "custom-trucker-caps",
         "custom-snapbacks",
         "custom-dad-hats"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Navy cotton baseball cap with curved bill and six-panel crown"
     },
     {
       "slug": "custom-visors",
@@ -93,15 +95,15 @@
       "family": "Headwear",
       "description": "Plan custom visors around the open crown, headband fit, bill profile, closure and artwork placement for a focused headwear range.",
       "lead": "A visor pairs an open crown with a shaped bill and fitted band. Define coverage, comfort and adjustment details before choosing decoration.",
-      "image": "assets/headwear-extra-styles-v1.webp",
-      "position": "0% 0%",
-      "alt": "Blue visor shown as a style reference",
+      "image": "assets/custom-visors-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Unbranded navy cotton sun visor with an open crown and curved bill",
       "detail": {
-        "image": "assets/custom-headwear-details-v2.webp",
-        "position": "0% 0%",
-        "size": "303% 202%",
-        "alt": "Close view of knit and woven material textures for headwear material planning",
-        "caption": "Material texture reference"
+        "image": "assets/custom-visors-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of navy visor headband weave, curved bill stitching and rear closure",
+        "caption": "Navy visor headband weave, curved bill stitching and rear closure"
       },
       "overview_title": "Balance The Band And Bill.",
       "overview_copy": "Describe the open-top profile, the coverage you want from the bill and how the headband should adjust. These choices set the visor's proportions.",
@@ -172,7 +174,9 @@
         "custom-baseball-caps",
         "custom-bucket-hats",
         "custom-camper-hats"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Navy cotton sun visor with an open crown and curved bill"
     },
     {
       "slug": "custom-camper-hats",
@@ -180,15 +184,15 @@
       "family": "Headwear",
       "description": "Plan custom camper hats around their low-profile crown, panel layout, brim, fabric and adjustable fit with clear style references.",
       "lead": "Camper hats are defined by a low profile and compact brim. Share the panel layout, crown depth and fit details that make your reference distinct.",
-      "image": "assets/custom-headwear-styles-v1.webp",
-      "position": "0% 100%",
-      "alt": "Blue camper hat shown as a style reference",
+      "image": "assets/custom-camper-hats-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Muted blue five-panel camper hat with low crown and flat brim",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Headwear fabric and trim swatches arranged for material planning",
-        "caption": "Material and trim reference"
+        "image": "assets/custom-camper-hats-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of camper hat canvas panel seam and stitched flat brim",
+        "caption": "Camper hat canvas panel seam and stitched flat brim"
       },
       "overview_title": "Keep The Low Profile In View.",
       "overview_copy": "Start with crown depth and panel arrangement, then align the brim and closure. A top and side reference can make the compact shape easier to specify.",
@@ -259,7 +263,9 @@
         "custom-baseball-caps",
         "custom-trucker-caps",
         "custom-bucket-hats"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Muted blue five-panel camper hat with low crown and flat brim"
     },
     {
       "slug": "custom-beanies",
@@ -267,15 +273,15 @@
       "family": "Headwear",
       "description": "Plan custom beanies around knit structure, yarn composition, cuff or fold, crown depth and label placement for a considered cold-weather range.",
       "lead": "Choose the knit, length and cuff treatment that fit your beanie concept. Share yarn, gauge, color and label references for review.",
-      "image": "assets/custom-headwear-styles-v1.webp",
-      "position": "100% 100%",
-      "alt": "Cream rib-knit beanie shown as a style reference",
+      "image": "assets/custom-beanies-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Navy rib-knit beanie with a folded cuff",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "33.333% 0%",
-        "size": "403% 403%",
-        "alt": "Close view of a sewn textile label and knit construction",
-        "caption": "Knit and label reference"
+        "image": "assets/custom-beanies-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of navy beanie rib knit and crown shaping",
+        "caption": "Navy beanie rib knit and crown shaping"
       },
       "overview_title": "Set The Knit Before The Cuff.",
       "overview_copy": "For a beanie, knit texture and crown depth influence the overall fit. Confirm yarn composition, gauge, finished length and whether the cuff folds back.",
@@ -346,7 +352,9 @@
         "custom-trucker-caps",
         "custom-camper-hats",
         "custom-bucket-hats"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Navy rib-knit beanie with a folded cuff"
     },
     {
       "slug": "custom-trucker-caps",
@@ -354,15 +362,15 @@
       "family": "Headwear",
       "description": "Plan custom trucker caps around the front crown, mesh back panels, bill shape, closure and artwork placement for a coordinated cap range.",
       "lead": "Pair the front crown with your preferred back-panel mesh and closure. Define the bill and artwork placement to keep the cap balanced.",
-      "image": "assets/custom-headwear-styles-v1.webp",
-      "position": "100% 0%",
-      "alt": "Cream mesh-back trucker cap shown as a style reference",
+      "image": "assets/custom-trucker-caps-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Navy and cream mesh-back trucker cap with curved bill",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Headwear fabric and trim swatches arranged for material planning",
-        "caption": "Fabric and panel reference"
+        "image": "assets/custom-trucker-caps-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of trucker cap mesh back and navy front-panel seam",
+        "caption": "Trucker cap mesh back and navy front-panel seam"
       },
       "overview_title": "Coordinate The Front And Mesh.",
       "overview_copy": "Specify the front panel structure, mesh coverage and bill profile together. The back closure and artwork locations complete the trucker cap brief.",
@@ -433,7 +441,9 @@
         "custom-baseball-caps",
         "custom-snapbacks",
         "custom-camper-hats"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Navy and cream mesh-back trucker cap with curved bill"
     },
     {
       "slug": "custom-snapbacks",
@@ -441,15 +451,15 @@
       "family": "Headwear",
       "description": "Plan custom snapbacks around a structured crown, flat bill, rear snap closure, fit range and precise front or side artwork placement.",
       "lead": "Define the structured crown, flat bill and rear snap fit. Add artwork placement and color references to complete the snapback direction.",
-      "image": "assets/headwear-extra-styles-v1.webp",
-      "position": "100% 0%",
-      "alt": "Navy snapback cap with a flat bill shown as a style reference",
+      "image": "assets/custom-snapbacks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Structured navy snapback cap with a tall crown and flat bill",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Headwear fabric and trim swatches arranged for material planning",
-        "caption": "Fabric and color reference"
+        "image": "assets/custom-snapbacks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of snapback cap flat bill stitching and cotton crown",
+        "caption": "Snapback cap flat bill stitching and cotton crown"
       },
       "overview_title": "Make The Structure And Fit Specific.",
       "overview_copy": "A snapback brief should call out crown structure, bill profile and the adjustment range. Include the front and side views used to check proportions.",
@@ -520,7 +530,9 @@
         "custom-baseball-caps",
         "custom-trucker-caps",
         "custom-dad-hats"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Structured navy snapback cap with a tall crown and flat bill"
     },
     {
       "slug": "custom-dad-hats",
@@ -528,15 +540,15 @@
       "family": "Headwear",
       "description": "Plan custom dad hats around a relaxed crown, curved bill, adjustable back strap, washed fabric references and understated branding.",
       "lead": "Shape a relaxed cap with a curved bill and adjustable back. Share the fabric, wash, fit and decoration details that set the tone.",
-      "image": "assets/headwear-extra-styles-v1.webp",
-      "position": "0% 100%",
-      "alt": "Charcoal relaxed-fit dad hat shown as a style reference",
+      "image": "assets/custom-dad-hats-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Washed pale blue unstructured dad hat with curved brim",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Headwear fabric and trim swatches arranged for material planning",
-        "caption": "Fabric and color reference"
+        "image": "assets/custom-dad-hats-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of dad hat washed cotton, curved bill stitching and metal slider",
+        "caption": "Dad hat washed cotton, curved bill stitching and metal slider"
       },
       "overview_title": "Keep The Fit Relaxed.",
       "overview_copy": "Use a side view to show the crown depth and bill curve. Fabric hand, wash effect and a metal or fabric back adjustment help define the casual profile.",
@@ -607,7 +619,9 @@
         "custom-baseball-caps",
         "custom-trucker-caps",
         "custom-snapbacks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Washed pale blue unstructured dad hat with curved brim"
     },
     {
       "slug": "custom-bucket-hats",
@@ -615,15 +629,15 @@
       "family": "Headwear",
       "description": "Plan custom bucket hats around crown depth, downward brim width, shape, fabric weight, reversibility and artwork placement.",
       "lead": "Set the crown depth and downward brim proportions, then confirm the material and whether the design should be reversible.",
-      "image": "assets/headwear-extra-styles-v1.webp",
-      "position": "100% 100%",
-      "alt": "Sand bucket hat with a stitched downward brim shown as a style reference",
+      "image": "assets/custom-bucket-hats-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Cream cotton bucket hat with a downward brim",
       "detail": {
-        "image": "assets/custom-headwear-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Headwear fabric and trim swatches arranged for material planning",
-        "caption": "Fabric and color reference"
+        "image": "assets/custom-bucket-hats-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of bucket hat canvas texture and concentric brim stitches",
+        "caption": "Bucket hat canvas texture and concentric brim stitches"
       },
       "overview_title": "Set The Crown And Brim Proportions.",
       "overview_copy": "Bucket hats vary in crown depth and brim width. Share a side and top view, the intended fabric weight and any reversible or contrast-panel details.",
@@ -694,7 +708,9 @@
         "custom-camper-hats",
         "custom-visors",
         "custom-baseball-caps"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Cream cotton bucket hat with a downward brim"
     },
     {
       "slug": "custom-ankle-socks",
@@ -702,15 +718,15 @@
       "family": "Socks",
       "description": "Plan custom ankle socks around the short cuff height, heel coverage, knit weight, size range and artwork placement for everyday collections.",
       "lead": "Set the cuff height and heel coverage for the shoe profile. Add knit, size and artwork references to define the ankle-sock range.",
-      "image": "assets/custom-socks-styles-v1.webp",
-      "position": "100% 0%",
-      "alt": "Light blue ankle socks shown as a style reference",
+      "image": "assets/custom-ankle-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Cream ankle sock with a short cuff and navy reinforced heel and toe",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-ankle-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of ankle sock short ribbed cuff and reinforced knit",
+        "caption": "Ankle sock short ribbed cuff and reinforced knit"
       },
       "overview_title": "Set The Cuff And Heel Coverage.",
       "overview_copy": "An ankle sock sits above the shoe line with a short shaft. State the finished cuff height, heel coverage and fit points you want reviewed.",
@@ -781,7 +797,9 @@
         "custom-no-show-socks",
         "custom-crew-socks",
         "custom-athletic-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Cream ankle sock with a short cuff and navy reinforced heel and toe"
     },
     {
       "slug": "custom-crew-socks",
@@ -789,15 +807,15 @@
       "family": "Socks",
       "description": "Plan custom crew socks around mid-calf length, ribbed cuff, knit weight, leg artwork, heel and toe details, and a clear size range.",
       "lead": "Define the shaft length and cuff first, then place stripes, logos or patterns across the leg, heel and toe.",
-      "image": "assets/custom-socks-styles-v1.webp",
-      "position": "0% 100%",
-      "alt": "Navy crew socks shown as a style reference",
+      "image": "assets/custom-crew-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Cream mid-calf crew sock with navy stripes and ribbed cuff",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-crew-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of crew sock navy knit-in stripes and ribbed cuff",
+        "caption": "Crew sock navy knit-in stripes and ribbed cuff"
       },
       "overview_title": "Map The Leg And Cuff.",
       "overview_copy": "Crew socks provide more shaft area for rib structure, stripes and artwork. Confirm finished length, cuff tension reference and how the pattern should meet the heel and toe.",
@@ -868,7 +886,9 @@
         "custom-athletic-socks",
         "custom-knee-high-socks",
         "custom-ankle-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Cream mid-calf crew sock with navy stripes and ribbed cuff"
     },
     {
       "slug": "custom-athletic-socks",
@@ -876,15 +896,15 @@
       "family": "Socks",
       "description": "Plan custom athletic socks around shoe use, cuff stability, knit zones, heel and toe construction, team colors and size grading.",
       "lead": "Describe the shoe and activity context, then map cuff, knit zones, heel and toe details around the intended fit.",
-      "image": "assets/socks-extra-styles-v1.webp",
-      "position": "0% 0%",
-      "alt": "White athletic crew socks with navy stripes shown as a style reference",
+      "image": "assets/custom-athletic-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Navy technical athletic crew sock with cream heel and toe reinforcement",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-athletic-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of athletic sock breathable mesh and cushioned knit",
+        "caption": "Athletic sock breathable mesh and cushioned knit"
       },
       "overview_title": "Plan The Knit Around The Use.",
       "overview_copy": "Athletic socks can combine a defined cuff, foot construction and color blocking. Share the shoe context and activity so sock length, knit zones and artwork can be specified around the intended fit.",
@@ -955,7 +975,9 @@
         "custom-crew-socks",
         "custom-compression-socks",
         "custom-ankle-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Navy technical athletic crew sock with cream heel and toe reinforcement"
     },
     {
       "slug": "custom-knee-high-socks",
@@ -963,15 +985,15 @@
       "family": "Socks",
       "description": "Plan custom knee high socks around the extended shaft, calf fit, top band, full-length artwork, yarn and size grading.",
       "lead": "An extended shaft calls for clear finished length and calf measurements. Define the top band and artwork placement from cuff to foot.",
-      "image": "assets/custom-socks-styles-v1.webp",
-      "position": "100% 100%",
-      "alt": "Cream knee-high socks shown as a style reference",
+      "image": "assets/custom-knee-high-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Cream knee-high sock with a navy-striped ribbed top band",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-knee-high-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of knee-high sock long ribs and striped cuff",
+        "caption": "Knee-high sock long ribs and striped cuff"
       },
       "overview_title": "Measure The Full Shaft And Calf.",
       "overview_copy": "Knee high socks cover a longer leg area. Provide finished length and calf points by size, plus top-band construction and pattern alignment references.",
@@ -1042,7 +1064,9 @@
         "custom-crew-socks",
         "custom-compression-socks",
         "custom-athletic-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Cream knee-high sock with a navy-striped ribbed top band"
     },
     {
       "slug": "custom-no-show-socks",
@@ -1050,15 +1074,15 @@
       "family": "Socks",
       "description": "Plan custom no show socks around the low-cut opening, heel hold details, shoe coverage, knit, size range and logo placement.",
       "lead": "Keep the opening low while specifying heel coverage and fit inside the intended shoe. Share a worn reference and finished measurements.",
-      "image": "assets/custom-socks-styles-v1.webp",
-      "position": "0% 0%",
-      "alt": "Cream no-show socks shown as a style reference",
+      "image": "assets/custom-no-show-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Cream low-cut no-show sock with navy toe and heel tab",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-no-show-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of no-show sock low opening and subtle heel grip dots",
+        "caption": "No-show sock low opening and subtle heel grip dots"
       },
       "overview_title": "Keep The Cut Low And The Fit Clear.",
       "overview_copy": "No show styles sit below a shoe collar. Document the opening, heel coverage, size range and any requested heel grip or internal construction details.",
@@ -1129,7 +1153,9 @@
         "custom-ankle-socks",
         "custom-crew-socks",
         "custom-athletic-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Cream low-cut no-show sock with navy toe and heel tab"
     },
     {
       "slug": "custom-novelty-socks",
@@ -1137,15 +1163,15 @@
       "family": "Socks",
       "description": "Plan custom novelty socks around playful motifs, repeat scale, knit colors, cuff design and clear placement across the sock shape.",
       "lead": "Bring a motif, character or repeat pattern to life on the sock shape. Define scale, colors and placement before the knit is sampled.",
-      "image": "assets/socks-extra-styles-v1.webp",
-      "position": "100% 0%",
-      "alt": "Cream novelty crew socks with navy geometric motifs shown as a style reference",
+      "image": "assets/custom-novelty-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Cream crew sock with navy crescent moons and mist blue knit dots",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-novelty-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of novelty sock knit crescent and dot pattern",
+        "caption": "Novelty sock knit crescent and dot pattern"
       },
       "overview_title": "Make The Motif Work Across The Sock.",
       "overview_copy": "Novelty designs depend on motif size and repeat placement across the leg, heel and foot. Supply a flat layout and a view of the finished pattern direction.",
@@ -1216,7 +1242,9 @@
         "custom-crew-socks",
         "custom-athletic-socks",
         "custom-wool-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Cream crew sock with navy crescent moons and mist blue knit dots"
     },
     {
       "slug": "custom-wool-socks",
@@ -1224,15 +1252,15 @@
       "family": "Socks",
       "description": "Plan custom wool socks around fiber composition, knit texture, yarn thickness, sock length, care labeling and the intended fit.",
       "lead": "Start with the wool composition and knit feel, then specify thickness, length and the care information required for the finished range.",
-      "image": "assets/socks-extra-styles-v1.webp",
-      "position": "0% 100%",
-      "alt": "Textured oatmeal wool-blend socks shown as a style reference",
+      "image": "assets/custom-wool-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Oatmeal heather wool-blend crew sock with navy heel and toe",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 100%",
-        "size": "403% 403%",
-        "alt": "Sock yarn cones arranged as fiber and color planning references",
-        "caption": "Yarn and composition reference"
+        "image": "assets/custom-wool-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of wool-blend yarn texture and ribbed cuff",
+        "caption": "Wool-blend yarn texture and ribbed cuff"
       },
       "overview_title": "Specify The Fiber And Knit Weight.",
       "overview_copy": "Wool socks can vary in blend, yarn thickness and surface texture. State the composition target, finished weight, length and care-label needs.",
@@ -1303,7 +1331,9 @@
         "custom-crew-socks",
         "custom-athletic-socks",
         "custom-compression-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Oatmeal heather wool-blend crew sock with navy heel and toe"
     },
     {
       "slug": "custom-compression-socks",
@@ -1311,15 +1341,15 @@
       "family": "Socks",
       "description": "Plan custom compression-style socks around the requested fit, ankle and calf measurements, shaft length, knit zones and garment labeling.",
       "lead": "Specify ankle and calf measurements, finished length, knit zones and the garment fit you want reviewed.",
-      "image": "assets/socks-extra-styles-v1.webp",
-      "position": "100% 100%",
-      "alt": "Navy knee-length compression-style socks shown as a clothing reference",
+      "image": "assets/custom-compression-socks-editorial-v1.webp",
+      "position": "0% 50%",
+      "alt": "Navy knee-high compression-style sock with zoned knit and cream toe",
       "detail": {
-        "image": "assets/custom-socks-editorial-v3.webp",
-        "position": "0% 33.333%",
-        "size": "403% 403%",
-        "alt": "Knit yarn and color swatches arranged for sock material planning",
-        "caption": "Knit and color reference"
+        "image": "assets/custom-compression-socks-editorial-v1.webp",
+        "position": "100% 50%",
+        "size": "200% auto",
+        "alt": "Close view of compression-style sock calf ribs and mesh instep",
+        "caption": "Compression-style sock calf ribs and mesh instep"
       },
       "overview_title": "Treat Fit As A Measured Specification.",
       "overview_copy": "Share ankle and calf measurement points, finished length, size grading and requested knit zones so the garment fit and construction can be reviewed.",
@@ -1390,7 +1420,9 @@
         "custom-athletic-socks",
         "custom-knee-high-socks",
         "custom-crew-socks"
-      ]
+      ],
+      "image_size": "200% auto",
+      "image_caption": "Navy knee-high compression-style sock with zoned knit and cream toe"
     }
   ]
 }
