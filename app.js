@@ -119,11 +119,44 @@
     $('.nav-dropdown', group).hidden = !open;
   }
   function closeDropdowns() { navGroups.forEach(group => setDropdown(group, false)); }
+  $$('.nav-dropdown--customization').forEach(menu => {
+    const tabs = $$('[data-customization-tab]', menu);
+    const panels = $$('[data-customization-panel]', menu);
+    function activateTab(tab) {
+      const selected = tab.dataset.customizationTab;
+      tabs.forEach(item => {
+        const active = item === tab;
+        item.setAttribute('aria-selected', String(active));
+        item.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(panel => { panel.hidden = panel.dataset.customizationPanel !== selected; });
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('pointerenter', event => {
+        if (event.pointerType === 'mouse') activateTab(tab);
+      });
+      tab.addEventListener('focus', () => activateTab(tab));
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', event => {
+        let next = null;
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = tabs.length - 1;
+        if (next !== null) {
+          event.preventDefault();
+          activateTab(tabs[next]);
+          tabs[next].focus({ preventScroll: true });
+        }
+      });
+    });
+  });
   navGroups.forEach(group => {
     const trigger = $('.nav-trigger', group);
     const open = () => { closeDropdowns(); setDropdown(group, true); };
     group.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(); });
     group.addEventListener('pointerleave', () => { if (!group.contains(document.activeElement)) setDropdown(group, false); });
+    if ($('.nav-dropdown--customization', group)) trigger.addEventListener('focus', open);
     if (trigger.tagName === 'BUTTON') trigger.addEventListener('click', event => {
       const expanded = trigger.getAttribute('aria-expanded') === 'true';
       // A mouse hover already opened the panel; the following click must keep it open.
@@ -134,7 +167,12 @@
     group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setDropdown(group, false); });
     group.addEventListener('keydown', e => {
       if (e.key === 'Escape') { trigger.focus(); closeDropdowns(); }
-      if (e.key === 'ArrowDown' && e.target === trigger) { e.preventDefault(); open(); $('.nav-dropdown a', group).focus(); }
+      if (e.key === 'ArrowDown' && e.target === trigger) {
+        e.preventDefault();
+        open();
+        const firstTarget = $('.nav-customization-tab[aria-selected="true"]', group) || $('.nav-dropdown a', group);
+        firstTarget?.focus({ preventScroll: true });
+      }
     });
     $$('a', group).forEach(a => a.addEventListener('click', closeDropdowns));
   });
