@@ -17,7 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261009-2">
-  <link rel="stylesheet" href="apparel-services.css?v=2">
+  <link rel="stylesheet" href="apparel-services.css?v=3">
+  <script defer src="apparel-services.js?v=1"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
 </head>
 <body class="about-page apparel-service-page">
@@ -78,30 +79,30 @@
   </header>
   <main id="main" class="apparel-service-main">
   <section class="apparel-hero apparel-hero--printing" aria-labelledby="apparel-title">
-    <div class="apparel-inner">
-      <div class="apparel-hero-top">
-        <div class="apparel-hero-title"><div class="apparel-service-nav"><a class="text-link" href="customization.html">Apparel Customization</a><span class="apparel-service-index">02 / 03 <span aria-hidden="true">·</span> Printing</span></div><p class="eyebrow">COLOR / PLACEMENT / FINISH</p><h1 id="apparel-title">Bold Ideas.<br>Printed In Color.</h1></div>
-        <div class="apparel-hero-summary"><p>We compare the artwork, garment, placement and quantity to identify print routes for review. The written quote confirms the method and specifications.</p><div class="apparel-hero-actions"><a class="button primary" href="quote.html">Review My Artwork <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="text-link" href="#method-options">Compare Methods <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
-      </div>
-      <figure class="apparel-hero-image apparel-hero-image--wide"><img src="assets/apparel-printing-hero-v1.webp" alt="Illustrative apparel concept with a bold blue graphic printed on a light shirt" width="1536" height="1024" fetchpriority="high"><figcaption>Illustrative print concept on apparel</figcaption></figure>
-    </div>
+    <figure class="apparel-hero-image"><img src="assets/apparel-printing-hero-v1.webp" alt="Illustrative apparel concept with a bold blue graphic printed on a light shirt" width="1536" height="1024" fetchpriority="high"><figcaption class="sr-only">Illustrative print concept on apparel</figcaption></figure>
+    <div class="apparel-inner apparel-hero-grid"><div class="apparel-hero-copy">
+      <a class="apparel-service-nav text-link" href="customization.html">Customization Overview <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <h1 id="apparel-title">Bold Ideas.<br>Printed In Color.</h1>
+      <p>We compare the artwork, garment, placement and quantity to identify print routes for review. The written quote confirms the method and specifications.</p>
+      <div class="apparel-hero-actions"><a class="button primary" href="quote.html">Review My Artwork <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="text-link" href="#method-options">Compare Methods <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div></div>
   </section>
-  <section class="apparel-section" id="method-options">
-    <div class="apparel-inner apparel-editorial-row">
-      <header class="apparel-section-heading apparel-editorial-intro"><p class="eyebrow">THREE ROUTES TO REVIEW</p><h2>Match The Method To The Artwork.</h2><p>Fabric, graphic detail, color count and quantity guide which methods can be assessed for a specific project.</p><a class="text-link" href="#design-setup">Plan The Print Area <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></header>
-      <div class="apparel-entry-list"><article class="apparel-entry"><span class="apparel-entry-number">01</span><h3>Screen Printing</h3><p>Often considered for repeated graphics and smaller color counts. Setup, artwork detail, fabric and quantity all matter.</p></article><article class="apparel-entry"><span class="apparel-entry-number">02</span><h3>Direct-To-Film</h3><p>May suit multicolor or detailed artwork when the transfer construction works with the garment and intended use.</p></article><article class="apparel-entry"><span class="apparel-entry-number">03</span><h3>Heat Transfer</h3><p>Used for selected graphics and placements. Transfer type, fabric and care expectations are reviewed together.</p></article></div>
-    </div>
-  </section>
-  <section class="apparel-section apparel-tint" id="design-setup">
+  <section class="apparel-section apparel-intro" id="design-setup">
     <div class="apparel-inner apparel-media-row">
-      <figure class="apparel-detail-image"><img src="assets/apparel-printing-detail-v1.webp" alt="Illustrative close-up of a printed apparel graphic and its edge detail" width="1536" height="1024" loading="lazy"><figcaption>Illustrative graphic scale and edge detail</figcaption></figure>
-      <div class="apparel-split-copy"><p class="eyebrow">ARTWORK AND PLACEMENT</p><h2>Plan The Print Area Before You Finalize The File.</h2><p>Send artwork at the intended proportions when possible. The printable area, seams, fabric color and surface can change how a graphic reads.</p><ul class="apparel-check-list"><li><strong>Position:</strong> Identify chest, back, sleeve or another area.</li><li><strong>Dimensions:</strong> Provide approximate finished width and height.</li><li><strong>Color:</strong> Include references and note if the garment is light or dark.</li><li><strong>File:</strong> Send vector art or a clear, high-resolution image.</li></ul></div>
+      <div class="apparel-split-copy apparel-motion-item"><p class="eyebrow">ARTWORK AND PLACEMENT</p><h2>Plan The Print Area Before You Finalize The File.</h2><p>Send artwork at the intended proportions when possible. The printable area, seams, fabric color and surface can change how a graphic reads.</p><ul class="apparel-check-list"><li><strong>Position:</strong> Identify chest, back, sleeve or another area.</li><li><strong>Dimensions:</strong> Provide approximate finished width and height.</li><li><strong>Color:</strong> Include references and note if the garment is light or dark.</li><li><strong>File:</strong> Send vector art or a clear, high-resolution image.</li></ul></div>
+      <figure class="apparel-detail-image apparel-motion-item"><img src="assets/apparel-printing-detail-v1.webp" alt="Illustrative close-up of a printed apparel graphic and its edge detail" width="1536" height="1024" loading="lazy"><figcaption>Illustrative graphic scale and edge detail</figcaption></figure>
+    </div>
+  </section>
+  <section class="apparel-section apparel-choice-section" id="method-options">
+    <div class="apparel-inner">
+      <header class="apparel-section-heading"><p class="eyebrow">THREE ROUTES TO REVIEW</p><h2>Match The Method To The Artwork.</h2><p>Fabric, graphic detail, color count and quantity guide which methods can be assessed for a specific project.</p></header>
+      <div class="apparel-choice-grid"><article class="apparel-choice-card apparel-motion-item"><h3>Screen Printing</h3><p>Often considered for repeated graphics and smaller color counts. Setup, artwork detail, fabric and quantity all matter.</p></article><article class="apparel-choice-card apparel-motion-item"><h3>Direct-To-Film</h3><p>May suit multicolor or detailed artwork when the transfer construction works with the garment and intended use.</p></article><article class="apparel-choice-card apparel-motion-item"><h3>Heat Transfer</h3><p>Used for selected graphics and placements. Transfer type, fabric and care expectations are reviewed together.</p></article></div>
     </div>
   </section>
   <section class="apparel-section" id="print-review">
-    <div class="apparel-inner apparel-editorial-row apparel-prep-layout">
-      <header class="apparel-section-heading apparel-editorial-intro"><p class="eyebrow">COLOR AND SAMPLE REVIEW</p><h2>Check The Graphic In Context.</h2><p>Fabric shade, texture and print route affect the finished look. The quotation clarifies whether a sample or proof is included.</p></header>
-      <div><div class="apparel-prep-grid"><article><h3>Artwork Scale</h3><p>Review small text, thin strokes and gaps at the intended print size.</p></article><article><h3>Color Expectation</h3><p>Share references and garment shade; appearance can vary by substrate and method.</p></article><article><h3>Placement</h3><p>Confirm distance from seams, collars and hems with a photo or placement sketch.</p></article><article><h3>Care And Use</h3><p>Tell us how the garment will be worn and cared for during method review.</p></article></div><p class="apparel-inline-note">The quotation will identify the reviewed method, specifications and sourcing arrangement.</p></div>
+    <div class="apparel-inner apparel-preparation-layout">
+      <header class="apparel-section-heading"><p class="eyebrow">COLOR AND SAMPLE REVIEW</p><h2>Check The Graphic In Context.</h2><p>Fabric shade, texture and print route affect the finished look. The quotation clarifies whether a sample or proof is included.</p></header>
+      <div><div class="apparel-prep-grid"><article class="apparel-motion-item"><h3>Artwork Scale</h3><p>Review small text, thin strokes and gaps at the intended print size.</p></article><article class="apparel-motion-item"><h3>Color Expectation</h3><p>Share references and garment shade; appearance can vary by substrate and method.</p></article><article class="apparel-motion-item"><h3>Placement</h3><p>Confirm distance from seams, collars and hems with a photo or placement sketch.</p></article><article class="apparel-motion-item"><h3>Care And Use</h3><p>Tell us how the garment will be worn and cared for during method review.</p></article></div><p class="apparel-inline-note">The quotation will identify the reviewed method, specifications and sourcing arrangement.</p></div>
     </div>
   </section>
   <section class="apparel-section apparel-tint" id="questions">
