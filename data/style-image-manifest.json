@@ -41,10 +41,11 @@
         "size": "200% auto",
         "alt": "Close view of navy baseball cap twill, bill stitching, crown seam and eyelet"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-baseball-caps",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-4f9e96af-c99b-41e6-ab81-7a27c756c3c2.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-baseball-caps"
     },
     {
       "slug": "custom-visors",
@@ -66,10 +67,11 @@
         "size": "200% auto",
         "alt": "Close view of navy visor headband weave, curved bill stitching and rear closure"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-visors",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-a1dfcd1a-5b20-404d-86de-5dba50e67918.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-visors"
     },
     {
       "slug": "custom-camper-hats",
@@ -91,10 +93,11 @@
         "size": "200% auto",
         "alt": "Close view of camper hat canvas panel seam and stitched flat brim"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-camper-hats",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-20ecd26d-4f95-4a66-9aeb-ebb3495715a3.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-camper-hats"
     },
     {
       "slug": "custom-beanies",
@@ -116,10 +119,11 @@
         "size": "200% auto",
         "alt": "Close view of navy beanie rib knit and crown shaping"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-beanies",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-02400886-3a1a-4231-a4ea-afcaf58546e3.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-beanies"
     },
     {
       "slug": "custom-trucker-caps",
@@ -141,10 +145,11 @@
         "size": "200% auto",
         "alt": "Close view of trucker cap mesh back and navy front-panel seam"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-trucker-caps",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-4e3134a7-26ec-42d3-97c0-e9445eee25b6.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-trucker-caps"
     },
     {
       "slug": "custom-snapbacks",
@@ -166,10 +171,11 @@
         "size": "200% auto",
         "alt": "Close view of snapback cap flat bill stitching and cotton crown"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-snapbacks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-16adce70-e1c8-4282-a97e-ed521e0becd5.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-snapbacks"
     },
     {
       "slug": "custom-dad-hats",
@@ -191,10 +197,11 @@
         "size": "200% auto",
         "alt": "Close view of dad hat washed cotton, curved bill stitching and metal slider"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-dad-hats",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-9e8c6fab-24f2-4ba2-8b18-d878540dd3ae.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-dad-hats"
     },
     {
       "slug": "custom-bucket-hats",
@@ -216,10 +223,11 @@
         "size": "200% auto",
         "alt": "Close view of bucket hat canvas texture and concentric brim stitches"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-bucket-hats",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-a5461f38-1350-4c28-85fb-f6ee3bd0874e.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-bucket-hats"
     },
     {
       "slug": "custom-ankle-socks",
@@ -241,10 +249,11 @@
         "size": "200% auto",
         "alt": "Close view of ankle sock short ribbed cuff and reinforced knit"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-ankle-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-aeb07ce4-4c76-4e17-9c02-b9673044c583.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-ankle-socks"
     },
     {
       "slug": "custom-crew-socks",
@@ -266,10 +275,11 @@
         "size": "200% auto",
         "alt": "Close view of crew sock navy knit-in stripes and ribbed cuff"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-crew-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-025437d2-af6e-4b1b-ab20-7e7ef8c35494.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-crew-socks"
     },
     {
       "slug": "custom-athletic-socks",
@@ -291,7 +301,7 @@
         "size": "200% auto",
         "alt": "Close view of athletic sock breathable mesh and cushioned knit"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-athletic-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-8cb66997-3ef5-46e8-8186-a7966bb49998.png",
       "generation_history": [
         {
@@ -299,7 +309,8 @@
           "reason": "Initial output was 3:2 and would crop the full sock hero in a square panel; replaced with a square-panel 2:1 image."
         }
       ],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-athletic-socks"
     },
     {
       "slug": "custom-knee-high-socks",
@@ -321,10 +332,11 @@
         "size": "200% auto",
         "alt": "Close view of knee-high sock long ribs and striped cuff"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-knee-high-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-1ab58ee5-0226-45ba-9e64-2755a322d82a.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-knee-high-socks"
     },
     {
       "slug": "custom-no-show-socks",
@@ -346,10 +358,11 @@
         "size": "200% auto",
         "alt": "Close view of no-show sock low opening and subtle heel grip dots"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-no-show-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-6b9806fe-6d6b-4048-baeb-5c527612533a.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-no-show-socks"
     },
     {
       "slug": "custom-novelty-socks",
@@ -371,7 +384,7 @@
         "size": "200% auto",
         "alt": "Close view of novelty sock knit crescent and dot pattern"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-novelty-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-37e8145a-5ae8-4586-a258-069863dd6917.png",
       "generation_history": [
         {
@@ -379,7 +392,8 @@
           "reason": "Initial output was 3:2 and would crop the full sock hero in a square panel; replaced with a square-panel 2:1 image."
         }
       ],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-novelty-socks"
     },
     {
       "slug": "custom-wool-socks",
@@ -401,10 +415,11 @@
         "size": "200% auto",
         "alt": "Close view of wool-blend yarn texture and ribbed cuff"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-wool-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-530ce835-0d0e-4f23-873c-68dbaff719ec.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-wool-socks"
     },
     {
       "slug": "custom-compression-socks",
@@ -426,10 +441,11 @@
         "size": "200% auto",
         "alt": "Close view of compression-style sock calf ribs and mesh instep"
       },
-      "prompt_source": "data/style-image-prompts.json#/styles/custom-compression-socks",
+      "prompt_source": "data/style-image-prompts.json",
       "output_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-6b286930-86f1-4610-a424-2b6b75b0768f.png",
       "generation_history": [],
-      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people."
+      "inspection": "Visual inspection passed: left panel shows the matching style product, right panel shows a material or construction detail; no unrelated products, text, logo, watermark or people.",
+      "prompt_record_slug": "custom-compression-socks"
     }
   ]
 }
