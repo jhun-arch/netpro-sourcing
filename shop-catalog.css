@@ -1,0 +1,23 @@
+.shop-page .product-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.shop-page .product-customize-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 15px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.shop-page .product-customize-link:hover {
+  color: var(--blue-dark);
+}
+
+.shop-page .product-image .product-art[style*="background-image"] {
+  background-color: #f5f6f8;
+}

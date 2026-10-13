@@ -1,9 +1,10 @@
 (() => {
-  'use strict';
+  const start = () => {
+    'use strict';
 
   // Change this URL when Netpro Patches moves to its final production domain.
   const PATCHES_URL = 'customization.html#patches';
-  const products = [{"id": "tee-white", "name": "Essential White Tee", "category": "clothing", "color": "White", "swatch": "#f0f0eb", "sizes": ["S", "M", "L", "XL"], "art": "catalog-0", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "tee-navy", "name": "Essential Navy Tee", "category": "clothing", "color": "Navy", "swatch": "#1d304c", "sizes": ["S", "M", "L", "XL"], "art": "catalog-1", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "sweatshirt", "name": "Classic Crewneck", "category": "clothing", "color": "Oatmeal", "swatch": "#d9ceba", "sizes": ["S", "M", "L", "XL"], "art": "catalog-2", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "hoodie", "name": "Basic Hoodie", "category": "clothing", "color": "Sky blue", "swatch": "#a4c6df", "sizes": ["S", "M", "L", "XL"], "art": "catalog-3", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "socks", "name": "Basic Crew Socks", "category": "socks", "color": "White", "swatch": "#f0f0eb", "sizes": ["S/M", "L/XL"], "art": "catalog-4", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "socks-black", "name": "Black Crew Socks", "category": "socks", "color": "Black", "swatch": "#252525", "sizes": ["S/M", "L/XL"], "art": "catalog-5", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "cap", "name": "Basic Blue Cap", "category": "headwear", "color": "Cobalt blue", "swatch": "#285cad", "sizes": ["One size"], "art": "catalog-6", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "cap-beige", "name": "Basic Beige Cap", "category": "headwear", "color": "Beige", "swatch": "#d6c5a8", "sizes": ["One size"], "art": "catalog-7", "isNew": true, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}, {"id": "patch", "name": "Blank Shape Patches", "category": "patches", "color": "Mixed blues", "swatch": "#3d608e", "sizes": ["One size"], "art": "catalog-8", "isNew": false, "description": "Use this style as a starting point. Share quantities, sizes and decoration requirements for a project-specific quotation."}];
+  const products = Array.isArray(window.NETPRO_PRODUCTS) ? window.NETPRO_PRODUCTS : [];
   const isShop = document.body.classList.contains("shop-page");
   const isHome = document.body.classList.contains("home-page");
   const pageHeading = (homeTitle, innerTitle) => isHome ? homeTitle : innerTitle;
@@ -22,19 +23,25 @@
   const arrow = '<svg aria-hidden="true"><use href="#i-arrow"/></svg>';
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   let activeFilter = isShop ? (new URLSearchParams(location.search).get('category') || 'all') : 'all';
-  if (!['all','clothing','socks','headwear','patches'].includes(activeFilter)) activeFilter = 'all';
+  if (!['all','clothing','socks','headwear','bags','patches'].includes(activeFilter)) activeFilter = 'all';
   let toastTimer;
   let bag = [];
   try {
     const saved = JSON.parse(localStorage.getItem('netpro-b2b-enquiry') || '[]');
     if (Array.isArray(saved)) bag = saved.filter(item => {
       const p = products.find(p => p.id === item.id);
-      return p && p.sizes.includes(item.size) && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 100000;
+      const validQuantity = Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 100000;
+      if (window.NETPRO_PRODUCTS_LOAD_FAILED) return typeof item.id === 'string' && typeof item.size === 'string' && validQuantity;
+      return p && p.sizes.includes(item.size) && validQuantity;
     }).map(({ id, size, quantity }) => ({ id, size, quantity }));
   } catch { /* Private mode or blocked storage: the bag still works for this visit. */ }
 
   function art(p, extra = '') {
-    return `<div class="product-art art-${p.art} ${extra}" role="img" aria-label="${escape(p.color + ' ' + p.name)}"></div>`;
+    const imageStyle = p.image
+      ? ` style="background-image:url('${escape(p.image)}');background-size:${escape(p.imageSize || 'cover')};background-position:${escape(p.position || 'center')}"`
+      : '';
+    const imageAlt = p.imageAlt || `${p.color} ${p.name}`;
+    return `<div class="product-art ${p.art ? `art-${p.art}` : ''} ${extra}"${imageStyle} role="img" aria-label="${escape(imageAlt)}"></div>`;
   }
   function notify(message) {
     clearTimeout(toastTimer);
@@ -237,8 +244,20 @@
 
   function renderProducts() {
     if(!document.querySelector('#product-grid'))return;
+    if (isShop && window.NETPRO_PRODUCTS_LOAD_FAILED) {
+      $('#shop-count').textContent = 'The product catalogue could not load. Refresh this page to try again.';
+      $('#pagination').innerHTML = '';
+      $('#product-grid').innerHTML = '<p class="empty-results" role="status">Product details are temporarily unavailable. Your saved enquiry list remains in this browser.</p>';
+      return;
+    }
     let items = products.filter(p => activeFilter === 'all' || (activeFilter === 'new' ? p.isNew : p.category === activeFilter));
     if (isShop) {
+      const colorSelect = $('[data-shop-filter="color"]');
+      if (!colorSelect.dataset.catalogOptions) {
+        const colors = [...new Set(products.map(p => p.color))].sort((a, b) => a.localeCompare(b));
+        colorSelect.insertAdjacentHTML('beforeend', colors.filter(color => ![...colorSelect.options].some(option => option.value === color)).map(color => `<option>${escape(color)}</option>`).join(''));
+        colorSelect.dataset.catalogOptions = 'true';
+      }
       const colors=new Set(items.map(p=>p.color)),sizes=new Set(items.flatMap(p=>p.sizes));
       if(!colors.has(shopState.color))shopState.color="all";
       shopState.size=shopState.size.filter(size=>sizes.has(size));
@@ -249,11 +268,11 @@
       const total=items.length, pages=Math.max(1,Math.ceil(total/6)); shopState.page=Math.min(shopState.page,pages);
       $('#shop-count').textContent = total ? `Showing ${(shopState.page-1)*6+1}–${Math.min(shopState.page*6,total)} of ${total} products` : 'No products match your filters';
       $('#pagination').innerHTML = pages>1 ? Array.from({length:pages},(_,i)=>`<button data-page="${i+1}" aria-label="Page ${i+1}" ${i+1===shopState.page?'aria-current="page"':''}>${i+1}</button>`).join('') : '';
-      const label={all:'All Products',new:'New Arrivals',clothing:'Clothing',socks:'Socks',headwear:'Headwear',patches:'Ready-Made Patches'}[activeFilter];
+      const label={all:'All Products',new:'New Arrivals',clothing:'Clothing',socks:'Socks',headwear:'Headwear',bags:'Bags',patches:'Ready-Made Patches'}[activeFilter];
       $('#shop-title').textContent=label; $('#breadcrumb-current').textContent=label;
       const banner=$('.shop-banner-photo');
-      const bannerImages={all:'banner-new.webp',new:'banner-new.webp',clothing:'banner-clothing.webp',socks:'banner-socks.webp',headwear:'banner-headwear.webp',patches:'banner-patches.webp'};
-      const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics',clothing:'Plain everyday clothing in blue, white and cream',socks:'Basic ribbed crew socks in coordinated colors',headwear:'Plain baseball caps in blue, navy and cream',patches:'A collection of custom patch styles in blue and cream'};
+      const bannerImages={all:'banner-new.webp',new:'banner-new.webp',clothing:'banner-clothing.webp',socks:'banner-socks.webp',headwear:'banner-headwear.webp',bags:'banner-clothing.webp',patches:'banner-patches.webp'};
+      const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics',clothing:'Plain everyday clothing in blue, white and cream',socks:'Basic ribbed crew socks in coordinated colors',headwear:'Plain baseball caps in blue, navy and cream',bags:'Cream canvas tote and coordinated everyday accessories',patches:'A collection of custom patch styles in blue and cream'};
       const bannerSrc='assets/'+bannerImages[activeFilter]+'?v=20260914-banner4';
       banner.dataset.category=activeFilter;
       banner.alt=bannerAlts[activeFilter];
@@ -286,10 +305,10 @@
       $$('[data-price]').forEach(el=>el.checked=shopState.price.includes(el.dataset.price));
       $$('[data-shop-filter]').forEach(el=>el.value=shopState[el.dataset.shopFilter]);
       items=items.slice((shopState.page-1)*6,shopState.page*6);
-    } else items=activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>products.find(p=>p.id===id)) : items.slice(0,4);
+    } else items=(activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>products.find(p=>p.id===id)) : items.slice(0,4)).filter(Boolean);
     $('#product-grid').innerHTML = items.map(p => `<article class="product-card" data-product="${p.id}">
-      <button class="product-image" data-detail="${p.id}" aria-label="View ${p.name}">${art(p)}<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category==='patches'?'in use':'on model'}"></span></button>
-      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${p.name}</button></h3><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p></div>
+      <button class="product-image" data-detail="${p.id}" aria-label="${isShop ? 'Quick view' : 'View'} ${escape(p.name)}">${art(p)}${p.art ? `<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category==='patches'?'in use':'on model'}"></span>` : ''}${isShop ? '<span class="quick-view">Quick View</span>' : ''}</button>
+      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : isShop ? 'READY STOCK · CUSTOMIZABLE' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${escape(p.name)}</button></h3><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${escape(p.color)}</p>${isShop ? `<a class="product-customize-link" href="${escape(p.customizationHref)}">Customize this product ↗</a>` : ''}</div>
     </article>`).join('') || '<p class="empty-results">Try another category or clear your filters to explore more basics.</p>';
     $$('.filters button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
   }
@@ -322,15 +341,15 @@
   function showProduct(id) {
     const p = products.find(p => p.id === id);
     if (!p) return;
-    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy"><span class="new-label">BULK & CUSTOM</span><h2>${p.name}</h2><div class="detail-price">Request Pricing</div><p>${p.description}</p><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${p.color}</p><fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options">${p.sizes.map((size,i)=>`<button type="button" data-detail-size="${size}" aria-pressed="${i===0}">${size}</button>`).join('')}</div></fieldset><div class="detail-quantity"><span>Quantity</span><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div><button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><p class="detail-note">MOQ, material specifications, sample availability and lead time are confirmed for each project.</p></div></div>`;
+    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK'}</span><h2>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${escape(p.color)}</p><fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options">${p.sizes.map((size,i)=>`<button type="button" data-detail-size="${escape(size)}" aria-pressed="${i===0}">${escape(size)}</button>`).join('')}</div></fieldset><div class="detail-quantity"><span>Quantity</span><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div><button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><a class="text-link custom-product-link" href="${escape(p.customizationHref)}">Customize this product ↗</a><p class="detail-note">Availability, final specifications and pricing are confirmed for each project.</p></div></div>`;
     const gallery=[{name:'Product view',html:art(p)},...(p.id==='hoodie'?[{name:'On-model illustration',html:'<div class="story-art story-art-0" role="img" aria-label="Sky blue hoodie on model"></div>'},{name:'Stitching illustration',html:'<div class="story-art story-art-1" role="img" aria-label="Hoodie stitching detail"></div>'},{name:'Fabric illustration',html:'<div class="story-art story-art-2" role="img" aria-label="Blue fabric close-up"></div>'}]:[{name:'Detail zoom',html:art(p,'gallery-zoom')}])];
     $('.gallery-thumbs').innerHTML=gallery.map((item,i)=>`<button class="gallery-thumb" aria-label="${item.name}" aria-pressed="${i===0}" data-gallery="${i}">${item.html}</button>`).join('');
     $$('[data-gallery]').forEach(button=>button.addEventListener('click',()=>{const item=gallery[Number(button.dataset.gallery)];$('.detail-visual').innerHTML=item.html;$$('[data-gallery]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));}));
     $('#product-detail').insertAdjacentHTML('beforeend',`<section class="custom-examples"><div class="module-heading"><p class="eyebrow">MAKE IT YOURS</p><h3>${pageHeading('One basic. Your signature.', 'One Basic. Your Signature.')}</h3><p>Explore embroidery and print treatments. Hoodie illustrations show the technique; your design is confirmed before production.</p></div><div class="custom-example-grid"><figure><div class="story-art story-art-3" role="img" aria-label="White embroidery on blue hoodie"></div><figcaption><strong>Embroidery</strong><span>Dimensional stitching with a tactile finish.</span></figcaption></figure><figure><div class="story-art story-art-4" role="img" aria-label="White printed motif on blue hoodie"></div><figcaption><strong>Print</strong><span>A smooth graphic finish for your artwork.</span></figcaption></figure></div><a class="text-link" href="mailto:info@netpropatches.com?subject=${encodeURIComponent('Customization enquiry: '+p.name)}">Discuss your custom design ↗</a></section><section class="product-information"><div class="info-tabs" role="tablist" aria-label="Product information"><button role="tab" id="tab-description" aria-controls="product-info-panel" aria-selected="true" data-product-tab="description">Product details</button><button role="tab" id="tab-size" aria-controls="product-info-panel" aria-selected="false" data-product-tab="size" tabindex="-1">Size guide</button><button role="tab" id="tab-material" aria-controls="product-info-panel" aria-selected="false" data-product-tab="material" tabindex="-1">Materials & care</button><button role="tab" id="tab-environment" aria-controls="product-info-panel" aria-selected="false" data-product-tab="environment" tabindex="-1">Environmental standards</button></div><div id="product-info-panel" role="tabpanel" aria-labelledby="tab-description" tabindex="0"></div></section>`);
     if(p.category!=='clothing') $('.custom-examples')?.remove();
-    const spec=p.category==='clothing'?'Fiber composition, fabric weight, chest width, body length and sleeve length':p.category==='socks'?'Fiber blend, foot length, cuff height and knitting details':p.category==='headwear'?'Fabric, circumference, closure and decoration area':'Dimensions, edge finish, backing and colors';
+    const spec=p.category==='clothing'?'Fiber composition, fabric weight, chest width, body length and sleeve length':p.category==='socks'?'Fiber blend, foot length, cuff height and knitting details':p.category==='headwear'?'Fabric, circumference, closure and decoration area':p.category==='bags'?'Dimensions, capacity, strap length, closure and material options':'Dimensions, edge finish, backing and colors';
     $('#product-detail').insertAdjacentHTML('beforeend',`<section class="product-information"><h3>${pageHeading('Before you order', 'Before You Order')}</h3><p>Reference: ${p.id.toUpperCase()} · ${p.color} · ${p.sizes.join(', ')}</p><p>Specification checklist: ${spec}.</p><p>Confirm stock and final specifications for standard styles. MOQ, sample costs, production time and delivery for custom work are quoted for your brief.</p><a class="text-link" href="buying-guide.html">Buying guide & FAQ ↗</a></section>`);
-    const information={description:`<h4>${p.name}</h4><p>${p.description}</p><p>Color: ${p.color}. Product photography and customization visuals are illustrative. Final artwork, placement and production specifications are confirmed with your quote.</p>`,size:`<h4>${pageHeading('Find your fit', 'Find Your Fit')}</h4><p>Available size options: ${p.sizes.join(', ')}.</p><p>${p.category==='clothing'?'Compare chest width, body length and sleeve length with a garment you already own.':p.category==='socks'?'Compare foot length and preferred cuff height with your usual socks.':p.category==='headwear'?'Measure around your head above the eyebrows.':'Confirm the patch width, height and placement for your project.'}</p><p>Exact measurements and tolerances are awaiting confirmation. Email us for the size chart before ordering.</p>`,material:`<h4>${pageHeading('Materials & care', 'Materials & Care')}</h4><p>Fiber composition, fabric weight and care instructions will be confirmed for the selected product and production batch. Close-up images illustrate texture and do not verify material composition.</p><p>Custom printing and embroidery may require different care. Follow the final garment care label.</p>`,environment:`<h4>${pageHeading('Environmental standards', 'Environmental Standards')}</h4><p>Environmental certifications and recycled or organic content have not yet been verified for this product. Request product-specific documentation.</p><p>If your project requires a specific standard, tell us before requesting a quote. Applicable documentation and product scope must be confirmed before production.</p>`};
+    const information={description:`<h4>${p.name}</h4><p>${p.description}</p><p>Color: ${p.color}. Product photography and customization visuals are illustrative. Final artwork, placement and production specifications are confirmed with your quote.</p>`,size:`<h4>${pageHeading('Find your fit', 'Find Your Fit')}</h4><p>Available size options: ${p.sizes.join(', ')}.</p><p>${p.category==='clothing'?'Compare chest width, body length and sleeve length with a garment you already own.':p.category==='socks'?'Compare foot length and preferred cuff height with your usual socks.':p.category==='headwear'?'Measure around your head above the eyebrows.':p.category==='bags'?'Confirm dimensions, capacity, strap length and closure details for your intended use.':'Confirm the patch width, height and placement for your project.'}</p><p>Exact measurements and tolerances are awaiting confirmation. Email us for the size chart before ordering.</p>`,material:`<h4>${pageHeading('Materials & care', 'Materials & Care')}</h4><p>Product materials, construction and care instructions will be confirmed for the selected product and production batch. Close-up images illustrate texture and do not verify material composition.</p><p>Decoration may affect care requirements. Follow the final product label or care guidance supplied for that item.</p>`,environment:`<h4>${pageHeading('Environmental standards', 'Environmental Standards')}</h4><p>Environmental certifications and recycled or organic content have not yet been verified for this product. Request product-specific documentation.</p><p>If your project requires a specific standard, tell us before requesting a quote. Applicable documentation and product scope must be confirmed before production.</p>`};
     function selectInfo(button){$$('[data-product-tab]').forEach(el=>{el.setAttribute('aria-selected',String(el===button));el.tabIndex=el===button?0:-1;});$('#product-info-panel').innerHTML=information[button.dataset.productTab];$('#product-info-panel').setAttribute('aria-labelledby',button.id);}
     const tabs=$$('[data-product-tab]');tabs.forEach((button,i)=>{button.addEventListener('click',()=>selectInfo(button));button.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;selectInfo(tabs[next]);tabs[next].focus();}});});selectInfo(tabs[0]);
     let selectedSize=p.sizes[0], quantity=1;
@@ -364,6 +383,11 @@
   }
   function renderBag() {
     updateBagCount();
+    if (window.NETPRO_PRODUCTS_LOAD_FAILED) {
+      $('#bag-items').innerHTML = '<p class="empty-bag">Product details could not load. Your saved enquiry list is still stored in this browser. Refresh this page to try again.</p>';
+      $('#bag-summary').innerHTML = '<p class="cart-empty-summary">You can return to the Shop after refreshing to review your saved products.</p>';
+      return;
+    }
     if (!bag.length) {
       $('#bag-items').innerHTML = `<div class="empty-bag"><svg aria-hidden="true"><use href="#i-bag"/></svg><h3>${pageHeading('A little room for something new.', 'A Little Room For Something New.')}</h3><p>Add products to build your enquiry.</p><button class="button primary bag-continue">Explore products ${arrow}</button></div>`;
       $('#bag-summary').innerHTML = '<p class="cart-empty-summary">You can also request a quote without selecting products.</p>';
@@ -1037,5 +1061,19 @@
         chapter.classList.remove('is-dark');
       };
     });
+  }
+  };
+  if (Array.isArray(window.NETPRO_PRODUCTS)) start();
+  else {
+    const productScript = document.createElement('script');
+    productScript.src = 'products.js?v=20261013-shop1';
+    productScript.onload = start;
+    productScript.onerror = () => {
+      console.error('Netpro product catalogue could not be loaded.');
+      window.NETPRO_PRODUCTS_LOAD_FAILED = true;
+      window.NETPRO_PRODUCTS = [];
+      start();
+    };
+    document.head.appendChild(productScript);
   }
 })();
