@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261013-13">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -115,18 +115,18 @@
     <div class="custom-product-gallery" data-custom-product-gallery>
       <div class="custom-product-gallery-body">
         <div class="custom-product-stage">
-          <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Blue pullover hoodie shown as a style reference">
-            <span class="custom-product-view" data-gallery-view role="img" aria-label="Blue pullover hoodie shown as a style reference" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span>
+          <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Blue pullover hoodie">
+            <span class="custom-product-view" data-gallery-view role="img" aria-label="Blue pullover hoodie" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span>
           </button>
           <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
           <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
         </div>
-        <div class="custom-product-gallery-caption"><strong data-gallery-caption>Style Reference</strong></div>
+
         <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
       </div>
-      <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
-        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/custom-hoodies-styles-v1.webp" data-image-size="200% 200%" data-position="0% 0%" data-alt="Blue pullover hoodie shown as a style reference" data-label="Style Reference" aria-label="Style Reference: Blue pullover hoodie" aria-pressed="true"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span></button>
-        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/catalog-models.webp" data-image-size="300% 300%" data-position="0% 50%" data-alt="Blue hoodie worn as an on-body fit reference" data-label="On-Body Reference" aria-label="On-Body Reference: Blue hoodie worn by a model" aria-pressed="false"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/catalog-models.webp');background-position:0% 50%;background-size:300% 300%"></span></button>
+      <div class="custom-product-thumbnails" role="group" aria-label="Product images">
+        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/custom-hoodies-styles-v1.webp" data-image-size="200% 200%" data-position="0% 0%" data-alt="Blue pullover hoodie" data-label="Style" aria-label="Style: Blue pullover hoodie" aria-pressed="true"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span></button>
+        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/catalog-models.webp" data-image-size="300% 300%" data-position="0% 50%" data-alt="Blue hoodie worn as an on-body fit" data-label="On-Body" aria-label="On-Body: Blue hoodie worn by a model" aria-pressed="false"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/catalog-models.webp');background-position:0% 50%;background-size:300% 300%"></span></button>
         <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/hoodie-story.webp" data-image-size="300% 200%" data-position="0% 100%" data-alt="Close view of a stitched mark on blue hoodie fabric" data-label="Decoration Detail" aria-label="Decoration Detail: Stitched mark on blue hoodie fabric" aria-pressed="false"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/hoodie-story.webp');background-position:0% 100%;background-size:300% 200%"></span></button>
       </div>
       <dialog class="custom-product-lightbox" data-gallery-dialog aria-labelledby="gallery-dialog-title">
@@ -134,9 +134,9 @@
           <h2 id="gallery-dialog-title" class="sr-only">Hoodie Image Viewer</h2>
           <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
           <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
-          <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Blue pullover hoodie shown as a style reference"></div>
+          <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Blue pullover hoodie"></div>
           <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
-          <p class="custom-product-lightbox-caption" data-lightbox-caption>Style Reference</p>
+
         </div>
       </dialog>
     </div>
@@ -145,12 +145,13 @@
       <h1 id="product-title">Custom Hoodies</h1>
       <p class="custom-product-lead">Your silhouette. Your artwork. Your hoodie. Bring the details together in a custom range.</p>
       <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Hoodie Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
-      <div class="custom-product-details"><details><summary>Fabric & Fit</summary><p>Share silhouette, fit, fabric weight, color and construction references.</p></details><details><summary>Decoration</summary><p>Share artwork, placement and a preference for printing or embroidery; the quote records the agreed finish.</p></details><details><summary>Project Planning</summary><p>Include quantity, destination and any sample or packing needs.</p></details></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Share silhouette, fit, fabric weight, color and construction references.</p></details><details><summary>Decoration</summary><p>Share artwork, placement and a preference for printing or embroidery; the quote records the agreed finish.</p></details><details><summary>Project Planning</summary><p>Include quantity, destination and any sample or packing needs.</p></details></div>
     </div>
-  </section><section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
+  </section>
+  <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
 <div class="custom-product-wrap custom-product-overview">
 <figure>
-<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Hoodies product development reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 0%"></span>
+<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Hoodies product development" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 0%"></span>
 
 </figure>
 <div class="custom-product-overview-copy">
@@ -182,10 +183,11 @@
 </div>
 </div>
 </div>
-</section><section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+</section>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
 <div class="custom-product-wrap custom-editorial-feature-inner">
 <figure>
-<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Hoodies private label finishing reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 0%"></span>
+<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Hoodies private label finishing" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 0%"></span>
 
 </figure>
 <div class="custom-editorial-copy">
@@ -199,7 +201,8 @@
 </ul>
 </div>
 </div>
-</section><section class="custom-product-section custom-product-process custom-editorial-process" id="production-process" aria-labelledby="product-process-title">
+</section>
+  <section class="custom-product-section custom-product-process custom-editorial-process" id="production-process" aria-labelledby="product-process-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
 <p class="eyebrow">PROJECT FLOW</p>
@@ -207,7 +210,7 @@
 </header>
 <ol class="custom-process-grid">
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies project brief reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 0%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies project brief" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 0%">
 </span>
 <div>
 <span>01</span>
@@ -216,7 +219,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies measurement review reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:100% 0%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies measurement review" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:100% 0%">
 </span>
 <div>
 <span>02</span>
@@ -225,7 +228,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies quote review reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies quote review" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 33.333%">
 </span>
 <div>
 <span>03</span>
@@ -234,7 +237,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies prototype development reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies prototype development" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 33.333%">
 </span>
 <div>
 <span>04</span>
@@ -243,7 +246,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies production inspection reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies production inspection" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 33.333%">
 </span>
 <div>
 <span>05</span>
@@ -252,7 +255,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies shipping preparation reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:100% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Hoodies shipping preparation" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:100% 33.333%">
 </span>
 <div>
 <span>06</span>
@@ -262,7 +265,8 @@
 </li>
 </ol>
 </div>
-</section><section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
 <h2 id="product-packaging-title">Packout, Considered.</h2>
@@ -271,7 +275,7 @@
 <div class="custom-product-card-grid custom-product-packaging-grid">
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies presentation box reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies presentation box" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -280,7 +284,7 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies protective bag reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies protective bag" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -289,7 +293,7 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies shipping mailer reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies shipping mailer" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -298,7 +302,7 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies label and insert reference" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:100% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Hoodies label and insert" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:100% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -308,7 +312,8 @@
 </div>
 
 </div>
-</section><section class="custom-product-section custom-product-cards-section" aria-labelledby="popular-styles-title">
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="popular-styles-title">
     <div class="custom-product-wrap">
       <header class="custom-product-section-heading">
 <h2 id="popular-styles-title">Find Your Starting Point.</h2>
@@ -316,7 +321,7 @@
       <div class="custom-product-card-grid custom-style-grid">
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image" role="img" aria-label="Pullover Hoodies shown as a style reference" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
+<span class="custom-product-card-image" role="img" aria-label="Pullover Hoodies" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -325,7 +330,7 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image" role="img" aria-label="Zip-Up Hoodies shown as a style reference" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:100% 0%">
+<span class="custom-product-card-image" role="img" aria-label="Zip-Up Hoodies" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:100% 0%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -334,7 +339,7 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image" role="img" aria-label="Heavyweight Hoodies shown as a style reference" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:0% 100%">
+<span class="custom-product-card-image" role="img" aria-label="Heavyweight Hoodies" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:0% 100%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -343,7 +348,7 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image" role="img" aria-label="Cropped Hoodies shown as a style reference" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:100% 100%">
+<span class="custom-product-card-image" role="img" aria-label="Cropped Hoodies" style="background-image:url('assets/custom-hoodies-styles-v1.webp');background-size:200% 200%;background-position:100% 100%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -352,15 +357,16 @@
 </article>
 </div>
     </div>
-  </section><section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  </section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
-<p class="eyebrow">ILLUSTRATIVE CONTEXTS</p>
+<p class="eyebrow">FOR YOUR RANGE</p>
 <h2 id="audience-title">Where The Range Can Fit.</h2>
 </header>
 <div class="custom-audience-grid">
 <article>
-<span class="custom-audience-image custom-category-photo" role="img" aria-label="Brand & Product Planning context for Hoodies" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 100%">
+<span class="custom-audience-image custom-category-photo" role="img" aria-label="Brand &amp; Product Planning context for Hoodies" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:0% 100%">
 </span>
 <h3>Brand & Product Planning</h3>
 </article>
@@ -370,7 +376,7 @@
 <h3>Retail Collections</h3>
 </article>
 <article>
-<span class="custom-audience-image custom-category-photo" role="img" aria-label="Sports & Teams context for Hoodies" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 100%">
+<span class="custom-audience-image custom-category-photo" role="img" aria-label="Sports &amp; Teams context for Hoodies" style="background-image:url('assets/custom-hoodies-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 100%">
 </span>
 <h3>Sports & Teams</h3>
 </article>
@@ -381,25 +387,26 @@
 </article>
 </div>
 </div>
-</section><section class="custom-product-section custom-editorial-concepts" aria-labelledby="product-range-title">
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
-<p class="eyebrow">APPLICATION CONCEPTS</p>
+<p class="eyebrow">STYLE INSPIRATION</p>
 <h2 id="product-range-title">Product Range Inspiration.</h2>
-<p>Reference imagery for exploring product direction.</p>
 </header>
 <div class="custom-concept-grid">
 <figure>
 <span class="custom-concept-image" role="img" aria-label="Blue hoodie worn by a model" style="background-image:url('assets/catalog-models.webp');background-size:300% 300%;background-position:0% 50%"></span>
-<figcaption>On-Body Reference</figcaption>
+
 </figure>
 <figure>
-<span class="custom-concept-image" role="img" aria-label="Blue pullover hoodie shown as a product reference" style="background-image:url('assets/products.webp');background-size:200% 200%;background-position:0% 0%"></span>
-<figcaption>Product Reference</figcaption>
+<span class="custom-concept-image" role="img" aria-label="Blue pullover hoodie shown as a product" style="background-image:url('assets/products.webp');background-size:200% 200%;background-position:0% 0%"></span>
+
 </figure>
 </div>
 </div>
-</section><section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
+</section>
+  <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
     <div class="custom-product-wrap custom-product-faq-layout">
       <header class="custom-product-section-heading">
 <h2 id="product-faq-title">Common Questions.</h2>
@@ -423,7 +430,8 @@
 </details>
 </div>
     </div>
-  </section><section class="custom-product-cta" aria-labelledby="product-cta-title">
+  </section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title">
 <div class="custom-product-wrap custom-product-cta-inner">
 <h2 id="product-cta-title">Discuss Your Hoodie Project.</h2>
 <a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true">

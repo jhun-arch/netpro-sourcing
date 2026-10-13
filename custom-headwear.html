@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261013-13">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -115,18 +115,18 @@
     <div class="custom-product-gallery" data-custom-product-gallery>
       <div class="custom-product-gallery-body">
         <div class="custom-product-stage">
-          <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Navy baseball cap shown as a style reference">
-            <span class="custom-product-view" data-gallery-view role="img" aria-label="Navy baseball cap shown as a style reference" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span>
+          <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Navy baseball cap">
+            <span class="custom-product-view" data-gallery-view role="img" aria-label="Navy baseball cap" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span>
           </button>
           <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
           <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
         </div>
-        <div class="custom-product-gallery-caption"><strong data-gallery-caption>Style Reference</strong></div>
+
         <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
       </div>
-      <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
-        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/custom-headwear-styles-v1.webp" data-image-size="200% 200%" data-position="0% 0%" data-alt="Navy baseball cap shown as a style reference" data-label="Style Reference" aria-label="Style Reference: Navy baseball cap" aria-pressed="true"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span></button>
-        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/catalog-models.webp" data-image-size="300% 300%" data-position="0% 100%" data-alt="Blue cap worn as an on-body reference" data-label="On-Body Reference" aria-label="On-Body Reference: Blue cap worn by a model" aria-pressed="false"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/catalog-models.webp');background-position:0% 100%;background-size:300% 300%"></span></button>
+      <div class="custom-product-thumbnails" role="group" aria-label="Product images">
+        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/custom-headwear-styles-v1.webp" data-image-size="200% 200%" data-position="0% 0%" data-alt="Navy baseball cap" data-label="Style" aria-label="Style: Navy baseball cap" aria-pressed="true"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-position:0% 0%;background-size:200% 200%"></span></button>
+        <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/catalog-models.webp" data-image-size="300% 300%" data-position="0% 100%" data-alt="Blue cap worn by a model" data-label="On-Body" aria-label="On-Body: Blue cap worn by a model" aria-pressed="false"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/catalog-models.webp');background-position:0% 100%;background-size:300% 300%"></span></button>
         <button type="button" class="custom-product-thumb" data-gallery-thumb data-image="assets/placeholder-ai-np-headwear.webp" data-image-size="cover" data-lightbox-size="contain" data-position="center" data-alt="Navy and cream caps shown as style references, with front embroidery and a back closure visible" data-label="Style Context" aria-label="Style Context: Navy and cream caps with front and back views" aria-pressed="false"><span class="custom-product-thumb-art" aria-hidden="true" style="background-image:url('assets/placeholder-ai-np-headwear.webp');background-position:center;background-size:cover"></span></button>
       </div>
       <dialog class="custom-product-lightbox" data-gallery-dialog aria-labelledby="gallery-dialog-title">
@@ -134,9 +134,9 @@
           <h2 id="gallery-dialog-title" class="sr-only">Headwear Image Viewer</h2>
           <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
           <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
-          <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Navy baseball cap shown as a style reference"></div>
+          <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Navy baseball cap"></div>
           <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
-          <p class="custom-product-lightbox-caption" data-lightbox-caption>Style Reference</p>
+
         </div>
       </dialog>
     </div>
@@ -145,12 +145,13 @@
       <h1 id="product-title">Custom Headwear</h1>
       <p class="custom-product-lead">Your shape. Your artwork. Your headwear. Bring the details together in a custom range.</p>
       <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Headwear Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
-      <div class="custom-product-details"><details><summary>Fit & Materials</summary><p>Share silhouette, fit, adjustment and material references.</p></details><details><summary>Decoration</summary><p>Share artwork, placement and a preference for embroidery or patches; the quote records the agreed finish.</p></details><details><summary>Project Planning</summary><p>Include quantity, destination and any sample or packing needs.</p></details></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Share silhouette, fit, adjustment and material references.</p></details><details><summary>Decoration</summary><p>Share artwork, placement and a preference for embroidery or patches; the quote records the agreed finish.</p></details><details><summary>Project Planning</summary><p>Include quantity, destination and any sample or packing needs.</p></details></div>
     </div>
-  </section><section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
+  </section>
+  <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
 <div class="custom-product-wrap custom-product-overview">
 <figure>
-<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Headwear product development reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 0%"></span>
+<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Headwear product development" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 0%"></span>
 
 </figure>
 <div class="custom-product-overview-copy">
@@ -158,7 +159,7 @@
 <p>Start with the profile, material and artwork that fit the range you have in mind.</p>
 <ul class="custom-product-overview-features">
 <li>
-<strong>Shape &amp; Fit</strong>
+<strong>Product Details</strong>
 <span>Profile, bill and adjustment details.</span>
 </li>
 <li>
@@ -182,10 +183,11 @@
 </div>
 </div>
 </div>
-</section><section class="custom-editorial-feature" aria-labelledby="headwear-brand-title">
+</section>
+  <section class="custom-editorial-feature" aria-labelledby="headwear-brand-title">
 <div class="custom-product-wrap custom-editorial-feature-inner">
 <figure>
-<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Headwear private label finishing reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 0%"></span>
+<span class="custom-editorial-image custom-category-photo" role="img" aria-label="Headwear private label finishing" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 0%"></span>
 
 </figure>
 <div class="custom-editorial-copy">
@@ -193,67 +195,15 @@
 <h2 id="headwear-brand-title">Make The Details Yours.</h2>
 <p>Bring the identity together across silhouette, decoration and finish.</p>
 <ul class="custom-editorial-points">
-<li>Front, side or back artwork placement</li>
-<li>Embroidery, patches or print direction</li>
-<li>Labels and packaging requests</li>
+<li>Artwork placement and finish</li>
+<li>Labels, tags or inserts</li>
+<li>Packing requests for the quote</li>
 </ul>
-<a class="text-link" href="quote.html">Plan A Headwear Project <svg aria-hidden="true">
-<use href="#i-arrow"/>
-</svg>
-</a>
+
 </div>
 </div>
-</section><section class="custom-product-facts-section" aria-label="Headwear product details">
-<div class="custom-product-wrap">
-<dl class="custom-product-facts">
-<div>
-<dt>Style Range</dt>
-<dd>Eight headwear formats</dd>
-</div>
-<div>
-<dt>Decoration</dt>
-<dd>Embroidery, patches and print references</dd>
-</div>
-<div>
-<dt>Sampling</dt>
-<dd>Scope confirmed in the quote</dd>
-</div>
-<div>
-<dt>Care &amp; Quality</dt>
-<dd>Requirements recorded in the specification</dd>
-</div>
-</dl>
-</div>
-</section><section class="custom-product-section custom-option-section" aria-labelledby="headwear-options-title">
-<div class="custom-product-wrap">
-<header class="custom-product-section-heading">
-<p class="eyebrow">HEADWEAR OPTIONS</p>
-<h2 id="headwear-options-title">Choose The Details That Matter.</h2>
-<p>Use the list to explore construction and decoration references.</p>
-</header>
-<div class="custom-option-browser" data-headwear-options>
-<div class="custom-option-list" role="tablist" aria-label="Headwear customization options" aria-orientation="vertical">
-<button type="button" id="headwear-tab-0" role="tab" aria-selected="true" aria-controls="headwear-option-panel" tabindex="0" data-option-title="Choose A Starting Style" data-option-copy="Explore baseball caps, visors, camper hats, beanies, trucker caps, snapbacks, dad hats and bucket hats." data-option-image="assets/custom-headwear-styles-v1.webp" data-option-size="200% 200%" data-option-position="0% 0%" data-option-alt="Navy baseball cap style reference">Style</button>
-<button type="button" id="headwear-tab-1" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Material And Texture" data-option-copy="Share a material or texture reference, such as cotton or corduroy." data-option-image="assets/custom-headwear-details-v2.webp" data-option-size="303% 202%" data-option-position="0% 0%" data-option-alt="Cotton and corduroy swatches beside a cap">Material</button>
-<button type="button" id="headwear-tab-2" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Profile And Bill" data-option-copy="Describe the crown shape and bill profile you want to review." data-option-image="assets/custom-headwear-details-v2.webp" data-option-size="303% 202%" data-option-position="50% 0%" data-option-alt="Side profile of a cap showing its crown and bill">Profile &amp; Bill</button>
-<button type="button" id="headwear-tab-3" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Closure Details" data-option-copy="Include a closure reference and adjustment preference in the brief." data-option-image="assets/custom-headwear-details-v2.webp" data-option-size="303% 202%" data-option-position="100% 0%" data-option-alt="Close view of a cap buckle closure">Closure</button>
-<button type="button" id="headwear-tab-4" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Embroidery And Patches" data-option-copy="Share artwork and placement references for embroidery or patch applications." data-option-image="assets/custom-headwear-details-v2.webp" data-option-size="303% 202%" data-option-position="0% 100%" data-option-alt="Embroidery detail on a cap panel">Embroidery</button>
-<button type="button" id="headwear-tab-5" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Printing Reference" data-option-copy="Share a print reference and placement; confirm whether it suits the selected material in the quote." data-option-image="assets/custom-headwear-print-v3.webp" data-option-size="cover" data-option-position="100% 100%" data-option-alt="Printed artwork reference on a cap">Printing</button>
-<button type="button" id="headwear-tab-6" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Interior Details" data-option-copy="Note any interior labels or construction details to include in the specification." data-option-image="assets/custom-headwear-details-v2.webp" data-option-size="303% 202%" data-option-position="50% 100%" data-option-alt="Interior seam and label detail inside a cap">Interior</button>
-<button type="button" id="headwear-tab-7" role="tab" aria-selected="false" aria-controls="headwear-option-panel" tabindex="-1" data-option-title="Packaging Requests" data-option-copy="Include individual packout, tags or inserts for review in the quote." data-option-image="assets/custom-headwear-details-v2.webp" data-option-size="303% 202%" data-option-position="100% 100%" data-option-alt="Headwear box and packaging reference">Packaging</button>
-</div>
-<div class="custom-option-panel" id="headwear-option-panel" role="tabpanel" aria-labelledby="headwear-tab-0" tabindex="0">
-<span class="custom-option-image" data-option-image role="img" aria-label="Navy baseball cap style reference" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
-</span>
-<div class="custom-option-copy">
-<p class="eyebrow">OPTION REFERENCE</p>
-<h3 data-option-heading>Choose A Starting Style</h3>
-<p data-option-description>Explore baseball caps, visors, camper hats, beanies, trucker caps, snapbacks, dad hats and bucket hats.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section class="custom-product-section custom-product-process custom-editorial-process" id="production-process" aria-labelledby="product-process-title">
+</section>
+  <section class="custom-product-section custom-product-process custom-editorial-process" id="production-process" aria-labelledby="product-process-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
 <p class="eyebrow">PROJECT FLOW</p>
@@ -261,7 +211,7 @@
 </header>
 <ol class="custom-process-grid">
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear project brief reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 0%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear project brief" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 0%">
 </span>
 <div>
 <span>01</span>
@@ -270,7 +220,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear measurement review reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:100% 0%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear measurement review" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:100% 0%">
 </span>
 <div>
 <span>02</span>
@@ -279,7 +229,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear quote review reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear quote review" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 33.333%">
 </span>
 <div>
 <span>03</span>
@@ -288,7 +238,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear prototype development reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear prototype development" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 33.333%">
 </span>
 <div>
 <span>04</span>
@@ -297,7 +247,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear production inspection reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear production inspection" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 33.333%">
 </span>
 <div>
 <span>05</span>
@@ -306,7 +256,7 @@
 </div>
 </li>
 <li>
-<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear shipping preparation reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:100% 33.333%">
+<span class="custom-process-image custom-category-photo" role="img" aria-label="Headwear shipping preparation" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:100% 33.333%">
 </span>
 <div>
 <span>06</span>
@@ -316,7 +266,8 @@
 </li>
 </ol>
 </div>
-</section><section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
 <h2 id="product-packaging-title">Packout, Considered.</h2>
@@ -325,16 +276,16 @@
 <div class="custom-product-card-grid custom-product-packaging-grid">
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear presentation box reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear presentation box" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
-<h3>Boxes</h3>
+<h3>Custom Boxes</h3>
 </div>
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear protective bag reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear protective bag" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:33.333% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -343,16 +294,16 @@
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear shipping mailer reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear shipping mailer" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
-<h3>Mailers</h3>
+<h3>Shipping Mailers</h3>
 </div>
 </article>
 <article class="custom-product-card">
 <figure>
-<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear label and insert reference" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:100% 66.667%">
+<span class="custom-product-card-image custom-category-photo" role="img" aria-label="Headwear label and insert" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:100% 65.5%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
@@ -362,94 +313,61 @@
 </div>
 
 </div>
-</section><section class="custom-product-section custom-product-cards-section" aria-labelledby="popular-styles-title">
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="popular-styles-title">
     <div class="custom-product-wrap">
       <header class="custom-product-section-heading">
 <h2 id="popular-styles-title">Find Your Starting Point.</h2>
 </header>
-      <div class="custom-product-card-grid">
+      <div class="custom-product-card-grid custom-style-grid">
 <article class="custom-product-card">
 <a class="custom-product-link-card" href="custom-baseball-caps.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Navy baseball cap shown as a style reference" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
+<span class="custom-product-card-image" role="img" aria-label="Navy baseball cap" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
 <h3>Baseball Caps</h3>
 </div>
 </a></article>
-<article class="custom-product-card">
+   <article class="custom-product-card">
 <a class="custom-product-link-card" href="custom-visors.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Blue visor shown as a style reference" style="background-image:url('assets/headwear-extra-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
+<span class="custom-product-card-image" role="img" aria-label="Blue visor" style="background-image:url('assets/headwear-extra-styles-v1.webp');background-size:200% 200%;background-position:0% 0%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
 <h3>Visors</h3>
 </div>
 </a></article>
-<article class="custom-product-card">
+   <article class="custom-product-card">
 <a class="custom-product-link-card" href="custom-camper-hats.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Blue camper hat shown as a style reference" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:0% 100%">
+<span class="custom-product-card-image" role="img" aria-label="Blue camper hat" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:0% 100%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
 <h3>Camper Hats</h3>
 </div>
 </a></article>
-<article class="custom-product-card">
+   <article class="custom-product-card">
 <a class="custom-product-link-card" href="custom-beanies.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Cream knit beanie shown as a style reference" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:100% 100%">
+<span class="custom-product-card-image" role="img" aria-label="Cream knit beanie" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:100% 100%">
 </span>
 </figure>
 <div class="custom-product-card-copy">
 <h3>Beanies</h3>
 </div>
 </a></article>
-<article class="custom-product-card">
-<a class="custom-product-link-card" href="custom-trucker-caps.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Cream mesh trucker cap shown as a style reference" style="background-image:url('assets/custom-headwear-styles-v1.webp');background-size:200% 200%;background-position:100% 0%">
-</span>
-</figure>
-<div class="custom-product-card-copy">
-<h3>Trucker Caps</h3>
-</div>
-</a></article>
-<article class="custom-product-card">
-<a class="custom-product-link-card" href="custom-snapbacks.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Snapback cap shown as a style reference" style="background-image:url('assets/headwear-extra-styles-v1.webp');background-size:200% 200%;background-position:100% 0%">
-</span>
-</figure>
-<div class="custom-product-card-copy">
-<h3>Snapbacks</h3>
-</div>
-</a></article>
-<article class="custom-product-card">
-<a class="custom-product-link-card" href="custom-dad-hats.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Dad hat shown as a style reference" style="background-image:url('assets/headwear-extra-styles-v1.webp');background-size:200% 200%;background-position:0% 100%">
-</span>
-</figure>
-<div class="custom-product-card-copy">
-<h3>Dad Hats</h3>
-</div>
-</a></article>
-<article class="custom-product-card">
-<a class="custom-product-link-card" href="custom-bucket-hats.html"><figure>
-<span class="custom-product-card-image" role="img" aria-label="Bucket hat shown as a style reference" style="background-image:url('assets/headwear-extra-styles-v1.webp');background-size:200% 200%;background-position:100% 100%">
-</span>
-</figure>
-<div class="custom-product-card-copy">
-<h3>Bucket Hats</h3>
-</div>
-</a></article>
 </div>
     </div>
-  </section><section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  </section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
 <div class="custom-product-wrap">
 <header class="custom-product-section-heading">
-<h2 id="audience-title">Made For Many Kinds Of Ranges.</h2>
+<p class="eyebrow">FOR YOUR RANGE</p>
+   <h2 id="audience-title">Where The Range Can Fit.</h2>
 </header>
 <div class="custom-audience-grid">
 <article>
-<span class="custom-audience-image custom-category-photo" role="img" aria-label="Brand & Product Planning context for Headwear" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 100%">
+<span class="custom-audience-image custom-category-photo" role="img" aria-label="Brand &amp; Product Planning context for Headwear" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:0% 100%">
 </span>
 <h3>Brand & Product Planning</h3>
 </article>
@@ -459,7 +377,7 @@
 <h3>Retail Collections</h3>
 </article>
 <article>
-<span class="custom-audience-image custom-category-photo" role="img" aria-label="Sports & Teams context for Headwear" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 100%">
+<span class="custom-audience-image custom-category-photo" role="img" aria-label="Sports &amp; Teams context for Headwear" style="background-image:url('assets/custom-headwear-editorial-v3.webp');background-size:403% 403%;background-position:66.667% 100%">
 </span>
 <h3>Sports & Teams</h3>
 </article>
@@ -470,25 +388,26 @@
 </article>
 </div>
 </div>
-</section><section class="custom-product-section custom-headwear-inspiration" aria-labelledby="headwear-inspiration-title">
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
 <div class="custom-product-wrap">
-<div class="custom-editorial-heading">
-<p class="eyebrow">CONCEPT REFERENCES</p>
-<h2 id="headwear-inspiration-title">From Sketch To Product Direction.</h2>
-<p>Visual references for shaping a collection brief.</p>
-</div>
+<header class="custom-product-section-heading">
+<p class="eyebrow">STYLE INSPIRATION</p>
+<h2 id="headwear-inspiration-title">Product Range Inspiration.</h2>
+</header>
 <div class="custom-concept-grid">
 <figure>
 <span class="custom-concept-image" role="img" aria-label="Cap concept sketch" style="background-image:url('assets/custom-headwear-concepts-v2.webp');background-size:202% 202%;background-position:0% 0%"></span>
-<figcaption>Cap Design Concept</figcaption>
+
 </figure>
 <figure>
 <span class="custom-concept-image" role="img" aria-label="Finished navy cap concept" style="background-image:url('assets/custom-headwear-concepts-v2.webp');background-size:202% 202%;background-position:100% 0%"></span>
-<figcaption>Finished Cap Reference</figcaption>
+
 </figure>
 </div>
 </div>
-</section><section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
+</section>
+  <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
 <div class="custom-product-wrap custom-product-faq-layout">
 <header class="custom-product-section-heading">
 <h2 id="product-faq-title">Common Questions.</h2>
@@ -512,7 +431,8 @@
 </details>
 </div>
 </div>
-</section><section class="custom-product-cta" aria-labelledby="product-cta-title">
+</section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title">
 <div class="custom-product-wrap custom-product-cta-inner">
 <h2 id="product-cta-title">Discuss Your Headwear Project.</h2>
 <a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true">
