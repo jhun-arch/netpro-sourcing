@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Unbranded navy cotton sun visor with an open crown and curved bill">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Unbranded navy cotton sun visor with an open crown and curved bill" style="background-image:url('assets/custom-visors-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Navy cotton sun visor with an open crown and curved bill</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Visors Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Unbranded navy cotton sun visor with an open crown and curved bill"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Navy cotton sun visor with an open crown and curved bill</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM HEADWEAR</p>
       <h1 id="product-title">Custom Visors</h1>
       <p class="custom-product-lead">A visor pairs an open crown with a shaped bill and fitted band. Define coverage, comfort and adjustment details before choosing decoration.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Visor Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Set band dimensions and adjustment, bill coverage and the intended fit range.</p></details><details><summary>Decoration</summary><p>Share the artwork and mark its preferred placement at the front band, side or bill. The finish is reviewed against the selected material and construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Balance The Band And Bill.</h2>
-      <p>Describe the open-top profile, the coverage you want from the bill and how the headband should adjust. These choices set the visor&#x27;s proportions.</p>
-      <ul class="custom-product-overview-features"><li><strong>Open Profile</strong><span>Headband height and top-opening shape.</span></li><li><strong>Bill Coverage</strong><span>Bill length, curve and edge finish reference.</span></li><li><strong>Adjustment</strong><span>Closure type, size range and fit preference.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of navy visor headband weave, curved bill stitching and rear closure" style="background-image:url('assets/custom-visors-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Navy visor headband weave, curved bill stitching and rear closure</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Soft tape measuring the open visor headband circumference" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Visor Around Your Brief.</h2>
+      <p>Plan the open crown, headband, bill coverage and fit as one clear visor specification.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Open profile, band dimensions, bill shape, material and adjustment range.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at the front band, side or bill and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed visor specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Specify The Open Profile.</h2><p>Use measurements or a sample to make the visor band and bill easier to assess.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Headband</h3><p>Set the band height, inside finish and the amount of structure you want reviewed.</p></article><article class="custom-style-option"><span>02</span><h3>Bill</h3><p>Describe its curve, length and stitching, with a side-view reference where possible.</p></article><article class="custom-style-option"><span>03</span><h3>Fit &amp; Closure</h3><p>Include the closure style, adjustment range and size reference for the intended wearer.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Macro view of visor twill and bill seam stitching" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Share artwork and mark the preferred placement at the front band, side or bill; the finish is confirmed against the selected material and construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at the front band, side or bill.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Open Profile To Approved Sample.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share A Reference</h3><p>Send a visor sample or sketch, quantity, artwork and destination.</p></li><li class="custom-product-step"><span>02</span><h3>Define Band &amp; Bill</h3><p>Confirm opening shape, headband dimensions, bill profile and closure.</p></li><li class="custom-product-step"><span>03</span><h3>Review Quote &amp; Sample</h3><p>Agree the production scope and whether sampling or a proof is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve The Specification</h3><p>Check fit, decoration position, packing and inspection details before production.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Open-top visor with matching swatches and blank brief cards" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a visor reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Soft tape measuring the open visor headband circumference" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record the open profile, band circumference, bill coverage and adjustment range.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Open-top visor with matching swatches and blank brief cards" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands gently flexing the fabric visor headband" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review headband fit, bill coverage and adjustment.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of stitching on the curved visor brim" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for band construction, bill stitching, fit and decoration against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Navy visor being wrapped in tissue" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Open-top visor inside an open cream presentation box" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy visor inside a clear protective bag" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy visor beside a plain kraft mailer" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Visor beside a blank cream hangtag" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy open-top sun visor with a fabric headband and curved bill" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Open Crown</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Macro view of visor twill and bill seam stitching" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Headband Stitching</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Soft tape measuring the open visor headband circumference" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Band Measurement</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Open-top visors in coordinated navy, cream and mist blue" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Visor Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Open-top visor with a matching twill swatch in an unbranded still life" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail shelf displaying open-top sun visors" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Open-top visors in coordinated navy, cream and mist blue" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Front three-quarter ecommerce photo of a navy open-top visor" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Macro view of visor twill and bill seam stitching" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Side ecommerce view showing the open band and curved bill of a visor" style="background-image:url('assets/custom-visors-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>Can the visor band be adjusted?</summary><p>Share the closure style or a sample reference and the fit range you need reviewed. The accepted adjustment details are recorded in the quote and specification.</p></details><details><summary>How should I describe bill coverage?</summary><p>Provide a side view, dimensions or a physical reference for bill length and curve. The agreed sample confirms the final profile.</p></details><details><summary>Where can a logo be placed?</summary><p>Send the artwork and mark the preferred band or bill location. Available space and the suitable decoration method are confirmed for the chosen material.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a visor reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Request A Particular Band Or Bill Shape?</summary><p>Yes. Share a side view and the preferred band and bill dimensions; the agreed profile and fit are confirmed in the quote.</p></details><details><summary>Can A Logo Be Embroidered Or Applied As A Patch?</summary><p>Share the artwork and mark the band or bill location. The suitable finish is reviewed against the fabric and construction before it is quoted.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE HEADWEAR STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-baseball-caps.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Unbranded navy cotton baseball cap with curved bill and six-panel crown" style="background-image:url('assets/custom-baseball-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Baseball Caps</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-bucket-hats.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream cotton bucket hat with a downward brim" style="background-image:url('assets/custom-bucket-hats-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Bucket Hats</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-camper-hats.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Muted blue five-panel camper hat with low crown and flat brim" style="background-image:url('assets/custom-camper-hats-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Camper Hats</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Visors Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Visor Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

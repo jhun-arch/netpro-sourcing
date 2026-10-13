@@ -572,6 +572,7 @@
 
 /* Independent style detail pages. */
 .custom-style-options { background: var(--ip-pale); }
+.custom-style-detail-page .custom-category-photo::before { background-size: 400% 400%; }
 .custom-product-card-grid.custom-style-option-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .custom-style-option { min-width: 0; padding: 23px; border-top: 2px solid var(--custom-blue); background: #fff; }
 .custom-style-option > span { color: var(--custom-blue); font-size: 12px; font-variant-numeric: tabular-nums; }

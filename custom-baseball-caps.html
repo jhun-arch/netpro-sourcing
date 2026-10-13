@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Unbranded navy cotton baseball cap with curved bill and six-panel crown">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Unbranded navy cotton baseball cap with curved bill and six-panel crown" style="background-image:url('assets/custom-baseball-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Navy cotton baseball cap with curved bill and six-panel crown</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Baseball Caps Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Unbranded navy cotton baseball cap with curved bill and six-panel crown"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Navy cotton baseball cap with curved bill and six-panel crown</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM HEADWEAR</p>
       <h1 id="product-title">Custom Baseball Caps</h1>
       <p class="custom-product-lead">Set the crown, bill and fit first, then decide where your artwork belongs. A clear reference helps keep the cap profile consistent across a range.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Baseball Cap Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Specify material, crown height, panel layout, bill curve, closure and fit range.</p></details><details><summary>Decoration</summary><p>Share the artwork and mark its preferred placement at the front panel, side panel or back closure. The finish is reviewed against the selected material and construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Start With The Crown And Bill.</h2>
-      <p>Describe the cap profile you want to review. Crown height, panel layout, bill curve and closure all shape the finished silhouette.</p>
-      <ul class="custom-product-overview-features"><li><strong>Crown</strong><span>Panel layout, height and structure reference.</span></li><li><strong>Bill</strong><span>Curvature, length and edge-stitching direction.</span></li><li><strong>Fit</strong><span>Size range, adjustment type and head circumference.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of navy baseball cap twill, bill stitching, crown seam and eyelet" style="background-image:url('assets/custom-baseball-caps-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Navy baseball cap twill, bill stitching, crown seam and eyelet</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Hands measuring a navy baseball cap crown and curved bill with a tape" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Baseball Cap Around Your Brief.</h2>
+      <p>Plan crown, bill, closure and fit as one clear cap specification.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Crown panels, bill shape, material, closure and fit range.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at the front panel, side panel or back closure and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed baseball cap specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Make The Cap Specification Clear.</h2><p>Share the decisions that define the profile before artwork and finishing are approved.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Crown &amp; Panels</h3><p>Mark the crown height, panel arrangement and any structured or softer feel you want assessed.</p></article><article class="custom-style-option"><span>02</span><h3>Bill Shape</h3><p>Use a physical sample or drawing to show the curve, length and stitch detail.</p></article><article class="custom-style-option"><span>03</span><h3>Closure &amp; Fit</h3><p>Specify an adjustable or fixed fit, the closure reference and your intended size range.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of navy baseball-cap twill, crown seam, eyelet and small unmarked stitch" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Share artwork and mark the preferred placement at the front panel, side panel or back closure; the finish is confirmed against the selected material and construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at the front panel, side panel or back closure.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Profile Reference To Approved Sample.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share The Brief</h3><p>Send a cap reference, target quantity, artwork and destination.</p></li><li class="custom-product-step"><span>02</span><h3>Confirm The Silhouette</h3><p>Record crown, bill, closure, material and fit details in the product brief.</p></li><li class="custom-product-step"><span>03</span><h3>Review Scope &amp; Sample</h3><p>Confirm quotation terms and whether a sample or artwork proof is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve Production Details</h3><p>Check the agreed specification, decoration placement, packing and inspection points.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Navy baseball cap beside matching fabric swatches and blank cards" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a baseball cap reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands measuring a navy baseball cap crown and curved bill with a tape" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record crown height, panel layout, bill curve, closure and size range.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Navy baseball cap beside matching fabric swatches and blank cards" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands gently handling navy cotton-twill baseball-cap fabric" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review crown height, panel layout, bill curve and closure.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of stitching along a navy baseball-cap brim" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for panel joins, bill stitching, shape and decoration against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Navy baseball cap being wrapped in white tissue" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy baseball cap inside an open cream presentation box" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy baseball cap inside a clear protective bag" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy baseball cap beside a plain kraft mailer" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy baseball cap with blank cream hangtag and insert" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy six-panel baseball cap with curved bill on a pale stone plinth" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Six-Panel Crown</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close view of navy baseball-cap twill, crown seam, eyelet and small unmarked stitch" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Twill &amp; Stitching</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Rear view of a navy baseball cap showing its adjustable strap" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Adjustable Closure</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Baseball caps in coordinated navy, cream and slate-blue colors" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Cap Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Navy and cream baseball caps with folded neutral fabric" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail shelves displaying classic baseball caps in navy and pale colors" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Baseball caps in coordinated navy, cream and slate-blue colors" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Front three-quarter ecommerce photo of a navy six-panel baseball cap" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Close view of navy baseball-cap twill, crown seam, eyelet and small unmarked stitch" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Rear view of a navy baseball cap showing its adjustable strap" style="background-image:url('assets/custom-baseball-caps-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>Can I choose a curved or flat bill?</summary><p>Yes. Include a sample, sketch or clear photo that shows the curve and length you want reviewed. The approved sample or written specification records the final shape.</p></details><details><summary>What fit information should I provide?</summary><p>Share your size range, head measurement reference and preferred adjustment or closure. The fit details are confirmed for the selected cap construction.</p></details><details><summary>Can artwork go on more than the front panel?</summary><p>Send each location and its artwork reference, such as side or back placement. The decoration method and available space are checked against the selected cap.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a baseball cap reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Request A Specific Crown, Bill Or Fit?</summary><p>Yes. Include the crown, bill and fit preferences; the agreed cap profile is recorded in the quote.</p></details><details><summary>Can A Logo Be Embroidered Or Applied As A Patch?</summary><p>Share the artwork, location and finish. The suitable method is confirmed against the cap construction and listed in the quote.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE HEADWEAR STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-trucker-caps.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy and cream mesh-back trucker cap with curved bill" style="background-image:url('assets/custom-trucker-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Trucker Caps</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-snapbacks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Structured navy snapback cap with a tall crown and flat bill" style="background-image:url('assets/custom-snapbacks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Snapbacks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-dad-hats.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Washed pale blue unstructured dad hat with curved brim" style="background-image:url('assets/custom-dad-hats-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Dad Hats</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Baseball Caps Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Baseball Cap Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

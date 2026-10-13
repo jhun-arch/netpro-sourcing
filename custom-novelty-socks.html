@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Cream crew sock with navy crescent moons and mist blue knit dots">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Cream crew sock with navy crescent moons and mist blue knit dots" style="background-image:url('assets/custom-novelty-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Cream crew sock with navy crescent moons and mist blue knit dots</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Novelty Socks Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Cream crew sock with navy crescent moons and mist blue knit dots"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Cream crew sock with navy crescent moons and mist blue knit dots</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM SOCKS</p>
       <h1 id="product-title">Custom Novelty Socks</h1>
       <p class="custom-product-lead">Bring a motif, character or repeat pattern to life on the sock shape. Define scale, colors and placement before the knit is sampled.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Novelty Sock Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Share yarn and colors, motif dimensions, repeat direction and size range.</p></details><details><summary>Decoration</summary><p>Share artwork or a motif and mark its preferred placement at cuff, leg, heel or foot. The knit-in color and finish are reviewed against the selected construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Make The Motif Work Across The Sock.</h2>
-      <p>Novelty designs depend on motif size and repeat placement across the leg, heel and foot. Supply a flat layout and a view of the finished pattern direction.</p>
-      <ul class="custom-product-overview-features"><li><strong>Motif Scale</strong><span>Repeat size, spacing and direction.</span></li><li><strong>Color Palette</strong><span>Yarn colors and contrast areas.</span></li><li><strong>Placement</strong><span>Cuff, leg, heel and toe pattern zones.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of novelty sock knit crescent and dot pattern" style="background-image:url('assets/custom-novelty-socks-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Novelty sock knit crescent and dot pattern</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Patterned crew sock beside a soft tape measuring heel-to-cuff length" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Novelty Sock Around Your Brief.</h2>
+      <p>Plan motif scale, repeat, color and placement across the full sock shape.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Yarn colors, repeat scale, motif placement and size grading.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at cuff, leg, heel or foot and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed novelty sock specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Keep The Pattern Legible In Knit.</h2><p>Share artwork at full scale and show where motifs should sit on the finished sock.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Repeat &amp; Scale</h3><p>Set motif dimensions, spacing and whether the pattern repeats around the leg.</p></article><article class="custom-style-option"><span>02</span><h3>Color Mapping</h3><p>Name each yarn color and note any contrast cuff, heel or toe areas.</p></article><article class="custom-style-option"><span>03</span><h3>Placement</h3><p>Mark artwork zones and keep important motifs clear of seams and shaping.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close detail of small knitted stars and motifs around a ribbed crew cuff" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Map artwork or a knit motif to cuff, leg, heel or foot and record the color and finish with the sock construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at cuff, leg, heel or foot.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Artwork Tile To Knit Review.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Send Artwork</h3><p>Include vector or high-resolution art, repeat scale, sizes and quantity.</p></li><li class="custom-product-step"><span>02</span><h3>Map The Pattern</h3><p>Confirm colors, orientation and how artwork runs across the sock shape.</p></li><li class="custom-product-step"><span>03</span><h3>Review Knit Sample</h3><p>Agree the quote and whether a color or pattern sample is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve Repeat &amp; Finish</h3><p>Check placement, size grading, care details and packing before production.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Novelty crew sock with matching patterned knit swatches and blank cards" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a novelty sock reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Patterned crew sock beside a soft tape measuring heel-to-cuff length" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record motif scale and placement across cuff, leg, heel and foot by size.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Novelty crew sock with matching patterned knit swatches and blank cards" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands checking the ribbed knit of a patterned novelty crew sock" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review motif scale, repeat placement and leg-to-foot layout.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of patterned knit and toe seam on a novelty sock" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for repeat alignment, color, knit consistency and shaping against the approved artwork.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Novelty crew socks folded into white tissue" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Novelty crew socks inside an open cream presentation box" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Patterned crew socks inside a clear protective bag" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Novelty socks beside a plain kraft mailer" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Novelty crew socks beside a blank cream hangtag and insert" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Pair of navy and cream novelty crew socks with knitted star and geometric motifs" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Motif Placement</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close detail of small knitted stars and motifs around a ribbed crew cuff" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Pattern Detail</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Three motif crew sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Color Palette</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Single patterned crew sock isolated on a warm off-white backdrop" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Repeat Layout</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Patterned novelty socks with navy, cream and slate yarn skeins in an unbranded still life" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail shelf of playful patterned crew socks" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Three motif crew sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Single patterned crew sock isolated on a warm off-white backdrop" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Close detail of small knitted stars and motifs around a ribbed crew cuff" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Pair of patterned crew socks from a complementary three-quarter angle" style="background-image:url('assets/custom-novelty-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>Can a detailed illustration be knitted into a sock?</summary><p>Send the artwork at its intended size. The smallest details and color count are reviewed for legibility in the selected knit construction.</p></details><details><summary>How should I provide a repeating pattern?</summary><p>Include a repeat tile, dimensions, direction and any alignment rules. A full-sock layout helps confirm placement.</p></details><details><summary>Can each sock in a pair have different artwork?</summary><p>Yes. Provide a left and right design, mark each placement and confirm whether the pair should be packed together.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a novelty sock reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Request Specific Motif Colors And Placement?</summary><p>Yes. Send artwork with colors, repeat scale and placement notes; the agreed pattern is recorded in the quote.</p></details><details><summary>Can A Detailed Motif Be Knitted Into A Sock?</summary><p>Share vector or high-resolution artwork. Detail is reviewed against the knit gauge, color count and sock size before it is included in the quote.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE SOCKS STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-crew-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream mid-calf crew sock with navy stripes and ribbed cuff" style="background-image:url('assets/custom-crew-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Crew Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-athletic-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy technical athletic crew sock with cream heel and toe reinforcement" style="background-image:url('assets/custom-athletic-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Athletic Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-wool-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Oatmeal heather wool-blend crew sock with navy heel and toe" style="background-image:url('assets/custom-wool-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Wool Socks</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Novelty Socks Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Novelty Sock Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

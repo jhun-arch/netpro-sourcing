@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Cream low-cut no-show sock with navy toe and heel tab">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Cream low-cut no-show sock with navy toe and heel tab" style="background-image:url('assets/custom-no-show-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Cream low-cut no-show sock with navy toe and heel tab</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">No Show Socks Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Cream low-cut no-show sock with navy toe and heel tab"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Cream low-cut no-show sock with navy toe and heel tab</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM SOCKS</p>
       <h1 id="product-title">Custom No Show Socks</h1>
       <p class="custom-product-lead">Keep the opening low while specifying heel coverage and fit inside the intended shoe. Share a worn reference and finished measurements.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your No Show Sock Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Set opening height, heel coverage, toe construction and the intended shoe profile.</p></details><details><summary>Decoration</summary><p>Share artwork or a motif and mark its preferred placement at opening, heel, toe or sole. The knit-in color and finish are reviewed against the selected construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Keep The Cut Low And The Fit Clear.</h2>
-      <p>No show styles sit below a shoe collar. Document the opening, heel coverage, size range and any requested heel grip or internal construction details.</p>
-      <ul class="custom-product-overview-features"><li><strong>Opening</strong><span>Low-cut height and shoe-collar reference.</span></li><li><strong>Heel Fit</strong><span>Coverage, tab shape and requested grip details.</span></li><li><strong>Foot Knit</strong><span>Sole, toe and logo placement references.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of no-show sock low opening and subtle heel grip dots" style="background-image:url('assets/custom-no-show-socks-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>No-show sock low opening and subtle heel grip dots</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="No-show sock beside a soft tape measuring its heel-to-opening rise" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The No-Show Sock Around Your Brief.</h2>
+      <p>Plan the low opening, heel coverage, cuff and toe construction around the shoe profile.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Opening height, heel coverage, grip request, toe and sole construction, and size range.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at opening, heel, toe or sole and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed no-show sock specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Match The Opening To The Shoe.</h2><p>A worn or in-shoe reference can clarify how much of the sock should remain visible.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Cut Line</h3><p>Show the opening height against the shoe collar from a side view.</p></article><article class="custom-style-option"><span>02</span><h3>Heel Coverage</h3><p>Specify heel depth, tab shape and any requested internal grip detail.</p></article><article class="custom-style-option"><span>03</span><h3>Toe &amp; Sole</h3><p>Set knit, reinforcement and optional branding placement across the foot.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of the low-cut opening edge and breathable knit on a no-show sock" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Map artwork or a knit motif to opening, heel, toe or sole and record the color and finish with the sock construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at opening, heel, toe or sole.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Shoe Reference To Low-Cut Fit.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share The Shoe Profile</h3><p>Send the target shoe, sock reference, size range and quantity.</p></li><li class="custom-product-step"><span>02</span><h3>Confirm Opening &amp; Heel</h3><p>Record cut line, coverage, tab and any requested grip construction.</p></li><li class="custom-product-step"><span>03</span><h3>Review Fit Sample</h3><p>Confirm quote terms and whether a fit sample is included in the scope.</p></li><li class="custom-product-step"><span>04</span><h3>Approve The Foot Details</h3><p>Check toe, sole, care information, packing and inspection requirements.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="No-show footie with navy, cream and slate-blue yarn swatches and blank cards" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a no-show sock reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="No-show sock beside a soft tape measuring its heel-to-opening rise" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record opening height, heel depth, tab shape, requested grip and shoe profile by size.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="No-show footie with navy, cream and slate-blue yarn swatches and blank cards" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands stretching the low opening edge of a no-show footie" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review opening, heel coverage, cuff and toe construction.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of toe closure and knit on a low-cut no-show sock" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for opening shape, heel fit, grip construction, toe and sole against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="No-show socks folded into white tissue" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="No-show sock set inside an open cream presentation box" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Low-cut no-show socks inside a clear protective bag" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="No-show socks beside a plain kraft mailer" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="No-show socks beside a blank cream hangtag and insert" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Three low-cut no-show footie socks in navy, cream and slate blue" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Low Opening</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close view of the low-cut opening edge and breathable knit on a no-show sock" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Heel Coverage</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close inspection of toe closure and knit on a low-cut no-show sock" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Toe &amp; Sole Finish</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Low-cut sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Sock Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Low-cut socks with matching yarn in an unbranded still life" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail display of low-cut no-show socks only" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Low-cut sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Single no-show footie isolated on a warm off-white backdrop" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Close view of the low-cut opening edge and breathable knit on a no-show sock" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="No-show footie photographed from a complementary side angle" style="background-image:url('assets/custom-no-show-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>How low should a no show sock sit?</summary><p>Share the shoe model or collar height and mark the desired opening. Fit is reviewed against the selected shoe and size range.</p></details><details><summary>Can I request a heel grip?</summary><p>Describe the requested internal detail or provide a reference. Its material, placement and suitability are confirmed for the sock construction.</p></details><details><summary>Should a no show sock have a logo?</summary><p>Provide artwork and show whether it belongs on the sole, toe or inside. Available placement is checked against the low-cut pattern.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a no-show sock reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Set The Opening And Heel Coverage?</summary><p>Yes. Share a side view of the sock in its intended shoe and the preferred heel coverage; the agreed fit is included in the quote.</p></details><details><summary>Can A Logo Or Motif Be Added?</summary><p>Share the artwork and mark the preferred foot placement. The suitable knit-in finish is reviewed against the sock construction and listed in the quote.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE SOCKS STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-ankle-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream ankle sock with a short cuff and navy reinforced heel and toe" style="background-image:url('assets/custom-ankle-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Ankle Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-crew-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream mid-calf crew sock with navy stripes and ribbed cuff" style="background-image:url('assets/custom-crew-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Crew Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-athletic-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy technical athletic crew sock with cream heel and toe reinforcement" style="background-image:url('assets/custom-athletic-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Athletic Socks</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your No Show Socks Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your No Show Sock Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

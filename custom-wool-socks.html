@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Oatmeal heather wool-blend crew sock with navy heel and toe">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Oatmeal heather wool-blend crew sock with navy heel and toe" style="background-image:url('assets/custom-wool-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Oatmeal heather wool-blend crew sock with navy heel and toe</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Wool Socks Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Oatmeal heather wool-blend crew sock with navy heel and toe"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Oatmeal heather wool-blend crew sock with navy heel and toe</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM SOCKS</p>
       <h1 id="product-title">Custom Wool Socks</h1>
       <p class="custom-product-lead">Start with the wool composition and knit feel, then specify thickness, length and the care information required for the finished range.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Wool Sock Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Specify the wool blend, yarn weight, texture, finished length and care requirements.</p></details><details><summary>Decoration</summary><p>Share artwork or a motif and mark its preferred placement at cuff, leg, heel or foot. The knit-in color and finish are reviewed against the selected construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Specify The Fiber And Knit Weight.</h2>
-      <p>Wool socks can vary in blend, yarn thickness and surface texture. State the composition target, finished weight, length and care-label needs.</p>
-      <ul class="custom-product-overview-features"><li><strong>Fiber Blend</strong><span>Wool percentage and companion fiber requirements.</span></li><li><strong>Knit &amp; Weight</strong><span>Texture, thickness and fit reference.</span></li><li><strong>Care Details</strong><span>Label language and handling instructions to confirm.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of wool-blend yarn texture and ribbed cuff" style="background-image:url('assets/custom-wool-socks-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Wool-blend yarn texture and ribbed cuff</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Wool sock beside a soft tape measuring from heel to cuff" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Wool Sock Around Your Brief.</h2>
+      <p>Plan wool blend, knit weight, finished length and care labeling for the intended sock feel.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Wool blend, yarn weight, knit texture, finished length and size range.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at cuff, leg, heel or foot and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed wool sock specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Be Precise About Fiber And Care.</h2><p>Name the requested composition and include any market or labeling requirements for review.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Composition</h3><p>Specify the wool content target, blend and any documentation you need to review.</p></article><article class="custom-style-option"><span>02</span><h3>Texture &amp; Thickness</h3><p>Share a knit sample or reference for yarn thickness, density and finished feel.</p></article><article class="custom-style-option"><span>03</span><h3>Length &amp; Label</h3><p>Choose the sock height and provide required fiber and care-label wording.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Macro of softly brushed wool fibers and ribbed sock knit" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Map artwork or a knit motif to cuff, leg, heel or foot and record the color and finish with the sock construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at cuff, leg, heel or foot.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Fiber Brief To Composition Review.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share Fiber Requirements</h3><p>Provide composition target, size range, label text and quantity.</p></li><li class="custom-product-step"><span>02</span><h3>Confirm Knit &amp; Weight</h3><p>Record yarn thickness, surface texture, height and fit reference.</p></li><li class="custom-product-step"><span>03</span><h3>Review Quoted Scope</h3><p>Confirm material availability, quote terms and whether sampling is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve Label &amp; Sample</h3><p>Review the sample, composition statement, care wording and packing details.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Wool crew sock with matching wool yarn skeins, knit swatches and blank cards" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a wool sock reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Wool sock beside a soft tape measuring from heel to cuff" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record yarn blend and weight, shaft length, cuff and size range.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Wool crew sock with matching wool yarn skeins, knit swatches and blank cards" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands touching the brushed wool-blend texture of a crew sock" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review yarn blend, knit weight and finished length.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of cushioned heel and reinforced toe knit on a wool sock" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for yarn consistency, knit weight, cuff and care-label details against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Wool-blend crew sock folded into white tissue" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Wool socks inside an open cream presentation box" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Cream wool socks inside a clear protective bag" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy wool crew socks beside a plain kraft mailer" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Wool socks beside a blank cream hangtag and insert" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Pair of thick wool-blend crew socks in navy with textured ribbed shafts" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Wool Blend</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Macro of softly brushed wool fibers and ribbed sock knit" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Knit Texture</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Pair of wool crew socks photographed from a complementary side angle" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Length &amp; Fit</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Wool crew sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Sock Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Wool socks with navy, cream and slate-blue yarn balls in a still life" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail display of wool-blend crew socks only" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Wool crew sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Single wool crew sock isolated against warm off-white" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Macro of softly brushed wool fibers and ribbed sock knit" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Pair of wool crew socks photographed from a complementary side angle" style="background-image:url('assets/custom-wool-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>Can I set a specific wool percentage?</summary><p>State the required composition and any supporting documentation. The blend and available verification are confirmed for the selected yarn and order.</p></details><details><summary>Can wool socks be made in different thicknesses?</summary><p>Share a physical sample or describe the knit weight and intended shoe fit. Yarn and construction options are reviewed for the requested specification.</p></details><details><summary>What care details should appear on the label?</summary><p>Provide the market language and handling instructions you require. Final composition and care wording should be approved for the confirmed materials.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a wool sock reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Request A Specific Wool Blend Or Knit Weight?</summary><p>Yes. Share the fiber percentages and a texture or thickness reference; the agreed yarn and weight are confirmed in the quote.</p></details><details><summary>Can A Logo Or Motif Be Knitted In?</summary><p>Share artwork and colors with the preferred placement. The knit pattern and quoted scope are reviewed against the selected yarn and gauge.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE SOCKS STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-crew-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream mid-calf crew sock with navy stripes and ribbed cuff" style="background-image:url('assets/custom-crew-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Crew Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-athletic-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy technical athletic crew sock with cream heel and toe reinforcement" style="background-image:url('assets/custom-athletic-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Athletic Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-compression-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy knee-high compression-style sock with zoned knit and cream toe" style="background-image:url('assets/custom-compression-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Compression Socks</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Wool Socks Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Wool Sock Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

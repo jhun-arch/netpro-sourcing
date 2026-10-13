@@ -1,0 +1,2163 @@
+{
+  "schema_version": 1,
+  "layout": {
+    "columns": 4,
+    "rows": 4,
+    "reading_order": "row-major, zero-based",
+    "background_size": "400% 400%",
+    "position_steps_percent": [
+      0,
+      33.333333,
+      66.666667,
+      100
+    ],
+    "panel_roles": [
+      {
+        "index": 0,
+        "key": "hero",
+        "label": "Complete product overview"
+      },
+      {
+        "index": 1,
+        "key": "craft_detail",
+        "label": "Style-specific material and construction detail"
+      },
+      {
+        "index": 2,
+        "key": "brief",
+        "label": "Brief tabletop with materials"
+      },
+      {
+        "index": 3,
+        "key": "measurement",
+        "label": "Size or fit check"
+      },
+      {
+        "index": 4,
+        "key": "sampling",
+        "label": "Hands sampling the product"
+      },
+      {
+        "index": 5,
+        "key": "quality_check",
+        "label": "Close inspection of workmanship"
+      },
+      {
+        "index": 6,
+        "key": "tissue_pack",
+        "label": "Tissue packing"
+      },
+      {
+        "index": 7,
+        "key": "presentation_box",
+        "label": "Presentation box"
+      },
+      {
+        "index": 8,
+        "key": "protective_bag",
+        "label": "Clear protective bag"
+      },
+      {
+        "index": 9,
+        "key": "mailer",
+        "label": "Mailer"
+      },
+      {
+        "index": 10,
+        "key": "blank_insert",
+        "label": "Blank label or insert"
+      },
+      {
+        "index": 11,
+        "key": "brand_still_life",
+        "label": "Unbranded product still life"
+      },
+      {
+        "index": 12,
+        "key": "retail_display",
+        "label": "Retail display"
+      },
+      {
+        "index": 13,
+        "key": "team_colorway",
+        "label": "Coordinated product colors"
+      },
+      {
+        "index": 14,
+        "key": "ecommerce_hero",
+        "label": "Ecommerce hero"
+      },
+      {
+        "index": 15,
+        "key": "ecommerce_alt",
+        "label": "Complementary ecommerce angle"
+      }
+    ]
+  },
+  "styles": [
+    {
+      "slug": "custom-baseball-caps",
+      "name": "Baseball Caps",
+      "asset": "assets/custom-baseball-caps-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-880ead87-a8e5-4aae-a9d7-2ad7fdd25d0a.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-baseball-caps",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy six-panel baseball cap with curved bill on a pale stone plinth"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close view of navy baseball-cap twill, crown seam, eyelet and small unmarked stitch"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy baseball cap beside matching fabric swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring a navy baseball cap crown and curved bill with a tape"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands gently handling navy cotton-twill baseball-cap fabric"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of stitching along a navy baseball-cap brim"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy baseball cap being wrapped in white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy baseball cap inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy baseball cap inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy baseball cap beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy baseball cap with blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy and cream baseball caps with folded neutral fabric"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelves displaying classic baseball caps in navy and pale colors"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Baseball caps in coordinated navy, cream and slate-blue colors"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front three-quarter ecommerce photo of a navy six-panel baseball cap"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Rear view of a navy baseball cap showing its adjustable strap"
+        }
+      ]
+    },
+    {
+      "slug": "custom-beanies",
+      "name": "Beanies",
+      "asset": "assets/custom-beanies-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-8e78729a-a862-4d16-9bc1-9195227cbaf6.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-beanies",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy rib-knit beanie with a folded cuff, shown from the front"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro photograph of chunky navy beanie knit loops"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy knit beanie with matching yarn swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the height and circumference of a navy cuffed beanie"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands gently stretching the rib-knit cuff of a navy beanie"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of crown shaping and knit construction on a navy beanie"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy knit beanie being wrapped in white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy knit beanie inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy knit beanie inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy knit beanie beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy knit beanie with a blank cream hangtag"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy beanie beside matching yarn in a premium still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying navy, cream and slate-blue cuffed beanies"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Cuffed beanies in coordinated navy, oatmeal and slate-blue colors"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front ecommerce photo of a navy rib-knit cuffed beanie"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Alternate front view of a navy rib-knit cuffed beanie"
+        }
+      ]
+    },
+    {
+      "slug": "custom-trucker-caps",
+      "name": "Trucker Caps",
+      "asset": "assets/custom-trucker-caps-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-2c5f5310-514c-42b9-a1a4-03fbbe1098c7.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-trucker-caps",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Structured navy and slate-blue mesh-back trucker cap with a curved bill"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close view of cotton front panel meeting breathable mesh on a trucker cap"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Trucker cap with matching fabric swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the crown height of a mesh-back trucker cap"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands sampling the cotton-twill front and mesh panel of a trucker cap"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of a trucker cap crown seam"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Trucker cap being wrapped in white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Mesh-back trucker cap inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Mesh-back trucker cap inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Trucker cap beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Trucker cap with a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Mesh-back trucker cap beside a matching fabric swatch"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying mesh-back trucker caps"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Trucker caps in coordinated navy, cream and slate-blue colors"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front three-quarter ecommerce photo of a navy mesh-back trucker cap"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Rear view showing the mesh panels and snap closure of a trucker cap"
+        }
+      ]
+    },
+    {
+      "slug": "custom-snapbacks",
+      "name": "Snapbacks",
+      "asset": "assets/custom-snapbacks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-404b4a3c-8a6c-4bf6-b638-9e1311632522.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-snapbacks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Structured navy snapback cap with a high crown and flat bill"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close view of a snapback six-panel crown seam and flat-bill stitching"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Snapback cap with matching fabric swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the crown height of a structured snapback cap"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands sampling structured navy cotton-twill snapback fabric"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of stitching on a snapback flat bill"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Snapback cap being wrapped in white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Structured snapback inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Snapback cap inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Snapback cap beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Snapback cap with a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Structured snapback beside a matching cotton-twill swatch"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying structured flat-bill snapback caps"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Snapbacks in coordinated navy, cream and slate-blue colors"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front ecommerce photo of a structured navy flat-bill snapback"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Rear view showing the adjustable snap closure of a snapback"
+        }
+      ]
+    },
+    {
+      "slug": "custom-visors",
+      "name": "Visors",
+      "asset": "assets/custom-visors-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-50bf0d88-74e9-4c36-8038-4e830fdad4e0.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-visors",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy open-top sun visor with a fabric headband and curved bill"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro view of visor twill and bill seam stitching"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Open-top visor with matching swatches and blank brief cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Soft tape measuring the open visor headband circumference"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands gently flexing the fabric visor headband"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of stitching on the curved visor brim"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy visor being wrapped in tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Open-top visor inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy visor inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy visor beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Visor beside a blank cream hangtag"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Open-top visor with a matching twill swatch in an unbranded still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying open-top sun visors"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Open-top visors in coordinated navy, cream and mist blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front three-quarter ecommerce photo of a navy open-top visor"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Side ecommerce view showing the open band and curved bill of a visor"
+        }
+      ]
+    },
+    {
+      "slug": "custom-camper-hats",
+      "name": "Camper Hats",
+      "asset": "assets/custom-camper-hats-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-19244065-5c2f-411f-bdd0-92f4b55e7888.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-camper-hats",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy five-panel camper hat with a shallow crown and short flat brim"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro view of the five-panel camper-hat seam and canvas"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Shallow five-panel camper hat with canvas swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Tape measuring the shallow crown height of a five-panel camper hat"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands sampling the short flat brim of a camper hat"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of stitching on a camper-hat flat brim"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Five-panel camper hat being wrapped in tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Camper hat inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Five-panel camper hat inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Camper hat beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Camper hat beside a blank cream hangtag"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Five-panel camper hat with a matching canvas swatch"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying shallow five-panel camper hats"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Camper hats in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front ecommerce photo of a shallow five-panel camper hat"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Complementary ecommerce angle of a five-panel camper hat"
+        }
+      ]
+    },
+    {
+      "slug": "custom-dad-hats",
+      "name": "Dad Hats",
+      "asset": "assets/custom-dad-hats-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-7df9e161-a810-45a3-a87b-744c2fb17316.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-dad-hats",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Soft navy six-panel dad hat with a low relaxed crown and curved bill"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro view of washed cotton twill and soft crown stitching on a dad hat"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Low-profile dad hat with matching cotton swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the crown height of an unstructured dad hat"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands sampling soft washed cotton twill on a dad hat"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of a soft stitched curved bill"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Dad hat being wrapped in white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Unstructured dad hat inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Dad hat inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Dad hat beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Dad hat with a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Soft dad hat beside a matching cotton swatch"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying low-profile dad hats"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Dad hats in coordinated navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front three-quarter ecommerce photo of a relaxed dad hat"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Rear view showing a fabric strap and metal slider on a dad hat"
+        }
+      ]
+    },
+    {
+      "slug": "custom-bucket-hats",
+      "name": "Bucket Hats",
+      "asset": "assets/custom-bucket-hats-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-9344cd3a-3c30-44fb-9b38-0c829ba258bc.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-bucket-hats",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy soft bucket hat with a rounded crown and continuous downward brim"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro view of cotton canvas and circular bucket-hat brim stitching"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Bucket hat with matching canvas swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the crown height of a soft bucket hat"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands gently sampling the soft canvas bucket-hat brim"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of concentric bucket-hat brim stitching"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Bucket hat being wrapped in white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Soft bucket hat inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Bucket hat inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Bucket hat beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Bucket hat beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Soft bucket hat with a matching canvas swatch"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying soft bucket hats"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Bucket hats in coordinated navy, cream and slate-blue colors"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Front ecommerce photo of a navy soft bucket hat"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Complementary side ecommerce photo showing the continuous downward brim"
+        }
+      ]
+    },
+    {
+      "slug": "custom-ankle-socks",
+      "name": "Ankle Socks",
+      "asset": "assets/custom-ankle-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-b72a358a-c3e9-4245-ad1a-9b756e95eba9.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-ankle-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy low ankle socks with short cuffs ending just above the ankle"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro view of a short rib cuff and heel knit on an ankle sock"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle sock with matching yarn swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the short sock shaft from heel to cuff"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands sampling a navy low ankle sock"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of heel and toe knitting on an ankle sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle sock being folded into white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle socks inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle sock pair inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle sock beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle sock pair beside a blank cream label insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy ankle sock with matching cotton yarn in a still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail display of short ankle socks only"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Ankle socks in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single ankle sock in a clean ecommerce hero photo"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Complementary ecommerce angle of a low ankle sock"
+        }
+      ]
+    },
+    {
+      "slug": "custom-crew-socks",
+      "name": "Crew Socks",
+      "asset": "assets/custom-crew-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a12f44-4fc2-75e3-be37-527db070299c\\exec-fc5c172f-7d1d-4282-b529-1b6f7a839e75.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-crew-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy crew sock with a ribbed cuff reaching mid-calf"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro view of a mid-calf rib cuff and heel knit on a crew sock"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew sock with matching yarn swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands measuring the mid-calf shaft of a crew sock"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands sampling a ribbed crew-sock cuff"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of heel and toe knitting on a crew sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew sock being folded into white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew socks inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew sock pair inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew sock pair beside a blank cream label insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy crew sock with matching yarn and cotton in a still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail display of mid-calf crew socks only"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Crew socks in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single mid-calf crew sock in an ecommerce hero photo"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Complementary ecommerce angle of a mid-calf crew sock"
+        }
+      ]
+    },
+    {
+      "slug": "custom-athletic-socks",
+      "name": "Athletic Socks",
+      "asset": "assets/custom-athletic-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a132e9-c232-7231-8467-4fb5b1276198\\exec-2deb3eb2-8046-4932-b0c8-31272b7b259a.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-athletic-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of navy athletic crew socks with cushioned soles, breathable knit zones and cream-blue cuff stripes"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close detail of breathable mesh knit meeting the striped ribbed cuff on an athletic sock"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Athletic crew sock with navy, cream and slate-blue yarn swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Athletic crew sock beside a soft tape measuring from heel to cuff"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands stretching the ribbed cuff of a striped athletic crew sock"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of cushioned heel and reinforced toe knit on an athletic sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Athletic crew socks folded into white tissue paper"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Striped athletic crew socks packed in an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of striped athletic socks inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Athletic socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Athletic crew socks beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy athletic crew socks with matching yarn cones in an unbranded still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf of athletic crew socks in navy, cream and slate blue"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Athletic crew sock colorways in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single navy striped athletic crew sock isolated on a warm off-white backdrop"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of athletic crew socks photographed from a complementary side angle"
+        }
+      ]
+    },
+    {
+      "slug": "custom-knee-high-socks",
+      "name": "Knee-High Socks",
+      "asset": "assets/custom-knee-high-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a132e9-c232-7231-8467-4fb5b1276198\\exec-ad403ed2-11ba-45d5-a0b6-83bab7f35b5d.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-knee-high-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of navy knee-high socks with ribbed cuffs and full foot-to-below-knee shafts"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close knit detail of a ribbed knee-high sock cuff"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high sock with navy, cream and slate-blue yarn swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Full knee-high sock beside a soft measuring tape showing shaft length"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands gently stretching the ribbed upper band of a knee-high sock"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of heel shaping and toe seam on a knee-high sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high socks folded into white tissue paper"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high socks inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Folded knee-high socks inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high socks beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high socks with yarn skeins in an unbranded still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf displaying tall knee-high socks only"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high sock colorways in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single full-length knee-high sock isolated on a warm off-white backdrop"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of knee-high socks photographed from a complementary three-quarter angle"
+        }
+      ]
+    },
+    {
+      "slug": "custom-no-show-socks",
+      "name": "No-Show Socks",
+      "asset": "assets/custom-no-show-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a132e9-c232-7231-8467-4fb5b1276198\\exec-95aa375b-3b19-4aff-b90f-593dab57e29b.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-no-show-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Three low-cut no-show footie socks in navy, cream and slate blue"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close view of the low-cut opening edge and breathable knit on a no-show sock"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show footie with navy, cream and slate-blue yarn swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show sock beside a soft tape measuring its heel-to-opening rise"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands stretching the low opening edge of a no-show footie"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of toe closure and knit on a low-cut no-show sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show socks folded into white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show sock set inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Low-cut no-show socks inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show socks beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Low-cut socks with matching yarn in an unbranded still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail display of low-cut no-show socks only"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Low-cut sock colorways in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single no-show footie isolated on a warm off-white backdrop"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "No-show footie photographed from a complementary side angle"
+        }
+      ]
+    },
+    {
+      "slug": "custom-novelty-socks",
+      "name": "Novelty Socks",
+      "asset": "assets/custom-novelty-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a132e9-c232-7231-8467-4fb5b1276198\\exec-fb018507-eb73-449a-94fe-bd2de53a086f.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-novelty-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of navy and cream novelty crew socks with knitted star and geometric motifs"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close detail of small knitted stars and motifs around a ribbed crew cuff"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Novelty crew sock with matching patterned knit swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Patterned crew sock beside a soft tape measuring heel-to-cuff length"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands checking the ribbed knit of a patterned novelty crew sock"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of patterned knit and toe seam on a novelty sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Novelty crew socks folded into white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Novelty crew socks inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Patterned crew socks inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Novelty socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Novelty crew socks beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Patterned novelty socks with navy, cream and slate yarn skeins in an unbranded still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail shelf of playful patterned crew socks"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Three motif crew sock colorways in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single patterned crew sock isolated on a warm off-white backdrop"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of patterned crew socks from a complementary three-quarter angle"
+        }
+      ]
+    },
+    {
+      "slug": "custom-wool-socks",
+      "name": "Wool Socks",
+      "asset": "assets/custom-wool-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a132e9-c232-7231-8467-4fb5b1276198\\exec-9da0211a-e107-4c7c-9192-199032818360.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-wool-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of thick wool-blend crew socks in navy with textured ribbed shafts"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro of softly brushed wool fibers and ribbed sock knit"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool crew sock with matching wool yarn skeins, knit swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool sock beside a soft tape measuring from heel to cuff"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands touching the brushed wool-blend texture of a crew sock"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of cushioned heel and reinforced toe knit on a wool sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool-blend crew sock folded into white tissue"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool socks inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Cream wool socks inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Navy wool crew socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool socks beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool socks with navy, cream and slate-blue yarn balls in a still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail display of wool-blend crew socks only"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Wool crew sock colorways in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single wool crew sock isolated against warm off-white"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of wool crew socks photographed from a complementary side angle"
+        }
+      ]
+    },
+    {
+      "slug": "custom-compression-socks",
+      "name": "Compression Socks",
+      "asset": "assets/custom-compression-socks-editorial-v2.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a132e9-c232-7231-8467-4fb5b1276198\\exec-4042417d-ac5f-41d4-951e-c52bd0e10b56.png",
+      "prompt_record": "data/style-module-image-prompts.json#custom-compression-socks",
+      "format": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "tile_size_px": {
+        "width": 313.5,
+        "height": 313.5
+      },
+      "background_size": "400% 400%",
+      "panels": [
+        {
+          "index": 0,
+          "key": "hero",
+          "position": "0% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of knee-high graduated-knit compression-style socks with full shafts and feet"
+        },
+        {
+          "index": 1,
+          "key": "craft_detail",
+          "position": "33.333333% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Macro of fine ribbed graduated knit structure on a compression-style sock"
+        },
+        {
+          "index": 2,
+          "key": "brief",
+          "position": "66.666667% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Graduated-knit sock with navy, cream and slate-blue swatches and blank cards"
+        },
+        {
+          "index": 3,
+          "key": "measurement",
+          "position": "100% 0%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Full knee-high sock beside a soft tape measuring foot-to-top length"
+        },
+        {
+          "index": 4,
+          "key": "sampling",
+          "position": "0% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Hands stretching the ribbed top band of a compression-style sock"
+        },
+        {
+          "index": 5,
+          "key": "quality_check",
+          "position": "33.333333% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Close inspection of reinforced heel and toe knit on a knee-high sock"
+        },
+        {
+          "index": 6,
+          "key": "tissue_pack",
+          "position": "66.666667% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Compression-style socks folded into white tissue paper"
+        },
+        {
+          "index": 7,
+          "key": "presentation_box",
+          "position": "100% 33.333333%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high socks inside an open cream presentation box"
+        },
+        {
+          "index": 8,
+          "key": "protective_bag",
+          "position": "0% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Folded knee-high socks inside a clear protective bag"
+        },
+        {
+          "index": 9,
+          "key": "mailer",
+          "position": "33.333333% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Compression-style socks beside a plain kraft mailer"
+        },
+        {
+          "index": 10,
+          "key": "blank_insert",
+          "position": "66.666667% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Compression-style socks beside a blank cream hangtag and insert"
+        },
+        {
+          "index": 11,
+          "key": "brand_still_life",
+          "position": "100% 66.666667%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Plain knee-high socks with technical knit swatches in an unbranded still life"
+        },
+        {
+          "index": 12,
+          "key": "retail_display",
+          "position": "0% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Retail display of plain knee-high graduated-knit socks with blank bands"
+        },
+        {
+          "index": 13,
+          "key": "team_colorway",
+          "position": "33.333333% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Knee-high sock colorways in navy, cream and slate blue"
+        },
+        {
+          "index": 14,
+          "key": "ecommerce_hero",
+          "position": "66.666667% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Single graduated-knit knee-high sock isolated on warm off-white"
+        },
+        {
+          "index": 15,
+          "key": "ecommerce_alt",
+          "position": "100% 100%",
+          "tile_size_percent": "25% 25%",
+          "alt": "Pair of knee-high socks photographed from a complementary angle"
+        }
+      ]
+    }
+  ]
+}

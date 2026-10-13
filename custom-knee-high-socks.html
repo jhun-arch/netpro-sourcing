@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Cream knee-high sock with a navy-striped ribbed top band">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Cream knee-high sock with a navy-striped ribbed top band" style="background-image:url('assets/custom-knee-high-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Cream knee-high sock with a navy-striped ribbed top band</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Knee High Socks Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Cream knee-high sock with a navy-striped ribbed top band"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Cream knee-high sock with a navy-striped ribbed top band</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM SOCKS</p>
       <h1 id="product-title">Custom Knee High Socks</h1>
       <p class="custom-product-lead">An extended shaft calls for clear finished length and calf measurements. Define the top band and artwork placement from cuff to foot.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Knee High Sock Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Set finished leg length, calf points, top-band width and size grading.</p></details><details><summary>Decoration</summary><p>Share artwork or a motif and mark its preferred placement at top band, shaft, heel or foot. The knit-in color and finish are reviewed against the selected construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Measure The Full Shaft And Calf.</h2>
-      <p>Knee high socks cover a longer leg area. Provide finished length and calf points by size, plus top-band construction and pattern alignment references.</p>
-      <ul class="custom-product-overview-features"><li><strong>Shaft Length</strong><span>Cuff-to-heel measurement and size grading.</span></li><li><strong>Calf Fit</strong><span>Circumference points and top-band width.</span></li><li><strong>Full-Length Design</strong><span>Stripe, motif or logo placement along the leg.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of knee-high sock long ribs and striped cuff" style="background-image:url('assets/custom-knee-high-socks-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Knee-high sock long ribs and striped cuff</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Full knee-high sock beside a soft measuring tape showing shaft length" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Knee-High Sock Around Your Brief.</h2>
+      <p>Plan leg length, calf fit, top band and pattern alignment across the size range.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Finished leg length, calf measurements, top band, pattern and size grading.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at top band, shaft, heel or foot and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed knee-high sock specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Align The Long Shaft With The Size Run.</h2><p>Measurements at more than one leg point help describe the fit and keep artwork positioned as intended.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Length &amp; Calf</h3><p>Share finished length and circumference points for each size group.</p></article><article class="custom-style-option"><span>02</span><h3>Top Band</h3><p>Set band width, rib structure and any contrast color.</p></article><article class="custom-style-option"><span>03</span><h3>Leg Pattern</h3><p>Map motifs or stripes from cuff toward the ankle and foot.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close knit detail of a ribbed knee-high sock cuff" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Map artwork or a knit motif to top band, shaft, heel or foot and record the color and finish with the sock construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at top band, shaft, heel or foot.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Leg Measurements To Fit Approval.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share The Size Range</h3><p>Provide target sizes, calf measurements, artwork and quantity.</p></li><li class="custom-product-step"><span>02</span><h3>Confirm Length &amp; Band</h3><p>Record shaft length, circumference points, cuff and knit details.</p></li><li class="custom-product-step"><span>03</span><h3>Review Sample Scope</h3><p>Confirm quoted terms and whether size or fit sampling is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve The Grading</h3><p>Check length, artwork alignment, labeling and packing for the range.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Knee-high sock with navy, cream and slate-blue yarn swatches and blank cards" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a knee-high sock reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Full knee-high sock beside a soft measuring tape showing shaft length" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record finished leg length, calf circumference points, top band and size range.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Knee-high sock with navy, cream and slate-blue yarn swatches and blank cards" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands gently stretching the ribbed upper band of a knee-high sock" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review finished leg length, calf points, top band and pattern.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of heel shaping and toe seam on a knee-high sock" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for length grading, top-band fit, pattern alignment and knit quality against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Knee-high socks folded into white tissue paper" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Knee-high socks inside an open cream presentation box" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Folded knee-high socks inside a clear protective bag" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Knee-high socks beside a plain kraft mailer" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Knee-high socks beside a blank cream hangtag and insert" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Pair of navy knee-high socks with ribbed cuffs and full foot-to-below-knee shafts" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Knee-High Length</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close knit detail of a ribbed knee-high sock cuff" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Top Band</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Full knee-high sock beside a soft measuring tape showing shaft length" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Calf Measurement</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Knee-high sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Sock Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Knee-high socks with yarn skeins in an unbranded still life" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail shelf displaying tall knee-high socks only" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Knee-high sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Single full-length knee-high sock isolated on a warm off-white backdrop" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Close knit detail of a ribbed knee-high sock cuff" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Pair of knee-high socks photographed from a complementary three-quarter angle" style="background-image:url('assets/custom-knee-high-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>Which measurements matter for knee high fit?</summary><p>Share foot size, finished length and calf circumference at the points that matter to your design. Grading and tolerances are agreed in the specification.</p></details><details><summary>Can a stripe continue from cuff to ankle?</summary><p>Yes. Mark its width, spacing and position across the full shaft. The pattern is reviewed against knit construction and size grading.</p></details><details><summary>Can the top band be a different knit?</summary><p>Include a band reference and dimensions. The selected construction and fit are confirmed during sample review.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a knee-high sock reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Set The Sock Length And Calf Fit?</summary><p>Yes. Provide finished length and calf points for each size group; the agreed grading and top-band dimensions are confirmed in the quote.</p></details><details><summary>Can A Logo Or Motif Be Knitted In?</summary><p>Share the artwork, repeat and position along the leg. The knit pattern and quoted scope are reviewed against the size grading.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE SOCKS STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-crew-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream mid-calf crew sock with navy stripes and ribbed cuff" style="background-image:url('assets/custom-crew-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Crew Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-compression-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy knee-high compression-style sock with zoned knit and cream toe" style="background-image:url('assets/custom-compression-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Compression Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-athletic-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy technical athletic crew sock with cream heel and toe reinforcement" style="background-image:url('assets/custom-athletic-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Athletic Socks</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Knee High Socks Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Knee High Sock Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

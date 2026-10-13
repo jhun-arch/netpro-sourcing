@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Muted blue five-panel camper hat with low crown and flat brim">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Muted blue five-panel camper hat with low crown and flat brim" style="background-image:url('assets/custom-camper-hats-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Muted blue five-panel camper hat with low crown and flat brim</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Camper Hats Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Muted blue five-panel camper hat with low crown and flat brim"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Muted blue five-panel camper hat with low crown and flat brim</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM HEADWEAR</p>
       <h1 id="product-title">Custom Camper Hats</h1>
       <p class="custom-product-lead">Camper hats are defined by a low profile and compact brim. Share the panel layout, crown depth and fit details that make your reference distinct.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Camper Hat Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Specify crown depth, five-panel layout, short brim, closure and fit range.</p></details><details><summary>Decoration</summary><p>Share the artwork and mark its preferred placement at the front panel, side or brim. The finish is reviewed against the selected material and construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Keep The Low Profile In View.</h2>
-      <p>Start with crown depth and panel arrangement, then align the brim and closure. A top and side reference can make the compact shape easier to specify.</p>
-      <ul class="custom-product-overview-features"><li><strong>Crown Depth</strong><span>Low-profile height and front panel structure.</span></li><li><strong>Brim</strong><span>Short brim length, curve and edge stitch reference.</span></li><li><strong>Back Fit</strong><span>Adjustment hardware, strap length and size range.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of camper hat canvas panel seam and stitched flat brim" style="background-image:url('assets/custom-camper-hats-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Camper hat canvas panel seam and stitched flat brim</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Tape measuring the shallow crown height of a five-panel camper hat" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Camper Hat Around Your Brief.</h2>
+      <p>Plan the low crown, panel layout, short brim and fit as one clear camper hat specification.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Crown depth, panel count, short brim, closure, material and fit range.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at the front panel, side or brim and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed camper hat specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Set The Camper Hat Proportions.</h2><p>Use views from the top and side to communicate the panel shape and compact brim.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Panel Layout</h3><p>Share the seam pattern, crown depth and preferred front-panel structure.</p></article><article class="custom-style-option"><span>02</span><h3>Short Brim</h3><p>Show the brim length and curve with a side profile or sample.</p></article><article class="custom-style-option"><span>03</span><h3>Material &amp; Fit</h3><p>Note the fabric feel, closure reference and intended size range.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Macro view of the five-panel camper-hat seam and canvas" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Share artwork and mark the preferred placement at the front panel, side or brim; the finish is confirmed against the selected material and construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at the front panel, side or brim.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Low-Profile Reference To Sample.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share The Shape</h3><p>Provide top, front and side references with quantity and artwork.</p></li><li class="custom-product-step"><span>02</span><h3>Confirm The Build</h3><p>Record crown depth, panel seams, brim shape, material and closure.</p></li><li class="custom-product-step"><span>03</span><h3>Review Scope</h3><p>Confirm quote terms and the scope for any requested sample or proof.</p></li><li class="custom-product-step"><span>04</span><h3>Approve The Details</h3><p>Check the final profile, decoration, packing and inspection requirements.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Shallow five-panel camper hat with canvas swatches and blank cards" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a camper hat reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Tape measuring the shallow crown height of a five-panel camper hat" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record crown depth, panel layout, short brim, closure and size range.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Shallow five-panel camper hat with canvas swatches and blank cards" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands sampling the short flat brim of a camper hat" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review crown depth, brim shape and back adjustment.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of stitching on a camper-hat flat brim" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for panel seams, brim stitching, shape and decoration against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Five-panel camper hat being wrapped in tissue" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Camper hat inside an open cream presentation box" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Five-panel camper hat inside a clear protective bag" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Camper hat beside a plain kraft mailer" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Camper hat beside a blank cream hangtag" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Navy five-panel camper hat with a shallow crown and short flat brim" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Low Crown &amp; Short Brim</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Macro view of the five-panel camper-hat seam and canvas" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Five-Panel Construction</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Tape measuring the shallow crown height of a five-panel camper hat" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Crown Measurement</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Camper hats in navy, cream and slate blue" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Camper Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Five-panel camper hat with a matching canvas swatch" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail shelf displaying shallow five-panel camper hats" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Camper hats in navy, cream and slate blue" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Front ecommerce photo of a shallow five-panel camper hat" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Macro view of the five-panel camper-hat seam and canvas" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Complementary ecommerce angle of a five-panel camper hat" style="background-image:url('assets/custom-camper-hats-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>What makes a camper hat profile clear in a brief?</summary><p>Share top and side views, crown depth and the panel or seam layout. A sample or annotated sketch helps confirm the compact proportions.</p></details><details><summary>Can I request a shorter brim?</summary><p>Include the target length and curve reference. The final brim is checked with the crown and overall proportions during sample review.</p></details><details><summary>Which closure details should I specify?</summary><p>Describe the adjuster, strap length and desired fit range. The selected closure is confirmed with the rest of the construction details.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a camper hat reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Request A Particular Crown, Brim Or Closure?</summary><p>Yes. Share a profile reference with the crown, brim and closure preferences; the agreed build is confirmed in the quote.</p></details><details><summary>Can A Logo Be Embroidered Or Applied As A Patch?</summary><p>Share the artwork, placement and preferred finish. Feasibility is checked against the panel structure and recorded in the quote.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE HEADWEAR STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-baseball-caps.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Unbranded navy cotton baseball cap with curved bill and six-panel crown" style="background-image:url('assets/custom-baseball-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Baseball Caps</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-trucker-caps.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy and cream mesh-back trucker cap with curved bill" style="background-image:url('assets/custom-trucker-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Trucker Caps</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-bucket-hats.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream cotton bucket hat with a downward brim" style="background-image:url('assets/custom-bucket-hats-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Bucket Hats</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Camper Hats Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Camper Hat Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

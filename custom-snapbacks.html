@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Structured navy snapback cap with a tall crown and flat bill">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Structured navy snapback cap with a tall crown and flat bill" style="background-image:url('assets/custom-snapbacks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Structured navy snapback cap with a tall crown and flat bill</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Snapbacks Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Structured navy snapback cap with a tall crown and flat bill"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Structured navy snapback cap with a tall crown and flat bill</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM HEADWEAR</p>
       <h1 id="product-title">Custom Snapbacks</h1>
       <p class="custom-product-lead">Define the structured crown, flat bill and rear snap fit. Add artwork placement and color references to complete the snapback direction.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Snapback Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Set crown height, flat-bill profile, snap range, material and fit preference.</p></details><details><summary>Decoration</summary><p>Share the artwork and mark its preferred placement at the front crown, side panel or back. The finish is reviewed against the selected material and construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Make The Structure And Fit Specific.</h2>
-      <p>A snapback brief should call out crown structure, bill profile and the adjustment range. Include the front and side views used to check proportions.</p>
-      <ul class="custom-product-overview-features"><li><strong>Structured Crown</strong><span>Crown height and front-panel shape reference.</span></li><li><strong>Flat Bill</strong><span>Bill length, width and edge finish.</span></li><li><strong>Snap Closure</strong><span>Adjustment range and rear opening details.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of snapback cap flat bill stitching and cotton crown" style="background-image:url('assets/custom-snapbacks-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Snapback cap flat bill stitching and cotton crown</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Hands measuring the crown height of a structured snapback cap" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Snapback Cap Around Your Brief.</h2>
+      <p>Plan crown structure, flat bill, snap range and fit as one clear snapback specification.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Crown height, panel structure, flat bill, snap range and material.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at the front crown, side panel or back and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed snapback cap specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Define The Snapback Profile.</h2><p>Use front, side and rear references to capture the structured silhouette and adjustment details.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Crown Structure</h3><p>Describe the front panel support, crown height and seam layout.</p></article><article class="custom-style-option"><span>02</span><h3>Bill &amp; Color</h3><p>Confirm flatness, length, underside color and any contrast stitching.</p></article><article class="custom-style-option"><span>03</span><h3>Snap Range</h3><p>Specify the closure reference and the head-size range it should accommodate.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of a snapback six-panel crown seam and flat-bill stitching" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Share artwork and mark the preferred placement at the front crown, side panel or back; the finish is confirmed against the selected material and construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at the front crown, side panel or back.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Flat-Bill Reference To Approved Cap.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share Profile Views</h3><p>Send front, side and rear references with artwork and order details.</p></li><li class="custom-product-step"><span>02</span><h3>Confirm Crown &amp; Snap</h3><p>Record structure, bill, adjustment range, material and decoration.</p></li><li class="custom-product-step"><span>03</span><h3>Review Quote &amp; Sample</h3><p>Agree the quoted scope and whether a sample or artwork proof is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve Fit &amp; Finish</h3><p>Check the closure, artwork placement, packing and inspection criteria.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Snapback cap with matching fabric swatches and blank cards" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a snapback cap reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands measuring the crown height of a structured snapback cap" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record crown height, bill dimensions, snap range and size reference.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Snapback cap with matching fabric swatches and blank cards" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands sampling structured navy cotton-twill snapback fabric" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review crown shape, bill profile and snap range.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of stitching on a snapback flat bill" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for crown structure, bill stitching, closure fit and decoration against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Snapback cap being wrapped in white tissue" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Structured snapback inside an open cream presentation box" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Snapback cap inside a clear protective bag" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Snapback cap beside a plain kraft mailer" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Snapback cap with a blank cream hangtag and insert" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Structured navy snapback cap with a high crown and flat bill" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Structured Crown</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close view of a snapback six-panel crown seam and flat-bill stitching" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Flat Bill Stitching</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Rear view showing the adjustable snap closure of a snapback" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Snap Closure</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Snapbacks in coordinated navy, cream and slate-blue colors" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Snapback Colorways</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Structured snapback beside a matching cotton-twill swatch" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail shelf displaying structured flat-bill snapback caps" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Snapbacks in coordinated navy, cream and slate-blue colors" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Front ecommerce photo of a structured navy flat-bill snapback" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Close view of a snapback six-panel crown seam and flat-bill stitching" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Rear view showing the adjustable snap closure of a snapback" style="background-image:url('assets/custom-snapbacks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>Can I specify the snap adjustment range?</summary><p>Share the target size range or closure reference. The approved specification records the adjustment details for the selected crown and closure.</p></details><details><summary>Can the flat bill have a contrasting underside?</summary><p>Include a color reference and note the bill layers or stitching you want reviewed. The combination is confirmed with the sample or written approval.</p></details><details><summary>What crown details should be included?</summary><p>A front and side view with crown height, structure and seam preferences gives the clearest direction for sampling.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a snapback cap reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Request A Particular Crown Or Bill?</summary><p>Yes. Share the crown structure, bill profile and snap range; the agreed dimensions and fit appear in the quote.</p></details><details><summary>Can A Logo Be Embroidered Or Applied As A Patch?</summary><p>Share the artwork and front or side placement. The finish is reviewed against the crown structure and recorded in the quote.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE HEADWEAR STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-baseball-caps.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Unbranded navy cotton baseball cap with curved bill and six-panel crown" style="background-image:url('assets/custom-baseball-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Baseball Caps</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-trucker-caps.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy and cream mesh-back trucker cap with curved bill" style="background-image:url('assets/custom-trucker-caps-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Trucker Caps</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-dad-hats.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Washed pale blue unstructured dad hat with curved brim" style="background-image:url('assets/custom-dad-hats-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Dad Hats</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Snapbacks Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Snapback Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">

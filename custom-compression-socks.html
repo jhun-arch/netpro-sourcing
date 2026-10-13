@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inner-typography.css?v=20261012-3">
-  <link rel="stylesheet" href="custom-products.css?v=20261012-11">
+  <link rel="stylesheet" href="custom-products.css?v=20261012-16">
   <script defer src="custom-products.js?v=20261012-3"></script>
   <link rel="stylesheet" href="site-footer.css?v=20261009-7"><link rel="stylesheet" href="link-motion.css?v=20261009-3">
   <link rel="stylesheet" href="site-closing-cta.css?v=20261012-3">
@@ -118,8 +118,9 @@
       <button type="button" class="custom-product-stage-open" data-gallery-open aria-label="Open image viewer: Navy knee-high compression-style sock with zoned knit and cream toe">
         <span class="custom-product-view" data-gallery-view role="img" aria-label="Navy knee-high compression-style sock with zoned knit and cream toe" style="background-image:url('assets/custom-compression-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span>
       </button>
+      <button type="button" class="custom-product-gallery-button is-previous" data-gallery-previous aria-label="Previous image">&#8249;</button>
+          <button type="button" class="custom-product-gallery-button is-next" data-gallery-next aria-label="Next image">&#8250;</button>
     </div>
-    <div class="custom-product-gallery-caption"><strong data-gallery-caption>Navy knee-high compression-style sock with zoned knit and cream toe</strong></div>
     <p class="custom-product-gallery-status" data-gallery-status aria-live="polite"></p>
   </div>
   <div class="custom-product-thumbnails" role="group" aria-label="Product reference images">
@@ -133,8 +134,9 @@
     <div class="custom-product-lightbox-inner">
       <h2 id="gallery-dialog-title" class="sr-only">Compression Socks Image Viewer</h2>
       <button type="button" class="custom-product-lightbox-close" data-lightbox-close aria-label="Close image viewer">&#215;</button>
+      <button type="button" data-lightbox-previous aria-label="Previous image">&#8249;</button>
       <div class="custom-product-lightbox-view" data-lightbox-view role="img" aria-label="Navy knee-high compression-style sock with zoned knit and cream toe"></div>
-      <p class="custom-product-lightbox-caption" data-lightbox-caption>Navy knee-high compression-style sock with zoned knit and cream toe</p>
+      <button type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
     </div>
   </dialog>
 </div>
@@ -142,57 +144,140 @@
       <p class="eyebrow">CUSTOM SOCKS</p>
       <h1 id="product-title">Custom Compression Socks</h1>
       <p class="custom-product-lead">Specify ankle and calf measurements, finished length, knit zones and the garment fit you want reviewed.</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Discuss This Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the style, quantity, artwork and destination. The confirmed scope is recorded in your quote.</p></div>
+      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your Compression Sock Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-details"><details><summary>Fabric &amp; Fit</summary><p>Share the size range, ankle and calf points, finished length and requested knit zones.</p></details><details><summary>Decoration</summary><p>Share artwork or a motif and mark its preferred placement at cuff, shaft, heel or foot. The knit-in color and finish are reviewed against the selected construction.</p></details><details><summary>Project Planning</summary><p>Include estimated quantity, delivery destination and any sample, proof or packing requests.</p></details></div>
     </div>
   </section>
   <section class="custom-product-section custom-product-overview-section" aria-labelledby="product-overview-title">
   <div class="custom-product-wrap custom-product-overview">
-    <div class="custom-product-overview-copy">
-      <p class="eyebrow">STYLE DETAILS</p>
-      <h2 id="product-overview-title">Treat Fit As A Measured Specification.</h2>
-      <p>Share ankle and calf measurement points, finished length, size grading and requested knit zones so the garment fit and construction can be reviewed.</p>
-      <ul class="custom-product-overview-features"><li><strong>Measurements</strong><span>Ankle and calf circumferences, shaft length and size grading.</span></li><li><strong>Knit Construction</strong><span>Requested knit zones and garment specification for review.</span></li><li><strong>Garment Details</strong><span>Cuff, toe, colors, labels and size marking.</span></li></ul>
-    </div>
     <figure>
-      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Close view of compression-style sock calf ribs and mesh instep" style="background-image:url('assets/custom-compression-socks-editorial-v1.webp');background-size:200% auto;background-position:100% 50%"></span>
-      <figcaption>Compression-style sock calf ribs and mesh instep</figcaption>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Full knee-high sock beside a soft tape measuring foot-to-top length" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
     </figure>
+    <div class="custom-product-overview-copy">
+      <h2 id="product-overview-title">Shape The Compression Sock Around Your Brief.</h2>
+      <p>Plan size grading, leg measurements, cuff and knit zones in one product specification.</p>
+      <ul class="custom-product-overview-features"><li><strong>Product Details</strong><span>Ankle and calf points, finished leg length, size grading, cuff and knit zones.</span></li><li><strong>Artwork &amp; Finish</strong><span>Mark the preferred placement at cuff, shaft, heel or foot and share the requested decoration finish.</span></li><li><strong>Brand Details</strong><span>Labels, tags or inserts, plus care or size marking and packout requests where needed.</span></li></ul>
+      <div class="custom-product-details custom-product-overview-details"><details><summary>Manufacturing Scope</summary><p>The quote records the agreed compression sock specification, quantity, packing requests and delivery destination.</p></details><details><summary>Private Label Details</summary><p>Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote.</p></details></div>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-style-options" aria-labelledby="style-options-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">SPECIFICATION OPTIONS</p><h2 id="style-options-title">Record Measurements And Construction.</h2><p>Share the garment measurements and sock details you want represented in the approved specification.</p></header>
-    <div class="custom-product-card-grid custom-style-option-grid"><article class="custom-style-option"><span>01</span><h3>Fit Measurements</h3><p>List ankle and calf points, finished length, size grading and tolerances.</p></article><article class="custom-style-option"><span>02</span><h3>Knit Construction</h3><p>Describe the requested knit zones and garment specification for review.</p></article><article class="custom-style-option"><span>03</span><h3>Finish Details</h3><p>Choose cuff, toe, colors, labels and packing reference.</p></article></div>
+  <section class="custom-editorial-feature" aria-labelledby="brand-detail-title">
+  <div class="custom-product-wrap custom-editorial-feature-inner">
+    <figure>
+      <span class="custom-editorial-image custom-category-photo" role="img" aria-label="Macro of fine ribbed graduated knit structure on a compression-style sock" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+    </figure>
+    <div class="custom-editorial-copy">
+      <p class="eyebrow">BRAND DETAILS</p>
+      <h2 id="brand-detail-title">Artwork That Feels Like Yours.</h2>
+      <p>Map artwork or a knit motif to cuff, shaft, heel or foot and record the color and finish with the sock construction.</p>
+      <ul class="custom-editorial-points"><li>Artwork placement and finish at cuff, shaft, heel or foot.</li><li>Labels, tags or inserts, with care and size marking where needed.</li><li>Packing requests for the quote.</li></ul>
+    </div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-process custom-style-process" aria-labelledby="product-process-title">
+  <section class="custom-product-section custom-product-process custom-editorial-process custom-style-process" aria-labelledby="product-process-title">
   <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From Measurement Brief To Sample Review.</h2></header>
-    <ol class="custom-product-step-grid custom-style-process-grid"><li class="custom-product-step"><span>01</span><h3>Share The Fit Brief</h3><p>Provide size range, circumference points, finished length, artwork and quantity.</p></li><li class="custom-product-step"><span>02</span><h3>Map The Construction</h3><p>Record knit zones, cuff details and the requested garment specification.</p></li><li class="custom-product-step"><span>03</span><h3>Review The Sample</h3><p>Agree quoted terms and whether a sample or artwork proof is included.</p></li><li class="custom-product-step"><span>04</span><h3>Approve The Specification</h3><p>Check graded measurements, labels, packing and inspection criteria.</p></li></ol>
+    <header class="custom-product-section-heading"><p class="eyebrow">PROJECT FLOW</p><h2 id="product-process-title">From First Brief To Delivery Plan.</h2></header>
+    <ol class="custom-process-grid"><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Graduated-knit sock with navy, cream and slate-blue swatches and blank cards" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>01</span><h3>Project Brief</h3><p>Share a compression sock reference, artwork, quantity estimate and delivery destination.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Full knee-high sock beside a soft tape measuring foot-to-top length" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span>
+  <div><span>02</span><h3>Measurement Development</h3><p>Record ankle and calf points, leg length and size grading; note the requested knit zones.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Graduated-knit sock with navy, cream and slate-blue swatches and blank cards" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 0%"></span>
+  <div><span>03</span><h3>Feasibility &amp; Quote</h3><p>Review production scope, material feasibility and quoted terms.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Hands stretching the ribbed top band of a compression-style sock" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 33.333333%"></span>
+  <div><span>04</span><h3>Sample Development</h3><p>Develop a sample or proof, if included, to review leg length, sizing, cuff and knit zones.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Close inspection of reinforced heel and toe knit on a knee-high sock" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span>
+  <div><span>05</span><h3>Production Inspection</h3><p>Agree checks for graded measurements, knit zones, cuff and workmanship against the approved specification.</p></div>
+</li><li>
+  <span class="custom-process-image custom-category-photo" role="img" aria-label="Compression-style socks folded into white tissue paper" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 33.333333%"></span>
+  <div><span>06</span><h3>Delivery Planning</h3><p>Align packing and delivery destination with the quote.</p></div>
+</li></ol>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-packaging-section custom-editorial-packaging" aria-labelledby="product-packaging-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <h2 id="product-packaging-title">Packout, Considered.</h2>
+      <p>Bring packing and label requirements into the quote.</p>
+    </header>
+    <div class="custom-product-card-grid custom-product-packaging-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Knee-high socks inside an open cream presentation box" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Custom Boxes</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Folded knee-high socks inside a clear protective bag" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Protective Bags</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Compression-style socks beside a plain kraft mailer" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Shipping Mailers</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Compression-style socks beside a blank cream hangtag and insert" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 66.666667%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Labels &amp; Inserts</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-product-cards-section" aria-labelledby="starting-point-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading"><h2 id="starting-point-title">Find Your Starting Point.</h2></header>
+    <div class="custom-product-card-grid custom-style-grid"><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Pair of knee-high graduated-knit compression-style socks with full shafts and feet" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Leg Profile</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Macro of fine ribbed graduated knit structure on a compression-style sock" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Zoned Knit</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Full knee-high sock beside a soft tape measuring foot-to-top length" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 0%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Size &amp; Fit</h3></div>
+</article><article class="custom-product-card">
+  <figure><span class="custom-product-card-image custom-category-photo" role="img" aria-label="Close inspection of reinforced heel and toe knit on a knee-high sock" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 33.333333%"></span></figure>
+  <div class="custom-product-card-copy"><h3>Cuff &amp; Finish</h3></div>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-audience" aria-labelledby="audience-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">FOR YOUR RANGE</p>
+      <h2 id="audience-title">Where The Range Can Fit.</h2>
+    </header>
+    <div class="custom-audience-grid"><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Plain knee-high socks with technical knit swatches in an unbranded still life" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 66.666667%"></span>
+  <h3>Brand &amp; Product Planning</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Retail display of plain knee-high graduated-knit socks with blank bands" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:0% 100%"></span>
+  <h3>Retail Collections</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Knee-high sock colorways in navy, cream and slate blue" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 100%"></span>
+  <h3>Sports &amp; Teams</h3>
+</article><article>
+  <span class="custom-audience-image custom-category-photo" role="img" aria-label="Single graduated-knit knee-high sock isolated on warm off-white" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:66.666667% 100%"></span>
+  <h3>Online Ranges</h3>
+</article></div>
+  </div>
+</section>
+  <section class="custom-product-section custom-editorial-concepts custom-editorial-concepts--white" aria-labelledby="product-range-title">
+  <div class="custom-product-wrap">
+    <header class="custom-product-section-heading">
+      <p class="eyebrow">STYLE INSPIRATION</p>
+      <h2 id="product-range-title">Product Range Inspiration.</h2>
+    </header>
+    <div class="custom-concept-grid"><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Macro of fine ribbed graduated knit structure on a compression-style sock" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:33.333333% 0%"></span>
+</figure><figure>
+  <span class="custom-concept-image custom-category-photo" role="img" aria-label="Pair of knee-high socks photographed from a complementary angle" style="background-image:url('assets/custom-compression-socks-editorial-v2.webp');background-size:400% 400%;background-position:100% 100%"></span>
+</figure></div>
   </div>
 </section>
   <section class="custom-product-section custom-product-faq" aria-labelledby="product-faq-title">
   <div class="custom-product-wrap custom-product-faq-layout">
-    <header class="custom-product-section-heading"><p class="eyebrow">STYLE QUESTIONS</p><h2 id="product-faq-title">Common Questions.</h2></header>
-    <div class="custom-product-faq-list"><details><summary>What measurements should I provide?</summary><p>Share the ankle and calf measurement points, finished length, size range and tolerances. The measurement method and fit are recorded in the approved garment specification.</p></details><details><summary>Can I request particular knit zones or a pressure specification?</summary><p>Mark the requested construction zones or garment specification on a sock diagram. Feasibility and final construction details are reviewed during development and sample approval.</p></details><details><summary>Which garment details can be customized?</summary><p>Specify cuff height, length, heel and toe construction, colors, logo placement, size marks and packing details for review.</p></details></div>
+    <header class="custom-product-section-heading"><h2 id="product-faq-title">Common Questions.</h2></header>
+    <div class="custom-product-faq-list"><details><summary>What Should I Send First?</summary><p>Share a compression sock reference, artwork or motif, quantity estimate and delivery destination.</p></details><details><summary>Can I Specify Measurements And Knit Zones?</summary><p>Yes. Provide the size range, circumference points and a zone diagram; the agreed product specification is listed in the quote.</p></details><details><summary>Can Colors, Labels And Artwork Be Customized?</summary><p>Share color references, labels and artwork placement. Available finishes are reviewed against the specified knit construction and recorded in the quote.</p></details><details><summary>Does Every Order Include A Sample?</summary><p>Sampling or proof scope varies by project and is listed in the quote.</p></details></div>
   </div>
 </section>
-  <section class="custom-product-section custom-product-cards-section custom-style-related" aria-labelledby="related-styles-title">
-  <div class="custom-product-wrap">
-    <header class="custom-product-section-heading"><p class="eyebrow">MORE SOCKS STYLES</p><h2 id="related-styles-title">Explore Related Styles.</h2></header>
-    <div class="custom-product-card-grid custom-style-related-grid"><article class="custom-product-card"><a class="custom-product-link-card" href="custom-athletic-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Navy technical athletic crew sock with cream heel and toe reinforcement" style="background-image:url('assets/custom-athletic-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Athletic Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-knee-high-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream knee-high sock with a navy-striped ribbed top band" style="background-image:url('assets/custom-knee-high-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Knee High Socks</h3></div>
-</a></article><article class="custom-product-card"><a class="custom-product-link-card" href="custom-crew-socks.html">
-  <figure><span class="custom-product-card-image" role="img" aria-label="Cream mid-calf crew sock with navy stripes and ribbed cuff" style="background-image:url('assets/custom-crew-socks-editorial-v1.webp');background-size:200% auto;background-position:0% 50%"></span></figure>
-  <div class="custom-product-card-copy"><h3>Crew Socks</h3></div>
-</a></article></div>
-  </div>
-</section>
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Compression Socks Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">Discuss Your Compression Sock Project.</h2><a class="button primary" href="quote.html">Request a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
 </main>
 
   <footer class="footer footer-redesign footer-studio home-footer">
