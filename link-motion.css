@@ -247,3 +247,43 @@
     white-space: nowrap;
   }
 }
+
+@media (min-width: 1101px) {
+  html:root body .desktop-nav .nav-menu-overview {
+    position: relative;
+    text-decoration: none !important;
+  }
+
+  html:root body .desktop-nav .nav-menu-overview > span {
+    text-decoration: none !important;
+  }
+
+  html:root body .desktop-nav .nav-menu-overview::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 14px;
+    bottom: 6px;
+    width: calc(100% - 28px);
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(.3);
+    transform-origin: left;
+    transition: transform 200ms var(--ease);
+  }
+
+  html:root body .desktop-nav .nav-menu-overview:hover::after,
+  html:root body .desktop-nav .nav-menu-overview:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  html:root body .desktop-nav .nav-menu-overview:focus-visible::after {
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:root body .desktop-nav .nav-menu-overview::after {
+      transition: none;
+    }
+  }
+}

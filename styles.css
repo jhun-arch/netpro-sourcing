@@ -475,6 +475,44 @@ html{scrollbar-gutter:stable}
   margin-top: 20px;
 }
 
+/* Keep request option groups evenly spaced inside the independently scrolling panel. */
+#product-dialog .detail-copy .product-color {
+  margin: 20px 0 0;
+}
+#product-dialog .detail-copy .detail-request-mode,
+#product-dialog .detail-copy .detail-sizes,
+#product-dialog .detail-copy .detail-quantity,
+#product-dialog .detail-copy .detail-custom-fields {
+  margin: 24px 0 0;
+}
+#product-dialog .detail-copy .detail-request-mode,
+#product-dialog .detail-copy .detail-custom-options {
+  row-gap: 8px;
+  column-gap: 8px;
+}
+#product-dialog .detail-copy .detail-request-mode legend,
+#product-dialog .detail-copy .detail-custom-options legend {
+  margin-bottom: 4px;
+}
+#product-dialog .detail-copy .detail-sizes legend {
+  margin-bottom: 12px;
+}
+#product-dialog .detail-copy .detail-sizes .size-options {
+  padding-top: 0;
+}
+#product-dialog .detail-copy .detail-custom-fields {
+  gap: 12px;
+}
+#product-dialog .detail-copy .detail-custom-options {
+  margin: 0 0 12px;
+}
+#product-dialog .detail-copy .detail-custom-fields textarea {
+  margin-top: 0;
+}
+#product-dialog .detail-copy #add-to-bag {
+  margin-top: 24px;
+}
+
 
 /* Align enquiry product artwork and title at the top of each row. */
 #bag-dialog .cart-products .bag-item {

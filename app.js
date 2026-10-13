@@ -3,7 +3,7 @@
     'use strict';
 
   // Change this URL when Netpro Patches moves to its final production domain.
-  const PATCHES_URL = 'customization.html#patches';
+  const PATCHES_URL = 'custom-patches.html#patches';
   const products = Array.isArray(window.NETPRO_PRODUCTS) ? window.NETPRO_PRODUCTS : [];
   const isShop = document.body.classList.contains("shop-page");
   const isHome = document.body.classList.contains("home-page");
@@ -28,7 +28,8 @@
   const enquiryState = window.NetproEnquiryState;
   let activeFilter = isShop ? (new URLSearchParams(location.search).get('category') || 'all') : 'all';
   if (!['all','clothing','socks','headwear','bags','patches'].includes(activeFilter)) activeFilter = 'all';
-  const requestedStyle = isShop ? new URLSearchParams(location.search).get('style') : null;
+  const normalizeStyleKey = href => customizationKey(href).replace(/^customization(?=#)/, 'custom-patches');
+  const requestedStyle = isShop ? normalizeStyleKey(new URLSearchParams(location.search).get('style')) : null;
   let activeStyle = requestedStyle && styleKeys.has(requestedStyle) ? requestedStyle : null;
   function clearIncompatibleStyle() {
     if (!activeStyle || activeFilter === 'all') return;
@@ -333,8 +334,8 @@
       const label={all:'All Products',new:'New Arrivals',clothing:'Clothing',socks:'Socks',headwear:'Headwear',bags:'Bags',patches:'Ready-Made Patches'}[activeFilter];
       $('#shop-title').textContent=label; $('#breadcrumb-current').textContent=label;
       const banner=$('.shop-banner-photo');
-      const bannerImages={all:'banner-new.webp',new:'banner-new.webp',clothing:'banner-clothing.webp',socks:'banner-socks.webp',headwear:'banner-headwear.webp',bags:'banner-clothing.webp',patches:'banner-patches.webp'};
-      const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics',clothing:'Plain everyday clothing in blue, white and cream',socks:'Basic ribbed crew socks in coordinated colors',headwear:'Plain baseball caps in blue, navy and cream',bags:'Cream canvas tote and coordinated everyday accessories',patches:'A collection of custom patch styles in blue and cream'};
+      const bannerImages={all:'banner-new.webp',new:'banner-new.webp',clothing:'banner-clothing.webp',socks:'banner-socks.webp',headwear:'banner-headwear.webp',bags:'banner-bags.webp',patches:'banner-patches.webp'};
+      const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics',clothing:'Plain everyday clothing in blue, white and cream',socks:'Basic ribbed crew socks in coordinated colors',headwear:'Plain baseball caps in blue, navy and cream',bags:'Cream canvas tote with navy handles and a navy backpack on pale blue studio plinths',patches:'A collection of custom patch styles in blue and cream'};
       const bannerSrc='assets/'+bannerImages[activeFilter]+'?v=20260914-banner4';
       banner.dataset.category=activeFilter;
       banner.alt=bannerAlts[activeFilter];
@@ -1312,7 +1313,7 @@
   if (Array.isArray(window.NETPRO_PRODUCTS)) start();
   else {
     const productScript = document.createElement('script');
-    productScript.src = 'products.js?v=20261013-shop3';
+    productScript.src = 'products.js?v=20261013-patches1';
     productScript.onload = start;
     productScript.onerror = () => {
       console.error('Netpro product catalogue could not be loaded.');

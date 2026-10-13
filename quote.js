@@ -113,7 +113,7 @@
     const rows = items.map((item, index) => {
       const product = products.find(candidate => candidate.id === item.id);
       if (!product) return '';
-      return `<article class="quote-item">${productArt(product)}<div class="quote-item-copy"><h3>${esc(product.name)}</h3><p>Reference: ${esc(product.id.toUpperCase())} · ${esc(product.color)} · ${esc(item.size)}</p><p class="quote-request-summary">${esc(summarize(item))}</p>${editor(item, index, product)}<label class="quote-item-quantity">Quantity<input data-quote-qty="${index}" type="number" min="1" max="100000" step="1" value="${item.quantity}"></label><button type="button" class="quote-remove" data-quote-remove="${index}">Remove</button></div></article>`;
+      return `<article class="quote-item">${productArt(product)}<div class="quote-item-copy"><h3>${esc(product.name)}</h3><p>Reference: ${esc(product.id.toUpperCase())} · ${esc(product.color)} · ${esc(item.size)}</p><p class="quote-request-summary">${esc(summarize(item))}</p><label class="quote-item-quantity">Quantity<input data-quote-qty="${index}" type="number" min="1" max="100000" step="1" value="${item.quantity}"></label><button type="button" class="quote-remove" data-quote-remove="${index}">Remove</button></div></article>`;
     }).filter(Boolean).join('');
     container.innerHTML = rows || '<p class="quote-empty">No products selected yet. Describe your requirements in the form, or browse our product range.</p>';
     updateBriefRequirement();

@@ -1,0 +1,17 @@
+{
+  "asset": "assets/banner-bags.webp",
+  "final_path": "D:\\Users\\Administrator\\Documents\\ChatGPT\\NetPro-sourcing-dev2\\assets\\banner-bags.webp",
+  "generated_with": "built-in image_gen",
+  "generated_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1345c-dfdb-7b70-821a-02f3bbf75a3e\\exec-38c50276-c3f2-499a-8605-2500999fb871.png",
+  "reference_images": [
+    {
+      "path": "D:\\Users\\Administrator\\Documents\\ChatGPT\\NetPro-sourcing-dev2\\assets\\banner-clothing.webp",
+      "role": "Existing category-banner palette and lighting"
+    },
+    {
+      "path": "D:\\Users\\Administrator\\Documents\\ChatGPT\\NetPro-sourcing-dev2\\assets\\apparel-bags-range-v1.webp",
+      "role": "Tote and backpack product identity"
+    }
+  ],
+  "prompt": "Use case: product-mockup\nAsset type: wide 3:1 ecommerce Shop Bags category banner\nPrimary request: A refined studio product scene showing a cream canvas tote bag with navy handles and a navy backpack, arranged on pale blue-grey studio plinths.\nInput images: Image 1: visual reference for the existing category-banner palette, soft studio light, and open pale-blue space on the left. Image 2: product reference for the tote's cream canvas and navy handles and the backpack's navy fabric and silhouette.\nScene/backdrop: clean pale blue and light-grey seamless studio backdrop with two low pale blue-grey display plinths.\nSubject: one cream canvas tote bag with dark navy shoulder handles and one structured navy backpack, both unbranded and neatly shaped.\nStyle/medium: polished, realistic ecommerce studio photography consistent with the site's existing pale blue, navy, cream and white category banners.\nComposition/framing: very wide horizontal 3:1 panoramic banner; keep the entire left half calm, light, unobtrusive negative space for a heading. Arrange both bags on the right half, with the tote slightly forward and the backpack just behind it; show both bags fully with clear separation and comfortable margins.\nLighting/mood: soft broad studio light with subtle contact shadows, airy and understated.\nColor palette: pale powder blue and cool light grey background/plinths, cream canvas tote, deep navy handles and backpack.\nMaterials/textures: believable woven canvas, matte navy webbing and softly textured backpack fabric.\nConstraints: no people, no text, no logos, no labels, no shoes, no additional products, no watermark. Preserve the tote and backpack identities from the product reference."
+}
