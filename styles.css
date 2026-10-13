@@ -474,3 +474,69 @@ html{scrollbar-gutter:stable}
 #product-dialog .detail-copy .detail-specifications {
   margin-top: 20px;
 }
+
+
+/* Align enquiry product artwork and title at the top of each row. */
+#bag-dialog .cart-products .bag-item {
+  align-items: start;
+}
+#bag-dialog .cart-products .bag-item > .product-art {
+  align-self: start;
+}
+#bag-dialog .cart-item-name > small {
+  display: none;
+}
+#bag-dialog .cart-products .bag-item h3 {
+  margin-top: 0;
+}
+
+/* Keep enquiry drawer typography on the site's Figtree / Montserrat pairing. */
+#bag-dialog .cart-products .dialog-top h2 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+#bag-dialog .cart-products .bag-item h3 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.35;
+}
+#bag-dialog .cart-item-name > p,
+#bag-dialog .cart-tax-note,
+#bag-dialog .bag-note {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+#bag-dialog .cart-products .quantity > span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+#bag-dialog .cart-checkout {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+#bag-dialog .subtotal > span:first-child {
+  font-family: 'Figtree', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+#bag-dialog .subtotal > span:last-child {
+  font-family: 'Figtree', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+@media(max-width:650px) {
+  #bag-dialog .cart-products .bag-item h3 { font-size: 14px; }
+  #bag-dialog .cart-item-name > p,
+  #bag-dialog .cart-tax-note,
+  #bag-dialog .bag-note { font-size: 12px; }
+}
