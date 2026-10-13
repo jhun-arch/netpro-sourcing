@@ -1,0 +1,171 @@
+[
+  {
+    "id": "ankle-socks",
+    "asset": "assets/shop-onbody-ankle-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-7110fa01-c41a-41a8-a999-d3fd965ccdfd.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog image for the shop hover image. Adult model shown from mid-calf down, casually wearing a pair of light powder-blue ankle socks, with the full socks clearly visible on both feet and no shoes. Match the short ankle length, ribbed cuff, fine knit, and pale blue color of the product reference. Natural relaxed stance on a light-gray studio floor; soft gray seamless studio background, gentle diffused lighting, realistic adult skin and fabric texture. Frame the socked feet and lower legs centered, with breathing room around them. Match the clean, restrained studio look and adult-model crop of the catalog models reference. One image only. No collage, no split panels, no text, no logo, no props, no visible footwear.",
+    "alt": "Adult model wearing light blue ankle socks against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop mid-calf down; no face",
+      "adult model; warm brown skin",
+      "lean lower legs",
+      "parallel stance with one foot slightly forward"
+    ]
+  },
+  {
+    "id": "athletic-socks",
+    "asset": "assets/shop-onbody-athletic-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-7b21fba1-8466-47fd-bcbd-5134e0b640a9.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for a shop hover image. Show the lower legs and feet of a distinctly different adult model: a fair-skinned adult woman with lightly freckled, slender lower legs. She wears white athletic crew socks with two crisp navy stripes around each ribbed cuff, matching the product reference. Socks end on the lower calf, visibly taller than ankle socks; show their fine athletic knit. Give her a relaxed asymmetrical stance: one foot set slightly behind and turned outward, the other planted forward; both socks and bare feet fully visible, no shoes. Light-gray seamless studio background and floor, soft diffuse studio light, natural skin and fabric texture. Crop below the knees; do not show a face. This is a new distinct model and pose, not the model in the catalog reference. One image only, no collage, no split panels, no text, no logos, no props, no footwear.",
+    "alt": "Fair-skinned adult model wearing white athletic crew socks with navy stripes against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop below knee; no face",
+      "adult woman; fair lightly freckled skin",
+      "slender lower legs",
+      "one foot forward, other behind and turned outward"
+    ]
+  },
+  {
+    "id": "knee-high-socks",
+    "asset": "assets/shop-onbody-knee-high-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-486340c1-0edd-4b76-acdb-595421323219.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. Show a distinct adult model from mid-thigh down wearing cream rib-knit knee-high socks, matching the product reference. The socks should end just below each kneecap and cover the calves fully; accurately show the tall knee-high length on both legs and both socked feet, with no shoes. Use a medium-deep brown skin tone and softly rounded calves, different from the other models. Natural three-quarter stance with one knee slightly bent and one foot a little forward. Light-gray seamless studio floor and background, soft diffused light, realistic skin and knitted cotton texture. Crop above the knees without showing a face; make both sock lengths easy to see. One image only, no collage, no split panels, no text, no logos, no props, no footwear.",
+    "alt": "Adult model wearing cream rib-knit knee-high socks against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop from mid-thigh down; no face",
+      "adult model; medium-deep brown skin",
+      "softly rounded calves",
+      "three-quarter stance; one knee bent and one foot forward"
+    ]
+  },
+  {
+    "id": "no-show-socks",
+    "asset": "assets/shop-onbody-no-show-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-ecc23d40-8c6b-493f-b803-b0cb3cdbaea3.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for a shop hover image. Show an adult model from mid-shin down wearing cream no-show socks in real use, matching the low-cut product reference. The socks are shallow liners: they cover the toes, sole, and heel and sit distinctly below the ankle bones, exposing the entire ankle and most of the foot top; do not turn them into ankle socks. Both bare feet with socks are fully visible and completely shoe-free. Use a distinct adult model with medium-light olive skin and more muscular lower legs. Relaxed seated-style pose with one ankle gently crossing behind the other and both toes turned at different angles. Light-gray seamless studio setting, soft diffused light, realistic skin and fine knit texture. Keep the low sock opening easy to see; crop out the face. One image only; no collage, no split panels, no text, no logos, no props, no shoes or footwear.",
+    "alt": "Adult model wearing cream no-show socks that leave the ankles exposed, against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop from mid-shin down; no face",
+      "adult model; medium-light olive skin",
+      "muscular lower legs",
+      "ankles crossed loosely; toes turned at different angles"
+    ]
+  },
+  {
+    "id": "novelty-socks",
+    "asset": "assets/shop-onbody-novelty-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-70110000-1ade-4d86-852f-f39c196bd6d3.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. Show a distinct adult model from mid-calf down wearing cream crew socks with a playful, evenly spaced navy geometric knit pattern: small circles, triangles, and short bars, like the product reference, with navy heel and toe accents. The crew cuffs reach a few inches above the ankles. Use a deep ebony-brown skin tone and broad adult calves. Natural stance with one leg slightly bent, feet apart at different angles; show both complete socks and bare feet with no shoes. Light-gray seamless studio floor and background, soft diffused lighting, realistic adult skin and knit texture. Keep the pattern easy to read; crop out the face. One image only; no collage, no split panels, no text, no logo, no props, no footwear.",
+    "alt": "Adult model wearing cream crew socks with navy geometric motifs and navy heel and toe against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop from mid-calf down; no face",
+      "adult model; deep ebony-brown skin",
+      "broad adult calves",
+      "feet apart at different angles; one knee slightly bent"
+    ]
+  },
+  {
+    "id": "wool-socks",
+    "asset": "assets/shop-onbody-wool-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-7c58fe5a-b68d-4b96-9072-6e37b54af046.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. Show a distinct adult model from the knees down, wearing oatmeal wool-blend crew socks in actual use, matching the chunky heathered yarn and soft natural oatmeal color of the product reference. Give the socks a relaxed slouch with each cuff softly bunched around the lower calf; keep them crew length and clearly shorter than knee-high socks. Both socked feet and the full socks are visible, bare, with no shoes. Use warm olive skin and mature, sturdy adult calves; pose one foot forward and the other angled back in a casual relaxed stance. Light-gray seamless studio floor and background, soft diffused light, tactile realistic wool knit and natural skin texture. Crop out the face. One image only; no collage, no split panels, no text, no logos, no props, no footwear.",
+    "alt": "Adult model wearing oatmeal wool crew socks with softly slouched cuffs against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop from knees down; no face",
+      "adult model; warm olive skin",
+      "mature sturdy calves",
+      "one foot forward, other angled back"
+    ]
+  },
+  {
+    "id": "compression-socks",
+    "asset": "assets/shop-onbody-compression-socks-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-05337b52-5046-4ea6-b103-12985f9c77ca.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. Show the lower legs and feet of a distinct adult model with pale neutral skin and long slim calves wearing a pair of deep navy knee-high rib-knit compression-style socks, matched to the product reference. Socks rise to just below the kneecaps, with a dense structured knit and subtle graduated rib panels; show both complete socks and bare socked feet, no shoes. Pose one leg straight and slightly forward, the other softly bent with heel lifted just enough to reveal the sock shape. Light-gray seamless studio floor and background, gentle diffuse light, true dark-navy color and realistic fabric texture. Crop below the knees with no face. One image only, no collage, no split panels, no text, no logos, no medical graphics, no props, no footwear.",
+    "alt": "Adult model wearing navy knee-high rib-knit socks against a light gray studio background.",
+    "distinctIdentityTags": [
+      "crop below knees; no face",
+      "adult model; pale neutral skin",
+      "long slim calves",
+      "one leg straight forward; other softly bent with heel raised"
+    ]
+  },
+  {
+    "id": "tote-bag",
+    "asset": "assets/shop-onbody-tote-bag-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-b71e6d56-1dfe-400f-bc7d-26e47b30f193.png",
+    "prompt": "Generate one square photorealistic-natural lifestyle catalog photo for the shop hover image. A distinct adult woman in her late 30s with warm deep-brown skin, short curly black bob, softly rounded face, and average build stands naturally in a light-gray studio. She wears a simple oatmeal knit top and dark neutral trousers, carrying a full-size cream canvas tote on her shoulder with both long navy handles clearly visible. The tote body is fully visible against her hip, front facing the camera, structured enough to show its shape and heavy canvas texture. Match the cream canvas and navy handles in the product reference. Frame from head to mid-thigh so her face and the entire bag are visible; one hand may rest lightly on a handle. Soft diffused studio light, light-gray seamless background, natural adult expression and posture. Make this a new person, not a face from the reference. One image only; no collage, no split panels, no text, no logos, no extra products, no props.",
+    "alt": "Adult woman carrying a cream canvas tote with navy handles against a light gray studio background.",
+    "distinctIdentityTags": [
+      "adult woman; late 30s",
+      "warm deep-brown skin",
+      "short curly black bob; softly rounded face",
+      "average build; head-to-mid-thigh frame"
+    ]
+  },
+  {
+    "id": "backpack",
+    "asset": "assets/shop-onbody-backpack-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-d1b71d06-7d7e-4cb3-93a3-53d81ae98966.png",
+    "prompt": "Generate one square photorealistic-natural lifestyle catalog photo for the shop hover image. A distinct adult South Asian man in his early 40s, warm medium-light brown skin, short salt-and-pepper hair, rectangular face, and broad-shouldered build stands in a relaxed three-quarter pose in a light-gray studio. He wears a simple charcoal top and dark neutral trousers, with a full-size navy fabric backpack naturally worn on both shoulders. Show the whole backpack clearly on his back, including both shoulder straps, top handle, front zip pocket, and lower edge; turn slightly so the front of the backpack is visible beside his torso. Match the solid deep navy fabric and simple pocketed shape of the product reference. Frame head to mid-thigh so his face and entire backpack are visible. Soft diffused studio lighting, light-gray seamless background, natural adult expression and posture. Make this a different person from all other models and do not copy a face from the reference. One image only; no collage, no split panels, no text, no logos, no extra products, no props.",
+    "alt": "Adult man wearing a navy backpack with its straps and front pocket visible against a light gray studio background.",
+    "distinctIdentityTags": [
+      "adult South Asian man; early 40s",
+      "warm medium-light brown skin",
+      "short salt-and-pepper hair; rectangular face",
+      "broad-shouldered; three-quarter head-to-mid-thigh frame"
+    ]
+  },
+  {
+    "id": "patch-embroidered",
+    "asset": "assets/shop-onbody-patch-embroidered-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-2b27869c-0b8e-482e-926f-ed7155a10c18.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. Show a distinct adult woman in her early 50s with fair lightly freckled skin, shoulder-length wavy silver-brown hair, a long oval face, and an average build. She wears a plain deep-navy work jacket in a light-gray studio. Naturally sew one prominent circular embroidered patch on the upper chest near the shoulder; it should be clearly visible and about palm-sized, with a dense raised satin-stitch surface, stitched border, and the same navy, pale blue, and cream mountain-and-sun embroidery style as the patch reference. Keep the patch faithfully embroidered and attached to the garment, not floating. Frame from head to waist so her different face and patch are both clearly visible; relaxed three-quarter stance. Soft diffused light, gray seamless background, natural fabric texture. One patch only; no text, no letters, no brand logos, no extra products, no collage, no split panels, no props.",
+    "alt": "Adult woman wearing a navy jacket with a circular embroidered mountain patch sewn on the chest in a light gray studio.",
+    "distinctIdentityTags": [
+      "adult woman; early 50s",
+      "fair lightly freckled skin",
+      "shoulder-length wavy silver-brown hair; long oval face",
+      "average build; head-to-waist three-quarter pose"
+    ]
+  },
+  {
+    "id": "patch-pvc",
+    "asset": "assets/shop-onbody-patch-pvc-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-3e836295-7386-43c5-8038-6fe5aefb22bb.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. A distinct adult Black man in his early 30s with deep brown skin, closely shaved hair, a neatly trimmed beard, a broad jaw, and a lean athletic build wears a plain light-gray canvas overshirt in a light-gray studio. Attach one prominent round PVC patch to the upper chest, clearly visible and palm-sized. Match the product reference: molded rubber with a smooth raised navy border, layered raised pale-blue, navy, and cream shapes forming a simple mountain-and-wave scene; crisp sculpted relief, slightly glossy rubber surface. Keep it visibly stitched or fixed onto the fabric, not floating; no thread embroidery texture. Frame head to waist, chest facing camera with a mild three-quarter turn so his face and patch are both visible. Soft diffuse studio light, gray seamless background. Make this a new person unlike all other models and reference faces. One image only; no text, no lettering, no brand logos, no extra products, no collage, no split panels, no props.",
+    "alt": "Adult man wearing a gray overshirt with a raised navy and blue PVC mountain patch on the chest in a light gray studio.",
+    "distinctIdentityTags": [
+      "adult Black man; early 30s",
+      "deep brown skin",
+      "closely shaved hair; trimmed beard; broad jaw",
+      "lean athletic build; head-to-waist three-quarter pose"
+    ]
+  },
+  {
+    "id": "patch-chenille",
+    "asset": "assets/shop-onbody-patch-chenille-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-a2fc8ac1-b3c3-4a03-832a-6e39cdb74833.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. A distinct adult East Asian woman in her late 20s, warm light skin, straight shoulder-length black hair with soft blunt bangs, round face, and slender build wears a plain deep-navy varsity-style jacket in a light-gray studio. Attach one large star-shaped chenille patch to the upper left chest, clearly visible and palm-sized. Match the patch reference's soft raised loop-pile chenille texture and layered navy, pale blue, and cream colors, with a neat embroidered edge; make the fuzzy yarn texture obvious while keeping the recognizable star silhouette. Keep it sewn onto the garment and facing camera. Frame head to waist; her face and patch are both visible. Relaxed natural pose, soft diffused light, gray seamless background. This is a distinct person from all other model photos. One patch only; no letters, no text, no logos, no extra patches, no collage, no split panels, no props.",
+    "alt": "Adult woman wearing a navy jacket with a pale blue and cream star-shaped chenille patch sewn on the chest in a light gray studio.",
+    "distinctIdentityTags": [
+      "adult East Asian woman; late 20s",
+      "warm light skin",
+      "straight shoulder-length black hair with blunt bangs; round face",
+      "slender build; head-to-waist pose"
+    ]
+  },
+  {
+    "id": "patch-woven",
+    "asset": "assets/shop-onbody-patch-woven-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-ed3aa972-6cd5-4069-9fed-b57715b5f7ef.png",
+    "prompt": "Generate one square photorealistic-natural apparel catalog photo for the shop hover image. Show a distinct adult Latina woman in her mid-30s with medium tan olive skin, long dark hair in a single braid, a narrow angular face, and a tall lean build. She wears a plain muted-cream utility overshirt in a light-gray studio. Sew one prominent rectangular woven fabric patch to the upper chest, clearly visible and roughly palm-sized. Match the product reference's flat woven rectangular patch: tight interlaced threads, clean woven border, and a simple geometric chevron pattern in navy, pale blue, and cream. The patch should look low-profile and textile-woven with fine visible yarns, not raised embroidery pile or molded rubber. Keep it attached to the garment and facing camera. Frame head to waist with the woman's face and patch both clear; relaxed three-quarter stance. Soft diffused light, light-gray seamless background, natural realistic fabric and skin texture. Make this a distinct person from all other model photos. One image only; no text, no lettering, no brand logos, no extra products, no collage, no split panels, no props.",
+    "alt": "Adult woman wearing a cream overshirt with a rectangular navy, blue, and cream woven patch on the chest in a light gray studio.",
+    "distinctIdentityTags": [
+      "adult Latina woman; mid-30s",
+      "medium tan olive skin",
+      "long dark hair in a braid; narrow angular face",
+      "tall lean build; head-to-waist three-quarter pose"
+    ]
+  }
+]

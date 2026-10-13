@@ -45,8 +45,8 @@
   }
   function productHover(p) {
     if (p.hoverImage) {
-      const imageAlt = p.hoverImageAlt || `${p.name} detail`;
-      return `<span class="product-model product-model--detail" role="img" aria-label="${escape(imageAlt)}" style="background-image:url('${escape(p.hoverImage)}');background-size:${escape(p.hoverImageSize || 'cover')};background-position:${escape(p.hoverImagePosition || 'center')}"></span>`;
+      const imageAlt = p.hoverImageAlt || `${p.name} worn by model`;
+      return `<span class="product-model product-model--onbody" role="img" aria-label="${escape(imageAlt)}" style="background-image:url('${escape(p.hoverImage)}');background-size:${escape(p.hoverImageSize || 'cover')};background-position:${escape(p.hoverImagePosition || 'center')}"></span>`;
     }
     return p.art ? `<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category === 'patches' ? 'in use' : 'on model'}"></span>` : '';
   }
@@ -1073,7 +1073,7 @@
   if (Array.isArray(window.NETPRO_PRODUCTS)) start();
   else {
     const productScript = document.createElement('script');
-    productScript.src = 'products.js?v=20261013-shop2';
+    productScript.src = 'products.js?v=20261013-shop3';
     productScript.onload = start;
     productScript.onerror = () => {
       console.error('Netpro product catalogue could not be loaded.');

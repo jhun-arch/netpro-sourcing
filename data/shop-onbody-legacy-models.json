@@ -1,0 +1,41 @@
+[
+  {
+    "id": "tee-white",
+    "asset": "assets/shop-onbody-tee-white-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-da1af1f1-1ce7-4db5-9893-9e9268199ee8.png",
+    "prompt": "Create ONE separate square, photorealistic ecommerce on-body photograph for a white essential crew-neck cotton T-shirt. Match the quiet visual direction of the supplied catalog reference: pale gray seamless studio background, soft diffused light, natural adult model, realistic fabric and color, simple unbranded garment. The reference is only for the product color, shirt fit, and studio mood; do NOT reproduce or resemble any person's face, hair, pose, or identity in it. Use a distinctly different identity: a clean-shaven fair-skinned Western European middle-aged man with short straight gray hair and a square face. Show him from head to upper thighs, standing naturally with a slight three-quarter turn and relaxed shoulders, wearing a plain white T-shirt clearly visible and not covered by another item. White should retain fabric detail against the pale gray background. Genuine natural proportions, subtle expression, hands relaxed and mostly out of frame. No logos, text, graphics, extra products, UI, collage, split panels, borders, watermark, or dramatic styling.",
+    "alt": "Middle-aged adult model wearing a plain white crew-neck T-shirt against a light gray studio background.",
+    "distinctIdentityTags": [
+      "head-to-upper-thigh crop",
+      "adult middle-aged Western European man; fair skin; clean shaven",
+      "short straight gray hair; square face",
+      "relaxed three-quarter stance"
+    ]
+  },
+  {
+    "id": "cap",
+    "asset": "assets/shop-onbody-cap-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-2da3aed6-d2ff-4c02-a563-2dc890d62c15.png",
+    "prompt": "Create ONE separate square, photorealistic ecommerce on-body portrait for a plain cobalt-blue baseball cap. Match the quiet catalog direction of the supplied image only for cap color and understated product styling: pale gray seamless studio, soft diffused light, natural adult model, true fabric and stitching. Do not reproduce or resemble any face, hair, pose, or identity in the reference. Use a clearly different adult woman: fair-to-medium skin, short red-brown/auburn hair in a cropped, lightly tousled pixie cut visible at the temples and nape, with a distinct face and natural build. Frame from mid chest upward at a relaxed three-quarter angle; the cobalt blue six-panel baseball cap with curved brim is worn normally and fully visible, no hair covering the cap, no other hat. Keep the crown and brim crisp and unmistakable. Simple unbranded casual top in a neutral tone, calm expression, natural posture. No logos, letters, graphics, jewelry emphasis, extra products, UI, collage, split panels, borders, watermark, or dramatic styling.",
+    "alt": "Adult woman with short auburn hair wearing a cobalt blue baseball cap against a light gray studio background.",
+    "distinctIdentityTags": [
+      "mid-chest-up crop; face visible",
+      "adult woman; fair-to-medium skin",
+      "short red-brown/auburn pixie hair; distinct from other models",
+      "three-quarter pose; cap fully visible"
+    ]
+  },
+  {
+    "id": "cap-beige",
+    "asset": "assets/shop-onbody-cap-beige-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334c-3373-7da2-a851-70f8c19383fe\\exec-69810523-7dd2-4349-8efe-aeec31fec405.png",
+    "prompt": "Create ONE separate square, photorealistic ecommerce on-body portrait for a plain beige baseball cap. Use the supplied catalog image only to guide the neutral beige cap color, simple cap construction, pale gray studio background, and soft diffused lighting. Do not reproduce or resemble any face, hair, pose, or identity in the reference. Use a distinctly different adult Southeast Asian woman with medium warm skin, long straight black hair parted cleanly near the center and falling over both shoulders, a softly angular oval face, and a natural build. Frame from mid chest upward, relaxed upright posture with a gentle three-quarter turn. She wears the beige six-panel baseball cap normally, with curved brim, crown shape and fabric clearly visible; hair should remain visible around the cap and over her shoulders. Pair with a simple dark navy top that contrasts with the beige cap. Keep the photo realistic, quiet, and unbranded. No logos, text, graphics, extra products, UI, collage, split panels, borders, watermark, or dramatic styling.",
+    "alt": "Adult Southeast Asian woman with long black hair wearing a beige baseball cap against a light gray studio background.",
+    "distinctIdentityTags": [
+      "mid-chest-up crop; face visible",
+      "adult Southeast Asian woman; medium warm skin",
+      "long straight center-parted black hair; softly angular oval face",
+      "upright three-quarter pose; beige cap fully visible"
+    ]
+  }
+]

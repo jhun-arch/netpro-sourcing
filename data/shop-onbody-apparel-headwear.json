@@ -1,0 +1,136 @@
+[
+  {
+    "id": "varsity-jacket",
+    "asset": "assets/shop-onbody-varsity-jacket-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-be711838-1282-4067-a7e7-a26b4e47b489.png",
+    "prompt": "Create one separate square, photorealistic ecommerce on-body portrait of a distinct East Asian adult woman in her early 30s, with light-medium skin, a jaw-length straight black bob, an oval face and high cheekbones. Match the supplied catalog reference only for the pale gray seamless studio, soft diffused light, natural proportions, and relaxed apparel-photo crop; do not copy any reference face or identity. Show a navy varsity jacket with warm cream sleeves, striped navy-and-cream ribbed collar, cuffs and hem, cream welt pockets, and white snaps. Keep the jacket clearly visible from head through upper torso. Natural relaxed three-quarter pose and calm expression. No branding, text, numbers, graphics, overlay, watermark, or collage.",
+    "alt": "Adult East Asian woman wearing a navy and cream varsity jacket against a light gray studio background.",
+    "distinctIdentityTags": [
+      "adult East Asian woman, early 30s; light-medium skin",
+      "jaw-length straight black bob; oval face and high cheekbones",
+      "head-and-upper-torso crop; relaxed three-quarter pose"
+    ],
+    "rejectedDrafts": [
+      {
+        "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-758d1575-1fbc-4a12-b6fb-3d088d728f4d.png",
+        "reason": "Rejected at the user's direction because the light-skinned dark-curly-haired male model resembled the Basic Hoodie model."
+      }
+    ]
+  },
+  {
+    "id": "jersey",
+    "asset": "assets/shop-onbody-jersey-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-6e9f1551-8207-44be-9e41-6a3ce9e87cf4.png",
+    "prompt": "Create one separate square, photorealistic ecommerce on-body image of a cobalt-blue short-sleeve raglan athletic jersey. Use a distinct South Asian adult man in his early 30s with medium tan skin, a long narrow face, thick dark wavy hair swept to one side, and a neat short beard. Use the reference only for the pale gray studio, soft diffused lighting and quiet catalog photography, not for the person's face or identity. Show two crisp white stripes along each shoulder and sleeve; keep the jersey plain cobalt blue with no team marks, letters, numbers, logos or graphics. Natural relaxed upper-body pose, face visible, jersey clearly legible.",
+    "alt": "South Asian adult man wearing a plain cobalt blue jersey with white shoulder and sleeve stripes against a light gray studio background.",
+    "distinctIdentityTags": [
+      "adult South Asian man, early 30s; medium tan skin",
+      "long narrow face; thick dark wavy side-swept hair; neat short beard",
+      "head-and-upper-torso crop; relaxed pose"
+    ],
+    "rejectedDrafts": [
+      {
+        "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-f0c35ee7-4ae9-431b-a234-5e19c20cf930.png",
+        "reason": "Rejected because the light-skinned curly-haired male face duplicated the earlier Varsity draft identity."
+      },
+      {
+        "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-be8c845a-c4e1-4c38-bc3f-19dfb3ebbf92.png",
+        "reason": "Rejected to avoid reusing a Black male identity already present in the catalog."
+      }
+    ]
+  },
+  {
+    "id": "visor",
+    "asset": "assets/shop-onbody-visor-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-133e36a5-69e3-4082-872b-4146f61bd4fe.png",
+    "prompt": "Create one square, photorealistic on-body apparel catalog portrait of a distinct adult woman with warm medium-brown skin, a heart-shaped face and short, dense dark curls visible above the hat band. Match the pale gray seamless studio and soft natural diffused light of the style reference, without copying its models. She wears a medium-blue fabric sun visor with an open top, a broad band and curved stitched brim; keep the open crown and visor structure unmistakable and fully visible. Frame head and upper chest with a calm, relaxed natural expression. No logo, lettering, graphics, overlay, watermark, props, or collage.",
+    "alt": "Adult woman wearing a medium blue open-top visor against a light gray studio background.",
+    "distinctIdentityTags": [
+      "adult woman; warm medium-brown skin; heart-shaped face",
+      "short dense dark curls visible above the visor band",
+      "head-and-upper-chest crop; relaxed natural pose"
+    ]
+  },
+  {
+    "id": "camper-hat",
+    "asset": "assets/shop-onbody-camper-hat-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-c25c4074-c26a-4b9a-a897-3af33fd31314.png",
+    "prompt": "Create one square, photorealistic on-body catalog portrait in a pale gray seamless studio with soft diffused light. Show a distinct Black adult woman in her early 50s with deep brown skin, a softly square broad face, and shoulder-length straight black hair with subtle silver strands. She wears a dusty muted-blue five-panel camper hat matching the supplied product style: low blocky crown, broad flat front panel, angular panel seams, side eyelets, short nearly flat brim, and no top button. Keep the five-panel silhouette clear and distinct from a rounded baseball cap. Natural three-quarter pose, head and upper torso, simple neutral clothing. Do not copy a reference model's face. No branding, text, graphics, overlay, watermark, or collage.",
+    "alt": "Black adult woman wearing a dusty blue five-panel camper hat against a light gray studio background.",
+    "distinctIdentityTags": [
+      "Black adult woman, early 50s; deep brown skin",
+      "softly square broad face; shoulder-length straight black hair with subtle silver strands",
+      "head-and-upper-torso crop; relaxed three-quarter pose"
+    ],
+    "rejectedDrafts": [
+      {
+        "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-b99098bd-e3cd-4f8d-ab5c-2a61073d1bec.png",
+        "reason": "Rejected because the hat read as a regular baseball cap instead of a five-panel camper hat and the model identity was reused in another draft."
+      },
+      {
+        "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-e7f45111-6a57-46e8-8941-f6ff1b3b797d.png",
+        "reason": "Rejected because the crown remained too rounded and baseball-cap-like, and the male model looked too similar to the first draft."
+      }
+    ]
+  },
+  {
+    "id": "beanie",
+    "asset": "assets/shop-onbody-beanie-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-61baa99b-1b74-4f7f-8ca9-b3fc94fa6bfd.png",
+    "prompt": "Create one square, photorealistic on-body catalog image in a pale gray seamless studio with soft diffused light. Show a distinct Black adult woman in her early 30s with deep brown skin, a rounded face, and long thin microbraids falling behind her shoulders. She wears a warm cream chunky rib-knit beanie with clear vertical ribs and a broad doubled folded cuff, without a pom-pom. Frame from head through upper chest so the knit and folded cuff are easy to see. Use a natural relaxed pose and simple neutral clothing. The style reference guides lighting and background only; do not copy its faces. No logo, text, graphics, extra products, overlay, watermark, or collage.",
+    "alt": "Black adult woman wearing a cream rib-knit beanie against a light gray studio background.",
+    "distinctIdentityTags": [
+      "Black adult woman, early 30s; deep brown skin; rounded face",
+      "long thin microbraids falling behind the shoulders",
+      "head-and-upper-chest crop; relaxed pose"
+    ]
+  },
+  {
+    "id": "trucker-cap",
+    "asset": "assets/shop-onbody-trucker-cap-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-4903903d-a307-4c72-9e90-6e36d0e7bd19.png",
+    "prompt": "Create one square, photorealistic on-body catalog portrait in a pale gray seamless studio with gentle diffused light. Show a distinct Middle Eastern adult man around 38 with medium olive skin, a lean angular face, short close-cropped dark brown hair at the temples and a clean-shaven face. He wears a classic cream-front trucker cap with cream mesh sides and back and a curved brim; use a relaxed three-quarter angle so the mesh is visible and the front crown remains clear. Frame head and upper torso, with a simple neutral top. Do not copy any reference person's identity. No logo, words, graphics, overlay, watermark, props, or collage.",
+    "alt": "Middle Eastern adult man wearing a cream mesh-back trucker cap against a light gray studio background.",
+    "distinctIdentityTags": [
+      "Middle Eastern adult man, around 38; medium olive skin",
+      "lean angular face; short close-cropped dark brown hair at temples; clean-shaven",
+      "head-and-upper-torso crop; three-quarter angle showing mesh"
+    ]
+  },
+  {
+    "id": "snapback",
+    "asset": "assets/shop-onbody-snapback-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-4c6e234f-dc07-435b-8eaa-74ada89cc83a.png",
+    "prompt": "Create one square, photorealistic on-body catalog portrait in a pale gray seamless studio with soft diffused lighting. Show a distinct Latina adult woman in her early 30s with warm tan skin, a heart-shaped face and shoulder-length loose dark chestnut curls. She wears a deep navy structured snapback with a straight flat bill and a narrow sand-colored underside, matching the product reference. Frame head and upper torso at a relaxed three-quarter angle so the structured crown and flat bill are clear. Use a simple unbranded neutral top; do not copy any reference model's face or identity. No text, logo, graphics, overlay, watermark, prop, or collage.",
+    "alt": "Latina adult woman wearing a navy flat-bill snapback against a light gray studio background.",
+    "distinctIdentityTags": [
+      "Latina adult woman, early 30s; warm tan skin; heart-shaped face",
+      "shoulder-length loose dark chestnut curls",
+      "head-and-upper-torso crop; relaxed three-quarter angle"
+    ]
+  },
+  {
+    "id": "dad-hat",
+    "asset": "assets/shop-onbody-dad-hat-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-f2e7aeba-7225-4a7e-871c-c6499f04c700.png",
+    "prompt": "Create one square, photorealistic on-body catalog portrait in the same pale gray seamless studio and soft diffused lighting as the style reference, without copying its models. Show a distinct fair-skinned adult woman around 58, with a softly square face, fine smile lines, pale blue eyes and short silver-gray pixie hair visible around the sides. She wears a washed charcoal, soft unstructured dad hat with a curved bill, visible stitching and a top button. Keep the crown relaxed rather than structured and frame head and upper torso with a simple light neutral crewneck. Natural calm three-quarter pose. No logos, words, graphics, overlay, watermark, props, or collage.",
+    "alt": "Older adult woman wearing a washed charcoal unstructured dad hat against a light gray studio background.",
+    "distinctIdentityTags": [
+      "fair-skinned adult woman, around 58; softly square face and fine smile lines",
+      "pale blue eyes; short silver-gray pixie hair visible at the sides",
+      "head-and-upper-torso crop; relaxed pose"
+    ]
+  },
+  {
+    "id": "bucket-hat",
+    "asset": "assets/shop-onbody-bucket-hat-v1.webp",
+    "sourcePNG": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1334b-b5bb-7da0-a77f-1f8e1dafeda5\\exec-fe4b0992-dd8b-4f91-a37d-b0b445ec55cf.png",
+    "prompt": "Create one square, photorealistic premium apparel catalog photograph for the sand bucket hat shown in the product reference. Use the style reference only for the pale gray seamless studio background, soft diffused daylight, natural contrast, and relaxed head-and-upper-torso framing; do not copy any reference model's face or pose. Show a distinct adult male model around age 42, fair skin with light freckles, a broad oval face, short copper-red textured hair visible at the temples, and a neat short ginger beard. He wears a warm light-khaki cotton bucket hat with a softly rounded crown, stitched crown seam, eyelets, and a full brim sloping downward all around with several neat concentric stitch rows. Keep the hat fully within the portrait and naturally visible. Use a simple neutral light gray crewneck top and relaxed three-quarter pose. No logos, words, graphics, overlay, watermark, props, extra products, UI, or collage.",
+    "alt": "Freckled adult man with short copper hair wearing a sand cotton bucket hat against a light gray studio background.",
+    "distinctIdentityTags": [
+      "adult man around 42; fair skin with light freckles; broad oval face",
+      "short copper-red textured hair; neat short ginger beard",
+      "head-and-upper-torso crop; relaxed three-quarter pose"
+    ]
+  }
+]
