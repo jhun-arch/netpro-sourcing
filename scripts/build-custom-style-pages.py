@@ -7,6 +7,7 @@ import html
 import json
 import re
 from pathlib import Path
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "custom-style-pages.json"
@@ -274,6 +275,7 @@ def render_style_directions(style: dict) -> str:
 def render_main(style: dict) -> str:
     category_file = "custom-headwear.html" if style["family"] == "Headwear" else "custom-socks.html"
     category_name = "Headwear" if style["family"] == "Headwear" else "Socks"
+    request_target = f"{style['slug']}.html"
     current = f"Custom {style['name']}"
     eyebrow = f"CUSTOM {style['family'].upper()}"
     project_name = (
@@ -282,7 +284,7 @@ def render_main(style: dict) -> str:
         else style["name"]
     )
     cta_title = f"Discuss Your {project_name} Project."
-    cta_label = "Request a Quote"
+    shop_query = urlencode({"style": style["slug"]})
     return f'''<main id="main" class="custom-product-main custom-style-detail-page">
   <nav class="custom-product-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="apparel-customization-process.html">Customization</a><span aria-hidden="true">/</span><a href="{category_file}">Custom {category_name}</a><span aria-hidden="true">/</span><span aria-current="page">{esc(style['name'])}</span></nav>
   <section class="custom-product-hero" aria-labelledby="product-title">
@@ -291,7 +293,7 @@ def render_main(style: dict) -> str:
       <p class="eyebrow">{esc(eyebrow)}</p>
       <h1 id="product-title">{esc(current)}</h1>
       <p class="custom-product-lead">{esc(style['lead'])}</p>
-      <div class="custom-product-action"><a class="button primary" href="quote.html">Start Your {esc(project_name)} Project <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p></div>
+      <div class="custom-product-action"><button type="button" class="button primary" data-custom-request="{esc(request_target)}">Add custom request</button><p class="custom-product-action-note">Share the details you have. We can clarify the open points together.</p><p class="custom-product-browse-ready"><a class="text-link" href="shop.html?{esc(shop_query)}">Browse ready-stock {esc(style['name'].lower())} ↗</a></p></div>
       {render_hero_details(style)}
     </div>
   </section>
@@ -303,7 +305,7 @@ def render_main(style: dict) -> str:
   {render_applications(style)}
   {render_inspiration(style)}
   {render_faq(style)}
-  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">{esc(cta_title)}</h2><a class="button primary" href="quote.html">{esc(cta_label)} <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+  <section class="custom-product-cta" aria-labelledby="product-cta-title"><div class="custom-product-wrap custom-product-cta-inner"><h2 id="product-cta-title">{esc(cta_title)}</h2><button type="button" class="button primary" data-custom-request="{esc(request_target)}">Add custom request</button></div></section>
 </main>'''
 
 

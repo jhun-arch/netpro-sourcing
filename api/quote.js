@@ -20,26 +20,84 @@ const {
 
 const { validateAttachments } = require('./_lib/attachments');
 const MAX_ITEMS = 50;
+const CUSTOMIZATION_OPTIONS = ['logo', 'material', 'style'];
+const VALID_CUSTOMIZATION_OPTIONS = new Set(CUSTOMIZATION_OPTIONS);
+const CUSTOMIZATION_LABELS = {
+  logo: 'Add a logo',
+  material: 'Change color or material',
+  style: 'Develop a style',
+};
 
-function sanitizeItems(raw) {
+function normalizeItems(raw) {
   if (!Array.isArray(raw)) return [];
-  return raw.slice(0, MAX_ITEMS).map((x) => {
-    const item = x && typeof x === 'object' ? x : {};
-    return {
-      name: text(item.name, 120),
-      sku: text(item.sku, 80),
-      color: text(item.color, 60),
-      size: text(item.size, 30),
+  if (raw.length > MAX_ITEMS) return null;
+
+  const items = [];
+  for (const value of raw.slice(0, MAX_ITEMS)) {
+    const item = value && typeof value === 'object' ? value : {};
+    const hasIntent = Object.prototype.hasOwnProperty.call(item, 'intent');
+    const hasCustomization = Object.prototype.hasOwnProperty.call(item, 'customization');
+    const hasNotes = Object.prototype.hasOwnProperty.call(item, 'notes');
+
+    // An explicit but unknown intent must not silently become a stock request.
+    if (hasIntent && item.intent !== 'stock' && item.intent !== 'custom') return null;
+    if (hasCustomization && !Array.isArray(item.customization)) return null;
+    if (hasNotes && typeof item.notes !== 'string') return null;
+
+    const suppliedOptions = hasCustomization ? item.customization : [];
+    const selectedOptions = new Set();
+    for (const option of suppliedOptions) {
+      if (typeof option !== 'string' || !VALID_CUSTOMIZATION_OPTIONS.has(option)) return null;
+      selectedOptions.add(option);
+    }
+
+    const normalizedNotes = line(hasNotes ? item.notes : '', 500);
+    const intent = hasIntent ? item.intent : 'stock';
+
+    // A legacy entry without intent is stock only when it carries no custom
+    // request details. This avoids mislabelling an omitted/malformed custom intent.
+    if (!hasIntent && (selectedOptions.size || normalizedNotes)) return null;
+
+    items.push({
+      name: line(item.name, 120),
+      sku: line(item.sku, 80),
+      color: line(item.color, 60),
+      size: line(item.size, 30),
       quantity: intInRange(item.quantity, 1, 1000000) || 1,
-    };
-  }).filter((x) => x.name);
+      intent,
+      customization: intent === 'custom'
+        ? CUSTOMIZATION_OPTIONS.filter((option) => selectedOptions.has(option))
+        : [],
+      notes: intent === 'custom' ? normalizedNotes : '',
+    });
+  }
+
+  return items.filter((item) => item.name);
 }
 
 function formatItems(items) {
   if (!items.length) return 'See project brief';
-  return items
-    .map((x) => `${x.name} | ${x.sku || "-"} | ${x.color || '-'} | ${x.size || '-'} | ${x.quantity} units`)
-    .join('\n');
+  return items.map((item) => {
+    const kind = item.intent === 'custom' ? 'Custom request' : 'Ready stock';
+    const details = [
+      kind,
+      item.name,
+      item.sku || '-',
+      item.color || '-',
+      item.size || '-',
+      `${item.quantity} units`,
+    ];
+
+    if (item.intent === 'custom') {
+      const options = item.customization.length
+        ? item.customization.map((option) => CUSTOMIZATION_LABELS[option]).join(', ')
+        : 'None selected';
+      details.push(`Customization: ${options}`);
+      details.push(`Notes: ${item.notes || '-'}`);
+    }
+
+    return details.join(' | ');
+  }).join('\n');
 }
 
 module.exports = async function handler(req, res) {
@@ -64,8 +122,10 @@ module.exports = async function handler(req, res) {
   const sample = text(body.sample, 60);
   const budget = text(body.budget, 100);
   const artwork = text(body.artwork, 2000);
-  const brief = text(body.brief, 5000);
-  const items = sanitizeItems(body.items);
+  let brief = text(body.brief, 5000);
+  const items = normalizeItems(body.items);
+  if (items === null) return fail(res, 400, 'Please check the selected product details.');
+  if (!brief && items.length) brief = 'Please review the selected products below.';
   const shortlist = formatItems(items);
 
   if (!name || !destination || !brief) {
