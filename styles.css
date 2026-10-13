@@ -144,12 +144,9 @@ html{scrollbar-gutter:stable}
 .product-dialog .detail-notes-label{font-size:13px;margin:0}
 .detail-custom-fields textarea,.bag-notes-label textarea,.quote-notes-label textarea{display:block;width:100%;min-height:64px;resize:vertical;padding:10px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:13px;margin-top:6px}
 .product-dialog .detail-custom-fields textarea{min-height:72px;padding:10px 12px;margin-top:8px;font-size:15px;line-height:1.5}
-.product-dialog .detail-notes-disclosure>summary{cursor:pointer;color:var(--blue);font-size:13px;line-height:1.5;font-weight:500;list-style-position:inside;padding:3px 0;text-decoration:underline;text-underline-offset:3px}
-.product-dialog .detail-notes-disclosure .detail-notes-label{margin-top:8px}
-.product-dialog .detail-notes-disclosure textarea{margin-top:5px}
 .product-dialog .detail-layout{max-height:none;overflow:visible}
 .detail-specifications{width:min(100%,860px);margin:0 auto;padding:0 28px 24px}
-.detail-specifications summary,.bag-request-editor>summary,.quote-request-editor>summary{cursor:pointer;color:var(--blue);font-size:13px;font-weight:600;padding:12px 0}
+.bag-request-editor>summary,.quote-request-editor>summary{cursor:pointer;color:var(--blue);font-size:13px;font-weight:600;padding:12px 0}
 .detail-specifications dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:8px 0}
 .detail-specifications dl div{border-top:1px solid var(--line);padding-top:10px}
 .detail-specifications dt{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
@@ -177,12 +174,13 @@ html{scrollbar-gutter:stable}
 
 /* Fixed product dialog with a still gallery and an independently scrollable details panel. */
 #product-dialog {
+  --product-dialog-media-size: min(76dvh, 680px, 44.16vw);
   position: fixed;
   inset: 0;
   margin: auto;
   width: min(1480px, 96vw);
-  height: 90dvh;
-  max-height: 94dvh;
+  height: min(94dvh, 900px);
+  max-height: min(94dvh, 900px);
   max-width: none;
   padding: 0;
   overflow: hidden;
@@ -204,14 +202,14 @@ html{scrollbar-gutter:stable}
 }
 #product-dialog .detail-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: var(--product-dialog-media-size) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
   overflow: hidden;
   border-radius: inherit;
 }
 #product-dialog .detail-gallery {
   position: relative;
-  width: min(100%, 90dvh);
+  width: 100%;
   height: 100%;
   min-width: 0;
   min-height: 0;
@@ -406,11 +404,7 @@ html{scrollbar-gutter:stable}
   width: min(100%, 420px);
   margin: 20px 0 0;
   padding: 12px 0 20px;
-  border-top: 1px solid var(--line);
   text-align: left;
-}
-#product-dialog .detail-copy .detail-specifications summary {
-  padding: 6px 0;
 }
 #product-dialog .detail-copy .detail-specifications dl {
   grid-template-columns: 1fr;
@@ -454,4 +448,29 @@ html{scrollbar-gutter:stable}
     grid-row: 2;
     padding: 24px 20px 30px;
   }
+}
+
+/* Keep product dialog custom-request support direct and editorial. */
+#product-dialog .detail-copy .detail-notes-label {
+  display: block;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+#product-dialog .detail-copy .detail-styles-link {
+  align-self: center;
+  justify-content: center;
+  margin: 14px 0 0;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+}
+#product-dialog .detail-copy .detail-styles-link:focus-visible::after {
+  transform: scaleX(1);
+  transition: none;
+}
+#product-dialog .detail-copy .detail-specifications {
+  margin-top: 20px;
 }

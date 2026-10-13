@@ -418,14 +418,14 @@
 
   function requestSpecifications(product) {
     const sizeLabel = product.category === 'patches' ? 'Reference size' : 'Reference size options';
-    return `<details class="detail-specifications"><summary>Specifications &amp; sizing</summary><dl><div><dt>${sizeLabel}</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before sampling or production.</p></details>`;
+    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>${sizeLabel}</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before sampling or production.</p></section>`;
   }
 
   function showProduct(id, request = {}) {
     const p = products.find(p => p.id === id);
     if (!p) return;
     const initialIntent = request.intent === 'custom' ? 'custom' : 'stock';
-    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy" tabindex="0" aria-label="Product details and request options"><span class="new-label" id="detail-request-badge">${initialIntent === 'custom' ? 'CUSTOM REQUEST' : (p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK')}</span><h2>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p><fieldset class="detail-request-mode"><legend>Request type</legend><label><input type="radio" name="detail-request-intent" value="stock" ${initialIntent === 'stock' ? 'checked' : ''}>Ready stock</label><label><input type="radio" name="detail-request-intent" value="custom" ${initialIntent === 'custom' ? 'checked' : ''}>Custom request</label></fieldset><div class="detail-custom-fields" id="detail-custom-fields" ${initialIntent === 'custom' ? '' : 'hidden'}><fieldset class="detail-custom-options"><legend>What would you like to explore? <span>(optional)</span></legend><label><input type="checkbox" data-request-option value="logo">Add a logo</label><label><input type="checkbox" data-request-option value="material">Change color or material</label><label><input type="checkbox" data-request-option value="style">Develop a style</label></fieldset><label class="detail-notes-label" for="detail-request-notes">Project note <span>(optional)</span></label><textarea id="detail-request-notes" maxlength="500" rows="3" placeholder="Add a short note about your request"></textarea><a class="text-link detail-styles-link" href="${escape(p.customizationHref)}">View styles &amp; techniques ↗</a></div><fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options" id="detail-size-options"></div></fieldset><div class="detail-quantity"><label for="detail-quantity">Quantity</label><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div><button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><p class="detail-note">Availability, final specifications and pricing are confirmed for each project.</p>${requestSpecifications(p)}</div></div>`;
+    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy" tabindex="0" aria-label="Product details and request options"><span class="new-label" id="detail-request-badge">${initialIntent === 'custom' ? 'CUSTOM REQUEST' : (p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK')}</span><h2>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p><fieldset class="detail-request-mode"><legend>Request type</legend><label><input type="radio" name="detail-request-intent" value="stock" ${initialIntent === 'stock' ? 'checked' : ''}>Ready stock</label><label><input type="radio" name="detail-request-intent" value="custom" ${initialIntent === 'custom' ? 'checked' : ''}>Custom request</label></fieldset><div class="detail-custom-fields" id="detail-custom-fields" ${initialIntent === 'custom' ? '' : 'hidden'}><fieldset class="detail-custom-options"><legend>What would you like to explore? <span>(optional)</span></legend><label><input type="checkbox" data-request-option value="logo">Add a logo</label><label><input type="checkbox" data-request-option value="material">Change color or material</label><label><input type="checkbox" data-request-option value="style">Develop a style</label></fieldset><label class="detail-notes-label" for="detail-request-notes">Project note <span>(optional)</span></label><textarea id="detail-request-notes" maxlength="500" rows="3" placeholder="Add a short note about your request"></textarea></div><fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options" id="detail-size-options"></div></fieldset><div class="detail-quantity"><label for="detail-quantity">Quantity</label><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div><button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><a id="detail-styles-link" class="text-link detail-styles-link" href="${escape(p.customizationHref)}" ${initialIntent === 'custom' ? '' : 'hidden'}>View styles &amp; techniques ↗</a>${requestSpecifications(p)}</div></div>`;
     const detailDescription = $('.detail-copy > p:not(.product-color)');
     detailDescription.id = 'detail-description';
     const detailColor = $('.detail-copy .product-color');
@@ -440,14 +440,6 @@
     const gallery=[{name:'Product view',html:art(p)},...(p.id==='hoodie'?[{name:'On-model illustration',html:'<div class="story-art story-art-0" role="img" aria-label="Sky blue hoodie on model"></div>'},{name:'Stitching illustration',html:'<div class="story-art story-art-1" role="img" aria-label="Hoodie stitching detail"></div>'},{name:'Fabric illustration',html:'<div class="story-art story-art-2" role="img" aria-label="Blue fabric close-up"></div>'}]:[{name:'Detail zoom',html:art(p,'gallery-zoom')}])];
     $('.gallery-thumbs').innerHTML=gallery.map((item,i)=>`<button class="gallery-thumb" aria-label="${item.name}" aria-pressed="${i===0}" data-gallery="${i}">${item.html}</button>`).join('');
     $$('[data-gallery]').forEach(button=>button.addEventListener('click',()=>{const item=gallery[Number(button.dataset.gallery)];$('.detail-visual').innerHTML=item.html;$$('[data-gallery]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));}));
-    const noteField = $('#detail-request-notes');
-    const noteLabel = noteField.previousElementSibling;
-    const noteDisclosure = document.createElement('details');
-    noteDisclosure.className = 'detail-notes-disclosure';
-    const noteSummary = document.createElement('summary');
-    noteSummary.textContent = 'Add a project note (optional)';
-    noteDisclosure.append(noteSummary, noteLabel, noteField);
-    $('.detail-styles-link').before(noteDisclosure);
     const productDialog = $('#product-dialog');
     productDialog.classList.toggle('is-custom-request', initialIntent === 'custom');
     let intent = initialIntent;
@@ -470,13 +462,13 @@
       if (previousIntent === 'custom' && intent === 'stock') {
         $$('[data-request-option]').forEach(input => { input.checked = false; });
         $('#detail-request-notes').value = '';
-        $('.detail-notes-disclosure').open = false;
       }
       $('#detail-description').textContent = intent === 'custom'
         ? 'Use this style as a starting point. Share your preferred colors, materials and artwork; final specifications are confirmed with your quote.'
         : p.description;
       $('#detail-color-value').textContent = `${intent === 'custom' ? 'Reference color: ' : ''}${p.color}`;
       $('#detail-custom-fields').hidden = intent !== 'custom';
+      $('#detail-styles-link').hidden = intent !== 'custom';
       $('#detail-request-badge').textContent = intent === 'custom' ? 'CUSTOM REQUEST' : (p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK');
       productDialog.classList.toggle('is-custom-request', intent === 'custom');
       renderSizeOptions();
