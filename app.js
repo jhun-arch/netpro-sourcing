@@ -43,6 +43,13 @@
     const imageAlt = p.imageAlt || `${p.color} ${p.name}`;
     return `<div class="product-art ${p.art ? `art-${p.art}` : ''} ${extra}"${imageStyle} role="img" aria-label="${escape(imageAlt)}"></div>`;
   }
+  function productHover(p) {
+    if (p.hoverImage) {
+      const imageAlt = p.hoverImageAlt || `${p.name} detail`;
+      return `<span class="product-model product-model--detail" role="img" aria-label="${escape(imageAlt)}" style="background-image:url('${escape(p.hoverImage)}');background-size:${escape(p.hoverImageSize || 'cover')};background-position:${escape(p.hoverImagePosition || 'center')}"></span>`;
+    }
+    return p.art ? `<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category === 'patches' ? 'in use' : 'on model'}"></span>` : '';
+  }
   function notify(message) {
     clearTimeout(toastTimer);
     const toast = $('.toast');
@@ -307,7 +314,7 @@
       items=items.slice((shopState.page-1)*6,shopState.page*6);
     } else items=(activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>products.find(p=>p.id===id)) : items.slice(0,4)).filter(Boolean);
     $('#product-grid').innerHTML = items.map(p => `<article class="product-card" data-product="${p.id}">
-      <button class="product-image" data-detail="${p.id}" aria-label="${isShop ? 'Quick view' : 'View'} ${escape(p.name)}">${art(p)}${p.art ? `<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category==='patches'?'in use':'on model'}"></span>` : ''}${isShop ? '<span class="quick-view">Quick View</span>' : ''}</button>
+      <button class="product-image" data-detail="${p.id}" aria-label="View ${escape(p.name)} details">${art(p)}${productHover(p)}</button>
       <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : isShop ? 'READY STOCK · CUSTOMIZABLE' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${escape(p.name)}</button></h3><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${escape(p.color)}</p>${isShop ? `<a class="product-customize-link" href="${escape(p.customizationHref)}">Customize this product ↗</a>` : ''}</div>
     </article>`).join('') || '<p class="empty-results">Try another category or clear your filters to explore more basics.</p>';
     $$('.filters button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
@@ -1066,7 +1073,7 @@
   if (Array.isArray(window.NETPRO_PRODUCTS)) start();
   else {
     const productScript = document.createElement('script');
-    productScript.src = 'products.js?v=20261013-shop1';
+    productScript.src = 'products.js?v=20261013-shop2';
     productScript.onload = start;
     productScript.onerror = () => {
       console.error('Netpro product catalogue could not be loaded.');
