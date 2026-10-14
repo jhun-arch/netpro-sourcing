@@ -134,6 +134,23 @@
     text-decoration:underline;
     text-underline-offset:3px;
   }
+  .desktop-nav .nav-dropdown--customization .nav-menu-group > .nav-netpro-patches{
+    display:inline-flex;
+    width:max-content;
+    max-width:100%;
+    min-height:30px;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    padding:2px 6px;
+    color:#3d609a;
+    font-size:14px;
+    font-weight:500;
+    line-height:1.5;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .desktop-nav .nav-dropdown--customization .nav-menu-group > .nav-netpro-patches > span:last-child{font-size:16px;text-decoration:none}
   .desktop-nav .nav-menu-overview span{font-size:16px;text-decoration:none}
   .desktop-nav .nav-customization-panels{min-width:0;padding:0}
   .desktop-nav .nav-customization-panel[hidden]{display:none!important}
@@ -213,6 +230,8 @@
   }
   .desktop-nav .nav-menu-overview:hover,
   .desktop-nav .nav-menu-overview:focus-visible,
+  .desktop-nav .nav-netpro-patches:hover,
+  .desktop-nav .nav-netpro-patches:focus-visible,
   .desktop-nav .nav-dropdown--customization .nav-menu-links li > a:hover,
   .desktop-nav .nav-dropdown--customization .nav-menu-links li > a:focus-visible{
     color:var(--blue);
@@ -220,10 +239,35 @@
   }
   body:not(.home-page) .desktop-nav .nav-dropdown--customization .nav-menu-links li > a:hover,
   body:not(.home-page) .desktop-nav .nav-dropdown--customization .nav-menu-links li > a:focus-visible{color:var(--blue);background:#edf3ff}
+  .desktop-nav .nav-dropdown--customization .nav-menu-group > .nav-netpro-patches:hover,
+  .desktop-nav .nav-dropdown--customization .nav-menu-group > .nav-netpro-patches:focus-visible{color:var(--blue);background:#edf3ff}
   .desktop-nav .nav-menu-overview:focus-visible,
+  .desktop-nav .nav-netpro-patches:focus-visible,
   .desktop-nav .nav-menu-links a:focus-visible{outline:2px solid #3d609a;outline-offset:1px}
+  html:root body .desktop-nav .nav-dropdown--customization :is(.nav-menu-overview, .nav-netpro-patches){
+    color:#3d609a;
+    font-size:14px;
+    font-weight:500;
+  }
+  html:root body .desktop-nav .nav-dropdown--customization :is(.nav-menu-overview, .nav-netpro-patches):is(:hover, :focus-visible){
+    color:var(--blue);
+    background:#edf3ff;
+  }
 }
 @media(max-width:1100px){.desktop-nav{display:none}.menu-toggle{display:grid}.mobile-nav:not([hidden]){display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:white;padding:12px var(--gutter) 24px;box-shadow:0 14px 22px #10233f10;max-height:calc(100dvh - 95px);overflow-y:auto}.mobile-nav a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}.mobile-nav>.nav-contact{background:var(--blue);color:white;justify-content:center;border-radius:3px;margin:8px 0 14px;padding:12px}.mobile-nav details>div a{font-size:15px}.header-actions{margin-left:auto;gap:5px}}
+
+.netpro-patches-confirm-dialog{width:min(470px,calc(100vw - 32px));padding:32px}
+.netpro-patches-confirm-dialog h2{font-size:clamp(25px,3vw,31px);line-height:1.15;letter-spacing:-.04em}
+.netpro-patches-confirm-copy{margin-top:15px;color:var(--muted);font-size:15px;line-height:1.6}
+.netpro-patches-confirm-destination{display:grid;gap:3px;margin:13px 0 0;color:var(--muted);font-size:12px;line-height:1.45;overflow-wrap:anywhere}
+.netpro-patches-confirm-destination>span:first-child{color:var(--ink);font-weight:600}
+.netpro-patches-confirm-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
+.netpro-patches-confirm-actions .button{min-height:44px;padding:11px 16px;font-size:14px;gap:8px;white-space:nowrap}
+@media(max-width:520px){
+  .netpro-patches-confirm-dialog{padding:25px 22px}
+  .netpro-patches-confirm-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+  .netpro-patches-confirm-actions>*{width:100%}
+}
 /* Hide checkout/enquiry scrollbars without disabling scrolling. */
 html:has(body.checkout-page),body.checkout-page,body.checkout-page .checkout-shell,body.checkout-page .checkout-summary,body.checkout-page .quote-form-side{scrollbar-width:none;-ms-overflow-style:none}
 html:has(body.checkout-page)::-webkit-scrollbar,body.checkout-page::-webkit-scrollbar,body.checkout-page .checkout-shell::-webkit-scrollbar,body.checkout-page .checkout-summary::-webkit-scrollbar,body.checkout-page .quote-form-side::-webkit-scrollbar{display:none;width:0;height:0}

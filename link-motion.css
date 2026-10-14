@@ -249,16 +249,16 @@
 }
 
 @media (min-width: 1101px) {
-  html:root body .desktop-nav .nav-menu-overview {
+  html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches) {
     position: relative;
     text-decoration: none !important;
   }
 
-  html:root body .desktop-nav .nav-menu-overview > span {
+  html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches) > span {
     text-decoration: none !important;
   }
 
-  html:root body .desktop-nav .nav-menu-overview::after {
+  html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches)::after {
     content: "";
     display: block;
     position: absolute;
@@ -272,17 +272,23 @@
     transition: transform 200ms var(--ease);
   }
 
-  html:root body .desktop-nav .nav-menu-overview:hover::after,
-  html:root body .desktop-nav .nav-menu-overview:focus-visible::after {
+  html:root body .desktop-nav .nav-netpro-patches::after {
+    left: 6px;
+    width: calc(100% - 12px);
+    bottom: 3px;
+  }
+
+  html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches):hover::after,
+  html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches):focus-visible::after {
     transform: scaleX(1);
   }
 
-  html:root body .desktop-nav .nav-menu-overview:focus-visible::after {
+  html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches):focus-visible::after {
     transition: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html:root body .desktop-nav .nav-menu-overview::after {
+    html:root body .desktop-nav :is(.nav-menu-overview, .nav-netpro-patches)::after {
       transition: none;
     }
   }

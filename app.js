@@ -89,17 +89,66 @@
     dialog.classList.add('drawer-closing');
     setTimeout(()=>{dialog.close();dialog.classList.remove('drawer-closing');},280);
   }
+  function ensureNetproPatchesDialog() {
+    let dialog = $('#netpro-patches-confirm-dialog');
+    if (dialog) return dialog;
+    dialog = document.createElement('dialog');
+    dialog.id = 'netpro-patches-confirm-dialog';
+    dialog.className = 'netpro-patches-confirm-dialog';
+    dialog.setAttribute('aria-labelledby', 'netpro-patches-confirm-title');
+    dialog.setAttribute('aria-describedby', 'netpro-patches-confirm-copy netpro-patches-confirm-destination');
+    dialog.innerHTML = `<h2 id="netpro-patches-confirm-title">Continue To NetproPatches?</h2><p id="netpro-patches-confirm-copy" class="netpro-patches-confirm-copy">You’re about to visit NetproPatches, our dedicated patch website.</p><p class="netpro-patches-confirm-destination"><span>Destination</span><span id="netpro-patches-confirm-destination"></span></p><div class="netpro-patches-confirm-actions"><button class="button outline close-dialog" type="button" autofocus>Stay Here</button><a class="button primary" href="#" data-netpro-confirm-continue>Continue To NetproPatches ↗</a></div>`;
+    document.body.append(dialog);
+    return dialog;
+  }
+  const netproPatchesDialog = ensureNetproPatchesDialog();
+  let netproPatchesInvoker = null;
+  function isNetproPatchesUrl(href) {
+    try {
+      const url = new URL(href, document.baseURI);
+      return url.protocol === 'https:' && ['netpropatches.com', 'www.netpropatches.com'].includes(url.hostname.toLowerCase());
+    } catch {
+      return false;
+    }
+  }
+  function restoreNetproPatchesFocus() {
+    const invoker = netproPatchesInvoker;
+    netproPatchesInvoker = null;
+    requestAnimationFrame(() => {
+      if (invoker?.isConnected && invoker.getClientRects().length) {
+        invoker.focus({ preventScroll: true });
+        return;
+      }
+      const navTrigger = $('.nav-trigger[aria-controls="nav-panel-1"]');
+      const fallback = navTrigger?.getClientRects().length ? navTrigger : $('.menu-toggle');
+      fallback?.focus({ preventScroll: true });
+    });
+  }
   $$('dialog').forEach(dialog => {
     dialog.addEventListener('cancel',event=>{event.preventDefault();dismissDialog(dialog);});
     $('.close-dialog', dialog)?.addEventListener('click', () => dismissDialog(dialog));
     dialog.addEventListener('close', () => {
       if (!$('dialog[open]')) document.body.classList.remove('modal-open');
+      if (dialog === netproPatchesDialog) restoreNetproPatchesFocus();
     });
     dialog.addEventListener('click', event => {
       if (event.target !== dialog) return;
       const r = dialog.getBoundingClientRect();
       if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dismissDialog(dialog);
     });
+  });
+  document.addEventListener('click', event => {
+    const target = event.target instanceof Element ? event.target : null;
+    const link = target?.closest('a[href]');
+    if (!link || link.matches('[data-netpro-confirm-continue]')) return;
+    const href = link.getAttribute('href');
+    if (!href || !isNetproPatchesUrl(href)) return;
+    event.preventDefault();
+    netproPatchesInvoker = link;
+    const destination = new URL(href, document.baseURI);
+    $('[data-netpro-confirm-continue]', netproPatchesDialog).setAttribute('href', href);
+    $('#netpro-patches-confirm-destination', netproPatchesDialog).textContent = `${destination.hostname}${destination.pathname}`;
+    openDialog(netproPatchesDialog.id);
   });
 
   function ensureFamilyDialog() {
@@ -167,9 +216,9 @@
     header.classList.add('menu-is-open');
     $('use', menuButton).setAttribute('href', '#i-close');
   });
-  $$('#mobile-nav a').forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-  document.addEventListener('click', e => { if (!header.contains(e.target)) closeMenu(); });
+  $$('#mobile-nav a').forEach(a => a.addEventListener('click', () => { if (!isNetproPatchesUrl(a.href)) closeMenu(); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !netproPatchesDialog.open) closeMenu(); });
+  document.addEventListener('click', e => { if (!netproPatchesDialog.open && !header.contains(e.target)) closeMenu(); });
   const mobileQuery = matchMedia('(max-width: 1100px)');
   mobileQuery.addEventListener('change', closeMenu);
 
@@ -236,7 +285,7 @@
       }, 140));
     };
     group.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(); });
-    group.addEventListener('pointerleave', () => { if (!group.contains(document.activeElement)) scheduleClose(); });
+    group.addEventListener('pointerleave', () => { if (!netproPatchesDialog.open && !group.contains(document.activeElement)) scheduleClose(); });
     customizationMenu?.addEventListener('pointerenter', e => {
       if (e.pointerType === 'mouse') setDropdown(group, true);
     });
@@ -249,6 +298,7 @@
       setDropdown(group, mouseClick || !expanded);
     });
     group.addEventListener('focusout', e => {
+      if (netproPatchesDialog.open) return;
       if (!group.contains(e.relatedTarget)) scheduleClose();
     });
     group.addEventListener('keydown', e => {
@@ -260,9 +310,9 @@
         firstTarget?.focus({ preventScroll: true });
       }
     });
-    $$('a', group).forEach(a => a.addEventListener('click', closeDropdowns));
+    $$('a', group).forEach(a => a.addEventListener('click', () => { if (!isNetproPatchesUrl(a.href)) closeDropdowns(); }));
   });
-  document.addEventListener('click', e => { if (!e.target.closest('.nav-group')) closeDropdowns(); });
+  document.addEventListener('click', e => { if (!netproPatchesDialog.open && !e.target.closest('.nav-group')) closeDropdowns(); });
   mobileQuery.addEventListener('change', closeDropdowns);
 
   // Image accordion: hover, click, focus and keyboard share the same state.
