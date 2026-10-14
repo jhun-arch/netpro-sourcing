@@ -130,7 +130,6 @@
     if (motionContext) motionContext.revert();
     if (gsap) {
       gsap.set([
-        page.querySelector("[data-showcase-reel]"),
         ...page.querySelectorAll(".showcase-category-mosaic img"),
         page.querySelector("[data-detail-track]"),
       ].filter(Boolean), { clearProps: "all" });
@@ -147,24 +146,6 @@
     page.classList.remove("showcase-static-motion");
     gsap.registerPlugin(ScrollTrigger);
     motionContext = gsap.context(() => {
-      const hero = page.querySelector(".showcase-hero");
-      const reel = page.querySelector("[data-showcase-reel]");
-      if (hero && reel) {
-        const reelItems = [...reel.children];
-        const seamlessDistance = reelItems[4]?.offsetTop || reel.offsetHeight / 2;
-        gsap.to(reel, {
-          y: () => -seamlessDistance,
-          ease: "none",
-          scrollTrigger: {
-            trigger: hero,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.8,
-            invalidateOnRefresh: true,
-          },
-        });
-      }
-
       page.querySelectorAll(".showcase-category-panel").forEach((panel) => {
         panel.querySelectorAll(".showcase-category-mosaic img").forEach((image, imageIndex) => {
           gsap.fromTo(image, { yPercent: imageIndex === 0 ? 5 : -4 }, {
