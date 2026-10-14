@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-14",
+  "reference": "THE/STUDIO Who this is built for desktop carousel screenshot supplied in chat",
+  "source_prompt_note": "Original generation prompts for the pre-existing WebP assets were not recoverable from the available project files or image metadata; they are recorded as null rather than inferred.",
+  "items": [
+    {
+      "category": "creators",
+      "final_asset": "assets/showcase-audience-creators.webp",
+      "source_asset_at_edit_time": "assets/showcase-audience-creators.webp",
+      "source_dimensions": [1200, 1600],
+      "source_prompt": null,
+      "edit": {
+        "performed": true,
+        "tool": "OpenAI built-in image_gen",
+        "generated_intermediate": "C:/Users/Administrator/.codex/generated_images/01a1399f-0136-7920-9b22-e8acd59cb7be/exec-6b789aa3-1781-4b15-af0b-ae235f6900bf.png",
+        "prompt": "Use case: lifestyle photography for a desktop audience carousel on a modern apparel customization website. Edit Image 1, the creator-focused workshop photo. Keep the same woman, her pose and expression, the sunlit creative studio, tabletop, and overall close vertical composition. Change only the products, colors, and small environmental accents: remove every four-point star and every other logo or brand mark from all visible caps, shirts, tote bags, folded garments, and accessories, leaving each product plain and unbranded with natural fabric texture. Make the styling more colorful and creator-led with tasteful pink, coral, warm peach, and soft red fabric accents while keeping the clothes wearable and the scene believable. Photorealistic candid editorial lifestyle photography, warm natural daylight, premium but approachable. No stars, logos, text, labels, or watermark anywhere."
+      },
+      "optimization": {"format": "WebP", "quality": 86, "dimensions": [1086, 1448], "bytes": 180068},
+      "visual_review": {"star_or_brand_marks_visible": false, "notes": "Plain cap, shirt, tote, and folded garments; warm pink and coral creator palette."}
+    },
+    {
+      "category": "retail",
+      "final_asset": "assets/showcase-audience-retail.webp",
+      "source_asset_at_edit_time": "assets/showcase-audience-retail.webp",
+      "source_dimensions": [1200, 1600],
+      "source_prompt": null,
+      "edit": {"performed": false, "reason": "Existing packaging scene was already clean and retained."},
+      "visual_review": {"star_or_brand_marks_visible": false, "notes": "Natural apparel packing scene retained without visible product logos."}
+    },
+    {
+      "category": "fashion",
+      "final_asset": "assets/showcase-audience-fashion.webp",
+      "source_asset_at_edit_time": "assets/showcase-audience-fashion.webp",
+      "source_dimensions": [1200, 1600],
+      "source_prompt": null,
+      "edit": {"performed": false, "reason": "Existing outerwear model scene was already clean and retained."},
+      "visual_review": {"star_or_brand_marks_visible": false, "notes": "Two-model outerwear scene retained without visible product logos."}
+    },
+    {
+      "category": "agency",
+      "final_asset": "assets/showcase-audience-agency.webp",
+      "source_asset_at_edit_time": "assets/showcase-audience-agency.webp",
+      "source_dimensions": [1200, 1600],
+      "source_prompt": null,
+      "edit": {
+        "performed": true,
+        "tool": "OpenAI built-in image_gen",
+        "generated_intermediate": "C:/Users/Administrator/.codex/generated_images/01a1399f-0136-7920-9b22-e8acd59cb7be/exec-5f4b8f6c-d45b-408a-be83-a1c2efd52cb2.png",
+        "prompt": "Use case: lifestyle photography for a desktop audience carousel on a modern apparel customization website. Edit Image 1, the agency work scene with a woman checking her phone in a design studio. Preserve the same subject, face, expression, pose, smartphone, tabletop layout, daylight, and vertical framing. Change her bright blue jacket to a rich muted burgundy / oxblood red jacket. Keep the fabric realistic and preserve its existing cut and seams. Remove any visible branding or star motif from every cap, shirt, or product in the scene; leave all apparel and merchandise plain and unbranded. Keep the scene natural and editorial, with understated studio details. Photorealistic, no stars, logos, text, labels, or watermark anywhere."
+      },
+      "optimization": {"format": "WebP", "quality": 86, "dimensions": [1086, 1448], "bytes": 113092},
+      "visual_review": {"star_or_brand_marks_visible": false, "notes": "Jacket shifted to burgundy; visible cap, shirt, and apparel remain plain."}
+    },
+    {
+      "category": "startup",
+      "final_asset": "assets/showcase-audience-startup.webp",
+      "source_asset_at_edit_time": "assets/showcase-audience-startup.webp",
+      "source_dimensions": [1200, 1600],
+      "source_prompt": null,
+      "edit": {
+        "performed": true,
+        "tool": "OpenAI built-in image_gen",
+        "generated_intermediate": "C:/Users/Administrator/.codex/generated_images/01a1399f-0136-7920-9b22-e8acd59cb7be/exec-eadf8715-2a29-4666-bc8a-8154ed11377c.png",
+        "prompt": "Use case: lifestyle photography for a desktop audience carousel on a modern apparel customization website. Edit Image 1, the two-person startup founders' sample review in a bright apparel studio. Preserve the woman and man, their poses, the shared attention to the shirt, table, folded products, laptop, studio, daylight, and vertical framing. Remove every four-point star and every other logo, icon, text, or brand mark from all caps, shirts, tote bags, socks, and folded apparel, leaving all products plain and unbranded with natural fabric texture. Keep the scene warm, believable, and work-focused with natural neutral colors and subtle navy accents. Photorealistic editorial workplace lifestyle photography. No stars, logos, text, labels, or watermark anywhere."
+      },
+      "optimization": {"format": "WebP", "quality": 86, "dimensions": [1086, 1448], "bytes": 135494},
+      "visual_review": {"star_or_brand_marks_visible": false, "notes": "Plain caps, shirt, tote, and socks; natural startup product-review scene retained."}
+    },
+    {
+      "category": "teams",
+      "final_asset": "assets/showcase-audience-teams.webp",
+      "source_asset_at_edit_time": "assets/showcase-audience-teams.webp",
+      "source_dimensions": [1200, 1600],
+      "source_prompt": null,
+      "edit": {
+        "performed": true,
+        "tool": "OpenAI built-in image_gen",
+        "generated_intermediate": "C:/Users/Administrator/.codex/generated_images/01a1399f-0136-7920-9b22-e8acd59cb7be/exec-e3759d41-e412-4a37-b50e-ac8d6447f1f8.png",
+        "prompt": "Use case: lifestyle photography for a desktop audience carousel on a modern apparel customization website. Edit Image 1, the friendly three-person company team portrait outdoors near a modern office. Preserve all three people, their natural smiles, poses, clothing styles, group arrangement, greenery, soft daylight, and vertical framing. Remove every four-point star and all other logos, icons, labels, or brand marks from every cap, sweatshirt, shirt, and any visible product. Make the three navy caps plain with no logo; keep the garments simple, solid and unbranded with realistic fabric texture. Keep colors neutral and natural, with cream, navy, and soft warm gray. Photorealistic candid workplace lifestyle photography, polished but relaxed. No stars, logos, text, labels, or watermark anywhere."
+      },
+      "optimization": {"format": "WebP", "quality": 86, "dimensions": [1086, 1448], "bytes": 112174},
+      "visual_review": {"star_or_brand_marks_visible": false, "notes": "Three plain navy caps and logo-free neutral clothing in the outdoor team scene."}
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-/* Product Showcase — editorial desktop layout and page-specific motion states. */
+/* Product Solutions — editorial desktop layout and page-specific motion states. */
 .product-showcase-page {
   --showcase-ink: #14253f;
   --showcase-muted: #6c7c94;
@@ -52,18 +52,6 @@
   letter-spacing: .14em;
   line-height: 1.4;
   text-transform: uppercase;
-}
-
-.product-showcase-page .showcase-kicker span {
-  flex: 0 0 auto;
-  font-variant-numeric: tabular-nums;
-  opacity: .62;
-}
-
-.product-showcase-page .showcase-caption {
-  color: var(--showcase-muted);
-  font-size: 11px;
-  line-height: 1.6;
 }
 
 .product-showcase-page .showcase-main a {
@@ -193,14 +181,6 @@
   transform: translate(0, 0);
 }
 
-.showcase-category-hint {
-  max-width: 195px;
-  margin: 23px 0 0;
-  color: var(--showcase-muted);
-  font-size: 11px;
-  line-height: 1.65;
-}
-
 .showcase-category-panels {
   display: grid;
   gap: clamp(44px, 8vw, 115px);
@@ -302,15 +282,6 @@
   height: 100%;
   min-height: 0;
   object-fit: cover;
-}
-
-.showcase-mosaic-label {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: var(--showcase-muted);
-  font-size: 8px;
-  letter-spacing: .16em;
 }
 
 /* 02 / 04 — five detail photographs travel horizontally over an oversized title. */
@@ -525,103 +496,188 @@
   transform: scaleX(1);
 }
 
-.showcase-details > .showcase-caption {
-  grid-column: 1 / -1;
-  grid-row: 4;
-  width: 100%;
-  margin: 0;
-  color: rgba(255, 255, 255, .67);
-}
-
-.showcase-detail-stage > .showcase-caption {
-  grid-column: 1 / -1;
-  grid-row: 4;
-  width: 100%;
-  margin: 0;
-  color: rgba(255, 255, 255, .67);
-}
-
-/* 03 / 04 — the left feature stays in view while the four conceptual directions pass. */
+/* 03 / 04 — a portrait audience rail keeps four project directions in view. */
 .showcase-projects {
-  display: grid;
-  grid-template-columns: minmax(300px, .9fr) minmax(0, 1.1fr);
-  gap: clamp(55px, 9vw, 130px);
-  width: min(1330px, calc(100% - 2 * clamp(28px, 7.1vw, 104px)));
+  padding: clamp(64px, 6.2vw, 90px) clamp(28px, 7.1vw, 104px);
+}
+
+.showcase-projects-heading {
+  width: min(1330px, 100%);
+  margin: 0 auto clamp(26px, 3.4vw, 48px);
+  text-align: right;
+}
+
+.showcase-projects-heading .showcase-kicker {
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.showcase-projects-heading h2 {
+  max-width: 780px;
+  margin: 0 0 0 auto;
+  text-align: right;
+}
+
+.showcase-audience-window {
+  width: min(1330px, 100%);
   margin: 0 auto;
-  padding: clamp(110px, 14vw, 205px) 0;
+  overflow: hidden;
 }
 
-.showcase-projects-image {
-  position: sticky;
-  top: 108px;
-  align-self: start;
-  height: min(72vh, 710px);
-  min-height: 490px;
+.showcase-audience-track {
+  display: flex;
+  width: calc(150% + 8px);
+  gap: 16px;
+  transform: translate3d(0, 0, 0);
+  transition: transform 250ms cubic-bezier(.77, 0, .175, 1);
+  will-change: transform;
+}
+
+.showcase-audience-card {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 calc((100% - 80px) / 6);
+  aspect-ratio: .76;
+  min-height: 315px;
+  overflow: hidden;
   background: #dfe7f0;
+  color: #fff;
 }
 
-.showcase-projects-image img {
+.showcase-audience-card img {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 300ms cubic-bezier(.23, 1, .32, 1);
 }
 
-.showcase-projects-image > span {
+.showcase-audience-card::after {
   position: absolute;
-  right: 14px;
-  bottom: 14px;
-  padding: 8px 11px;
-  color: #fff;
-  background: rgba(20, 37, 63, .58);
-  font-size: 8px;
-  letter-spacing: .13em;
+  z-index: 1;
+  inset: 22% 0 0;
+  background: linear-gradient(180deg, rgba(20, 37, 63, 0) 0%, rgba(20, 37, 63, .82) 100%);
+  content: "";
 }
 
-.showcase-projects-content {
-  align-self: center;
-  padding-top: 15px;
-}
-
-.showcase-projects-content > p:not(.showcase-kicker) {
-  max-width: 415px;
-  margin: 0 0 37px;
-  color: var(--showcase-muted);
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.showcase-project-list {
-  border-top: 1px solid var(--showcase-line);
-}
-
-.showcase-project-list article {
+.showcase-audience-copy {
+  position: absolute;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 39px 1fr;
-  gap: 13px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--showcase-line);
+  grid-template-rows: auto 0fr;
+  row-gap: 0;
+  inset: auto 18px 20px;
+  color: #fff;
+  transition: grid-template-rows 200ms cubic-bezier(.23, 1, .32, 1), row-gap 200ms ease-out;
 }
 
-.showcase-project-list article > span {
-  padding-top: 4px;
-  color: var(--showcase-blue);
-  font-size: 9px;
-  font-variant-numeric: tabular-nums;
-}
-
-.showcase-project-list h3 {
-  margin: 0 0 7px;
-  font-size: 17px;
+.showcase-audience-copy h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(17px, 1.45vw, 21px);
+  font-weight: 600;
+  line-height: 1.15;
   letter-spacing: -.04em;
 }
 
-.showcase-project-list p {
-  max-width: 380px;
+.showcase-audience-copy p {
+  min-height: 0;
+  overflow: hidden;
   margin: 0;
-  color: var(--showcase-muted);
+  color: rgba(255, 255, 255, .95);
   font-size: 12px;
-  line-height: 1.65;
+  line-height: 1.55;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease-out, transform 200ms cubic-bezier(.23, 1, .32, 1);
+}
+
+.showcase-audience-card:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+
+.showcase-audience-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  width: min(1330px, 100%);
+  margin: 18px auto 0;
+}
+
+.showcase-audience-arrow {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(20, 37, 63, .3);
+  border-radius: 50%;
+  background: var(--showcase-white);
+  color: var(--showcase-ink);
+  cursor: pointer;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out, opacity 180ms ease-out;
+}
+
+.showcase-audience-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.showcase-audience-arrow.is-previous svg {
+  transform: rotate(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .showcase-audience-card:hover img {
+    transform: scale(1.035);
+  }
+
+  .showcase-audience-card:hover .showcase-audience-copy p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .showcase-audience-card:hover .showcase-audience-copy {
+    grid-template-rows: auto 1fr;
+    row-gap: 8px;
+  }
+
+  .showcase-audience-arrow:hover {
+    border-color: var(--showcase-blue-dark);
+    background: var(--showcase-blue-dark);
+    color: #fff;
+  }
+}
+
+.showcase-audience-card:focus-visible img {
+  transform: scale(1.035);
+}
+
+.showcase-audience-card:focus-visible .showcase-audience-copy p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.showcase-audience-card:focus-visible .showcase-audience-copy {
+  grid-template-rows: auto 1fr;
+  row-gap: 8px;
+}
+
+@media (hover: none) {
+  .showcase-audience-copy p {
+    opacity: 1;
+    transform: none;
+  }
+
+  .showcase-audience-copy {
+    grid-template-rows: auto 1fr;
+    row-gap: 8px;
+  }
 }
 
 /* 04 / 04 — a quiet numbered production path and direct project action. */
@@ -844,10 +900,6 @@
     padding-inline: 14px;
   }
 
-  .showcase-category-hint {
-    display: none;
-  }
-
   .showcase-category-panels {
     gap: 50px;
   }
@@ -879,8 +931,7 @@
   .showcase-details-heading,
   .showcase-detail-current,
   .showcase-detail-window,
-  .showcase-detail-tabs,
-  .showcase-detail-stage > .showcase-caption {
+  .showcase-detail-tabs {
     grid-column: 1;
     grid-row: auto;
   }
@@ -924,17 +975,6 @@
 
   .showcase-detail-tabs::-webkit-scrollbar {
     display: none;
-  }
-
-  .showcase-projects {
-    width: calc(100% - 60px);
-    gap: 42px;
-    padding: 90px 0;
-  }
-
-  .showcase-projects-image {
-    top: 90px;
-    min-height: 410px;
   }
 
   .showcase-process {
@@ -1038,24 +1078,6 @@
     margin: 0;
   }
 
-  .showcase-projects {
-    grid-template-columns: 1fr;
-    width: calc(100% - 44px);
-    padding: 70px 0;
-  }
-
-  .showcase-projects-image {
-    position: relative;
-    top: auto;
-    height: 105vw;
-    min-height: 0;
-    max-height: 470px;
-  }
-
-  .showcase-projects-content {
-    padding: 0;
-  }
-
   .showcase-process-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1092,5 +1114,19 @@
 
   .showcase-detail-track {
     will-change: auto;
+  }
+
+  .showcase-audience-track {
+    transition: none;
+    will-change: auto;
+  }
+
+  .showcase-audience-card:hover img,
+  .showcase-audience-card:focus-visible img {
+    transform: none;
+  }
+
+  .showcase-audience-copy p {
+    transform: none;
   }
 }
