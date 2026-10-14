@@ -1,0 +1,579 @@
+/* Editorial layouts for the Quality and Custom Product Manufacturing service pages. */
+main.project-support-page {
+  --support-ink: #172235;
+  --support-muted: #627085;
+  --support-blue: #315f9d;
+  --support-line: #dce3eb;
+  --support-ice: #edf3f9;
+  --support-max: 1280px;
+  color: var(--support-ink);
+  overflow-x: clip;
+}
+
+main.project-support-page :is(h1, h2, h3) {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+main.project-support-page p,
+main.project-support-page li { text-wrap: pretty; }
+
+main.project-support-page .ip-kicker {
+  margin: 0 0 16px;
+  color: var(--support-blue);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  line-height: 1.5;
+}
+
+main.project-support-page .support-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: clamp(620px, 44vw, 660px);
+  margin: 0;
+  padding: 0;
+  background: var(--support-ice);
+}
+
+main.project-support-page .support-hero-copy {
+  align-self: center;
+  width: min(100%, 700px);
+  justify-self: end;
+  padding: clamp(58px, 5vw, 76px) clamp(34px, 6vw, 84px) clamp(58px, 5vw, 76px) 24px;
+}
+
+main.project-support-page .support-hero h1 {
+  max-width: 660px;
+  margin: 0;
+  font-size: clamp(48px, 4.5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+main.project-support-page .support-hero-copy > p:not(.ip-kicker) {
+  max-width: 540px;
+  margin: 23px 0 0;
+  color: var(--support-muted);
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.75;
+}
+
+main.project-support-page .support-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+main.project-support-page .support-hero-actions .button { margin: 0; }
+main.project-support-page .support-hero-actions .ip-text-link { margin: 0; white-space: nowrap; }
+
+main.project-support-page .support-hero-media {
+  align-self: stretch;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px clamp(24px, 4vw, 54px) 34px 0;
+}
+
+main.project-support-page .support-hero-media figure {
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #dce4ed;
+}
+
+main.project-support-page .support-hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  max-height: 500px;
+  aspect-ratio: 1.35;
+  object-fit: cover;
+  object-position: center;
+}
+
+main.project-support-page .support-section {
+  width: min(calc(100% - 48px), var(--support-max));
+  margin-inline: auto;
+  padding-block: clamp(72px, 8vw, 110px);
+}
+
+main.project-support-page .support-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+  align-items: end;
+  gap: clamp(30px, 6vw, 84px);
+  margin-bottom: 40px;
+}
+
+main.project-support-page .support-section-heading h2,
+main.project-support-page .manufacturing-range h2,
+main.project-support-page .manufacturing-process h2,
+main.project-support-page .manufacturing-brief h2,
+main.project-support-page .quality-guidance h2 {
+  margin: 0;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.08;
+}
+
+main.project-support-page .support-section-heading > p {
+  max-width: 490px;
+  margin: 0 0 4px;
+  color: var(--support-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+main.project-support-page .quality-stage-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main.project-support-page .quality-stage-list li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 13px;
+  border-top: 1px solid var(--support-line);
+  padding: 22px 0 27px;
+}
+
+main.project-support-page .quality-stage-number,
+main.project-support-page .manufacturing-step-number,
+main.project-support-page .category-index {
+  color: var(--support-blue);
+  font-family: 'Figtree', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+
+main.project-support-page .quality-stage-list h3,
+main.project-support-page .manufacturing-step-list h3 {
+  margin: 0;
+  font-size: clamp(19px, 1.7vw, 23px);
+  line-height: 1.25;
+}
+
+main.project-support-page .quality-stage-list p,
+main.project-support-page .manufacturing-step-list p {
+  max-width: 38ch;
+  margin: 11px 0 0;
+  color: var(--support-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+main.project-support-page .quality-evidence-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr);
+  align-items: start;
+  gap: clamp(18px, 3vw, 34px);
+  margin-top: 50px;
+}
+
+main.project-support-page .quality-evidence-gallery figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #e5eaf0;
+}
+
+main.project-support-page .quality-evidence-gallery figure:nth-child(2) { margin-top: 56px; }
+
+main.project-support-page .quality-evidence-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.58;
+  object-fit: cover;
+}
+
+main.project-support-page .quality-evidence-gallery figure:nth-child(2) img { aspect-ratio: 1.05; }
+
+main.project-support-page .quality-guidance {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 82px);
+  padding: clamp(58px, 7vw, 92px) max(24px, calc((100vw - var(--support-max)) / 2));
+  background: var(--support-ice);
+}
+
+main.project-support-page .quality-guidance-block { max-width: 610px; }
+
+main.project-support-page .quality-guidance-block + .quality-guidance-block {
+  border-left: 1px solid #cbd6e3;
+  padding-left: clamp(28px, 4vw, 56px);
+}
+
+main.project-support-page .quality-guidance h2 {
+  max-width: 550px;
+  font-size: clamp(32px, 3.3vw, 44px);
+}
+
+main.project-support-page .quality-guidance-block > p:not(.ip-kicker) {
+  margin: 18px 0 0;
+  color: var(--support-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+main.project-support-page .quality-guidance-block ul {
+  display: grid;
+  gap: 10px;
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+main.project-support-page .quality-guidance-block li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--support-ink);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+main.project-support-page .quality-guidance-block li::before {
+  position: absolute;
+  top: .58em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--support-blue);
+  content: "";
+}
+
+main.project-support-page .quality-aftercare .ip-text-link { margin-top: 22px; }
+
+main.project-support-page .support-closing-cta .ip-kicker { color: #d5e4ff; }
+
+main.project-support-page .support-closing-cta > p:not(.ip-kicker) {
+  max-width: 680px;
+  margin: 18px auto 0;
+  color: rgba(255, 255, 255, .86);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+main.project-support-page .support-closing-cta h2 { max-width: 900px; }
+main.project-support-page .support-closing-cta .ip-actions { justify-content: center; }
+
+main.project-support-page .support-breadcrumb { padding-block: 22px 8px; }
+
+main.project-support-page .manufacturing-range {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 96px);
+}
+
+main.project-support-page .manufacturing-range-copy > p:not(.ip-kicker) {
+  max-width: 600px;
+  margin: 18px 0 28px;
+  color: var(--support-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+main.project-support-page .manufacturing-category-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--support-line);
+  list-style: none;
+}
+
+main.project-support-page .manufacturing-category-list li { border-bottom: 1px solid var(--support-line); }
+
+main.project-support-page .manufacturing-category-list a {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 0;
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+main.project-support-page .manufacturing-category-list a:hover {
+  color: var(--support-blue);
+  transform: translateX(3px);
+}
+
+main.project-support-page .manufacturing-category-list a:focus-visible,
+main.project-support-page .ip-accordion summary:focus-visible {
+  outline: 2px solid var(--support-blue);
+  outline-offset: 4px;
+}
+
+main.project-support-page .manufacturing-category-list strong {
+  display: block;
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+main.project-support-page .manufacturing-category-list small {
+  display: block;
+  margin-top: 4px;
+  color: var(--support-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+main.project-support-page .manufacturing-category-list svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: transform 180ms ease;
+}
+
+main.project-support-page .manufacturing-category-list a:hover svg { transform: translateX(3px); }
+
+main.project-support-page .manufacturing-range-image {
+  margin: 0;
+  overflow: hidden;
+  background: #e5eaf0;
+}
+
+main.project-support-page .manufacturing-range-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.16;
+  object-fit: cover;
+}
+
+main.project-support-page .manufacturing-process {
+  display: grid;
+  grid-template-columns: minmax(245px, .72fr) minmax(0, 1.28fr);
+  align-items: start;
+  gap: clamp(34px, 7vw, 92px);
+  padding-top: 0;
+}
+
+main.project-support-page .manufacturing-process-intro {
+  position: sticky;
+  top: 112px;
+  max-width: 440px;
+}
+
+main.project-support-page .manufacturing-process-intro > p:not(.ip-kicker) {
+  max-width: 390px;
+  margin: 18px 0 0;
+  color: var(--support-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+main.project-support-page .manufacturing-process-intro .ip-text-link { margin-top: 23px; }
+
+main.project-support-page .manufacturing-step-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main.project-support-page .manufacturing-step-list li {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 16px;
+  border-top: 1px solid var(--support-line);
+  padding: 23px 0 26px;
+}
+
+main.project-support-page .manufacturing-step-list li:last-child { border-bottom: 1px solid var(--support-line); }
+main.project-support-page .manufacturing-step-number { font-size: 14px; }
+main.project-support-page .manufacturing-step-list h3 { font-size: clamp(20px, 2vw, 25px); }
+main.project-support-page .manufacturing-step-list p { max-width: 58ch; font-size: 14px; }
+
+main.project-support-page .manufacturing-brief {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(38px, 7vw, 96px);
+  padding: clamp(58px, 7vw, 92px) max(24px, calc((100vw - var(--support-max)) / 2));
+  background: var(--support-ice);
+}
+
+main.project-support-page .manufacturing-brief figure {
+  margin: 0;
+  overflow: hidden;
+  background: #e0e8f1;
+}
+
+main.project-support-page .manufacturing-brief figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.25;
+  object-fit: cover;
+}
+
+main.project-support-page .manufacturing-brief-copy { max-width: 590px; }
+main.project-support-page .manufacturing-brief h2 { max-width: 540px; }
+
+main.project-support-page .manufacturing-brief-copy > p:not(.ip-kicker) {
+  margin: 18px 0 0;
+  color: var(--support-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+main.project-support-page .manufacturing-brief ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 22px;
+  margin: 25px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+main.project-support-page .manufacturing-brief li {
+  position: relative;
+  padding-left: 19px;
+  color: var(--support-ink);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+main.project-support-page .manufacturing-brief li::before {
+  position: absolute;
+  top: .45em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--support-blue);
+  border-radius: 50%;
+  content: "";
+}
+
+main.project-support-page .manufacturing-brief-copy > p:last-child {
+  margin-top: 24px;
+  padding-top: 19px;
+  border-top: 1px solid #cbd6e3;
+  font-size: 13px;
+}
+
+main.project-support-page .manufacturing-faq { padding-block: clamp(68px, 8vw, 100px); }
+main.project-support-page .manufacturing-faq .ip-narrow { max-width: 920px; }
+main.project-support-page .manufacturing-faq .ip-section-title { margin-bottom: 30px; }
+
+main.project-support-page .manufacturing-faq .ip-section-title h2 {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.08;
+}
+
+main.project-support-page .manufacturing-faq .ip-accordion { border-top-color: var(--support-line); }
+main.project-support-page .manufacturing-faq .ip-accordion details { border-bottom-color: var(--support-line); }
+
+main.project-support-page .manufacturing-faq .ip-accordion summary {
+  padding-block: 20px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+main.project-support-page .manufacturing-faq .ip-accordion details p {
+  max-width: 760px;
+  padding-right: 36px;
+  color: var(--support-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+main.project-support-page .manufacturing-faq .ip-accordion details p a {
+  color: var(--support-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+main.project-support-page .support-closing-cta { min-height: 440px; }
+
+@media (max-width: 980px) {
+  main.project-support-page .support-hero {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    min-height: 470px;
+  }
+  main.project-support-page .support-hero-copy { padding: 56px 30px 56px max(24px, calc((100vw - 900px) / 2)); }
+  main.project-support-page .support-hero h1 { font-size: clamp(42px, 5.5vw, 58px); }
+  main.project-support-page .support-hero-media { padding: 28px 24px 28px 0; }
+  main.project-support-page .support-hero-media img { min-height: 300px; }
+  main.project-support-page .quality-stage-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+  main.project-support-page .manufacturing-range { gap: 32px; }
+  main.project-support-page .manufacturing-process { grid-template-columns: minmax(210px, .65fr) minmax(0, 1.35fr); gap: 32px; }
+  main.project-support-page .manufacturing-process-intro { top: 98px; }
+}
+
+@media (max-width: 760px) {
+  main.project-support-page .support-hero { grid-template-columns: 1fr; min-height: 0; }
+  main.project-support-page .support-hero-copy { width: 100%; max-width: none; justify-self: stretch; padding: 44px 24px 28px; }
+  main.project-support-page .support-hero h1 { max-width: 620px; font-size: clamp(42px, 10vw, 50px); }
+  main.project-support-page .support-hero-copy > p:not(.ip-kicker) { margin-top: 18px; font-size: 16px; }
+  main.project-support-page .support-hero-actions { align-items: flex-start; gap: 16px 20px; margin-top: 23px; }
+  main.project-support-page .support-hero-actions .ip-text-link { font-size: 13px; }
+  main.project-support-page .support-hero-media { padding: 0 24px 30px; }
+  main.project-support-page .support-hero-media img { min-height: 0; max-height: none; aspect-ratio: 1.28; }
+  main.project-support-page .support-section { width: calc(100% - 48px); padding-block: 58px; }
+  main.project-support-page .support-section-heading { grid-template-columns: 1fr; gap: 14px; margin-bottom: 27px; }
+  main.project-support-page .support-section-heading h2,
+  main.project-support-page .manufacturing-range h2,
+  main.project-support-page .manufacturing-process h2,
+  main.project-support-page .manufacturing-brief h2,
+  main.project-support-page .quality-guidance h2 { font-size: 36px; }
+  main.project-support-page .support-section-heading > p { max-width: 600px; font-size: 14px; }
+  main.project-support-page .quality-stage-list { grid-template-columns: 1fr; }
+  main.project-support-page .quality-stage-list li { padding-block: 19px 22px; }
+  main.project-support-page .quality-stage-list h3 { font-size: 21px; }
+  main.project-support-page .quality-stage-list p,
+  main.project-support-page .manufacturing-step-list p { font-size: 13px; }
+  main.project-support-page .quality-evidence-gallery { grid-template-columns: minmax(0, 1fr) minmax(0, .82fr); gap: 12px; margin-top: 34px; }
+  main.project-support-page .quality-evidence-gallery figure:nth-child(2) { margin-top: 40px; }
+  main.project-support-page .quality-guidance { grid-template-columns: 1fr; gap: 32px; padding: 52px 24px; }
+  main.project-support-page .quality-guidance-block + .quality-guidance-block { border-top: 1px solid #cbd6e3; border-left: 0; padding: 28px 0 0; }
+  main.project-support-page .quality-guidance h2 { font-size: 34px; }
+  main.project-support-page .manufacturing-range { grid-template-columns: 1fr; gap: 34px; }
+  main.project-support-page .manufacturing-range-image img { aspect-ratio: 1.3; }
+  main.project-support-page .manufacturing-category-list strong { font-size: 17px; }
+  main.project-support-page .manufacturing-category-list small { font-size: 11px; }
+  main.project-support-page .manufacturing-process { grid-template-columns: 1fr; gap: 30px; padding-top: 0; }
+  main.project-support-page .manufacturing-process-intro { position: static; max-width: 620px; }
+  main.project-support-page .manufacturing-process-intro > p:not(.ip-kicker) { font-size: 14px; }
+  main.project-support-page .manufacturing-step-list li { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; padding-block: 19px 22px; }
+  main.project-support-page .manufacturing-step-list h3 { font-size: 21px; }
+  main.project-support-page .manufacturing-brief { grid-template-columns: 1fr; gap: 28px; padding: 48px 24px; }
+  main.project-support-page .manufacturing-brief figure img { aspect-ratio: 1.35; }
+  main.project-support-page .manufacturing-brief ul { grid-template-columns: 1fr; gap: 10px; margin-top: 21px; }
+  main.project-support-page .manufacturing-faq { padding-block: 58px; }
+  main.project-support-page .manufacturing-faq .ip-section-title h2 { font-size: 36px; }
+  main.project-support-page .manufacturing-faq .ip-accordion summary { padding-right: 34px; font-size: 16px; }
+  main.project-support-page .support-closing-cta { min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main.project-support-page .manufacturing-category-list a,
+  main.project-support-page .manufacturing-category-list svg { transition: none; }
+}
