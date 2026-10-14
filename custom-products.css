@@ -653,3 +653,40 @@
   box-shadow: none;
 }
 .custom-product-main .text-link svg { flex: 0 0 auto; }
+
+/* Ready-stock links in product heroes use the shared text-link treatment. */
+.custom-product-main .custom-product-browse-ready > .text-link {
+  position: relative;
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+.custom-product-main .custom-product-browse-ready > .text-link:is(:hover, :focus-visible) {
+  border: 0;
+}
+.custom-product-main .custom-product-browse-ready > .text-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(.3);
+  transform-origin: left;
+  transition: transform 200ms var(--ease);
+}
+.custom-product-main .custom-product-browse-ready > .text-link:is(:hover, :focus-visible)::after {
+  transform: scaleX(1);
+}
+.custom-product-main .custom-product-browse-ready > .text-link:focus-visible::after {
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .custom-product-main .custom-product-browse-ready > .text-link::after {
+    transition: none;
+  }
+}
