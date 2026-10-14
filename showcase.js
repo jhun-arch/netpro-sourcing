@@ -90,7 +90,7 @@
     const audienceNext = audienceCarousel.querySelector("[data-audience-next]");
     const audienceStatus = audienceCarousel.querySelector("[data-audience-status]");
     const audienceCount = audienceCards.length;
-    const autoplayDelay = 5000;
+    const autoplayDelay = 3000;
     let autoplayTimer = 0;
     let pauseOnHover = false;
     let pauseOnFocus = false;
