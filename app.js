@@ -97,7 +97,7 @@
     dialog.className = 'netpro-patches-confirm-dialog';
     dialog.setAttribute('aria-labelledby', 'netpro-patches-confirm-title');
     dialog.setAttribute('aria-describedby', 'netpro-patches-confirm-copy netpro-patches-confirm-destination');
-    dialog.innerHTML = `<h2 id="netpro-patches-confirm-title">Continue To NetproPatches?</h2><p id="netpro-patches-confirm-copy" class="netpro-patches-confirm-copy">You’re about to visit NetproPatches, our dedicated patch website.</p><p class="netpro-patches-confirm-destination"><span>Destination</span><span id="netpro-patches-confirm-destination"></span></p><div class="netpro-patches-confirm-actions"><button class="button outline close-dialog" type="button" autofocus>Stay Here</button><a class="button primary" href="#" data-netpro-confirm-continue>Continue To NetproPatches ↗</a></div>`;
+    dialog.innerHTML = `<div class="netpro-patches-confirm-layout"><section class="netpro-patches-confirm-content"><p class="eyebrow">NETPROPATCHES</p><h2 id="netpro-patches-confirm-title">Your Next Patch Starts Here.</h2><div class="netpro-patches-confirm-offer"><strong>20% OFF</strong><span>On Your First Order</span></div><p class="netpro-patches-confirm-reorder">5% OFF every re-order</p><p id="netpro-patches-confirm-copy" class="netpro-patches-confirm-copy">Continue to our dedicated custom patch website.</p><p class="netpro-patches-confirm-destination"><span id="netpro-patches-confirm-destination"></span></p><ul class="netpro-patches-confirm-benefits" hidden></ul><div class="netpro-patches-confirm-actions"><a class="button primary" href="#" data-netpro-confirm-continue>Continue To NetproPatches <span aria-hidden="true">↗</span></a><button class="button outline close-dialog" type="button" autofocus>Stay Here</button></div></section><figure class="netpro-patches-confirm-image"><img src="assets/netpropatches-offer-embroidered.webp" alt="Embroidered custom patch" id="netpro-patches-confirm-image"></figure><button class="netpro-patches-confirm-close close-dialog" type="button" aria-label="Close NetproPatches offer">×</button></div>`;
     document.body.append(dialog);
     return dialog;
   }
@@ -110,6 +110,21 @@
     } catch {
       return false;
     }
+  }
+  function netproPatchOffer(destination) {
+    const path = destination.pathname.replace(/\/+$/, '').toLowerCase();
+    const type = path.endsWith('/netpro2026') ? 'root'
+      : path.endsWith('/chenille') ? 'chenille'
+      : path.endsWith('/pvc') ? 'pvc'
+      : path.endsWith('/woven') ? 'woven'
+      : path.endsWith('/embroidered') ? 'embroidered'
+      : 'root';
+    const typeNames = { root: 'Custom', embroidered: 'Embroidered', chenille: 'Chenille', pvc: 'PVC', woven: 'Woven' };
+    const colors = { embroidered: 15, chenille: 9 };
+    const benefits = type === 'embroidered' || type === 'chenille'
+      ? ['Free Digital Sample · Unlimited Revisions', '7–14 Days · Rush Available', `Up to ${colors[type]} Colors`]
+      : [];
+    return { type, imageType: type === 'root' ? 'embroidered' : type, typeName: typeNames[type], benefits };
   }
   function restoreNetproPatchesFocus() {
     const invoker = netproPatchesInvoker;
@@ -126,7 +141,7 @@
   }
   $$('dialog').forEach(dialog => {
     dialog.addEventListener('cancel',event=>{event.preventDefault();dismissDialog(dialog);});
-    $('.close-dialog', dialog)?.addEventListener('click', () => dismissDialog(dialog));
+    $$('.close-dialog', dialog).forEach(button => button.addEventListener('click', () => dismissDialog(dialog)));
     dialog.addEventListener('close', () => {
       if (!$('dialog[open]')) document.body.classList.remove('modal-open');
       if (dialog === netproPatchesDialog) restoreNetproPatchesFocus();
@@ -146,8 +161,25 @@
     event.preventDefault();
     netproPatchesInvoker = link;
     const destination = new URL(href, document.baseURI);
+    const offer = netproPatchOffer(destination);
     $('[data-netpro-confirm-continue]', netproPatchesDialog).setAttribute('href', href);
     $('#netpro-patches-confirm-destination', netproPatchesDialog).textContent = `${destination.hostname}${destination.pathname}`;
+    const patchImage = $('#netpro-patches-confirm-image', netproPatchesDialog);
+    patchImage.src = `assets/netpropatches-offer-${offer.imageType}.webp`;
+    patchImage.alt = `${offer.imageType === 'embroidered' ? 'Embroidered' : offer.typeName} custom patch`;
+    const benefits = $('.netpro-patches-confirm-benefits', netproPatchesDialog);
+    benefits.classList.remove('is-patch-types');
+    if (offer.benefits.length) {
+      benefits.innerHTML = offer.benefits.map(benefit => `<li>${escape(benefit)}</li>`).join('');
+      benefits.hidden = false;
+    } else if (offer.type === 'root') {
+      benefits.innerHTML = ['Embroidered', 'Chenille', 'PVC', 'Woven'].map(type => `<li>${type}</li>`).join('');
+      benefits.hidden = false;
+      benefits.classList.add('is-patch-types');
+    } else {
+      benefits.innerHTML = '';
+      benefits.hidden = true;
+    }
     const sourceDialog = link.closest('dialog[open]');
     if (sourceDialog) {
       netproPatchesDialog.classList.remove('modal-closing');
