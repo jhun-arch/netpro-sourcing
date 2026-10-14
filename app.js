@@ -2,8 +2,8 @@
   const start = () => {
     'use strict';
 
-  // Change this URL when Netpro Patches moves to its final production domain.
-  const PATCHES_URL = 'custom-patches.html#patches';
+  // Shared destination for patch customization entry points.
+  const PATCHES_URL = 'https://www.netpropatches.com/netpro2026/';
   const products = Array.isArray(window.NETPRO_PRODUCTS) ? window.NETPRO_PRODUCTS : [];
   const isShop = document.body.classList.contains("shop-page");
   const isHome = document.body.classList.contains("home-page");
@@ -148,7 +148,13 @@
     const destination = new URL(href, document.baseURI);
     $('[data-netpro-confirm-continue]', netproPatchesDialog).setAttribute('href', href);
     $('#netpro-patches-confirm-destination', netproPatchesDialog).textContent = `${destination.hostname}${destination.pathname}`;
-    openDialog(netproPatchesDialog.id);
+    const sourceDialog = link.closest('dialog[open]');
+    if (sourceDialog) {
+      netproPatchesDialog.classList.remove('modal-closing');
+      netproPatchesDialog.showModal();
+    } else {
+      openDialog(netproPatchesDialog.id);
+    }
   });
 
   function ensureFamilyDialog() {
@@ -371,12 +377,14 @@
         colorSelect.insertAdjacentHTML('beforeend', colors.filter(color => ![...colorSelect.options].some(option => option.value === color)).map(color => `<option>${escape(color)}</option>`).join(''));
         colorSelect.dataset.catalogOptions = 'true';
       }
-      const colors=new Set(items.map(p=>p.color)),sizes=new Set(items.flatMap(p=>p.sizes));
+      const colors=new Set(items.map(p=>p.color)),sizes=new Set(items.filter(p=>p.category!=='patches').flatMap(p=>p.sizes));
+      const sizeFilter = $('[data-size]')?.closest('.filter-group');
+      if (sizeFilter) sizeFilter.hidden = !sizes.size;
       if(!colors.has(shopState.color))shopState.color="all";
       shopState.size=shopState.size.filter(size=>sizes.has(size));
       $$('[data-shop-filter="color"] option').forEach(o=>o.hidden=o.value!=="all"&&!colors.has(o.value));
       $$("[data-size]").forEach(b=>b.hidden=!sizes.has(b.dataset.size));
-      items = items.filter(p => (shopState.color === 'all' || p.color === shopState.color) && (!shopState.size.length || shopState.size.some(size=>p.sizes.includes(size))));
+      items = items.filter(p => (shopState.color === 'all' || p.color === shopState.color) && (!shopState.size.length || (p.category!=='patches' && shopState.size.some(size=>p.sizes.includes(size)))));
       if (shopState.sort === 'name') items.sort((a,b)=>a.name.localeCompare(b.name));
       const total=items.length, pages=Math.max(1,Math.ceil(total/6)); shopState.page=Math.min(shopState.page,pages);
       $('#shop-count').textContent = total ? `Showing ${(shopState.page-1)*6+1}–${Math.min(shopState.page*6,total)} of ${total} products` : 'No products match your filters';
@@ -468,15 +476,23 @@
   }
 
   function requestSpecifications(product) {
-    const sizeLabel = product.category === 'patches' ? 'Reference size' : 'Reference size options';
-    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>${sizeLabel}</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before sampling or production.</p></section>`;
+    if (product.category === 'patches') {
+      return `<section class="detail-specifications" aria-label="Patch details"><dl><div><dt>Stock design</dt><dd>${escape(product.name)}</dd></div><div><dt>Specifications &amp; availability</dt><dd>Dimensions, backing and current availability are confirmed for your enquiry.</dd></div></dl></section>`;
+    }
+    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>Reference size options</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before sampling or production.</p></section>`;
   }
 
   function showProduct(id, request = {}) {
     const p = products.find(p => p.id === id);
     if (!p) return;
-    const initialIntent = request.intent === 'custom' ? 'custom' : 'stock';
-    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy" tabindex="0" aria-label="Product details and request options"><span class="new-label" id="detail-request-badge">${initialIntent === 'custom' ? 'CUSTOM REQUEST' : (p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK')}</span><h2>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p><fieldset class="detail-request-mode"><legend>Request type</legend><label><input type="radio" name="detail-request-intent" value="stock" ${initialIntent === 'stock' ? 'checked' : ''}>Ready stock</label><label><input type="radio" name="detail-request-intent" value="custom" ${initialIntent === 'custom' ? 'checked' : ''}>Custom request</label></fieldset><fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options" id="detail-size-options"></div></fieldset><div class="detail-quantity"><label for="detail-quantity">Quantity</label><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div><div class="detail-custom-fields" id="detail-custom-fields" ${initialIntent === 'custom' ? '' : 'hidden'}><fieldset class="detail-custom-options"><legend>What would you like to explore? <span>(optional)</span></legend><label><input type="checkbox" data-request-option value="logo">Add a logo</label><label><input type="checkbox" data-request-option value="material">Change color or material</label><label><input type="checkbox" data-request-option value="style">Develop a style</label></fieldset><label class="detail-notes-label" for="detail-request-notes">Project note <span>(optional)</span></label><textarea id="detail-request-notes" maxlength="500" rows="3" placeholder="Add a short note about your request"></textarea></div><button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><a id="detail-styles-link" class="text-link detail-styles-link" href="${escape(p.customizationHref)}" ${initialIntent === 'custom' ? '' : 'hidden'}>View styles &amp; techniques ↗</a>${requestSpecifications(p)}</div></div>`;
+    const isPatchProduct = p.category === 'patches';
+    const initialIntent = !isPatchProduct && request.intent === 'custom' ? 'custom' : 'stock';
+    const requestMode = isPatchProduct ? '' : `<fieldset class="detail-request-mode"><legend>Request type</legend><label><input type="radio" name="detail-request-intent" value="stock" ${initialIntent === 'stock' ? 'checked' : ''}>Ready stock</label><label><input type="radio" name="detail-request-intent" value="custom" ${initialIntent === 'custom' ? 'checked' : ''}>Custom request</label></fieldset>`;
+    const sizeOptionsMarkup = isPatchProduct ? '' : '<fieldset class="detail-sizes"><legend>Choose your size</legend><div class="size-options" id="detail-size-options"></div></fieldset>';
+    const customFields = isPatchProduct ? '' : `<div class="detail-custom-fields" id="detail-custom-fields" ${initialIntent === 'custom' ? '' : 'hidden'}><fieldset class="detail-custom-options"><legend>What would you like to explore? <span>(optional)</span></legend><label><input type="checkbox" data-request-option value="logo">Add a logo</label><label><input type="checkbox" data-request-option value="material">Change color or material</label><label><input type="checkbox" data-request-option value="style">Develop a style</label></fieldset><label class="detail-notes-label" for="detail-request-notes">Project note <span>(optional)</span></label><textarea id="detail-request-notes" maxlength="500" rows="3" placeholder="Add a short note about your request"></textarea></div>`;
+    const customizationHref = p.externalCustomizationHref || p.customizationHref;
+    const stylesLinkLabel = isPatchProduct ? 'Need custom patches? Visit NetproPatches ↗' : 'View styles &amp; techniques ↗';
+    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy" tabindex="0" aria-label="Product details and request options"><span class="new-label" id="detail-request-badge">${initialIntent === 'custom' ? 'CUSTOM REQUEST' : (isPatchProduct ? 'READY-MADE PATCHES' : 'READY STOCK')}</span><h2>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p>${requestMode}${sizeOptionsMarkup}<div class="detail-quantity"><label for="detail-quantity">Quantity</label><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div>${customFields}<button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><a id="detail-styles-link" class="text-link detail-styles-link" href="${escape(customizationHref)}" ${isPatchProduct || initialIntent === 'custom' ? '' : 'hidden'}>${stylesLinkLabel}</a>${requestSpecifications(p)}</div></div>`;
     const detailDescription = $('.detail-copy > p:not(.product-color)');
     detailDescription.id = 'detail-description';
     const detailColor = $('.detail-copy .product-color');
@@ -493,11 +509,13 @@
     $$('[data-gallery]').forEach(button=>button.addEventListener('click',()=>{const item=gallery[Number(button.dataset.gallery)];$('.detail-visual').innerHTML=item.html;$$('[data-gallery]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));}));
     const productDialog = $('#product-dialog');
     productDialog.classList.toggle('is-custom-request', initialIntent === 'custom');
+    productDialog.classList.toggle('is-patch-stock', isPatchProduct);
     let intent = initialIntent;
-    let selectedSize = intent === 'custom' ? 'To be confirmed' : p.sizes[0];
+    let selectedSize = isPatchProduct ? 'Not specified' : intent === 'custom' ? 'To be confirmed' : p.sizes[0];
     let quantity=1;
     const sizeOptions = $('#detail-size-options');
     function renderSizeOptions() {
+      if (isPatchProduct) return;
       const values = intent === 'custom' ? [...p.sizes, 'To be confirmed'] : p.sizes;
       if (!values.includes(selectedSize)) selectedSize = intent === 'custom' ? 'To be confirmed' : p.sizes[0];
       sizeOptions.innerHTML = values.map(size => `<button type="button" data-detail-size="${escape(size)}" aria-pressed="${size === selectedSize}">${escape(size)}</button>`).join('');
@@ -519,7 +537,7 @@
         : p.description;
       $('#detail-color-value').textContent = `${intent === 'custom' ? 'Reference color: ' : ''}${p.color}`;
       $('#detail-custom-fields').hidden = intent !== 'custom';
-      $('#detail-styles-link').hidden = intent !== 'custom';
+      $('#detail-styles-link').hidden = !isPatchProduct && intent !== 'custom';
       $('#detail-request-badge').textContent = intent === 'custom' ? 'CUSTOM REQUEST' : (p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK');
       productDialog.classList.toggle('is-custom-request', intent === 'custom');
       renderSizeOptions();
@@ -661,7 +679,8 @@
     } else {
       $('#bag-items').innerHTML = bag.map((item, i) => {
         const p = products.find(p => p.id === item.id);
-        return `<article class="bag-item">${art(p)}<div class="cart-item-name"><small>${escape(p.category)}</small><h3>${escape(p.name)}</h3><p>${escape(p.color)} · ${escape(item.size)}</p><p class="bag-request-summary">${escape(lineRequestSummary(item))}</p></div><div class="quantity"><button type="button" data-quantity="${i}" data-delta="-1" data-editor-index="${i}" data-editor-focus="quantity-minus" aria-label="Decrease ${escape(p.name)} quantity">−</button><span>${item.quantity}</span><button type="button" data-quantity="${i}" data-delta="1" data-editor-index="${i}" data-editor-focus="quantity-plus" aria-label="Increase ${escape(p.name)} quantity" ${item.quantity >= 100000 ? 'disabled' : ''}>+</button></div><button type="button" class="remove-item" data-remove="${i}" aria-label="Remove ${escape(p.name)}">×</button></article>`;
+        const itemDetails = item.size === 'Not specified' ? p.color : `${p.color} · ${item.size}`;
+        return `<article class="bag-item">${art(p)}<div class="cart-item-name"><small>${escape(p.category)}</small><h3>${escape(p.name)}</h3><p>${escape(itemDetails)}</p><p class="bag-request-summary">${escape(lineRequestSummary(item))}</p></div><div class="quantity"><button type="button" data-quantity="${i}" data-delta="-1" data-editor-index="${i}" data-editor-focus="quantity-minus" aria-label="Decrease ${escape(p.name)} quantity">−</button><span>${item.quantity}</span><button type="button" data-quantity="${i}" data-delta="1" data-editor-index="${i}" data-editor-focus="quantity-plus" aria-label="Increase ${escape(p.name)} quantity" ${item.quantity >= 100000 ? 'disabled' : ''}>+</button></div><button type="button" class="remove-item" data-remove="${i}" aria-label="Remove ${escape(p.name)}">×</button></article>`;
       }).join('');
       $('#bag-summary').innerHTML = `<div class="subtotal"><span>Requested Units</span><span>${bag.reduce((n,item)=>n+item.quantity,0)}</span></div><p class="cart-tax-note">Indicative quantities only. Minimum quantities, unit pricing, samples and delivery will be confirmed in your quotation.</p><a class="button primary cart-checkout" href="quote.html">Request a Quote →</a><p class="bag-note">Add your company and project details on the next page. This is an enquiry, not an order.</p>`;
     }
@@ -1363,7 +1382,7 @@
   if (Array.isArray(window.NETPRO_PRODUCTS)) start();
   else {
     const productScript = document.createElement('script');
-    productScript.src = 'products.js?v=20261013-patches1';
+    productScript.src = 'products.js?v=20261014-patch-stock1';
     productScript.onload = start;
     productScript.onerror = () => {
       console.error('Netpro product catalogue could not be loaded.');
