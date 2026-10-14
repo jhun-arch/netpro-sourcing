@@ -1,0 +1,118 @@
+{
+  "generated_with": "built-in image_gen tool",
+  "source_images_retained": true,
+  "assets": [
+    {
+      "file": "assets/showcase-apparel.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-e6816b38-9b86-4f4c-b3c6-506e5156d87e.png",
+      "prompt": "Use case: premium apparel product editorial. Asset type: portrait 3:4 category hero photograph for a desktop product page. Scene/backdrop: cool gray plaster studio canvas with a pale stone plinth and soft natural window light. Subject: one ivory heavyweight cotton crewneck sweatshirt, neatly folded with the neckline and chest visible; a small navy embroidered abstract four-point compass star on the chest. Style/medium: realistic premium product photography with tactile cotton grain and restrained styling. Composition/framing: vertical portrait, single sweatshirt fully legible in frame, centered with breathing room, editorial still life. Lighting/mood: soft daylight, light natural shadows, calm and crisp. Color palette: cream, navy, slate blue accents, cool gray. Materials/textures: substantial cotton fleece, precise ribbing, matte plaster. Constraints: only a tiny simple abstract four-point star embroidery, no words or numbers, no visible real brand, no labels with text, no watermark. Avoid brown/orange luxury-bag styling, extra objects, collage, graphic overlays, distorted garment shape.",
+      "source_dimensions_px": [
+        1086,
+        1448
+      ],
+      "output_dimensions_px": [
+        1200,
+        1600
+      ],
+      "output_bytes": 264870
+    },
+    {
+      "file": "assets/showcase-headwear.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-50b335c6-8658-441e-8a29-d8ff94784981.png",
+      "prompt": "Use case: premium accessories product editorial. Asset type: portrait 3:4 category hero photograph for a desktop apparel page. Scene/backdrop: cool gray studio plaster with a pale stone plinth, consistent with calm contemporary editorial product photography. Subject: one navy unstructured six-panel cotton cap, gently posed in three-quarter view; small cream embroidered abstract four-point compass star centered on the front panel, no other marks. Style/medium: realistic premium product photography, visible cotton twill weave and soft natural creases. Composition/framing: vertical portrait, complete cap visible, centered with breathing room, simple still life. Lighting/mood: soft natural window light and light realistic shadow. Color palette: deep navy, cream embroidery, slate-blue undertone, cool gray. Materials/textures: matte cotton twill, subtle stitching, pale stone. Constraints: only one tiny simple abstract four-point star embroidery, no text, no numbers, no real logo, no watermark. Avoid brown/orange luxury-bag styling, extra props, collage, graphic overlays, dramatic hard light, distorted cap geometry.",
+      "source_dimensions_px": [
+        1086,
+        1448
+      ],
+      "output_dimensions_px": [
+        1200,
+        1600
+      ],
+      "output_bytes": 197714
+    },
+    {
+      "file": "assets/showcase-socks.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-a8bbb0ac-5be3-49ed-b2cd-5864ace5ff43.png",
+      "prompt": "Use case: premium apparel product editorial. Asset type: portrait 3:4 category hero photograph for a desktop collection page. Scene/backdrop: cool gray studio plaster canvas and pale stone plinth, consistent quiet natural-light product photography. Subject: a neat pair of cream heavyweight cotton crew socks, one rolled lightly beside one laid flat so the long ribbed leg and heel/toe are visible; each sock has a small navy jacquard abstract four-point compass star near the cuff. Style/medium: realistic premium product photography, tangible knit texture and accurate wearable sock proportions. Composition/framing: vertical portrait, full pair visible, clean simple still life with breathing room. Lighting/mood: soft natural window light with gentle shadows, calm and crisp. Color palette: cream, deep navy, restrained slate blue, cool gray. Materials/textures: cotton knit, pronounced cuff ribbing, fine jacquard stitching, matte stone. Constraints: no text, numbers, logos, packaging, watermark; only small simple four-point star marks. Avoid brown/orange luxury-bag styling, extra objects, collage, graphic overlays, distorted or fused sock shapes.",
+      "source_dimensions_px": [
+        1086,
+        1448
+      ],
+      "output_dimensions_px": [
+        1200,
+        1600
+      ],
+      "output_bytes": 305974
+    },
+    {
+      "file": "assets/showcase-bags.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-03d88baa-f70e-49ec-bd89-10af466ab01d.png",
+      "prompt": "Use case: premium accessories product editorial. Asset type: portrait 3:4 category hero photograph for a desktop product collection page. Scene/backdrop: calm cool-gray studio plaster with pale stone plinths, soft natural daylight. Subject: one well-made cream heavyweight canvas tote bag standing upright, with two deep navy canvas handles and a small navy embroidered abstract four-point compass star on the lower front; clean open silhouette, no contents visible. Style/medium: realistic premium product photography showing canvas grain and precise seams. Composition/framing: vertical portrait, entire tote and both handles fully inside frame, centered with breathing room, simple still life. Lighting/mood: soft window light, light natural shadows, restrained contemporary editorial mood. Color palette: cream canvas, deep navy handles and embroidery, slate-blue undertone, cool gray. Materials/textures: heavyweight cotton canvas, sturdy stitched handles, matte stone. Constraints: only the tiny simple four-point star mark; no words, numbers, labels, actual logos or watermark. Avoid brown/orange luxury-bag styling, leather, extra props, collage, overlays, distorted handle geometry, cropped bag.",
+      "source_dimensions_px": [
+        1086,
+        1448
+      ],
+      "output_dimensions_px": [
+        1200,
+        1600
+      ],
+      "output_bytes": 294224
+    },
+    {
+      "file": "assets/showcase-collection.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-f469d4f8-f84a-4721-8e45-dff60b480382.png",
+      "prompt": "Use case: premium fashion collection editorial. Asset type: landscape 16:10 collection photograph for a desktop product page. Scene/backdrop: a seamless cool-gray studio canvas with two low pale-stone plinths, softly lit by natural window light. Subject: four coordinated products photographed together as one real still life: a folded ivory cotton crewneck with a tiny navy four-point compass-star embroidery, one unstructured navy cotton cap with a tiny cream star, a pair of cream ribbed crew socks with small navy jacquard stars, and a cream heavyweight canvas tote with navy handles and a small navy star. Style/medium: photoreal premium product photography, calm contemporary apparel editorial, tactile materials. Composition/framing: wide horizontal 16:10 frame; arrange all four complete products with clear separation and balanced breathing room, natural scale, no overlap that hides any item; one camera exposure, one scene, not a collage. Lighting/mood: soft daylight, light natural shadows, polished and quiet. Color palette: ivory, deep navy, restrained slate-blue accents, cool gray. Materials/textures: fleece cotton, twill, ribbed knit, canvas, matte stone. Constraints: tiny abstract four-point star motif only; no words, numbers, brand names, packaging text, watermark, or false product claims. Avoid brown/orange luxury-bag styling, extra products, graphic overlays, split panels, collage, duplicated or warped objects.",
+      "source_dimensions_px": [
+        1586,
+        992
+      ],
+      "output_dimensions_px": [
+        1600,
+        1000
+      ],
+      "output_bytes": 146400
+    },
+    {
+      "file": "assets/showcase-details.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-9611831d-8763-4d9b-bc7a-c044d6bcbaa0.png",
+      "prompt": "Use case: premium garment craftsmanship editorial. Asset type: landscape 16:10 close-up detail photograph for a desktop product page. Scene/backdrop: a macro view of one ivory heavyweight cotton crewneck garment laid on a cool-gray studio surface. Subject: close detail of the neckline and shoulder seam with cream ribbing, precise double stitching, visible cotton fleece texture, one tiny navy embroidered abstract four-point compass star near the seam, and a small plain navy woven fabric tab with no writing. Style/medium: realistic high-end macro product photography, accurate textile detail. Composition/framing: single continuous photograph, tight horizontal close crop with stitching and fabric texture in focus, shallow but useful depth of field; no split image or collage. Lighting/mood: soft natural window light, gentle cool shadows, tactile and understated. Color palette: ivory, deep navy, restrained slate blue, cool gray. Materials/textures: cotton fleece, rib-knit collar, crisp thread, plain woven tab. Constraints: no text, letters, numbers, readable labels, actual brand, watermark, or claims; only the small four-point star mark. Avoid brown/orange luxury styling, extra props, overlays, collage, distorted seam geometry.",
+      "source_dimensions_px": [
+        1586,
+        992
+      ],
+      "output_dimensions_px": [
+        1600,
+        1000
+      ],
+      "output_bytes": 289808
+    },
+    {
+      "file": "assets/showcase-lifestyle.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-5b4b3851-572c-41fd-80b1-c1db7c44f7e4.png",
+      "prompt": "Use case: contemporary apparel lifestyle editorial. Asset type: landscape 16:10 lifestyle photograph for a desktop product page. Scene/backdrop: two adult models standing casually outdoors beside clean pale-gray architectural concrete, broad overcast daylight, a quiet modern city courtyard. Subject: two adults with natural proportions wearing the same restrained ivory-and-navy collection; one wears an ivory cotton crewneck and navy unstructured cap, the other wears a navy cotton crewneck and carries a cream canvas tote with navy handles. Tiny abstract four-point star embroideries only. Style/medium: photoreal fashion editorial, candid relaxed posture, premium but approachable, real garment drape. Composition/framing: wide landscape 16:10, waist-up or three-quarter crop with the apparel and tote clearly visible; faces may fall outside the frame or remain soft and secondary, no facial close-up. Lighting/mood: soft natural daylight, clean concrete reflections, gentle shadows. Color palette: ivory, deep navy, restrained slate blue, cool gray. Materials/textures: cotton fleece, canvas, subtle visible stitching. Constraints: both models clearly adults; no text, lettering, actual brand logos, signage, watermark, or claims; no emphasis on faces. Avoid brown/orange luxury styling, busy street, extra products, collage, overlays, distorted hands, extra fingers, warped tote straps.",
+      "source_dimensions_px": [
+        1586,
+        992
+      ],
+      "output_dimensions_px": [
+        1600,
+        1000
+      ],
+      "output_bytes": 129956
+    },
+    {
+      "file": "assets/showcase-packaging.webp",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1390a-a0bd-7883-b9f4-0fd6162eff8d\\exec-e71bbd30-6b3f-48ac-9d38-a41a0b3608e2.png",
+      "prompt": "Use case: premium apparel packaging editorial. Asset type: landscape 16:10 product photograph for a desktop collection page. Scene/backdrop: cool-gray studio table and seamless cool-gray wall, soft natural daylight. Subject: one neat packaging still life: a neatly folded ivory cotton crewneck and a cream cotton cap with a small navy abstract four-point compass star, resting on softly crinkled ivory tissue inside an open simple recycled paperboard box; include a small plain navy woven label with only a tiny four-point star, no writing. Style/medium: realistic premium product photography, thoughtful but understated unboxing scene. Composition/framing: wide horizontal 16:10, show the folded crewneck, cap, tissue and full open box together in one continuous photograph, balanced negative space; no collage. Lighting/mood: soft natural light, light shadows, calm contemporary editorial. Color palette: ivory, deep navy accents, restrained slate blue, cool gray and very muted recycled board. Materials/textures: cotton fleece, twill, tissue, matte uncoated recycled paperboard. Constraints: no text or letters anywhere, no numbers, no readable labels, actual logos, watermark, or claims; only tiny abstract four-point stars. Avoid brown/orange luxury-bag styling, ribbons, glossy packaging, extra products, collage, graphic overlays.",
+      "source_dimensions_px": [
+        1586,
+        992
+      ],
+      "output_dimensions_px": [
+        1600,
+        1000
+      ],
+      "output_bytes": 135486
+    }
+  ]
+}
