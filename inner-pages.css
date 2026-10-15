@@ -276,3 +276,5 @@
 @media(max-width:420px){.ip-mf-grid{grid-template-columns:1fr}.ip-mf-card img{aspect-ratio:1.25}.ip-mf-small-grid{gap:10px}.ip-digest-card-grid strong{font-size:13px}.ip-digest-hero .button{width:100%}}
 
 .ip-case-card[data-title="Limited color cap"] img{object-position:right center}
+/* The T-shirt process uses landscape panels to keep the product context visible. */
+.ip-process-steps--tee .ip-process-image{width:100%;max-width:none;height:300px;aspect-ratio:auto;border-radius:0;justify-self:stretch}
