@@ -1,0 +1,53 @@
+{
+  "generation_tool": "built-in image_gen",
+  "generation_type": "five independent photorealistic square images",
+  "source_originals": "Retained at the image_gen output paths listed per asset.",
+  "conversion": {
+    "format": "WebP",
+    "quality": 86,
+    "dimensions": "1254x1254 pixels; original framing preserved",
+    "processing": "Pillow format conversion only; no crop or other pixel edits"
+  },
+  "assets": [
+    {
+      "stage": "brief",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13dfe-6960-7261-8f97-ae3780474a62\\exec-7efe0a3e-49d3-4705-b785-62c26bb991da.png",
+      "output_webp": "assets/process-general-brief.webp",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium website customization workflow photograph, square source intended for a circular crop\nPrimary request: A clear overhead documentary photograph of a small-batch product customization briefing. Two adult hands review generic outline sketches for a plain T-shirt, a cap, and a canvas tote, with a neutral canvas tote and a plain cap partially visible near the center. The paper is present as a work surface, but all writing and sketch labels are indistinct and unreadable.\nScene/backdrop: A calm product workshop design table with warm ivory paper, a few restrained navy and slate fabric swatches, and natural tactile surfaces.\nSubject: The central hands, three simple product outline drawings, and partial tote and cap samples, all composed as one coherent briefing moment.\nStyle/medium: Premium realistic documentary product photography, natural texture, understated and credible.\nComposition/framing: Native square overhead photo. Keep all essential hands, sketches and product cues within the central 70% of the square so the image reads clearly when cropped into a 310px circle. Balanced breathing room around the center; corners may be expendable. One clear action, not a collage.\nLighting/mood: Soft neutral daylight, gentle shadows, calm collaborative focus.\nColor palette: Ivory, natural canvas, navy, slate, subdued warm wood.\nMaterials/textures: Matte paper, cotton fabric swatches, natural canvas, subtle tabletop grain.\nText (verbatim): None.\nConstraints: No logos, no brand marks, no watermark, no legible text. Do not make this apparel-only: the sketch cues include a T-shirt, cap and tote. High-resolution square photograph.\nAvoid: Collages, split panels, graphic overlays, fake writing, clutter, exaggerated hands, extra people, overly staged stock-photo gestures."
+    },
+    {
+      "stage": "specification",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13dfe-6960-7261-8f97-ae3780474a62\\exec-c8a07fb5-50f6-4141-ae60-83fa89e86385.png",
+      "output_webp": "assets/process-general-specification.webp",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium website customization workflow photograph, square source intended for a circular crop\nPrimary request: A close documentary photograph of an adult maker's hands selecting materials and trims for a general custom merchandise order. Center a small, neatly arranged group of ecru canvas, navy cotton knit, matching thread, and one simple bag closure beside a tape measure. Hands are actively comparing the fabric and thread.\nScene/backdrop: A clean product workshop table with a few material samples and an understated warm-neutral background.\nSubject: Central hands, ecru canvas and navy cotton knit, thread, a simple closure and tape measure; all pieces should be easy to recognize in a small circular crop.\nStyle/medium: Premium realistic documentary product photography, tactile and credible.\nComposition/framing: Native square close view from a slightly elevated angle. Keep the full material-selection action and all key samples within the central 70% of the square, with open space around them for a circular crop. Clear visual hierarchy and not overfilled.\nLighting/mood: Soft neutral daylight with gentle natural shadows.\nColor palette: Ivory, ecru, navy, slate, muted warm wood.\nMaterials/textures: Visible canvas weave, cotton knit, thread fibers, matte metal tape measure and simple closure.\nText (verbatim): None.\nConstraints: No logos, no brand marks, no watermark, no legible text. High-resolution square photograph.\nAvoid: Collages, split panels, graphic overlays, clutter, overstuffed craft table, fabricated text, exaggerated hands, glossy studio styling."
+    },
+    {
+      "stage": "sample",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13dfe-6960-7261-8f97-ae3780474a62\\exec-f71c5d65-6484-4e63-a374-b882bc9f49fc.png",
+      "output_webp": "assets/process-general-sample.webp",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium website customization workflow photograph, square source intended for a circular crop\nPrimary request: A realistic fitting-and-review moment for a general custom merchandise sample. Show the torso and hands of one adult maker, face out of frame, holding and checking a finished plain ivory cotton T-shirt at chest level while comparing it with a small plain navy cap and natural canvas tote arranged nearby. The maker is checking seam quality and blank print placement; keep every product free of logos or printed graphics.\nScene/backdrop: A quiet, tidy product workshop with a warm ivory work surface and soft neutral background.\nSubject: The centered adult maker's hands and torso with the plain tee as the main item, plus clearly visible cap and tote samples to signal broader product range.\nStyle/medium: Premium realistic documentary product photography, natural cloth texture, credible small-batch workshop.\nComposition/framing: Native square photo, slightly elevated close-to-medium framing. Keep the hands, tee, cap and tote within the central 70% of the square, with generous breathing room so the action survives a 310px circular crop. One clear sample-review moment.\nLighting/mood: Soft neutral daylight, calm attentive inspection.\nColor palette: Ivory, natural canvas, navy, slate and muted warm wood.\nMaterials/textures: Cotton jersey, canvas weave, visible but subtle seams, matte tabletop.\nText (verbatim): None.\nConstraints: No logos, no brand marks, no watermark, no legible text, no visible face. Products remain completely plain and unprinted. High-resolution square photograph.\nAvoid: Collage, split panels, graphic overlays, showroom staging, dramatic fashion pose, clutter, malformed hands, fake text."
+    },
+    {
+      "stage": "production",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13dfe-6960-7261-8f97-ae3780474a62\\exec-51df9e31-d47b-4b14-a7aa-8402bd39dab3.png",
+      "output_webp": "assets/process-general-production.webp",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium website customization workflow photograph, square source intended for a circular crop\nPrimary request: A credible small-batch production quality-check in a real product workshop. Adult staff hands carefully inspect the seam and finish of a neutral cotton garment laid on a sewing table, with a small neat batch of plain navy caps and one natural canvas bag nearby. The key action is a close, careful seam check.\nScene/backdrop: An orderly, modest garment workshop worktable; only a softly blurred, believable workstation in the background.\nSubject: Hands checking a garment seam at center, neutral folded garments, and a few plain caps or canvas bags showing that production can cover varied merchandise.\nStyle/medium: Premium realistic documentary product photography, honest small-batch craft, natural fabric detail.\nComposition/framing: Native square photo, elevated close view. Keep the hands, seam and representative product assortment within the central 70% of the square, with breathing room for a 310px circular crop. Make the inspection action instantly readable.\nLighting/mood: Soft neutral daylight, focused and reassuring.\nColor palette: Ivory, natural canvas, navy, slate, subdued warm wood.\nMaterials/textures: Cotton jersey and stitching, canvas weave, matte table surface; realistic workshop tools only if naturally present.\nText (verbatim): None.\nConstraints: No logos, no brand marks, no watermark, no legible text, no readable labels. High-resolution square photograph.\nAvoid: Collage, split panels, graphic overlays, impossible industrial machinery, malformed hands, staged assembly line, clutter, fabricated text."
+    },
+    {
+      "stage": "dispatch",
+      "source_png": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13dfe-6960-7261-8f97-ae3780474a62\\exec-409ba3ff-8951-4f53-a97e-bb3f1cc780e3.png",
+      "output_webp": "assets/process-general-dispatch.webp",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium website customization workflow photograph, square source intended for a circular crop\nPrimary request: A realistic small-batch dispatch packing moment. Adult hands are carefully packing varied plain merchandise into a simple open kraft carton: a folded ivory T-shirt, a plain navy cap, a pair of plain neutral socks and a natural canvas tote, with unprinted tissue paper. A few closed unmarked shipping cartons sit softly out of focus behind the work surface.\nScene/backdrop: A tidy product workshop packing table, natural kraft cartons and a neutral background.\nSubject: Central hands placing the varied merchandise into the open carton; each item remains plainly visible and the packing action is clear.\nStyle/medium: Premium realistic documentary product photography, honest and tactile.\nComposition/framing: Native square photo from a slightly elevated angle. Keep hands, open carton and all four merchandise types inside the central 70% of the square, with generous breathing room for a 310px circular crop. One clear action, not a collage.\nLighting/mood: Soft neutral daylight, calm and careful fulfillment.\nColor palette: Ivory, natural canvas, navy, slate, kraft brown.\nMaterials/textures: Cotton jersey, knit socks, canvas weave, matte tissue paper, corrugated kraft carton.\nText (verbatim): None.\nConstraints: No logos, no brand marks, no watermark, no readable labels, no shipping addresses, no legible text. High-resolution square photograph.\nAvoid: Collage, split panels, graphic overlays, cluttered packing table, visible barcodes or writing, malformed hands, impossible packaging."
+    }
+  ]
+}
