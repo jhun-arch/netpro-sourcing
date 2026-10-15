@@ -1,4 +1,151 @@
 (() => {
+  function initWhatsAppWidget() {
+    if (!document.body || document.getElementById('netpro-whatsapp-widget')) return;
+
+    let openFromFooter = null;
+    let pendingFooterInvoker = null;
+    document.addEventListener('click', event => {
+      const target = event.target instanceof Element ? event.target : null;
+      const link = target?.closest('a[href]');
+      if (!link) return;
+      const isWhatsAppFooterLink = link.matches('[data-social="whatsapp"], .footer-social-icon[href*="whatsapp.com"], .footer-social-icon[href*="wa.me"]');
+      if (!isWhatsAppFooterLink) return;
+      event.preventDefault();
+      if (openFromFooter) openFromFooter(link);
+      else pendingFooterInvoker = link;
+    });
+
+    const appScriptUrl = document.currentScript?.src || document.baseURI;
+    const widgetStyles = document.createElement('link');
+    widgetStyles.rel = 'stylesheet';
+    widgetStyles.href = new URL('whatsapp-widget.css?v=20261015-whatsapp1', appScriptUrl).href;
+    widgetStyles.dataset.netproWhatsappStyles = '';
+
+    const contactUrl = 'https://api.whatsapp.com/send/?phone=%2B85260888498&text&type=phone_number&app_absent=0';
+    const render = () => {
+      if (document.getElementById('netpro-whatsapp-widget')) return;
+
+      const widget = document.createElement('div');
+      widget.id = 'netpro-whatsapp-widget';
+      widget.className = 'netpro-whatsapp-widget';
+      widget.innerHTML = `
+        <section class="netpro-whatsapp-panel" id="netpro-whatsapp-panel" role="dialog" aria-modal="false" aria-labelledby="netpro-whatsapp-title" aria-describedby="netpro-whatsapp-copy" tabindex="-1" hidden>
+          <header class="netpro-whatsapp-header">
+            <div class="netpro-whatsapp-heading">
+              <span class="netpro-whatsapp-brand">NETPRO SOURCING</span>
+              <h2 id="netpro-whatsapp-title" tabindex="-1">Contact our team</h2>
+            </div>
+            <div class="netpro-whatsapp-controls">
+              <button class="netpro-whatsapp-control" type="button" data-whatsapp-minimize aria-label="Minimize contact panel" title="Minimize">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+              </button>
+              <button class="netpro-whatsapp-control" type="button" data-whatsapp-close aria-label="Close contact panel" title="Close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+              </button>
+            </div>
+          </header>
+          <div class="netpro-whatsapp-content">
+            <p id="netpro-whatsapp-copy">Planning a product or comparing options? Tell us about your product, quantity and customisation needs.</p>
+            <a class="netpro-whatsapp-action" data-whatsapp-action href="${contactUrl}">
+              <span>Continue to WhatsApp</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+            <p class="netpro-whatsapp-note" id="netpro-whatsapp-note">Opens WhatsApp in a separate window.</p>
+            <div class="netpro-whatsapp-fallback" data-whatsapp-fallback hidden>
+              <p role="status" aria-live="polite">Your browser blocked the popup. Open WhatsApp directly using this link.</p>
+              <a href="${contactUrl}" target="_blank" rel="noopener noreferrer">Open WhatsApp in a new tab <span aria-hidden="true">↗</span></a>
+            </div>
+            <a class="netpro-whatsapp-phone" href="tel:+85260888498">+852 6088 8498</a>
+          </div>
+        </section>
+        <button class="netpro-whatsapp-launcher" type="button" aria-label="Open WhatsApp contact panel" aria-controls="netpro-whatsapp-panel" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.56 0 .24 5.32.24 11.85c0 2.09.55 4.12 1.59 5.91L.14 24l6.39-1.67a11.8 11.8 0 0 0 5.65 1.44h.01c6.53 0 11.85-5.32 11.85-11.85 0-3.17-1.23-6.15-3.47-8.44ZM12.19 21.72h-.01a9.86 9.86 0 0 1-5.03-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.86 9.86 0 1 1 8.39 4.64Zm5.42-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+        </button>`;
+
+      document.body.append(widget);
+      const panel = widget.querySelector('.netpro-whatsapp-panel');
+      const launcher = widget.querySelector('.netpro-whatsapp-launcher');
+      const heading = widget.querySelector('#netpro-whatsapp-title');
+      const fallback = widget.querySelector('[data-whatsapp-fallback]');
+      let returnFocusTo = null;
+
+      const restoreFocus = target => {
+        const focusTarget = target?.isConnected ? target : launcher;
+        requestAnimationFrame(() => focusTarget?.focus({ preventScroll: true }));
+      };
+      const closePanel = (focusTarget = returnFocusTo) => {
+        if (panel.hidden) return;
+        panel.hidden = true;
+        launcher.setAttribute('aria-expanded', 'false');
+        launcher.setAttribute('aria-label', 'Open WhatsApp contact panel');
+        fallback.hidden = true;
+        returnFocusTo = null;
+        restoreFocus(focusTarget);
+      };
+      const openPanel = invoker => {
+        if (panel.hidden) {
+          returnFocusTo = invoker?.isConnected ? invoker : launcher;
+          fallback.hidden = true;
+          panel.hidden = false;
+          launcher.setAttribute('aria-expanded', 'true');
+          launcher.setAttribute('aria-label', 'Close WhatsApp contact panel');
+          requestAnimationFrame(() => heading.focus({ preventScroll: true }));
+          return;
+        }
+        if (invoker?.isConnected) returnFocusTo = invoker;
+        heading.focus({ preventScroll: true });
+      };
+      openFromFooter = openPanel;
+      if (pendingFooterInvoker) {
+        openPanel(pendingFooterInvoker);
+        pendingFooterInvoker = null;
+      }
+
+      launcher.addEventListener('click', () => {
+        if (panel.hidden) openPanel(launcher);
+        else closePanel(launcher);
+      });
+      widget.querySelector('[data-whatsapp-minimize]').addEventListener('click', () => closePanel());
+      widget.querySelector('[data-whatsapp-close]').addEventListener('click', () => closePanel());
+      widget.querySelector('[data-whatsapp-action]').addEventListener('click', event => {
+        event.preventDefault();
+        let popup = null;
+        try {
+          popup = window.open('about:blank', 'netpro-whatsapp', 'popup=yes,width=440,height=720,resizable=yes,scrollbars=yes');
+        } catch {
+          popup = null;
+        }
+        if (popup) {
+          try {
+            popup.opener = null;
+            popup.location.replace(contactUrl);
+            fallback.hidden = true;
+            return;
+          } catch {
+            try { popup.close(); } catch { /* The browser may have already closed the popup. */ }
+          }
+        }
+        fallback.hidden = false;
+        widget.querySelector('[data-whatsapp-fallback] a').focus({ preventScroll: true });
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || panel.hidden || document.querySelector('dialog[open]')) return;
+        event.preventDefault();
+        event.stopPropagation();
+        closePanel();
+      });
+    };
+
+    if (document.querySelector('link[data-netpro-whatsapp-styles]')) {
+      render();
+      return;
+    }
+    widgetStyles.addEventListener('load', render, { once: true });
+    widgetStyles.addEventListener('error', render, { once: true });
+    document.head.append(widgetStyles);
+  }
+
   const start = () => {
     'use strict';
 
@@ -1411,6 +1558,7 @@
     });
   }
   };
+  initWhatsAppWidget();
   if (Array.isArray(window.NETPRO_PRODUCTS)) start();
   else {
     const productScript = document.createElement('script');
