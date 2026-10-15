@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-15T13:51:21+08:00",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "output": "assets/technique-screen.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-1dbb13c4-7d64-4895-9294-990272763ad4.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "756ca126d198cc5979f85bdd590e2eb11cf0402696baf8518d904841c4e8af89",
+      "output_sha256": "38eb6098e817a44ae0929d2f45a217639528fefaf5c456a67799adc1dd5c5f5f",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square macro documentary photograph showing thick, flat screen-printed ink on ivory cotton: bold navy and coral abstract rounded shapes printed in crisp layered blocks, visibly flat and smooth on the cloth, with no puff or raised relief. This is one close-up crop of the fabric and print, not a collage.\nScene/backdrop: Ivory cotton garment fabric fills the frame, softly folded on a clean work surface.\nSubject: Original abstract rounded geometric navy and coral screenprint with crisp edges and slight ink-on-fiber texture.\nStyle/medium: Realistic premium editorial textile macro photography.\nComposition/framing: Square, tight center crop with print texture occupying the middle 70%; gently visible cloth weave and fold; useful for circular crop.\nLighting/mood: Soft natural studio window light, honest detail, restrained editorial palette.\nMaterials/textures: Ivory cotton fibers, dense flat plastisol-like ink, visibly flush with the fabric.\nConstraints: Clearly distinguish screen printing through opaque flat layered ink; keep design original and abstract; no readable text.\nAvoid: Raised puff ink, embroidery threads, transfer film, stars, letters, logos, brands, anime characters, trademarks, watermark, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-puff.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-a7e41631-2acf-4750-8f1c-643167c75806.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "5ffe7122bf8fcd83e3fb7aa08f6c30c727b3b3ced6bf149f9cececde4673b192",
+      "output_sha256": "ed29172b70233edb5c6865694bd323e2bfa9c95faaf6d12e2940823113786500",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square macro documentary photograph of a cream jersey shirt carrying visibly raised matte 3D puff print: original coral abstract curving bands and rounded forms rise above the knit, casting small soft shadows that prove their height. This is a single close-up photograph, not a collage.\nScene/backdrop: Cream cotton jersey cloth draped in gentle folds.\nSubject: Matte coral puff ink, smooth rounded raised surface, clean abstract curved lines with generous visible surrounding fabric.\nStyle/medium: Realistic premium editorial textile macro photography.\nComposition/framing: Square tight macro, central raised graphic occupies about 65% of frame, fabric visible around edges for circular crop.\nLighting/mood: Soft directional daylight from upper left to reveal relief shadows; warm, calm editorial feel.\nMaterials/textures: Clearly visible jersey knit, dense opaque matte ink with rounded raised edges and tactile depth.\nConstraints: The print must visibly stand proud from the fabric and cast a height shadow; retain an original abstract shape.\nAvoid: Flat screenprint appearance, metallic foil, stitched thread, transfer film, letters, stars, logos, brands, anime characters, trademarks, watermark, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-dtg.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-402d0ebc-a9f9-4315-b24d-04620d5cc394.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "d676721b26051914173ebbe784d5378790a40539902c51022102c6815030bbab",
+      "output_sha256": "c7db5bc18b737fe481a8cfd12d6353410fbbb22a015d83b6e566d9c4c96dda87",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square macro documentary photograph of a detailed multicolor direct-to-garment print on black cotton. Show an original botanical-meets-landscape illustration with teal leaves, muted coral blooms, golden ochre accents and soft blue contours, printed directly into the fabric so tiny fibers subtly show through the ink. No text. Single photo, not a collage.\nScene/backdrop: Black cotton garment cloth, softly folded, close enough to see the weave.\nSubject: Intricate original multicolor organic illustration integrated into black cotton.\nStyle/medium: Realistic premium editorial textile macro photography.\nComposition/framing: Square close crop, central illustration fills roughly 65% leaving dark fabric margin for circular crop.\nLighting/mood: Soft neutral daylight; rich but natural color and fine detail.\nMaterials/textures: Matte ink bonded to visible cotton fibers, soft integrated edges at fiber scale, no surface sheet or raised layer.\nConstraints: Clearly read as direct-to-garment printing with detailed color blends on fabric; all imagery original, abstract botanical and scenic motifs.\nAvoid: Letters, stars, logos, brands, anime characters, trademarks, watermark, transfer film, embroidery, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-transfer.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-ecd90cb0-588a-493e-990b-e5460ac9da48.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "15362b68c56ca48b14de1b5ae994cda79ce9b63cc06cb3f00fc2962d1c1250ea",
+      "output_sha256": "bc255ba27973ff775f388f79c3ae1d0dff4199a63056825781c478fba52d6d07",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square documentary process photograph showing hands lifting and peeling a transparent carrier film from a crisp navy abstract graphic on a coral cotton tee under a compact heat press. Make the clear film edge and the act of transfer unmistakable; artwork is original curved geometric forms without text. A single photo, no collage.\nScene/backdrop: Clean small print workshop table, coral tee beneath a raised heat-press plate, only hands and forearms visible.\nSubject: Hand peeling transparent carrier sheet away from a finished navy transfer graphic on fabric.\nStyle/medium: Realistic premium editorial manufacturing photography, close documentary detail.\nComposition/framing: Square centered process crop; film edge, hand, and fabric graphic all clearly visible within middle 70%, safe for circular crop.\nLighting/mood: Soft workshop daylight from side, realistic shadows on clear film.\nColor palette: Coral cotton, deep navy ink, neutral charcoal press and table.\nMaterials/textures: Thin glossy transparent film catches highlights; crisp graphic edge remains on cotton below; fabric weave visible.\nConstraints: The image must plainly communicate heat transfer by showing a peelable transparent carrier film and hands mid-peel. Original abstract design; no readable text.\nAvoid: Screen-printing frames, puff relief, embroidery thread, stars, letters, logos, brands, anime characters, trademarks, watermark, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-sublimation.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-119d105d-efe5-4462-bcb5-8a68b06e1aa5.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "05185a0c3aed2a4d188dcb7b9f0d34bdf7de6e198e983a8707ef537b923e8f1f",
+      "output_sha256": "34c7e7dd71812e5425951f76e231b3b2dcefc4ebe380fd8d5cb13e3462f5de41",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square premium macro photograph of saturated teal, coral, and blue all-over wave printing seamlessly dyed into white polyester performance fabric. Let the abstract waves flow continuously over soft folds, with no transfer sheet or raised ink. This is one textile photo, not a collage.\nScene/backdrop: White lightweight performance polyester draped in smooth folds against a clean neutral surface.\nSubject: Seamless all-over original wave pattern in teal, coral and deep blue.\nStyle/medium: Realistic premium editorial textile macro photography.\nComposition/framing: Square close macro crop, flowing color pattern fills the center and middle 70%, soft fabric folds remain visible for circular crop.\nLighting/mood: Bright soft daylight, clean modern athletic feel, natural highlights on polyester.\nMaterials/textures: Fine synthetic knit; pigment appears absorbed into fibers with continuous print across folds, completely flush with cloth.\nConstraints: Clearly communicate dye sublimation through an all-over print integrated with white polyester fibers; no film or surface layer.\nAvoid: Cotton, spot logo, text, stars, screenprint patches, embroidery, foil, heat transfer film, brands, anime characters, trademarks, watermark, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-embroidery.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-2c33fe5e-82f5-4d70-81f5-7462dacb82cc.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "cb0b77782a38072c4186d10037257167ac3945ff86fe91c883b06bbe482fd7d6",
+      "output_sha256": "15c3d4832714c642c78b8ac5fa49b5905ab574e48a83b5cc3c5cc219e458db4e",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square macro photograph of a dense embroidered original ivory-and-navy abstract curved crest on dark navy fabric. Show raised satin stitches and real individual thread paths with polished craftsmanship. No letters or star motifs. One close-up photo, not a collage.\nScene/backdrop: Dark navy garment fabric with a subtle fold, filling the frame.\nSubject: Small centered abstract ivory and navy stitched curved crest, with visible dense threadwork and neatly finished edges.\nStyle/medium: Realistic premium editorial textile macro photography.\nComposition/framing: Square tight crop with embroidery centered and occupying around 60%; enough navy fabric around it for circular crop.\nLighting/mood: Soft directional daylight revealing raised stitches and thread sheen without glare.\nMaterials/textures: Dense ivory and navy embroidery thread visibly layered above the navy fabric, woven textile fibers in background.\nConstraints: Must clearly read as thread embroidery with actual stitch direction and relief; original simple abstract curved crest.\nAvoid: Stars, letters, numbers, logos, brands, anime characters, trademarks, watermark, printed imitation stitching, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-foil.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-a5297755-5016-496e-807b-aa84c9287d48.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "74252d327dc15c0bb4ec172af62d7dad32fd138d6ad8cf61674dcaa13fd07c63",
+      "output_sha256": "58f2a8f96fd61257f6120b1a5fea1d9f9cec8cb6b7fb97e52db9ed935b522119",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square macro photograph of a sharply defined metallic gold and silver abstract arc graphic on black fabric. The metallic surface has a true reflective foil lustre with fine specular highlights and subtle reflected light, clearly a foil layer and not thread or ink. Single textile photo, no collage.\nScene/backdrop: Black cotton garment fabric with a shallow fold; dark and uncluttered.\nSubject: Original abstract intersecting gold and silver arcs and rounded shapes, no symbols.\nStyle/medium: Realistic premium editorial textile macro photography.\nComposition/framing: Square centered close crop; metallic shapes fill the middle 60%, with black cloth margins for circular crop.\nLighting/mood: Controlled soft directional studio light, narrow bright reflections on the foil to show its metallic surface.\nMaterials/textures: Smooth shiny metallic foil firmly applied to matte black woven cloth; visible fabric weave in unprinted areas.\nConstraints: Gold and silver regions should look mirror metallic and visibly different from embroidery thread or printed ink; use simple original arcs.\nAvoid: Stars, letters, words, logos, brands, anime characters, trademarks, glitter dust, embroidered thread, watermark, collage, grid, borders."
+    },
+    {
+      "output": "assets/technique-special-effects.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-f1c5652b-9112-44c2-9a6b-45aef279f179.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "336b791933e76de41a4c93d29e83fa81c1d2bff4ab54c9a5610b4c034003a128",
+      "output_sha256": "cd999226eb3f7df45b1a639bb02b053103b8604a5cc8376a561cfd4ab939532f",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel process-detail photo for a sourcing website\nPrimary request: A native high-definition square low-light documentary macro photograph of an original abstract wave graphic on dark navy athletic fabric, combining fluorescent lime green glow ink and a reflective silver band. Show the lime portion luminous in dim light and the silver visibly catching a small grazing beam. No star motif or text. One photo, not collage.\nScene/backdrop: Dark navy technical fabric in a dim studio, gently curved folds.\nSubject: A bold flowing abstract wave: a naturally luminous fluorescent lime section beside a sharply reflective silver section.\nStyle/medium: Realistic premium editorial textile macro photography, low light.\nComposition/framing: Square close crop; effect graphic centered in middle 65% and safe for circular crop, dark fabric visible around it.\nLighting/mood: Dim controlled environment; subtle realistic lime glow spill onto nearby fibers and one restrained white grazing light reflection on silver.\nMaterials/textures: Visible navy performance knit; luminous finish and reflective finish remain distinct material effects integrated with fabric.\nConstraints: Luminous finish must read clearly and naturally, with no magical symbols; original abstract wave only.\nAvoid: Stars, letters, words, logos, brands, anime characters, trademarks, overblown neon bloom, watermark, collage, grid, borders."
+    },
+    {
+      "output": "assets/process-approval.webp",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a13e16-99e8-75b1-b086-a1284f5e3d0a\\exec-29f20435-e947-479d-86f2-c46b0d23d9dc.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "format": "WEBP",
+      "quality": 86,
+      "source_sha256": "f119b3726d98e59518a6218834a7e304f07aa800af2cc941cae23983c8f6f2fc",
+      "output_sha256": "69eb8d36d15f57b9e97ab60e2ffbc898542340175065fff364688c49fbe47109",
+      "prompt": "Use case: photorealistic-natural\nAsset type: premium apparel production approval process photo for a sourcing website\nPrimary request: A native high-definition square documentary photo, safe for a circular crop, showing a production reviewer’s hands comparing a digital apparel artwork placement proof on a laptop with matching physical plain samples: an ivory tee and a navy cap on the table. Laptop screen shows a clean visual placement diagram and matching tiny original abstract circle-and-wave graphic applied on the tee and cap, with no legible text. Do not show any brands. A single real photo, no collage.\nScene/backdrop: Tidy apparel production worktable with folded ivory tee, navy cap, laptop and a few neutral paper swatches.\nSubject: Hands reviewing the laptop proof alongside matching decorated fabric samples; the art position and colors correspond between digital proof, shirt and cap.\nStyle/medium: Realistic premium editorial manufacturing documentary photography, approachable and trustworthy.\nComposition/framing: Square composition; hands, screen proof and both sample garments grouped near the center within middle 70%, enough margin for a circular crop; camera at a gentle overhead three-quarter angle.\nLighting/mood: Warm natural daylight, calm and collaborative.\nColor palette: Ivory, navy, muted coral and neutral worktable tones.\nMaterials/textures: Cotton tee, twill cap, matte laptop screen and understated paper swatches.\nConstraints: Only a small abstract circle-and-wave graphic with no lettering or emblem; screen UI remains diagrammatic and unreadable; match same graphic position and colors on proof and physical garments.\nAvoid: Stars, readable text, logos, brands, anime characters, trademarks, busy workshop clutter, watermark, collage, grid, borders."
+    }
+  ]
+}
