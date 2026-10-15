@@ -57,17 +57,17 @@
   display: block;
   margin-bottom: 7px;
   color: #ffffffc9;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   line-height: 1.4;
 }
 
-.netpro-whatsapp-header h2 {
+.netpro-whatsapp-widget .netpro-whatsapp-panel .netpro-whatsapp-header h2 {
   margin: 0;
   color: #fff;
-  font: 600 21px/1.18 'Figtree', 'Montserrat', Arial, sans-serif;
-  letter-spacing: -0.035em;
+  font: 500 22px/1.18 'Figtree', 'Montserrat', Arial, sans-serif;
+  letter-spacing: -0.025em;
 }
 
 .netpro-whatsapp-controls {
@@ -105,8 +105,9 @@
 .netpro-whatsapp-content > p:first-child {
   margin: 0;
   color: #43516a;
-  font-size: 13px;
-  line-height: 1.75;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 .netpro-whatsapp-action {
@@ -121,8 +122,8 @@
   border-radius: 5px;
   background: #1da85a;
   color: #fff;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.35;
   transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }
@@ -135,13 +136,6 @@
   stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-.netpro-whatsapp-note {
-  margin: 12px 0 0;
-  color: #718096;
-  font-size: 10px;
-  line-height: 1.65;
 }
 
 .netpro-whatsapp-fallback {
@@ -161,15 +155,15 @@
 .netpro-whatsapp-fallback p {
   margin: 0;
   color: #43516a;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 400;
   line-height: 1.55;
 }
 
-.netpro-whatsapp-fallback a,
-.netpro-whatsapp-phone {
+.netpro-whatsapp-fallback a {
   color: #2458e6;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.5;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -177,8 +171,20 @@
 
 .netpro-whatsapp-phone {
   display: inline-block;
-  margin-top: 16px;
+  margin-top: 6px;
+  color: #2458e6;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
   text-decoration: none;
+}
+
+.netpro-whatsapp-manager {
+  margin: 16px 0 0;
+  color: var(--muted, #617088);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .netpro-whatsapp-launcher {

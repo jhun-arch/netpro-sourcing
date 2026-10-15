@@ -18,7 +18,7 @@
     const appScriptUrl = document.currentScript?.src || document.baseURI;
     const widgetStyles = document.createElement('link');
     widgetStyles.rel = 'stylesheet';
-    widgetStyles.href = new URL('whatsapp-widget.css?v=20261015-whatsapp1', appScriptUrl).href;
+    widgetStyles.href = new URL('whatsapp-widget.css?v=20261015-whatsapp-font1', appScriptUrl).href;
     widgetStyles.dataset.netproWhatsappStyles = '';
 
     const contactUrl = 'https://api.whatsapp.com/send/?phone=%2B85260888498&text&type=phone_number&app_absent=0';
@@ -50,11 +50,11 @@
               <span>Continue to WhatsApp</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
             </a>
-            <p class="netpro-whatsapp-note" id="netpro-whatsapp-note">Opens WhatsApp in a separate window.</p>
             <div class="netpro-whatsapp-fallback" data-whatsapp-fallback hidden>
               <p role="status" aria-live="polite">Your browser blocked the popup. Open WhatsApp directly using this link.</p>
               <a href="${contactUrl}" target="_blank" rel="noopener noreferrer">Open WhatsApp in a new tab <span aria-hidden="true">↗</span></a>
             </div>
+            <p class="netpro-whatsapp-manager">Sales Manager: Stanley Poon</p>
             <a class="netpro-whatsapp-phone" href="tel:+85260888498">+852 6088 8498</a>
           </div>
         </section>
