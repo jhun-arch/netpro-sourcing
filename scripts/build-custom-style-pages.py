@@ -12,7 +12,7 @@ from urllib.parse import urlencode
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "custom-style-pages.json"
 IMAGE_MANIFEST = ROOT / "data" / "style-module-image-manifest.json"
-SHELL = ROOT / "custom-headwear.html"
+SHELL = ROOT / "custom-baseball-caps.html"
 SITE = "https://netprosourcing.vercel.app"
 PRODUCTS_CSS_VERSION = "20261012-16"
 
@@ -273,8 +273,6 @@ def render_style_directions(style: dict) -> str:
 
 
 def render_main(style: dict) -> str:
-    category_file = "custom-headwear.html" if style["family"] == "Headwear" else "custom-socks.html"
-    category_name = "Headwear" if style["family"] == "Headwear" else "Socks"
     request_target = f"{style['slug']}.html"
     current = f"Custom {style['name']}"
     eyebrow = f"CUSTOM {style['family'].upper()}"
@@ -286,7 +284,7 @@ def render_main(style: dict) -> str:
     cta_title = f"Discuss Your {project_name} Project."
     shop_query = urlencode({"style": style["slug"]})
     return f'''<main id="main" class="custom-product-main custom-style-detail-page">
-  <nav class="custom-product-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="apparel-customization-process.html">Customization</a><span aria-hidden="true">/</span><a href="{category_file}">Custom {category_name}</a><span aria-hidden="true">/</span><span aria-current="page">{esc(style['name'])}</span></nav>
+  <nav class="custom-product-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">{esc(style['name'])}</span></nav>
   <section class="custom-product-hero" aria-labelledby="product-title">
     {render_gallery(style)}
     <div class="custom-product-copy">
@@ -330,7 +328,7 @@ def render_page(style: dict) -> str:
         rendered = re.sub(r'custom-products\.css\?v=[^"]+', f'custom-products.css?v={PRODUCTS_CSS_VERSION}', rendered)
         return rendered.replace("\n", newline)
 
-    # New pages inherit the latest category shell once; subsequent builds replace only <main>.
+    # New pages inherit the latest product detail shell once; subsequent builds replace only <main>.
     shell = SHELL.read_bytes().decode("utf-8")
     newline = "\r\n" if "\r\n" in shell else "\n"
     shell = shell.replace("\r\n", "\n")
