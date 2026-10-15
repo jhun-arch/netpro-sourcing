@@ -366,7 +366,7 @@ def apply_image_manifest(styles: list[dict], parser: argparse.ArgumentParser) ->
     expected_overview_details = ["Manufacturing Scope", "Private Label Details"]
     expected_process = [
         "Project Brief", "Measurement Development", "Feasibility & Quote",
-        "Sample Development", "Production Inspection", "Delivery Planning",
+        "Digital Proof Review", "Production Inspection", "Delivery Planning",
     ]
     expected_packaging = ["Custom Boxes", "Protective Bags", "Shipping Mailers", "Labels & Inserts"]
     expected_audiences = ["Brand & Product Planning", "Retail Collections", "Sports & Teams", "Online Ranges"]

@@ -43,7 +43,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -61,8 +61,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review crown height, panel layout, bill curve and closure."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -87,8 +87,8 @@
           "Share the artwork, location and finish. The suitable method is confirmed against the cap construction and listed in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -117,7 +117,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "crown height, panel layout, bill curve and closure",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Six-Panel Crown",
@@ -190,7 +190,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -208,8 +208,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review headband fit, bill coverage and adjustment."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -234,8 +234,8 @@
           "Share the artwork and mark the band or bill location. The suitable finish is reviewed against the fabric and construction before it is quoted."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -264,7 +264,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "headband fit, bill coverage and adjustment",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Open Crown",
@@ -337,7 +337,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -355,8 +355,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review crown depth, brim shape and back adjustment."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -381,8 +381,8 @@
           "Share the artwork, placement and preferred finish. Feasibility is checked against the panel structure and recorded in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -411,7 +411,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "crown depth, brim shape and back adjustment",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Low Crown & Short Brim",
@@ -484,7 +484,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -502,8 +502,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review knit structure, cuff depth, overall length and crown finish."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -528,8 +528,8 @@
           "Share the artwork and preferred cuff or body placement. The application and finish are reviewed against the knit structure and recorded in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -558,7 +558,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "knit structure, cuff depth, overall length and crown finish",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Rib Knit",
@@ -631,7 +631,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -649,8 +649,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review front structure, mesh coverage, bill profile and closure."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -675,8 +675,8 @@
           "Share the artwork and mark the front, side or back location. The suitable finish is checked against the selected panel and noted in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -705,7 +705,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "front structure, mesh coverage, bill profile and closure",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Mesh-Back Profile",
@@ -778,7 +778,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -796,8 +796,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review crown shape, bill profile and snap range."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -822,8 +822,8 @@
           "Share the artwork and front or side placement. The finish is reviewed against the crown structure and recorded in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -852,7 +852,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "crown shape, bill profile and snap range",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Structured Crown",
@@ -925,7 +925,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -943,8 +943,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review relaxed crown shape, bill curve and back adjustment."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -969,8 +969,8 @@
           "Share the artwork and mark the front, side or strap location. The suitable finish is reviewed against the fabric and included in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -999,7 +999,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "relaxed crown shape, bill curve and back adjustment",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Relaxed Crown",
@@ -1072,7 +1072,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1090,8 +1090,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review crown depth, brim width and fabric drape."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1116,8 +1116,8 @@
           "Share the artwork and crown, side or brim location. The suitable finish is checked against the fabric and construction before it is quoted."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -1146,7 +1146,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "crown depth, brim width and fabric drape",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Downward Brim",
@@ -1219,7 +1219,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1237,8 +1237,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review shaft height, cuff, heel coverage and toe finish."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1263,8 +1263,8 @@
           "Share the artwork, colors and placement. The knit pattern and quoted scope are confirmed against the selected sock construction."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -1293,7 +1293,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "shaft height, cuff, heel coverage and toe finish",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Short Shaft",
@@ -1366,7 +1366,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1384,8 +1384,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review mid-calf length, cuff, pattern alignment and toe finish."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1410,8 +1410,8 @@
           "Share the artwork, repeat and placement. The knit pattern and quoted scope are confirmed against the selected sock construction."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -1440,7 +1440,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "mid-calf length, cuff, pattern alignment and toe finish",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Mid-Calf Length",
@@ -1513,7 +1513,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1531,8 +1531,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review cuff, foot zones and color layout."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1557,8 +1557,8 @@
           "Share color references, artwork and placement. The suitable knit-in finish is reviewed against the sock construction and recorded in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -1587,7 +1587,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "cuff, foot zones and color layout",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Athletic Cuff",
@@ -1660,7 +1660,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1678,8 +1678,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review finished leg length, calf points, top band and pattern."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1704,8 +1704,8 @@
           "Share the artwork, repeat and position along the leg. The knit pattern and quoted scope are reviewed against the size grading."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -1734,7 +1734,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "finished leg length, calf points, top band and pattern",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Knee-High Length",
@@ -1807,7 +1807,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1825,8 +1825,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review opening, heel coverage, cuff and toe construction."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1851,8 +1851,8 @@
           "Share the artwork and mark the preferred foot placement. The suitable knit-in finish is reviewed against the sock construction and listed in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -1881,7 +1881,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "opening, heel coverage, cuff and toe construction",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Low Opening",
@@ -1916,7 +1916,7 @@
       "name": "Novelty Socks",
       "family": "Socks",
       "description": "Plan custom novelty socks around playful motifs, repeat scale, knit colors, cuff design and clear placement across the sock shape.",
-      "lead": "Bring a motif, character or repeat pattern to life on the sock shape. Define scale, colors and placement before the knit is sampled.",
+      "lead": "Bring a motif, character or repeat pattern to life on the sock shape. Define scale, colors and placement to guide the digital artwork proof.",
       "image": "assets/custom-novelty-socks-editorial-v1.webp",
       "position": "0% 50%",
       "alt": "Cream crew sock with navy crescent moons and mist blue knit dots",
@@ -1954,7 +1954,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -1972,8 +1972,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review motif scale, repeat placement and leg-to-foot layout."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -1998,8 +1998,8 @@
           "Share vector or high-resolution artwork. Detail is reviewed against the knit gauge, color count and sock size before it is included in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -2028,7 +2028,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "motif scale, repeat placement and leg-to-foot layout",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Motif Placement",
@@ -2101,7 +2101,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -2119,8 +2119,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review yarn blend, knit weight and finished length."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -2145,8 +2145,8 @@
           "Share artwork and colors with the preferred placement. The knit pattern and quoted scope are reviewed against the selected yarn and gauge."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -2175,7 +2175,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "yarn blend, knit weight and finished length",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Wool Blend",
@@ -2248,7 +2248,7 @@
         ],
         [
           "Project Planning",
-          "Include estimated quantity, delivery destination and any sample, proof or packing requests."
+          "Include estimated quantity, delivery destination and any digital proof or packing requests."
         ]
       ],
       "process_title": "From First Brief To Delivery Plan.",
@@ -2266,8 +2266,8 @@
           "Review production scope, material feasibility and quoted terms."
         ],
         [
-          "Sample Development",
-          "Develop a sample or proof, if included, to review leg length, sizing, cuff and knit zones."
+          "Digital Proof Review",
+          "Review a digital artwork proof, when included in the quote, for artwork scale, placement and color."
         ],
         [
           "Production Inspection",
@@ -2292,8 +2292,8 @@
           "Share color references, labels and artwork placement. Available finishes are reviewed against the specified knit construction and recorded in the quote."
         ],
         [
-          "Does Every Order Include A Sample?",
-          "Sampling or proof scope varies by project and is listed in the quote."
+          "Can I Review A Digital Proof?",
+          "Digital artwork proof scope and revision timing vary by project and are listed in the quote."
         ]
       ],
       "image_size": "200% auto",
@@ -2322,7 +2322,7 @@
           "copy": "Share labels, tags, inserts, care wording and size-marking requests. Confirmed items appear in the quote."
         }
       ],
-      "sample_focus": "leg length, sizing, cuff and knit zones",
+      "proof_focus": "artwork scale, placement and color",
       "style_directions": [
         {
           "title": "Leg Profile",

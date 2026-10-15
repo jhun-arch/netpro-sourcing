@@ -692,7 +692,7 @@
     if (product.category === 'patches') {
       return `<section class="detail-specifications" aria-label="Patch details"><dl><div><dt>Stock design</dt><dd>${escape(product.name)}</dd></div><div><dt>Specifications &amp; availability</dt><dd>Dimensions, backing and current availability are confirmed for your enquiry.</dd></div></dl></section>`;
     }
-    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>Reference size options</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before sampling or production.</p></section>`;
+    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>Reference size options</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before artwork approval and production.</p></section>`;
   }
 
   function showProduct(id, request = {}) {
@@ -895,7 +895,7 @@
         const itemDetails = item.size === 'Not specified' ? p.color : `${p.color} · ${item.size}`;
         return `<article class="bag-item">${art(p)}<div class="cart-item-name"><small>${escape(p.category)}</small><h3>${escape(p.name)}</h3><p>${escape(itemDetails)}</p><p class="bag-request-summary">${escape(lineRequestSummary(item))}</p></div><div class="quantity"><button type="button" data-quantity="${i}" data-delta="-1" data-editor-index="${i}" data-editor-focus="quantity-minus" aria-label="Decrease ${escape(p.name)} quantity">−</button><span>${item.quantity}</span><button type="button" data-quantity="${i}" data-delta="1" data-editor-index="${i}" data-editor-focus="quantity-plus" aria-label="Increase ${escape(p.name)} quantity" ${item.quantity >= 100000 ? 'disabled' : ''}>+</button></div><button type="button" class="remove-item" data-remove="${i}" aria-label="Remove ${escape(p.name)}">×</button></article>`;
       }).join('');
-      $('#bag-summary').innerHTML = `<div class="subtotal"><span>Requested Units</span><span>${bag.reduce((n,item)=>n+item.quantity,0)}</span></div><p class="cart-tax-note">Indicative quantities only. Minimum quantities, unit pricing, samples and delivery will be confirmed in your quotation.</p><a class="button primary cart-checkout" href="quote.html">Request a Quote →</a><p class="bag-note">Add your company and project details on the next page. This is an enquiry, not an order.</p>`;
+      $('#bag-summary').innerHTML = `<div class="subtotal"><span>Requested Units</span><span>${bag.reduce((n,item)=>n+item.quantity,0)}</span></div><p class="cart-tax-note">Indicative quantities only. Artwork approval, minimum quantities, unit pricing and delivery will be confirmed in your quotation.</p><a class="button primary cart-checkout" href="quote.html">Request a Quote →</a><p class="bag-note">Add your company and project details on the next page. This is an enquiry, not an order.</p>`;
     }
     $$('.bag-continue').forEach(button => button.addEventListener('click', () => {
       $('#bag-dialog').close();

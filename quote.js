@@ -267,6 +267,11 @@
         return {
           name: product.name,
           sku: product.id.toUpperCase(),
+          art: product.art || '',
+          image: product.image || product.hoverImage || '',
+          imageSize: product.image ? product.imageSize : product.hoverImageSize,
+          imagePosition: product.image ? product.position : product.hoverImagePosition,
+          imageAlt: product.image ? product.imageAlt : product.hoverImageAlt,
           color: product.color,
           size: item.size,
           quantity: item.quantity,
@@ -276,7 +281,6 @@
         };
       })
     };
-
     const setStatus = (kind, message) => {
       status.className = `form-status${kind ? ` is-${kind}` : ''}`;
       status.textContent = message;
@@ -300,6 +304,10 @@
         const result = await response.json().catch(() => null);
         throw new Error(result?.error || 'Request failed');
       }
+      const result = await response.json().catch(() => null);
+      const confirmation = window.NetproSubmissionConfirmation;
+      const reference = confirmation?.isReference?.(result?.reference) ? result.reference : '';
+      const receipt = confirmation?.prepare('quote', { ...payload, reference }) || null;
       const submittedQuantities = new Map(submittedItems.map(item => [state.identityKey(item), item.quantity]));
       const remainingItems = state.get().flatMap(item => {
         const key = state.identityKey(item);
@@ -311,7 +319,9 @@
       state.set(remainingItems, products);
       form.reset();
       uploadStatus.textContent = 'Artwork submitted with your enquiry.';
-      setStatus('success', '✓ Enquiry sent successfully. A confirmation email has been sent to your inbox.');
+      if (!window.NetproSubmissionConfirmation?.complete(receipt)) {
+        setStatus('success', '✓ Enquiry sent successfully. A confirmation email has been sent to your inbox.');
+      }
     } catch (error) {
       uploadStatus.textContent = 'Submission failed. Your selected files are retained for retry.';
       setStatus('error', error.message && error.message !== 'Request failed'

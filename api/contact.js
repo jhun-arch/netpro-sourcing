@@ -36,11 +36,12 @@ module.exports = async function handler(req, res) {
 
   // Stable id for this exact submission (same validated data -> same id).
   const submissionId = submissionHash(['contact', name, email, subject, message]);
+  const reference = `NS-${submissionId.slice(0, 12).toUpperCase()}`;
 
   // Both emails were already delivered for this submission:
   // safe no-op for legitimate retries and double-clicks.
   if (bothSent(submissionId)) {
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, reference });
   }
 
   if (!rateLimitOk(clientIp(req)) || !emailCooldownOk(email)) {
@@ -53,6 +54,7 @@ module.exports = async function handler(req, res) {
   }
 
   const rows = [
+    ['Enquiry reference', reference],
     ['Name', name],
     ['Email', email],
     ['Subject', subject],
@@ -85,6 +87,7 @@ module.exports = async function handler(req, res) {
           intro:
             "We've received your enquiry and the details you submitted are included below for your reference. Our team will review your requirements.",
           rows: [
+            ['Enquiry reference', reference],
             ['Subject', subject],
             ['Message', message],
           ],
@@ -96,6 +99,7 @@ module.exports = async function handler(req, res) {
           intro:
             "Thank you for contacting Netpro Sourcing.\n\nWe've received your enquiry and the details you submitted are included below for your reference. Our team will review your requirements.",
           rows: [
+            ['Enquiry reference', reference],
             ['Subject', subject],
             ['Message', message],
           ],
@@ -115,5 +119,5 @@ module.exports = async function handler(req, res) {
   // Cooldown is recorded only after BOTH emails were sent.
   markEmailCooldown(email);
 
-  return res.status(200).json({ ok: true });
+  return res.status(200).json({ ok: true, reference });
 };

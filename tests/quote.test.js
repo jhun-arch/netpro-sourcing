@@ -13,13 +13,13 @@ const mockableMailMethods = [
   'markEmailCooldown',
 ];
 
-async function submitQuote(payload) {
+async function submitQuote(payload, { alreadySent = false } = {}) {
   const originals = Object.fromEntries(mockableMailMethods.map((key) => [key, mail[key]]));
   const sent = [];
   Object.assign(mail, {
     rateLimitOk: () => true,
     emailCooldownOk: () => true,
-    bothSent: () => false,
+    bothSent: () => alreadySent,
     emailConfigReady: () => true,
     sendEnquiryPair: async (message) => { sent.push(message); },
     markEmailCooldown: () => {},
@@ -192,4 +192,31 @@ test('normalized option order is stable while requirement changes produce a new 
   assert.notEqual(first.sent[0].submissionId, changedNotes.sent[0].submissionId);
   assert.notEqual(first.sent[0].submissionId, changedOptions.sent[0].submissionId);
   assert.notEqual(first.sent[0].submissionId, sameProductAsStock.sent[0].submissionId);
+});
+
+test('quote success and duplicate retry return the same reference included in both emails', async () => {
+  const payload = validQuote({
+    sample: 'Approve artwork before production',
+    items: [{ name: 'Classic Tee', sku: 'TEE-01', color: 'White', size: 'M', quantity: 4 }],
+  });
+  const first = await submitQuote(payload);
+  const duplicate = await submitQuote(payload, { alreadySent: true });
+
+  assert.equal(first.status, 200);
+  assert.match(first.data.reference, /^NS-[0-9A-F]{12}$/);
+  assert.equal(first.data.reference, `NS-${first.sent[0].submissionId.slice(0, 12).toUpperCase()}`);
+  assert.deepEqual(duplicate.data, first.data);
+  assert.equal(first.sent.length, 1);
+  assert.equal(duplicate.sent.length, 0);
+
+  const { internal, customer } = first.sent[0];
+  for (const message of [internal, customer]) {
+    assert.ok(message.text.includes(`Enquiry reference: ${first.data.reference}`));
+    assert.ok(message.html.includes(first.data.reference));
+  }
+  assert.match(internal.text, /Artwork approval: Approve artwork before production/);
+  assert.doesNotMatch(internal.text, /Sample requirement/);
+  assert.match(internal.html, /Artwork approval/);
+  assert.doesNotMatch(internal.html, /Sample requirement/);
+  assert.match(internal.text, /Ready stock \| Classic Tee \| TEE-01 \| White \| M \| 4 units/);
 });

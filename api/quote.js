@@ -139,11 +139,12 @@ module.exports = async function handler(req, res) {
     'quote', company, name, email, destination, project, quantity,
     decoration, date, sample, budget, artwork, brief, shortlist, JSON.stringify(attachments),
   ]);
+  const reference = `NS-${submissionId.slice(0, 12).toUpperCase()}`;
 
   // Both emails were already delivered for this submission:
   // safe no-op for legitimate retries and double-clicks.
   if (bothSent(submissionId)) {
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, reference });
   }
 
   if (!rateLimitOk(clientIp(req)) || !emailCooldownOk(email)) {
@@ -158,6 +159,7 @@ module.exports = async function handler(req, res) {
   const na = 'Not specified';
 
   const internalRows = [
+    ['Enquiry reference', reference],
     ['Company', company],
     ['Name', name],
     ['Email', email],
@@ -166,7 +168,7 @@ module.exports = async function handler(req, res) {
     ['Total target quantity', String(quantity)],
     ['Customization', decoration || na],
     ['Target delivery date', date || na],
-    ['Sample requirement', sample || na],
+    ['Artwork approval', sample || na],
     ['Target budget', budget || na],
     ['Artwork / reference link', artwork || na],
     ['Attached files', attachments.map(a=>a.filename).join(', ') || na],
@@ -175,6 +177,7 @@ module.exports = async function handler(req, res) {
   ];
 
   const customerRows = [
+    ['Enquiry reference', reference],
     ['Company', company],
     ['Project type', project || na],
     ['Total target quantity', String(quantity)],
@@ -233,5 +236,5 @@ module.exports = async function handler(req, res) {
   // Cooldown is recorded only after BOTH emails were sent.
   markEmailCooldown(email);
 
-  return res.status(200).json({ ok: true });
+  return res.status(200).json({ ok: true, reference });
 };
