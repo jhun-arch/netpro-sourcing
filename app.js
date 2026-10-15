@@ -68,6 +68,7 @@
       const heading = widget.querySelector('#netpro-whatsapp-title');
       const fallback = widget.querySelector('[data-whatsapp-fallback]');
       let returnFocusTo = null;
+      let contactPopup = null;
 
       const restoreFocus = target => {
         const focusTarget = target?.isConnected ? target : launcher;
@@ -109,9 +110,39 @@
       widget.querySelector('[data-whatsapp-close]').addEventListener('click', () => closePanel());
       widget.querySelector('[data-whatsapp-action]').addEventListener('click', event => {
         event.preventDefault();
+
+        try {
+          if (contactPopup && !contactPopup.closed) {
+            contactPopup.focus();
+            fallback.hidden = true;
+            return;
+          }
+        } catch {
+          contactPopup = null;
+        }
+
+        const screen = window.screen;
+        const availableLeft = Number.isFinite(screen.availLeft) ? screen.availLeft : 0;
+        const availableTop = Number.isFinite(screen.availTop) ? screen.availTop : 0;
+        const availableWidth = Number.isFinite(screen.availWidth) && screen.availWidth > 0
+          ? screen.availWidth
+          : Number.isFinite(screen.width) && screen.width > 0 ? screen.width : 520;
+        const availableHeight = Number.isFinite(screen.availHeight) && screen.availHeight > 0
+          ? screen.availHeight
+          : Number.isFinite(screen.height) && screen.height > 0 ? screen.height : 780;
+        const width = Math.min(520, availableWidth);
+        const height = Math.min(780, availableHeight);
+        const browserCenterX = Number.isFinite(window.screenX) && Number.isFinite(window.outerWidth) && window.outerWidth > 0
+          ? window.screenX + window.outerWidth / 2
+          : availableLeft + availableWidth / 2;
+        const browserCenterY = Number.isFinite(window.screenY) && Number.isFinite(window.outerHeight) && window.outerHeight > 0
+          ? window.screenY + window.outerHeight / 2
+          : availableTop + availableHeight / 2;
+        const left = Math.round(Math.max(availableLeft, Math.min(browserCenterX - width / 2, availableLeft + availableWidth - width)));
+        const top = Math.round(Math.max(availableTop, Math.min(browserCenterY - height / 2, availableTop + availableHeight - height)));
         let popup = null;
         try {
-          popup = window.open('about:blank', 'netpro-whatsapp', 'popup=yes,width=440,height=720,resizable=yes,scrollbars=yes');
+          popup = window.open('about:blank', '_blank', `popup=yes,width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`);
         } catch {
           popup = null;
         }
@@ -120,8 +151,11 @@
             popup.opener = null;
             popup.location.replace(contactUrl);
             fallback.hidden = true;
+            contactPopup = popup;
+            try { popup.focus(); } catch { /* The browser may prevent focusing a new window. */ }
             return;
           } catch {
+            contactPopup = null;
             try { popup.close(); } catch { /* The browser may have already closed the popup. */ }
           }
         }
