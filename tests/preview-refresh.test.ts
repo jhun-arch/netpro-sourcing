@@ -1,22 +1,21 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { pollPreviewRevision } from '../src/components/PreviewRefresh';
+import { buildPreviewNavigationUrl } from '../src/components/previewNavigation';
 
 function createCallbacks() {
   const statuses: string[] = [];
   const revisions: string[] = [];
-  let reloadCount = 0;
+  const refreshedRevisions: string[] = [];
 
   return {
     statuses,
     revisions,
-    get reloadCount() {
-      return reloadCount;
-    },
+    refreshedRevisions,
     callbacks: {
       onStatus: (status: string) => statuses.push(status),
       onRevision: (revision: string) => revisions.push(revision),
-      onRefresh: () => { reloadCount += 1; },
+      onRefresh: (revision: string) => refreshedRevisions.push(revision),
     },
   };
 }
@@ -37,7 +36,7 @@ test('draft preview reports guarded HTTP errors without reloading', async () => 
 
     assert.deepEqual(result.statuses, [`http-${status}`]);
     assert.deepEqual(result.revisions, []);
-    assert.equal(result.reloadCount, 0);
+    assert.deepEqual(result.refreshedRevisions, []);
     assert.equal(requestOptions[0]?.credentials, 'same-origin');
     assert.equal(requestOptions[0]?.cache, 'no-store');
   }
@@ -57,5 +56,27 @@ test('draft preview reloads when the endpoint returns a newer revision', async (
 
   assert.deepEqual(result.statuses, ['refreshing']);
   assert.deepEqual(result.revisions, ['rev-new']);
-  assert.equal(result.reloadCount, 1);
+  assert.deepEqual(result.refreshedRevisions, ['rev-new']);
+});
+
+test('preview navigation adds a revision while preserving the current URL', () => {
+  assert.equal(
+    buildPreviewNavigationUrl(
+      'https://preview.example.test/products?drafts=1&lang=zh#hero',
+      'https://preview.example.test',
+      'rev-new',
+    ),
+    'https://preview.example.test/products?drafts=1&lang=zh&previewRevision=rev-new#hero',
+  );
+});
+
+test('preview navigation refuses to send a cross-origin URL', () => {
+  assert.equal(
+    buildPreviewNavigationUrl(
+      'https://attacker.example.test/products?drafts=1#hero',
+      'https://preview.example.test',
+      'rev-new',
+    ),
+    null,
+  );
 });

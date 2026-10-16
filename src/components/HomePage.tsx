@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { draftMode } from 'next/headers';
-import { VisualEditing } from 'next-sanity/visual-editing';
 import { getHomePageData, HomeContentError } from '../cms/home';
 import { SanitySetupError } from '../cms/client';
+import DraftVisualEditing from './DraftVisualEditing';
 import PreviewRefresh from './PreviewRefresh';
 import { HomeRendererError, renderHome } from './renderHome';
 
@@ -29,7 +29,7 @@ export default async function HomePage() {
         {preview ? (
           <>
             <PreviewRefresh revision={data._rev} />
-            <VisualEditing />
+            <DraftVisualEditing />
           </>
         ) : null}
       </>

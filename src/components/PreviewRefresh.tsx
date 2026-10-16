@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import {
+  buildPreviewNavigationUrl,
+  PREVIEW_SCROLL_STORAGE_KEY,
+  type SavedPreviewScroll,
+} from './previewNavigation';
 
-const SCROLL_STORAGE_KEY = 'netpro-home-preview-scroll';
 const POLL_INTERVAL_MS = 3000;
 
 type RevisionResponse = { rev?: unknown };
-type SavedScroll = { revision: string; x: number; y: number };
 type RefreshStatus =
   | 'pending'
   | 'current'
@@ -19,7 +22,7 @@ type RefreshStatus =
 type PollCallbacks = {
   onStatus: (status: RefreshStatus) => void;
   onRevision: (revision: string) => void;
-  onRefresh: () => void;
+  onRefresh: (revision: string) => void;
 };
 
 export async function pollPreviewRevision(
@@ -57,7 +60,7 @@ export async function pollPreviewRevision(
     }
 
     callbacks.onStatus('refreshing');
-    callbacks.onRefresh();
+    callbacks.onRefresh(result.rev);
   } catch {
     callbacks.onStatus('network-error');
   }
@@ -69,11 +72,13 @@ export default function PreviewRefresh({ revision }: { revision: string }) {
 
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem(SCROLL_STORAGE_KEY);
+      const saved = sessionStorage.getItem(PREVIEW_SCROLL_STORAGE_KEY);
       if (saved) {
-        sessionStorage.removeItem(SCROLL_STORAGE_KEY);
-        const position = JSON.parse(saved) as SavedScroll;
-        if (position.revision !== revision && Number.isFinite(position.x) && Number.isFinite(position.y)) {
+        sessionStorage.removeItem(PREVIEW_SCROLL_STORAGE_KEY);
+        const position = JSON.parse(saved) as SavedPreviewScroll;
+        if ((position.forceRestore === true || position.revision !== revision)
+          && Number.isFinite(position.x)
+          && Number.isFinite(position.y)) {
           window.requestAnimationFrame(() => window.scrollTo({ left: position.x, top: position.y, behavior: 'auto' }));
         }
       }
@@ -97,16 +102,26 @@ export default function PreviewRefresh({ revision }: { revision: string }) {
           onRevision: (nextRevision) => {
             if (!disposed) setLastRevision(nextRevision);
           },
-          onRefresh: () => {
+          onRefresh: (nextRevision) => {
             if (disposed || reloadRequested) return;
+            const targetUrl = buildPreviewNavigationUrl(
+              window.location.href,
+              window.location.origin,
+              nextRevision,
+            );
+            if (!targetUrl) {
+              setStatus('network-error');
+              return;
+            }
+
             reloadRequested = true;
             try {
-              const position: SavedScroll = { revision, x: window.scrollX, y: window.scrollY };
-              sessionStorage.setItem(SCROLL_STORAGE_KEY, JSON.stringify(position));
+              const position: SavedPreviewScroll = { revision, x: window.scrollX, y: window.scrollY };
+              sessionStorage.setItem(PREVIEW_SCROLL_STORAGE_KEY, JSON.stringify(position));
             } catch {
               // Reload even if the browser blocks session storage.
             }
-            window.location.reload();
+            window.location.replace(targetUrl);
           },
         });
       } catch {
