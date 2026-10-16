@@ -1,0 +1,572 @@
+// Readable snapshot of source index.html body, split on original section boundaries.
+// Keep this template free of CMS content: values are bound through Cheerio setters.
+export const LEGACY_HOME_TEMPLATES = {
+  siteHeader: `
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="m5 7-2 14h18L19 7Zm3 2V6a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 17h18"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 48 48"><path d="M4 12h25v23H8m21-16h8l7 9v7h-6M2 20h16M5 26h10m3 9h12"/><circle cx="13" cy="35" r="5"/><circle cx="34" cy="35" r="5"/></symbol>
+    <symbol id="i-return" viewBox="0 0 48 48"><path d="M39 16A17 17 0 0 0 9 13M39 5v11H28M9 32a17 17 0 0 0 30 3M9 43V32h11"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 48 48"><path d="M7 13h34v23H7zM14 13v10m7-10v6m7-6v10m7-10v6"/></symbol>
+  </defs></svg>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#home" aria-label="Netpro Sourcing home"><strong>NETPRO</strong> <span>SOURCING</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <div class="nav-group"><a href="shop.html" class="nav-trigger" aria-expanded="false" aria-controls="nav-panel-0">Shop<span class="nav-chevron" aria-hidden="true"></span></a><div class="nav-dropdown" id="nav-panel-0" hidden><a href="shop.html?category=clothing">Clothing</a><a href="shop.html?category=socks">Socks</a><a href="shop.html?category=headwear">Headwear</a><a href="shop.html?category=bags">Bags</a><a href="shop.html?category=patches">Ready-Made Patches</a></div></div>
+      <div class="nav-group">
+        <button type="button" class="nav-trigger" aria-expanded="false" aria-controls="nav-panel-1">Customization<span class="nav-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown nav-dropdown--customization" id="nav-panel-1" hidden>
+          <div class="nav-customization-layout" data-customization-menu>
+            <nav class="nav-customization-rail" aria-label="Customization products">
+              <div class="nav-customization-tabs" role="tablist" aria-label="Product categories" aria-orientation="vertical">
+                <button class="nav-customization-tab" type="button" role="tab" id="custom-menu-tab-all" aria-controls="custom-menu-panel-all" aria-selected="true" tabindex="0" data-customization-tab="all">All Custom Products<span class="nav-menu-tab-arrow" aria-hidden="true">›</span></button>
+                <button class="nav-customization-tab" type="button" role="tab" id="custom-menu-tab-apparel" aria-controls="custom-menu-panel-apparel" aria-selected="false" tabindex="-1" data-customization-tab="apparel">Apparel<span class="nav-menu-tab-arrow" aria-hidden="true">›</span></button>
+                <button class="nav-customization-tab" type="button" role="tab" id="custom-menu-tab-headwear" aria-controls="custom-menu-panel-headwear" aria-selected="false" tabindex="-1" data-customization-tab="headwear">Headwear<span class="nav-menu-tab-arrow" aria-hidden="true">›</span></button>
+                <button class="nav-customization-tab" type="button" role="tab" id="custom-menu-tab-socks" aria-controls="custom-menu-panel-socks" aria-selected="false" tabindex="-1" data-customization-tab="socks">Socks<span class="nav-menu-tab-arrow" aria-hidden="true">›</span></button>
+                <button class="nav-customization-tab" type="button" role="tab" id="custom-menu-tab-bags" aria-controls="custom-menu-panel-bags" aria-selected="false" tabindex="-1" data-customization-tab="bags">Bags<span class="nav-menu-tab-arrow" aria-hidden="true">›</span></button>
+                <button class="nav-customization-tab" type="button" role="tab" id="custom-menu-tab-patches" aria-controls="custom-menu-panel-patches" aria-selected="false" tabindex="-1" data-customization-tab="patches">Custom Patches<span class="nav-menu-tab-arrow" aria-hidden="true">›</span></button>
+              </div>
+              <a class="nav-menu-overview" href="how-it-works.html">Customization Process &amp; Techniques<span aria-hidden="true">↗</span></a>
+            </nav>
+            <div class="nav-customization-panels">
+              <section class="nav-customization-panel nav-customization-panel--all" id="custom-menu-panel-all" role="tabpanel" aria-labelledby="custom-menu-tab-all" data-customization-panel="all">
+                <h2 class="nav-menu-panel-title">All Custom Products</h2>
+                <div class="nav-menu-groups nav-menu-groups--all">
+                  <section class="nav-menu-group"><h3>Custom Apparel</h3><ul class="nav-menu-links"><li><a href="custom-t-shirts.html">T-Shirts</a></li><li><a href="custom-sweatshirts.html">Sweatshirts</a></li><li><a href="custom-hoodies.html">Hoodies</a></li><li><a href="custom-varsity-jackets.html">Varsity Jackets</a></li><li><a href="custom-jerseys.html">Jerseys</a></li></ul></section>
+                  <section class="nav-menu-group">
+                    <h3>Custom Headwear</h3>
+                    <ul class="nav-menu-links"><li><a href="custom-baseball-caps.html">Baseball Caps</a></li><li><a href="custom-visors.html">Visors</a></li><li><a href="custom-camper-hats.html">Camper Hats</a></li><li><a href="custom-beanies.html">Beanies</a></li><li><a href="custom-trucker-caps.html">Trucker Caps</a></li><li><a href="custom-snapbacks.html">Snapbacks</a></li><li><a href="custom-dad-hats.html">Dad Hats</a></li><li><a href="custom-bucket-hats.html">Bucket Hats</a></li></ul>
+                  </section>
+                  <section class="nav-menu-group">
+                    <h3>Custom Socks</h3>
+                    <ul class="nav-menu-links"><li><a href="custom-ankle-socks.html">Ankle</a></li><li><a href="custom-crew-socks.html">Crew</a></li><li><a href="custom-athletic-socks.html">Athletic</a></li><li><a href="custom-knee-high-socks.html">Knee High</a></li><li><a href="custom-no-show-socks.html">No Show</a></li><li><a href="custom-novelty-socks.html">Novelty</a></li><li><a href="custom-wool-socks.html">Wool</a></li><li><a href="custom-compression-socks.html">Compression</a></li></ul>
+                  </section>
+                  <div class="nav-menu-column">
+                    <section class="nav-menu-group"><h3>Custom Bags</h3><ul class="nav-menu-links"><li><a href="custom-tote-bags.html">Tote Bags</a></li><li><a href="custom-backpacks.html">Backpacks</a></li></ul></section>
+                    <section class="nav-menu-group"><h3>Custom Patches</h3><ul class="nav-menu-links"><li><a href="https://www.netpropatches.com/netpro2026/embroidered">Embroidered Patches</a></li><li><a href="https://www.netpropatches.com/netpro2026/pvc">PVC Patches</a></li><li><a href="https://www.netpropatches.com/netpro2026/chenille">Chenille Patches</a></li><li><a href="https://www.netpropatches.com/netpro2026/woven">Woven Patches</a></li></ul><a class="nav-netpro-patches" href="https://www.netpropatches.com/netpro2026/"><span>NetproPatches</span><span aria-hidden="true">↗</span></a></section>
+                  </div>
+                </div>
+              </section>
+              <section class="nav-customization-panel" id="custom-menu-panel-apparel" role="tabpanel" aria-labelledby="custom-menu-tab-apparel" data-customization-panel="apparel" hidden>
+                <h2 class="nav-menu-panel-title">Apparel</h2>
+                <div class="nav-menu-groups nav-menu-groups--apparel">
+                  <section class="nav-menu-group"><h3>Custom Tops</h3><ul class="nav-menu-links"><li><a href="custom-t-shirts.html">T-Shirts</a></li><li><a href="custom-sweatshirts.html">Sweatshirts</a></li><li><a href="custom-hoodies.html">Hoodies</a></li></ul></section>
+                  <section class="nav-menu-group"><h3>Teamwear</h3><ul class="nav-menu-links"><li><a href="custom-varsity-jackets.html">Varsity Jackets</a></li><li><a href="custom-jerseys.html">Jerseys</a></li></ul></section>
+                </div>
+              </section>
+              <section class="nav-customization-panel" id="custom-menu-panel-headwear" role="tabpanel" aria-labelledby="custom-menu-tab-headwear" data-customization-panel="headwear" hidden>
+                <h2 class="nav-menu-panel-title">Headwear</h2>
+                <div class="nav-menu-groups nav-menu-groups--styles"><section class="nav-menu-group"><h3>Headwear Styles</h3><ul class="nav-menu-links"><li><a href="custom-baseball-caps.html">Baseball Caps</a></li><li><a href="custom-visors.html">Visors</a></li><li><a href="custom-camper-hats.html">Camper Hats</a></li><li><a href="custom-beanies.html">Beanies</a></li><li><a href="custom-trucker-caps.html">Trucker Caps</a></li><li><a href="custom-snapbacks.html">Snapbacks</a></li><li><a href="custom-dad-hats.html">Dad Hats</a></li><li><a href="custom-bucket-hats.html">Bucket Hats</a></li></ul></section></div>
+              </section>
+              <section class="nav-customization-panel" id="custom-menu-panel-socks" role="tabpanel" aria-labelledby="custom-menu-tab-socks" data-customization-panel="socks" hidden>
+                <h2 class="nav-menu-panel-title">Socks</h2>
+                <div class="nav-menu-groups nav-menu-groups--styles"><section class="nav-menu-group"><h3>Sock Styles</h3><ul class="nav-menu-links"><li><a href="custom-ankle-socks.html">Ankle</a></li><li><a href="custom-crew-socks.html">Crew</a></li><li><a href="custom-athletic-socks.html">Athletic</a></li><li><a href="custom-knee-high-socks.html">Knee High</a></li><li><a href="custom-no-show-socks.html">No Show</a></li><li><a href="custom-novelty-socks.html">Novelty</a></li><li><a href="custom-wool-socks.html">Wool</a></li><li><a href="custom-compression-socks.html">Compression</a></li></ul></section></div>
+              </section>
+              <section class="nav-customization-panel" id="custom-menu-panel-bags" role="tabpanel" aria-labelledby="custom-menu-tab-bags" data-customization-panel="bags" hidden>
+                <h2 class="nav-menu-panel-title">Bags</h2>
+                <div class="nav-menu-groups nav-menu-groups--bags"><section class="nav-menu-group"><h3>Custom Bags</h3><ul class="nav-menu-links"><li><a href="custom-tote-bags.html">Tote Bags</a></li><li><a href="custom-backpacks.html">Backpacks</a></li></ul></section></div>
+              </section>
+              <section class="nav-customization-panel" id="custom-menu-panel-patches" role="tabpanel" aria-labelledby="custom-menu-tab-patches" data-customization-panel="patches" hidden>
+                <h2 class="nav-menu-panel-title">Custom Patches</h2>
+                <div class="nav-menu-groups nav-menu-groups--patches"><section class="nav-menu-group"><h3>Patch Types</h3><ul class="nav-menu-links"><li><a href="https://www.netpropatches.com/netpro2026/embroidered">Embroidered Patches</a></li><li><a href="https://www.netpropatches.com/netpro2026/pvc">PVC Patches</a></li><li><a href="https://www.netpropatches.com/netpro2026/chenille">Chenille Patches</a></li><li><a href="https://www.netpropatches.com/netpro2026/woven">Woven Patches</a></li></ul><a class="nav-netpro-patches" href="https://www.netpropatches.com/netpro2026/"><span>NetproPatches</span><span aria-hidden="true">↗</span></a></section></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-group"><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="nav-panel-2">About<span class="nav-chevron" aria-hidden="true"></span></button><div class="nav-dropdown" id="nav-panel-2" hidden><a href="case-studies.html">Product</a><a href="about.html">About</a><a href="how-it-works.html">Customization Process &amp; Techniques</a><a href="what-we-do.html">What We Do</a><a href="trends-digest.html">Trends Digest</a></div></div>
+      <a href="contact.html">Contact Us</a><a class="nav-contact" href="quote.html">Request a Quote</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" data-open="search" aria-label="Search products"><svg><use href="#i-search"/></svg></button>
+      <button class="icon-button bag-button" title="Enquiry list" data-open="bag" aria-label="Open enquiry list"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="bag-count" hidden>0</span></button>
+      <button class="icon-button menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg><use href="#i-menu"/></svg></button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Main navigation" hidden>
+      <a class="nav-contact" href="quote.html">Request a Quote</a>
+      <details><summary>Shop<span class="nav-chevron" aria-hidden="true"></span></summary><div><a href="shop.html?category=clothing">Clothing</a><a href="shop.html?category=socks">Socks</a><a href="shop.html?category=headwear">Headwear</a><a href="shop.html?category=bags">Bags</a><a href="shop.html?category=patches">Ready-Made Patches</a></div></details>
+      <details><summary>Customization<span class="nav-chevron" aria-hidden="true"></span></summary><div><a href="how-it-works.html">Customization Process &amp; Techniques</a><a href="custom-t-shirts.html">Custom T-Shirts</a><a href="custom-sweatshirts.html">Custom Sweatshirts</a><a href="custom-hoodies.html">Custom Hoodies</a><a href="custom-varsity-jackets.html">Custom Varsity Jackets</a><a href="custom-jerseys.html">Custom Jerseys</a><a href="custom-tote-bags.html">Custom Tote Bags</a><a href="custom-backpacks.html">Custom Backpacks</a><a href="https://www.netpropatches.com/netpro2026/embroidered">Embroidered Patches</a><a href="https://www.netpropatches.com/netpro2026/pvc">PVC Patches</a><a href="https://www.netpropatches.com/netpro2026/chenille">Chenille Patches</a><a href="https://www.netpropatches.com/netpro2026/woven">Woven Patches</a><a href="https://www.netpropatches.com/netpro2026/">NetproPatches ↗</a></div></details>
+      <details><summary>About<span class="nav-chevron" aria-hidden="true"></span></summary><div><a href="case-studies.html">Product</a><a href="about.html">About</a><a href="how-it-works.html">Customization Process &amp; Techniques</a><a href="what-we-do.html">What We Do</a><a href="trends-digest.html">Trends Digest</a></div></details>
+      <a href="buying-guide.html">Buying Guide &amp; FAQ</a><a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="scroll-progress" aria-hidden="true"></div>
+  </header>
+  <main id="main">
+  `,
+  hero: `
+<section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-photo hero-photo-coast is-active" src="assets/hero.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
+        <img class="hero-photo hero-photo-apparel" src="assets/clothing.webp" alt="" width="1024" height="1024" decoding="async">
+        <img class="hero-photo hero-photo-range" src="assets/shop-banner.webp" alt="" width="2172" height="724" decoding="async">
+      </div>
+      <div class="hero-wash"></div>
+      <div class="hero-copy">
+        <h1 id="hero-title"><span>Source the Basics.</span><span>Make Them Yours.</span></h1>
+        <p>Source clothing, headwear, socks and patches. Enquire about ready stock or develop a custom product for your business.</p>
+        <div class="hero-actions"><a class="button primary" href="quote.html">Request a Quote</a><a class="button outline" href="shop.html"><span class="cta-label">Explore Products</span></a></div>
+      </div>
+      <a class="scroll-cue" href="#catalog" aria-label="Scroll to collection"><span>EXPLORE</span><svg><use href="#i-arrow"/></svg></a>
+    </section>
+  `,
+  collection: `
+<div class="home-story-pin-stage">
+    <section class="home-story" id="catalog" aria-labelledby="catalog-title">
+      <div class="home-story-wipe" aria-hidden="true"></div>
+      <div class="home-story-copy reveal">
+        <p class="eyebrow">THE COLLECTION</p>
+        <h2 id="catalog-title">Build Your Product<br>Range.</h2>
+        <p>Start with clothing, socks, headwear or ready-made patches. Share your quantities, colors and artwork to discuss your project.</p>
+        <a class="home-story-link" href="shop.html">Explore all products <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="home-story-accordion-stage">
+      <div class="accordion" aria-label="Shop by category">
+        <article class="category is-active" data-category="clothing">
+          <div class="category-photo clothing-photo" role="img" aria-label="Illustrative portrait in a plain light blue hoodie"></div>
+          <a class="category-image-link" href="shop.html?category=clothing" aria-label="Explore Clothing"></a>
+          <h3><button id="category-clothing" class="category-toggle" aria-expanded="true" aria-controls="panel-clothing"><span>Clothing</span></button></h3>
+          <div class="category-details" id="panel-clothing" role="region" aria-labelledby="category-clothing"><h4>Clothing</h4><p>Plain everyday layers. Customization available.</p><a class="button primary" href="shop.html?category=clothing">Explore Clothing <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+        <article class="category" data-category="socks">
+          <div class="category-photo socks-photo" role="img" aria-label="Illustrative photograph of plain white ribbed crew socks"></div>
+          <a class="category-image-link" href="shop.html?category=socks" aria-label="Explore Socks"></a>
+          <h3><button id="category-socks" class="category-toggle" aria-expanded="false" aria-controls="panel-socks"><span>Socks</span></button></h3>
+          <div class="category-details" id="panel-socks" role="region" aria-labelledby="category-socks" inert><h4>Socks</h4><p>Basic crew socks. Make them your own.</p><a class="button primary" href="shop.html?category=socks" tabindex="-1">Explore Socks <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+        <article class="category" data-category="headwear">
+          <div class="category-photo headwear-photo" role="img" aria-label="Illustrative portrait in a plain blue cotton cap"></div>
+          <a class="category-image-link" href="shop.html?category=headwear" aria-label="Explore Headwear"></a>
+          <h3><button id="category-headwear" class="category-toggle" aria-expanded="false" aria-controls="panel-headwear"><span>Headwear</span></button></h3>
+          <div class="category-details" id="panel-headwear" role="region" aria-labelledby="category-headwear" inert><h4>Headwear</h4><p>Plain caps. Ready to wear or customize.</p><a class="button primary" href="shop.html?category=headwear" tabindex="-1">Explore Headwear <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+        <article class="category" data-category="patches">
+          <div class="category-photo patch-photo" role="img" aria-label="Illustrative arrangement of blank embroidered shape patches"></div>
+          <a class="category-image-link" href="shop.html?category=patches" aria-label="Explore Ready-Made Patches"></a>
+          <h3><button id="category-patches" class="category-toggle" aria-expanded="false" aria-controls="panel-patches"><span>Ready-Made Patches</span></button></h3>
+          <div class="category-details" id="panel-patches" role="region" aria-labelledby="category-patches" inert><h4>Ready-Made Patches</h4><p>A little detail. A lot of personality.</p><a class="button primary" href="shop.html?category=patches" tabindex="-1">Ready-Made Patches <svg><use href="#i-arrow"/></svg></a></div>
+        </article>
+      </div>
+      </div>
+    </section>
+    </div>
+  `,
+  process: `
+<section class="b2b-section home-process" id="process" aria-labelledby="process-title">
+      <div class="home-process-inner">
+        <div class="home-process-layout">
+          <header class="home-process-heading process-reveal">
+            <h2 id="process-title"><span>From Brief</span><span>to Production.</span></h2>
+            <p>Choose ready stock or develop a custom product.</p>
+          </header>
+
+          <figure class="home-process-visual process-reveal" data-process-visual data-active="0">
+            <div class="home-process-image-stage">
+              <img class="home-process-image is-active" data-process-image="0" src="assets/placeholder-ai-process-brief-v4.webp" alt="Illustrative product selection with clothing, a cap, socks, patches and fabric swatches" width="1448" height="1086" loading="lazy" decoding="async" aria-hidden="false">
+              <img class="home-process-image" data-process-image="1" src="assets/placeholder-ai-process-detail-v3.webp" alt="Illustrative cap and embroidered sample under review" width="1536" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+              <img class="home-process-image" data-process-image="2" src="assets/placeholder-ai-process-packing-v4.webp" alt="Illustrative garments and accessories being prepared for packing" width="1448" height="1086" loading="lazy" decoding="async" aria-hidden="true">
+            </div>
+          </figure>
+
+          <div class="home-process-content process-reveal">
+            <div class="home-process-steps" role="group" aria-label="The sourcing process">
+              <article class="home-process-step is-open">
+                <h3 class="home-process-step-heading">
+                  <button class="home-process-step-toggle" id="process-step-brief" type="button" aria-expanded="true" aria-controls="process-panel-brief" data-process-toggle="0">
+                    <span class="home-process-step-number" aria-hidden="true">01</span>
+                    <span class="home-process-step-title">Your Brief</span>
+                    <span class="home-process-step-icon" aria-hidden="true"></span>
+                  </button>
+                </h3>
+                <div class="home-process-step-panel is-open" id="process-panel-brief" role="region" aria-labelledby="process-step-brief" aria-hidden="false">
+                  <div class="home-process-step-panel-inner">
+                    <p>Share your products, quantities, sizes, colors and artwork.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="home-process-step">
+                <h3 class="home-process-step-heading">
+                  <button class="home-process-step-toggle" id="process-step-sample" type="button" aria-expanded="false" aria-controls="process-panel-sample" data-process-toggle="1">
+                    <span class="home-process-step-number" aria-hidden="true">02</span>
+                    <span class="home-process-step-title">Digital Artwork Proof</span>
+                    <span class="home-process-step-icon" aria-hidden="true"></span>
+                  </button>
+                </h3>
+                <div class="home-process-step-panel" id="process-panel-sample" role="region" aria-labelledby="process-step-sample" aria-hidden="true" inert>
+                  <div class="home-process-step-panel-inner">
+                    <p>Review the digital artwork proof for scale, placement and color before production.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="home-process-step">
+                <h3 class="home-process-step-heading">
+                  <button class="home-process-step-toggle" id="process-step-production" type="button" aria-expanded="false" aria-controls="process-panel-production" data-process-toggle="2">
+                    <span class="home-process-step-number" aria-hidden="true">03</span>
+                    <span class="home-process-step-title">Production Details</span>
+                    <span class="home-process-step-icon" aria-hidden="true"></span>
+                  </button>
+                </h3>
+                <div class="home-process-step-panel" id="process-panel-production" role="region" aria-labelledby="process-step-production" aria-hidden="true" inert>
+                  <div class="home-process-step-panel-inner">
+                    <p>Confirm specifications, product checks and packing before dispatch.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="home-process-actions">
+              <a class="home-process-primary" href="quote.html"><span class="cta-label">Discuss your project</span></a>
+              <a class="home-process-secondary" href="shop.html"><span class="cta-label">Browse ready stock</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  startingPoints: `
+<section class="b2b-section home-starting-points" id="starting-points" aria-labelledby="starting-points-title">
+      <div class="home-starting-points-intro reveal">
+        <p class="eyebrow">HOW TO MOVE FORWARD</p>
+        <h2 id="starting-points-title">Choose a Starting Point.</h2>
+        <p>Explore ready stock or develop custom products around your artwork and requirements.</p>
+      </div>
+      <div class="service-grid">
+        <article class="process-card process-card-stock">
+          <figure class="process-visual">
+            <img src="assets/banner-all.webp" alt="Illustrative product references for clothing, headwear, socks and patches" width="2172" height="724" loading="lazy" decoding="async">
+          </figure>
+          <div class="process-copy">
+            <h3>Ready Stock</h3>
+            <p>Shortlist standard styles and send your size mix. We confirm stock, specifications and pricing for your quantity.</p>
+            <a class="text-link" href="shop.html">Browse the catalogue <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="process-card process-card-custom">
+          <figure class="process-visual">
+            <img src="assets/factory-embroidery-line-01.webp" alt="Embroidery machines stitching textile pieces on a factory line" width="1600" height="1067" loading="lazy" decoding="async">
+          </figure>
+          <div class="process-copy">
+            <h3>Custom Production</h3>
+            <p>Develop apparel decoration or patches around your artwork. Agree on digital artwork proof review, production specifications and a delivery plan.</p>
+            <a class="text-link" href="how-it-works.html">Explore customization <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  `,
+  brandStory: `
+<section class="home-range-story home-about" id="custom" aria-labelledby="sourcing-title" data-home-about>
+      <div class="home-about-intro">
+        <h2 id="sourcing-title" data-home-about-title aria-label="We Help Turn Product Ideas Into Clothing, Headwear, Socks And Patches."><span class="home-about-visual" aria-hidden="true"><span class="home-about-word" data-home-about-word>We</span> <span class="home-about-word" data-home-about-word>Help</span> <span class="home-about-word" data-home-about-word>Turn</span> <span class="home-about-word" data-home-about-word>Product</span> <span class="home-about-word" data-home-about-word>Ideas</span> <span class="home-about-word" data-home-about-word>Into</span> <span class="home-about-word home-about-color-word" data-home-about-word>Clothing,</span> <span class="home-about-word home-about-color-word" data-home-about-word>Headwear,</span> <span class="home-about-word home-about-color-word" data-home-about-word>Socks</span> <span class="home-about-word" data-home-about-word>And</span> <span class="home-about-word home-about-color-word" data-home-about-word>Patches.</span></span></h2>
+        <div class="home-about-support">
+          <p>From Jinjiang, we help businesses source products, review digital artwork proofs and coordinate production around their brief.</p>
+          <div class="home-about-actions">
+            <a class="home-about-link home-about-link-primary" href="#catalog">Explore product categories <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-about-gallery" data-home-gallery role="group" aria-label="Product photography">
+        <div class="home-about-gallery-controls">
+          <div class="home-about-filters" role="group" aria-label="Filter product photography">
+            <button type="button" data-gallery-filter="all" aria-pressed="true" disabled>All</button>
+            <button type="button" data-gallery-filter="clothing" aria-pressed="false" disabled>Clothing</button>
+            <button type="button" data-gallery-filter="headwear" aria-pressed="false" disabled>Headwear</button>
+            <button type="button" data-gallery-filter="socks" aria-pressed="false" disabled>Socks</button>
+            <button type="button" data-gallery-filter="patches" aria-pressed="false" disabled>Patches</button>
+          </div>
+        </div>
+
+        <div class="home-about-gallery-viewport" data-gallery-viewport>
+          <div class="home-about-gallery-track" data-gallery-track>
+            <div class="home-about-gallery-group" data-gallery-group role="group" aria-label="Product photography">
+              <a class="home-about-tile home-about-tile--tall" href="shop.html?category=clothing" data-gallery-item data-category="clothing" aria-label="Browse clothing products">
+                <img src="assets/placeholder-ai-home-accordion-clothing.webp" alt="Illustrative model wearing a plain light blue hoodie" width="1024" height="1536" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Clothing <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="shop.html?category=socks" data-gallery-item data-category="socks" aria-label="Browse socks">
+                <img src="assets/placeholder-ai-home-accordion-socks.webp" alt="Illustrative white ribbed crew socks worn with a light blue outfit" width="1024" height="1536" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Socks <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--mid" href="shop.html?category=headwear" data-gallery-item data-category="headwear" aria-label="Browse headwear">
+                <img src="assets/placeholder-ai-home-accordion-headwear.webp" alt="Illustrative model wearing a plain blue cotton cap" width="1024" height="1536" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Headwear <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="shop.html?category=patches" data-gallery-item data-category="patches" aria-label="Browse ready-made patches">
+                <img src="assets/placeholder-ai-home-accordion-patches.webp" alt="Illustrative hand holding a blank embroidered patch beside other blank patch shapes" width="1024" height="1536" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Ready-made patches <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--tall" href="shop.html?category=clothing" data-gallery-item data-category="clothing" aria-label="Browse clothing products">
+                <img src="assets/placeholder-ai-np-apparel.webp" alt="Illustrative folded cream and blue sweatshirts with embroidered details" width="1672" height="941" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Clothing <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--mid" href="shop.html?category=headwear" data-gallery-item data-category="headwear" aria-label="Browse headwear">
+                <img src="assets/placeholder-ai-process-detail-v3.webp" alt="Illustrative hands reviewing a navy cap with an embroidered patch" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Headwear <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="shop.html?category=socks" data-gallery-item data-category="socks" aria-label="Browse socks">
+                <img src="assets/placeholder-ai-np-socks.webp" alt="Illustrative ribbed socks in cream, blue and navy" width="1672" height="941" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Socks <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--tall" href="https://www.netpropatches.com/netpro2026/embroidered" data-gallery-item data-category="patches" aria-label="Explore custom embroidered patches">
+                <img src="assets/placeholder-ai-np-patches.webp" alt="Illustrative embroidered patches arranged on a cream cap and stone surface" width="1672" height="941" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Patches <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--mid" href="shop.html?category=headwear" data-gallery-item data-category="headwear" aria-label="Browse headwear">
+                <img src="assets/placeholder-ai-np-headwear.webp" alt="Illustrative navy and white caps displayed on a pale stone ledge" width="1672" height="941" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Headwear <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="shop.html?category=clothing" data-gallery-item data-category="clothing" aria-label="Browse clothing products">
+                <img src="assets/custom-embroidery.webp" alt="Illustrative close-up of navy embroidery on a cream sweatshirt" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Clothing <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--tall" href="shop.html?category=socks" data-gallery-item data-category="socks" aria-label="Browse socks">
+                <img src="assets/banner-socks.webp" alt="Illustrative crew socks in white, blue and navy" width="2172" height="724" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Socks <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--mid" href="https://www.netpropatches.com/netpro2026/embroidered" data-gallery-item data-category="patches" aria-label="Explore custom embroidered patches">
+                <img src="assets/custom-embroidered-patch.webp" alt="Illustrative embroidered patches in navy, cream and blue" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Patches <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--tall" href="custom-t-shirts.html" data-gallery-item data-category="clothing" aria-label="Explore apparel embroidery">
+                <img src="assets/hoodie-story.webp" alt="Illustrative blue hoodie shown as a garment and close-up textile details" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Clothing <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="shop.html?category=headwear" data-gallery-item data-category="headwear" aria-label="Browse headwear">
+                <img src="assets/banner-headwear.webp" alt="Illustrative blue, cream and navy caps arranged on stone steps" width="2172" height="724" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Headwear <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--mid" href="https://www.netpropatches.com/netpro2026/woven" data-gallery-item data-category="patches" aria-label="Explore woven patches">
+                <img src="assets/custom-woven-patch.webp" alt="Illustrative woven textile patches in navy, blue and cream" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Patches <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="shop.html?category=clothing" data-gallery-item data-category="clothing" aria-label="Browse clothing products">
+                <img src="assets/customization-studio.webp" alt="Illustrative sweatshirts, a cap, thread and embroidered patch options" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Clothing <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--tall" href="https://www.netpropatches.com/netpro2026/pvc" data-gallery-item data-category="patches" aria-label="Explore custom PVC patches">
+                <img src="assets/custom-pvc-patch.webp" alt="Illustrative custom PVC patch examples in navy and cream" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Patches <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--mid" href="shop.html?category=socks" data-gallery-item data-category="socks" aria-label="Browse socks">
+                <img src="assets/placeholder-ai-process-range-v3.webp" alt="Illustrative sweatshirt, cap and socks arranged as a coordinated product range" width="1448" height="1086" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Socks <svg><use href="#i-arrow"/></svg></span>
+              </a>
+              <a class="home-about-tile home-about-tile--short" href="https://www.netpropatches.com/netpro2026/chenille" data-gallery-item data-category="patches" aria-label="Explore custom chenille patches">
+                <img src="assets/custom-chenille-patch.webp" alt="Illustrative chenille patch examples with raised textured stitching" width="1536" height="1024" loading="lazy" decoding="async">
+                <span class="home-about-tile-caption" aria-hidden="true">Patches <svg><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  benefits: `
+<section class="home-why" aria-labelledby="home-why-title" data-home-why>
+      <div class="home-why-inner">
+        <div class="home-why-intro" data-home-reveal-group>
+          <h2 id="home-why-title">The Details Behind Your Next Range.</h2>
+          <p class="home-why-lead">Product sourcing, digital artwork proof review and production coordination, built around your brief.</p>
+          <ul class="home-why-capabilities" aria-label="Products and services">
+            <li>Clothing</li><li>Headwear</li><li>Socks</li><li>Ready-made patches</li><li>Embroidery</li><li>Printing</li>
+          </ul>
+        </div>
+
+        <div class="home-why-list-wrap" data-home-reveal-group>
+          <span class="home-why-progress-line" data-why-progress-line aria-hidden="true"></span>
+          <ol class="home-why-list" data-why-list>
+            <li class="home-why-item" data-why-item>
+              <span class="home-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4.5 12 7l4-2.5 4 2v15H4v-15l4-2Z"/><path d="M8 4.5c0 2.1 1.5 3.5 4 3.5s4-1.4 4-3.5M8 12h8"/></svg></span>
+              <div><h3>Product Choices</h3><p>Review clothing, headwear, socks and ready-made patches against your brief and quantity.</p></div>
+            </li>
+            <li class="home-why-item" data-why-item>
+              <span class="home-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M7 5l12 12M6 6l2-2 2 2-2 2-2-2Zm8 8 2-2 2 2-2 2-2-2Z"/><path d="m4 20 4-1-3-3-1 4Z"/></svg></span>
+              <div><h3>Custom Decoration</h3><p>Discuss embroidery, printing or custom patch styles to suit your artwork and product.</p></div>
+            </li>
+            <li class="home-why-item" data-why-item>
+              <span class="home-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
+              <div><h3>Digital Proof Review</h3><p>Review digital artwork for scale, placement and color before production.</p></div>
+            </li>
+            <li class="home-why-item" data-why-item>
+              <span class="home-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5zM8 8h1.5M12 8h4M8 12h1.5M12 12h4M8 16h1.5M12 16h4"/></svg></span>
+              <div><h3>Clear Specifications</h3><p>Agree sizes, colors, quantities, artwork placement and packing before production.</p></div>
+            </li>
+            <li class="home-why-item" data-why-item>
+              <span class="home-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6.5h16v13H4zM8 4v5m8-5v5M8 13h2l1.5 2 4-4"/></svg></span>
+              <div><h3>Production Follow-Up</h3><p>Coordinate agreed product checks and production details against the approved specification.</p></div>
+            </li>
+            <li class="home-why-item" data-why-item>
+              <span class="home-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7.5" cy="18" r="1.7"/><circle cx="17.5" cy="18" r="1.7"/><path d="M5.5 10h5"/></svg></span>
+              <div><h3>Delivery Planning</h3><p>Share your destination and target date so shipping arrangements can be included in the quotation.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  `,
+  faq: `
+<section class="home-faq" aria-labelledby="home-faq-title" data-home-faq>
+      <div class="home-faq-inner">
+        <div class="home-faq-intro" data-home-reveal-group>
+          <h2 id="home-faq-title">Frequently Asked Questions</h2>
+          <aside class="home-faq-contact" aria-labelledby="home-faq-contact-title">
+            <span class="home-faq-contact-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v13H4zM4.5 7l7.5 6 7.5-6"/></svg></span>
+            <h3 id="home-faq-contact-title">Talk through your project.</h3>
+            <p>Share your products, quantities and requirements with Netpro.</p>
+            <a href="contact.html">Contact Netpro <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </aside>
+        </div>
+
+        <div class="home-faq-content" data-home-reveal-group>
+          <div class="home-faq-list" data-faq-list role="group" aria-label="Frequently asked questions">
+            <article class="home-faq-item is-open">
+              <h3><button class="home-faq-toggle" id="home-faq-question-1" type="button" aria-expanded="true" aria-controls="home-faq-answer-1"><span>Can I order without customization?</span><span class="home-faq-toggle-icon" aria-hidden="true"></span></button></h3>
+              <div class="home-faq-answer" id="home-faq-answer-1" role="region" aria-labelledby="home-faq-question-1">
+                <div class="home-faq-answer-inner"><p>Yes. You can enquire about standard products. Share the items and quantities you need so we can confirm availability, specifications and pricing.</p></div>
+              </div>
+            </article>
+            <article class="home-faq-item">
+              <h3><button class="home-faq-toggle" id="home-faq-question-2" type="button" aria-expanded="false" aria-controls="home-faq-answer-2"><span>What should I include in my project brief?</span><span class="home-faq-toggle-icon" aria-hidden="true"></span></button></h3>
+              <div class="home-faq-answer" id="home-faq-answer-2" role="region" aria-labelledby="home-faq-question-2" inert>
+                <div class="home-faq-answer-inner"><p>Include the products, quantities, colors, size range, artwork, target date and delivery destination. If some details are still open, tell us what you know so far.</p></div>
+              </div>
+            </article>
+            <article class="home-faq-item">
+              <h3><button class="home-faq-toggle" id="home-faq-question-3" type="button" aria-expanded="false" aria-controls="home-faq-answer-3"><span>Is there a minimum order quantity?</span><span class="home-faq-toggle-icon" aria-hidden="true"></span></button></h3>
+              <div class="home-faq-answer" id="home-faq-answer-3" role="region" aria-labelledby="home-faq-question-3" inert>
+                <div class="home-faq-answer-inner"><p>Minimums depend on the product and decoration method. Include your target quantity in the enquiry and we’ll confirm the applicable minimum with the quotation.</p></div>
+              </div>
+            </article>
+            <article class="home-faq-item">
+              <h3><button class="home-faq-toggle" id="home-faq-question-4" type="button" aria-expanded="false" aria-controls="home-faq-answer-4"><span>Can I review digital artwork before production?</span><span class="home-faq-toggle-icon" aria-hidden="true"></span></button></h3>
+              <div class="home-faq-answer" id="home-faq-answer-4" role="region" aria-labelledby="home-faq-question-4" inert>
+                <div class="home-faq-answer-inner"><p>Ask us to include digital artwork proof review in your quote. The quote will confirm the artwork covered, revision scope and timing.</p></div>
+              </div>
+            </article>
+            <article class="home-faq-item">
+              <h3><button class="home-faq-toggle" id="home-faq-question-5" type="button" aria-expanded="false" aria-controls="home-faq-answer-5"><span>What artwork should I send?</span><span class="home-faq-toggle-icon" aria-hidden="true"></span></button></h3>
+              <div class="home-faq-answer" id="home-faq-answer-5" role="region" aria-labelledby="home-faq-question-5" inert>
+                <div class="home-faq-answer-inner"><p>Send a clear reference with the artwork size, placement and colors. A vector file can help when available; we can confirm the format needed for your chosen decoration.</p></div>
+              </div>
+            </article>
+            <article class="home-faq-item">
+              <h3><button class="home-faq-toggle" id="home-faq-question-6" type="button" aria-expanded="false" aria-controls="home-faq-answer-6"><span>How long will delivery take?</span><span class="home-faq-toggle-icon" aria-hidden="true"></span></button></h3>
+              <div class="home-faq-answer" id="home-faq-answer-6" role="region" aria-labelledby="home-faq-question-6" inert>
+                <div class="home-faq-answer-inner"><p>Timing depends on digital proof review, production and shipping. The quotation will confirm the schedule for your products and destination.</p></div>
+              </div>
+            </article>
+          </div>
+          <a class="home-faq-guide" href="buying-guide.html">Read the buying guide <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  `,
+  closingCta: `
+<section class="closing-cta closing-cta--footer" aria-labelledby="closing-title">
+      <div class="closing-copy reveal">
+        <h2 id="closing-title">Ready To Bring Your Ideas To Life<br>And Build A Range That’s Uniquely Yours?</h2>
+        <div class="closing-actions"><a class="button closing-primary" href="quote.html">Start Your Project</a></div>
+      </div>
+    </section>
+
+  </main>
+  `,
+  footer: `
+<footer class="footer footer-redesign footer-studio home-footer">
+    <div class="footer-main">
+      <div class="home-footer-top">
+        <section class="home-footer-brand" aria-labelledby="home-footer-brand-title">
+          <a class="footer-logo" href="#home" aria-label="Netpro Sourcing home"><strong>NETPRO</strong> <span>SOURCING</span></a>
+          <h2 id="home-footer-brand-title" class="sr-only">Netpro Sourcing</h2>
+          <p>Product sourcing and customization support for clothing, headwear, socks and patches.</p>
+        </section>
+        <section class="footer-connect home-footer-subscribe" aria-labelledby="home-footer-collective-title">
+          <h2 id="home-footer-collective-title">Join The Custom Collective</h2>
+          <p>Let’s stay in touch about your next product range.</p>
+          <div class="footer-signup" role="group" aria-labelledby="home-footer-collective-title" data-collective-signup>
+            <label class="sr-only" for="home-collective-email">Email address</label>
+            <input id="home-collective-email" type="email" placeholder="Email address" autocomplete="email">
+            <button class="footer-signup-button" type="button" disabled aria-disabled="true">Subscribe</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="home-footer-rule" aria-hidden="true"></div>
+
+      <div class="home-footer-middle">
+        <section class="home-footer-contact" aria-labelledby="home-footer-contact-title">
+          <h2 class="sr-only" id="home-footer-contact-title">Contact Netpro</h2>
+          <a class="contact-email" href="mailto:info@netpropatches.com">info@netpropatches.com</a>
+          <address>Netpro Sourcing<br>Room 1202, Block A, Wanda Plaza,<br>Shiji Road, Meiling Street, Jinjiang,<br>Quanzhou 362200, China</address>
+          <p class="contact-person">Sales Manager: Stanley Poon</p>
+          <div class="footer-social-links" role="group" aria-label="Social profiles">
+            <a class="footer-social-icon" href="https://www.instagram.com/netpro_patches/" aria-label="Instagram" data-social="instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="footer-social-dot" cx="17.7" cy="6.5" r=".8"/></svg></a>
+            <a class="footer-social-icon" href="https://www.facebook.com/netpropatch/" aria-label="Facebook" data-social="facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M13.6 21v-7.2H16l.4-2.9h-2.8V9c0-.8.2-1.4 1.4-1.4h1.5V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v2.9h2.5V21z"/></svg></a>
+            <a class="footer-social-icon" href="https://www.linkedin.com/company/netpro-patches" aria-label="LinkedIn" data-social="linkedin" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M5.1 8.7h3.2V19H5.1zM6.7 4.9a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8M10.5 8.7h3.1v1.4h.1c.4-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.1 3.9 4.8V19h-3.2v-5.2c0-1.2 0-2.7-1.7-2.7s-2 1.3-2 2.6V19h-3.2z"/></svg></a>
+            <a class="footer-social-icon" href="https://x.com/netpropatch" aria-label="X" data-social="x" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M18.901 1.153h3.68l-8.04 9.19 9.46 12.5h-7.4l-5.8-7.58-6.63 7.58H.49l8.6-9.83L0 1.153h7.59l5.24 6.93zm-1.29 19.49h2.04L6.93 3.25H4.74z"/></svg></a>
+            <a class="footer-social-icon" href="https://no.pinterest.com/netpropatch0750/" aria-label="Pinterest" data-social="pinterest" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 4.935 2.988 9.146 7.249 10.964-.035-.834-.006-1.846.207-2.761.228-.975 1.523-6.451 1.523-6.451s-.378-.755-.378-1.868c0-1.75 1.014-3.06 2.278-3.06 1.075 0 1.594.807 1.594 1.774 0 1.081-.689 2.698-1.043 4.196-.296 1.254.63 2.277 1.866 2.277 2.24 0 3.748-2.879 3.748-6.29 0-2.595-1.748-4.539-4.927-4.539-3.593 0-5.832 2.68-5.832 5.674 0 1.032.304 1.76.78 2.323.218.258.248.362.169.659-.057.217-.186.743-.241.951-.079.301-.321.408-.592.297-1.65-.673-2.417-2.479-2.417-4.51 0-3.352 2.827-7.373 8.432-7.373 4.505 0 7.468 3.262 7.468 6.785 0 4.646-2.514 8.117-6.218 8.117-1.242 0-2.41-.672-2.811-1.436 0 0-.668 2.652-.809 3.163-.244.889-.72 1.778-1.157 2.47A12 12 0 1 0 12.017 0Z"/></svg></a>
+            <a class="footer-social-icon" href="https://api.whatsapp.com/send/?phone=%2B85260888498&amp;text&amp;type=phone_number&amp;app_absent=0" aria-label="WhatsApp +85260888498" data-social="whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="footer-social-fill" d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.56 0 .24 5.32.24 11.85c0 2.09.55 4.12 1.59 5.91L.14 24l6.39-1.67a11.8 11.8 0 0 0 5.65 1.44h.01c6.53 0 11.85-5.32 11.85-11.85 0-3.17-1.23-6.15-3.47-8.44ZM12.19 21.72h-.01a9.86 9.86 0 0 1-5.03-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.86 9.86 0 1 1 8.39 4.64Zm5.42-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg></a>
+          </div>
+        </section>
+        <nav class="footer-column footer-products" aria-label="Products">
+          <h2>Products</h2>
+
+          <a href="shop.html?category=clothing">Clothing</a>
+          <a href="shop.html?category=socks">Socks</a>
+          <a href="shop.html?category=headwear">Headwear</a>
+          <a href="shop.html?category=patches">Ready-Made Patches</a>
+        </nav>
+        <nav class="footer-column footer-custom-patches" aria-label="Custom Patches">
+          <h2>Custom Patches</h2>
+          <a href="https://www.netpropatches.com/netpro2026/embroidered">Embroidered Patches</a>
+          <a href="https://www.netpropatches.com/netpro2026/pvc">PVC Patches</a>
+          <a href="https://www.netpropatches.com/netpro2026/chenille">Chenille Patches</a>
+          <a href="https://www.netpropatches.com/netpro2026/woven">Woven Patches</a>
+          <a href="https://www.netpropatches.com/netpro2026/">NetproPatches ↗</a>
+        </nav>
+        <nav class="footer-column footer-company" aria-label="Company">
+          <h2>Company</h2>
+          <a href="about.html">Our Story</a>
+          <a href="case-studies.html">Product</a>
+          <a href="how-it-works.html">Customization Process &amp; Techniques</a>
+          <a href="what-we-do.html">What We Do</a>
+
+          <a href="trends-digest.html">Trends Digest</a>
+        </nav>
+        <nav class="footer-column footer-support" aria-label="Support">
+          <h2>Support</h2>
+
+          <a href="buying-guide.html">Buying Guide &amp; FAQ</a>
+          <a href="how-it-works.html">Customization</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+        </nav>
+      </div>
+
+      <div class="home-footer-rule home-footer-rule-bottom" aria-hidden="true"></div>
+      <div class="footer-bottom home-footer-bottom">
+        <span>© 2026 Netpro. All rights reserved.</span>
+        <div class="home-footer-legal"><a href="/terms">Terms</a><span>YOUR PRODUCTS. YOUR IDENTITY.</span></div>
+      </div>
+    </div>
+  </footer>
+  `,
+  dialogs: `
+<dialog id="search-dialog" class="search-dialog"><div class="dialog-top"><h2>Build Your Product Range.</h2><button class="icon-button close-dialog" aria-label="Close search"><svg><use href="#i-close"/></svg></button></div><label for="search-input">Search the collection</label><div class="search-field"><svg><use href="#i-search"/></svg><input id="search-input" type="search" placeholder="Try hoodie, socks or patches" autocomplete="off"></div><div id="search-results" class="search-results" aria-live="polite"></div></dialog>
+  <dialog id="product-dialog" class="product-dialog"><button class="icon-button close-dialog floating-close" aria-label="Close product details"><svg><use href="#i-close"/></svg></button><div id="product-detail"></div></dialog>
+  <dialog id="bag-dialog" class="bag-dialog"><button class="icon-button close-dialog enquiry-close" aria-label="Close enquiry list">×</button><div class="cart-layout"><section class="cart-products"><div class="dialog-top"><h2>Enquiry List</h2><span><span id="bag-total-count">0</span> items</span></div><div id="bag-items"></div></section><aside id="bag-summary"></aside></div></dialog>
+  <dialog id="info-dialog" class="info-dialog"><div class="dialog-top"><h2 id="info-title"></h2><button class="icon-button close-dialog" aria-label="Close information"><svg><use href="#i-close"/></svg></button></div><div id="info-content"></div></dialog>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript-note">Enable JavaScript to explore the collection, open product details and build an enquiry list.</p></noscript>
+  `,
+} as const;
+
+export const LEGACY_HOME_BODY_HTML = Object.values(LEGACY_HOME_TEMPLATES).join("\n");

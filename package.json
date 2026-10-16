@@ -1,9 +1,42 @@
 {
-  "name": "netpro-sourcing",
-  "version": "1.0.0",
+  "name": "netpro-nextjs-sanity-experiment",
+  "version": "0.1.0",
   "private": true,
-  "description": "Netpro Sourcing static website with Vercel serverless enquiry endpoints",
+  "description": "Isolated Next.js and Sanity experiment for the Netpro Sourcing homepage",
+  "scripts": {
+    "predev": "npm run sync:legacy",
+    "dev": "next dev",
+    "prebuild": "npm run sync:legacy && npm run cms:check",
+    "build": "next build",
+    "start": "next start",
+    "sync:legacy": "node scripts/sync-legacy-public.mjs",
+    "cms:check": "tsx scripts/check-content-contract.ts",
+    "cms:seed": "node --env-file=.env.local --import tsx scripts/seed-home.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/contact.test.js tests/enquiry-state.test.js tests/quote.test.js tests/submission-confirmation.test.js",
+    "cms:test": "node --import tsx --test tests/cms-array-item-types.test.ts tests/cms-contract.test.ts tests/cms-seed.test.ts",
+    "cms:render-test": "node --conditions=react-server --import tsx --test tests/cms-render.test.ts"
+  },
   "dependencies": {
-    "nodemailer": "^6.9.16"
+    "@sanity/asset-utils": "2.3.0",
+    "@sanity/client": "8.9.0",
+    "@sanity/image-url": "2.1.1",
+    "@sanity/locale-zh-hans": "2.1.40",
+    "cheerio": "1.2.0",
+    "next": "16.4.2",
+    "next-sanity": "13.3.4",
+    "nodemailer": "^6.9.16",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sanity": "6.19.0",
+    "styled-components": "6.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "server-only": "0.0.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
   }
 }

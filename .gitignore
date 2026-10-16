@@ -1,8 +1,9 @@
 .playwright-cli/
 output/
 node_modules/
+.next/
 .vercel/
 .env*
 !.env.example
-.vercel
-.env*
+/public/
+/*.tsbuildinfo

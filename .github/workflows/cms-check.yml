@@ -1,0 +1,34 @@
+name: CMS content contract
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run cms:check
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run cms:test
+      - name: Verify homepage renderer against published Sanity content
+        run: npm run cms:render-test
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: 5mntophk
+          NEXT_PUBLIC_SANITY_DATASET: production
+      - name: Build Next.js app
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: 5mntophk
+          NEXT_PUBLIC_SANITY_DATASET: production
+          NEXT_PUBLIC_SITE_URL: https://netpro-nextjs-sanity-experiment.vercel.app
