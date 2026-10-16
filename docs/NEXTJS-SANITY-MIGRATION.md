@@ -1,17 +1,21 @@
 # Next.js App Router + Sanity 首页试点
 
-本文记录实验边界、实施方案、已完成验收和后续维护约定。首页真实发布/恢复与 Preview 浏览器检查已通过；Studio 登录及视觉编辑仍受 CORS 阻挡，邮件投递未验证。现有正式站未部署或修改；独立空项目曾触发平台的 Production target，但在 QUEUED 阶段取消且未分配 alias。
+本文记录实验边界、实施方案、已完成验收和后续维护约定。用户已为 localhost 与稳定 Preview origin 设置 CORS 并启用 Allow credentials，真实 Edge Studio 登录、内容编辑、发布、Visual Editing 点选和原生历史还原均已验收。脚本自动刷新仍不稳定，但新 revision 出现后可用绿色原生链接“草稿已更新，点击更新预览”更新 iframe。邮件投递未验证。现有正式站未部署或修改；独立空项目曾触发平台的 Production target，但在 QUEUED 阶段取消且未分配 alias。非技术用户的操作步骤见 [内容编辑指南](CONTENT-EDITOR-GUIDE.md)。
 
 ## 当前实现状态
 
 - Next.js App Router 首页、独立 `/studio`、静态旧页/资源同步和 Pages API 薄包装已落盘；首页通过拆分的旧 HTML 模板和显式内容绑定保留原 DOM hooks、CSS 与脚本行为。
 - 独立 Sanity 项目 `5mntophk` 的 `production` dataset 已导入首页 singleton 与源图片。导入包含 27 个图片资源、19 个图库项、4 个品类、3 个流程步骤和 6 个 FAQ；seed 使用 `createIfNotExists`，不会覆盖后续编辑。数组对象缺失的 `_type` 已由主代理按 `_key` 和 revision guard 做字段级修复。
 - `src/cms/contracts.ts` 递归展开 Sanity schema，并直接检查 renderer 的深层绑定路径；查询必须返回未投影的完整 singleton。CMS 测试覆盖字段缺失负例、稳定身份和 seed `_type`。
-- 本地 typecheck、contract check、Next build、31 个既有业务测试、8 个 CMS tests、2 个 renderer tests 和 3 个部署 guard tests 均通过。主代理核对了首页 1440px 桌面各主要模块与 Production 的几何位置、390px 无横向溢出及流程/FAQ/GSAP 行为；首页 fresh browser console 为 0 errors/warnings。
-- Sanity 草稿握手、无 cookie published 隔离、上传图像 CDN 200、真实 `document.publish` 和字段级恢复均已完成。finish 报告为 `finished`；测试 revision 为 `6By78OquIO7xHAaGfnWlgH`，恢复 revision 为 `al0S314bK9an6mdDZxo0B4`。临时 draft 已发布后移除，本轮 preview secret 经 revision/source/studio URL guard 清理，原首页标题和首图已恢复。
+- 已验收功能源码 SHA `41f354710fc3fbeea2b77b35680e41e3187edb51` 的 [GitHub Actions 检查](https://github.com/jhun-arch/netpro-sourcing/actions/runs/38878650129)已通过 Next build；业务/部署 guard、CMS 和 renderer 测试均通过，typecheck、contract check、diff check 也通过。首页桌面/移动布局、流程/FAQ/GSAP 行为和旧询价流程另有真实浏览器验收记录；邮件未发送。
+- Sanity 草稿握手、无 cookie published 隔离、图片 CDN 可读、真实 `document.publish` 和字段级恢复均已完成。临时 draft 已发布后移除，临时 preview secret 经 revision/source/studio URL guard 清理。当前最终发布内容和 revision 见下方真实 Studio 验收记录。
 - 首次 finish 因公开页面在 60 秒内未观察到 CDN 内容而停止；服务端 Sanity client 改为 `useCdn: false` 直读 API 后，finish 续跑成功。保留 HTTP 页面轮询与 revision guard，不把超时或失败状态描述为通过。
-- 当前 Preview deployment `dpl_54zLN8oPGBhz8ctaheqNr2yyqMDU` 已为 READY，目标为 Preview（API `target: null`）；稳定 branch alias 指向该 READY 部署。后续同分支获准提交会触发新 Preview build，alias 保持稳定。
-- Studio URL `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio` 实际浏览器仍显示 “Connect this Studio / Add CORS origin”，未登录，console 有 12 条 CORS errors。用户需在 [Sanity project API settings](https://sanity.io/manage/project/5mntophk/api) 为 `http://localhost:3000` 与 `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app` 两个精确 origin 启用 **Allow credentials**；用户已被请求设置，尚未回复。不能声称 Studio 登录、编辑或 Visual Editing 已通过。首页 fresh console 为 0 errors/warnings；Studio 有独立的 CORS errors。
+- 已验收功能 Preview 快照为 READY：源码 SHA `41f354710fc3fbeea2b77b35680e41e3187edb51`，deployment `dpl_BDTSNEjS2VQGKtciUVnkZwpN7uea`，URL `https://netprosourcing-bgl0z7dhz-junhil.vercel.app`；稳定 branch alias 仍为 `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app`。Production project/deployment/SHA 经 API 再次核对，保持原值。
+- 用户已在 [Sanity project API settings](https://sanity.io/manage/project/5mntophk/api) 为 `http://localhost:3000` 与稳定 Preview origin `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app` 配置 CORS 并启用 **Allow credentials**，随后在真实 Edge Studio 登录成功。首页 Studio 导航为“内容管理 → 页面管理 → 首页”，另有“可视化编辑”。
+- 因 Sanity StructureBuilder 曾报 `id is required for lists`，根列表和嵌套列表已加稳定 ID；当前通过真实 `StructureBuilder.serialize()` 回归测试验证列表可序列化并含首页入口/迁移说明。Studio 显示中文工具标题；首屏、轮播数组和 FAQ 的预览使用“首屏内容”、图片缩略图/中文 fallback、question 文本，减少技术 slug 暴露。未使用的 Releases 与 Scheduled Drafts 已关闭。
+- Visual Editing iframe 点击 H1 可定位 `hero.titleLines` 并编辑。Studio UI 验收确认素材库选图与裁剪入口可用；本地文件上传自动化因 Edge 扩展未开启 “Allow access to file URLs” 而未测，没有扩大浏览器权限。此前服务端真实上传已单独验证。不要把该自动化限制表述为用户无法上传，也不要把自动化选图归于用户。
+- Studio 原生历史还原已通过：切到“已发布”→选旧发布记录→“还原”→确认，再检查草稿并发布。还原过程 revision 为 `UQk7Z4OgJQ8fetnaESVSag`。随后最后一次清理将 H1 和首图恢复到原内容，与 `output/studio-ui-before.json` 的完整首页内容比较（忽略系统字段）为 0 差异；最终 H1 为 `Source the Basics.`，published revision 为 `al0S314bK9an6mdDZyQNAR`，`homePage` 没有遗留 draft。`UQk7…` 是历史还原过程 revision，`al0S…` 是最后恢复原内容后的 revision。
+- 自动草稿刷新仍不稳定：真实 Edge Presentation iframe 有时首次等待 15 秒超时，点“重试”后可连接。新 revision 已能从受保护的 revision endpoint 读到，但脚本 `reload` / `replace` 长时间未及时更新 iframe；Studio 手动刷新按钮也未能稳定更新。绿色原生后备链接已真实验收：H1 改为 `CMS 链接刷新验收` 后，点击“草稿已更新，点击更新预览”，约 6.6 秒后 iframe 显示新 H1 且状态为 `current`。只将此原生点击后备记为通过，不得宣称自动刷新成功。验证截图：`output/playwright/studio-final-verified.jpg`。
 - 浏览器流程也已验证：Homepage → Shop → EssentialWhiteTee → Add Enquiry → Quote，询价内容为 `TEE-WHITE / White / S / quantity 1 / Ready stock`；未提交邮件。首页是本阶段唯一接入 CMS 的页面。其余 38 个旧 `.html` 页面继续以静态资源保留，商品管理/库存/定制/询价业务没有迁入 Sanity。现有邮件代码保留，但没有真实邮件投递验证。现有正式站没有新部署或被修改。
 
 ## 真实 CMS 验证脚本
@@ -43,19 +47,19 @@ node --env-file=.env.local --import tsx scripts/verify-cms-live.ts finish --orig
 - 用户已接受 Marketplace 条款；Sanity 免费 Marketplace resource 和 installation 已创建（resource ID ir_c260Hhq0yX0rvCVk，installation ID icfg_RBsQgcvP2JTY2UW7vqqGcOf7，external resource ID res-01sh185w1gxc1uvm）。
 - Sanity projectId 为 5mntophk，是新建且独立的实验项目；其公开 dataset 名为 production。此名称不表示使用了现有 Sanity Production 项目或 Vercel Production 数据。
 - 独立 Vercel project `netpro-nextjs-sanity-experiment` 已创建，但首次尝试即使显式选择 Preview 仍被平台标记为 Production；queued deployment `dpl_9m9zS65L9bG4o7sUcyN8F6kSCbXh` 已取消，未分配 alias。后续 Preview 使用现有 `netprosourcing` project 的 `experiment/nextjs-sanity` 分支，仅设置该 git branch 与 Preview target 的 Sanity public project/dataset、viewer read token；没有配置 write token 或更改既有 Production 环境变量。
-- 当前 Preview deployment：`dpl_54zLN8oPGBhz8ctaheqNr2yyqMDU`，状态 READY、API target 为 `null`（该部署是 Preview）；deployment URL `https://netprosourcing-lv5bxija4-junhil.vercel.app`，稳定 branch alias `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app`。CORS 管理权限仍需用户本人配置精确 localhost/branch-alias origins。
+- 已验收功能 Preview 快照：`41f354710fc3fbeea2b77b35680e41e3187edb51` / `dpl_BDTSNEjS2VQGKtciUVnkZwpN7uea` / `https://netprosourcing-bgl0z7dhz-junhil.vercel.app`，状态 READY；稳定 branch alias 为 `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app`。
 - 环境变量名为 NEXT_PUBLIC_SANITY_PROJECT_ID、NEXT_PUBLIC_SANITY_DATASET、SANITY_API_READ_TOKEN、SANITY_API_WRITE_TOKEN。token 只允许服务端或受控 seed 从环境安全读取，不得打印或记录。
-- read token 权限为 viewer，write token 权限为 editor。CORS 管理请求返回 401；用户已被请求在 Sanity API settings 添加准确的 localhost 与稳定 Preview alias origins 并启用 Allow credentials，尚未回复；不扩大授权范围。
-- 上述 seed、草稿 handshake、真实 publish/restore 与匿名 published 隔离均已在隔离数据上验证；CORS 后的 Studio 登录、编辑/发布和 Visual Editing 尚未验证，不等同于完整 CMS 编辑运营验收。
+- read token 权限为 viewer，write token 权限为 editor。用户已配置准确的 localhost 与稳定 Preview alias CORS origins 并启用 Allow credentials；未扩大 origin 或 token 权限。
+- seed、草稿 handshake、真实 publish/restore、匿名 published 隔离，以及真实 Edge Studio 登录、编辑/发布、Visual Editing 点击与历史还原均已在隔离实验数据上验证。自动刷新没有稳定通过；原生“草稿已更新，点击更新预览”链接已在真实 iframe 验收可用。
 - 当前 package 精确版本：Next 16.4.2、Sanity 6.19.0、next-sanity 13.3.4、React/React DOM 19.3.1、@sanity/locale-zh-hans 2.1.40；Studio 使用 Sanity 中文 locale 包，不使用 next-intl。
 - 首页 SEO head 在 index.html:1-24；现有 OG image 是已跟踪的 assets/hero.png，首屏主图为 assets/hero.webp。
 - 不因 OG image 与首屏使用不同文件格式而判断资源缺失；改动前分别核对既有 SEO 意图。
 
 ## 验收结论与下一步
 
-- 首页 CMS 试点的 published/draft 读取、真实 publish、无 cookie 隔离、图像 CDN 和 revision-guarded 恢复均已验收；本地首页表现已检查，Preview build 已 READY。首页以外的业务迁移不在本次验收范围。
-- 等用户在 Sanity 添加确切的 `http://localhost:3000` 和稳定 Preview branch alias CORS origins 后，再验 Studio 登录、非技术用户编辑/发布和 Visual Editing 图片点选；目前这些 Studio 行为仍标记为未验证。
-- 下一次同分支 commit 经过授权后检查新 Preview build 与稳定 alias 继续指向 READY Preview；构建目标必须通过 `scripts/assert-experiment-target.mjs`，不得触碰 Production 配置或部署。
+- 首页 CMS 试点的 published/draft 读取、真实 publish、无 cookie 隔离、图像 CDN、revision-guarded 恢复、Edge Studio 编辑/发布、Visual Editing 点选和原生历史还原均已验收；首页以外业务迁移不在本次范围。
+- 最新 Preview 上脚本自动刷新仍不稳定；已验证原生绿色链接可更新 iframe。日常编辑按指南使用该链接。若未来调整刷新逻辑，须再次通过真实 iframe 验收后才能更新状态。
+- 后续同分支 commit 经授权后检查新 Preview build 与稳定 alias 指向，构建目标必须通过 `scripts/assert-experiment-target.mjs`，不得触碰 Production 配置或部署。
 - 其余 38 个根级 `.html` 页面继续静态托管；产品、库存、定制与询价记录尚未 CMS 化。未来讨论商品 CMS 时先设计稳定 `productId` 与 stock/custom/enquiry 的兼容迁移方案，再单独验收。
 - 现有邮件处理代码保持原样，未进行真实投递测试。若需验收邮件，应先明确测试收件人与安全的 Preview 邮件环境，使用可审计的测试方式；本次没有发送邮件。
 
@@ -227,7 +231,7 @@ Next App Router 不会自动把仓库根 api/ 变成 App Route。
 8. 公开访问永远不回退读 draft；preview 授权可撤销，退出时清理状态。
 9. SEO 输出去 stega；实验 preview 使用 noindex 和受控 canonical。
 10. 定期检查依赖兼容、token 权限、dataset 隔离、备份和 contract 覆盖。
-11. 当前版本历史 API 标注 maxRetentionDays 为 90、noVersionRevival；恢复能力须由真实 Studio 确认，不得先承诺 Free 支持。
+11. Sanity 官方 [History experience 文档](https://www.sanity.io/docs/user-guides/history-experience) 标明 Free 计划保留 3 天历史，Growth 90 天，Enterprise 365 天。历史还原已在本项目真实 Studio 完成验证；使用 Studio 文档历史中的“已发布”旧版本 →“还原”→确认→草稿→发布流程。计划影响可选历史时间范围；还原结果仍需发布草稿才会更新公开内容。
 12. 未来商品必须用唯一 productId 关联库存、stock/custom 请求和 enquiry 历史记录。
 13. 交付只报告实际运行的验证；未创建的 CMS/部署资源明确标记未创建。
 14. `scripts/repair-home-array-types.ts` 默认只 dry-run；写入必须显式 `--apply`，且只通过数组 `_key` 路径补缺失 `_type`，使用 `_rev` 的 `ifRevisionId` 保护并发编辑。不得改成整文档覆盖或把 seed 当内容更新工具。

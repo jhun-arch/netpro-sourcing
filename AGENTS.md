@@ -53,7 +53,8 @@
 - 普通访客只读 published 内容；草稿仅通过认证的 Sanity preview 握手读取。
 - Preview 必须可撤销；退出时清理 draft mode 和临时状态。
 - SEO 输出清除 stega；实验预览设置 noindex，canonical 使用受控的站点配置。
-- 当前版本历史 API 标注 maxRetentionDays 为 90、noVersionRevival；Free 计划恢复能力须由真实 Studio 核实后再说明。
+- 原生 Studio 历史还原已实测通过：已发布版本 → 历史 → 还原 → 确认 → 草稿 → 发布；不要把历史 API 的 noVersionRevival 标记误判为 Studio 无法还原。可选历史时间范围取决于 Sanity 计划。
+- Presentation 的草稿自动刷新在真实 Edge 中仍不稳定；保留“草稿已更新，点击更新预览”原生链接，并以实际 iframe 内容验收。首次连接超时时可点“重试”，不得将轮询成功等同于预览更新成功。
 - 保持 reduced-motion、键盘交互、ARIA 状态和 hydration 一致。
 - 客户端脚本须清理事件监听器、观察器、定时器和 ScrollTrigger，支持安全重复初始化。
 - 交付说明列出改动文件、实际验证、未运行的检查、未完成授权和未验证限制。
