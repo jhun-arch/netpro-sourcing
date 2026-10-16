@@ -48,10 +48,11 @@ export const homePage = defineType({
       name: 'hero', title: '首屏内容', type: 'object', group: 'hero', fields: [
         defineField({ name: 'titleLines', title: '标题行', type: 'array', of: [{ type: 'string' }], validation: (rule) => rule.required().length(2) }),
         defineField({ name: 'body', title: '介绍文字', type: 'text', rows: 3, validation: (rule) => rule.required().max(320) }),
-        defineField({ name: 'slides', title: '轮播图片', type: 'array', of: [{ type: 'object', name: 'heroSlide', title: '轮播图片', fields: [stableSlug(), image()] }], validation: (rule) => rule.required().length(3) }),
+        defineField({ name: 'slides', title: '轮播图片', type: 'array', of: [{ type: 'object', name: 'heroSlide', title: '轮播图片', fields: [stableSlug(), image()], preview: { select: { title: 'image.alt', media: 'image' }, prepare: ({ title, media }) => ({ title: title || '首屏轮播图', media }) } }], validation: (rule) => rule.required().length(3) }),
         defineField({ name: 'primaryCta', title: '主要按钮', type: 'homeCta', validation: (rule) => rule.required() }),
         defineField({ name: 'secondaryCta', title: '次要按钮', type: 'homeCta', validation: (rule) => rule.required() }),
       ],
+      preview: { prepare: () => ({ title: '首屏内容' }) },
     }),
     defineField({
       name: 'collection', title: '产品分类', type: 'object', group: 'collection', fields: [
@@ -104,7 +105,7 @@ export const homePage = defineType({
         defineField({ name: 'contactTitle', title: '联系标题', type: 'string', validation: (rule) => rule.required().max(100) }),
         defineField({ name: 'contactBody', title: '联系说明', type: 'text', rows: 3, validation: (rule) => rule.required().max(300) }),
         defineField({ name: 'contactCta', title: '联系按钮', type: 'homeCta', validation: (rule) => rule.required() }),
-        defineField({ name: 'items', title: '常见问题', type: 'array', of: [{ type: 'object', name: 'homeFaqItem', title: '常见问题', fields: [stableSlug(), defineField({ name: 'question', title: '问题', type: 'string', validation: (rule) => rule.required().max(200) }), defineField({ name: 'answer', title: '回答', type: 'text', rows: 4, validation: (rule) => rule.required().max(1000) })] }], validation: (rule) => rule.required().min(1) }),
+        defineField({ name: 'items', title: '常见问题', type: 'array', of: [{ type: 'object', name: 'homeFaqItem', title: '常见问题', fields: [stableSlug(), defineField({ name: 'question', title: '问题', type: 'string', validation: (rule) => rule.required().max(200) }), defineField({ name: 'answer', title: '回答', type: 'text', rows: 4, validation: (rule) => rule.required().max(1000) })], preview: { select: { title: 'question' } } }], validation: (rule) => rule.required().min(1) }),
         defineField({ name: 'guideCta', title: '更多信息按钮', type: 'homeCta', validation: (rule) => rule.required() }),
       ],
     }),

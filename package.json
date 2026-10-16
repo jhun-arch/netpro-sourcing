@@ -14,7 +14,7 @@
     "cms:seed": "node --env-file=.env.local --import tsx scripts/seed-home.ts",
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/contact.test.js tests/enquiry-state.test.js tests/quote.test.js tests/submission-confirmation.test.js tests/experiment-target.test.js",
-    "cms:test": "node --import tsx --test tests/cms-array-item-types.test.ts tests/cms-contract.test.ts tests/cms-seed.test.ts",
+    "cms:test": "node --import tsx --test tests/cms-array-item-types.test.ts tests/cms-contract.test.ts tests/cms-seed.test.ts tests/studio-structure.test.ts",
     "cms:render-test": "node --conditions=react-server --import tsx --test tests/cms-render.test.ts"
   },
   "dependencies": {
