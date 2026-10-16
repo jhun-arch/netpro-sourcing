@@ -15,6 +15,7 @@ export default defineConfig({
   dataset,
   basePath: '/studio',
   releases: { enabled: false },
+  scheduledDrafts: { enabled: false },
   plugins: [
     structureTool({
       title: '内容管理',
