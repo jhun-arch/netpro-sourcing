@@ -1,4 +1,6 @@
 output/
+.next/
+public/
 .playwright-cli/
 tests/
 *.md

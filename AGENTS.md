@@ -68,3 +68,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## 实验构建与部署目标
+
+- Next + Sanity 实验只允许在 `experiment/nextjs-sanity` 分支继续；部署目标必须是已存在的 `netprosourcing` Vercel 项目和 Preview 环境，构建前核对项目、分支与目标。
+- 不修改原 `netprosourcing` 项目的 Production 配置或原站代码。不得以空实验项目 bootstrap 或首次部署成功为 Production 构建或发布的依据；Vercel 首次部署可能忽略 `--target=preview` 并选择 Production。
+- `prebuild` 必须先运行 `scripts/assert-experiment-target.mjs`，再同步静态资源和校验 CMS contract。Vercel Production 或无法确认的 Vercel target 必须失败关闭；本地和非 Vercel CI 构建允许继续。

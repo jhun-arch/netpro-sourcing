@@ -6,14 +6,14 @@
   "scripts": {
     "predev": "npm run sync:legacy",
     "dev": "next dev",
-    "prebuild": "npm run sync:legacy && npm run cms:check",
+    "prebuild": "node scripts/assert-experiment-target.mjs && npm run sync:legacy && npm run cms:check",
     "build": "next build",
     "start": "next start",
     "sync:legacy": "node scripts/sync-legacy-public.mjs",
     "cms:check": "tsx scripts/check-content-contract.ts",
     "cms:seed": "node --env-file=.env.local --import tsx scripts/seed-home.ts",
     "typecheck": "tsc --noEmit",
-    "test": "node --test tests/contact.test.js tests/enquiry-state.test.js tests/quote.test.js tests/submission-confirmation.test.js",
+    "test": "node --test tests/contact.test.js tests/enquiry-state.test.js tests/quote.test.js tests/submission-confirmation.test.js tests/experiment-target.test.js",
     "cms:test": "node --import tsx --test tests/cms-array-item-types.test.ts tests/cms-contract.test.ts tests/cms-seed.test.ts",
     "cms:render-test": "node --conditions=react-server --import tsx --test tests/cms-render.test.ts"
   },

@@ -31,4 +31,4 @@ jobs:
         env:
           NEXT_PUBLIC_SANITY_PROJECT_ID: 5mntophk
           NEXT_PUBLIC_SANITY_DATASET: production
-          NEXT_PUBLIC_SITE_URL: https://netpro-nextjs-sanity-experiment.vercel.app
+          NEXT_PUBLIC_SITE_URL: https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app

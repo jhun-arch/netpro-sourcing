@@ -31,7 +31,8 @@ export function getSanityClient(preview = false) {
     projectId,
     dataset,
     apiVersion: SANITY_API_VERSION,
-    useCdn: !preview,
+    // This pilot favors immediate publish visibility over an extra CDN cache.
+    useCdn: false,
     perspective: preview ? 'drafts' : 'published',
     ...(token ? { token } : {}),
   });
