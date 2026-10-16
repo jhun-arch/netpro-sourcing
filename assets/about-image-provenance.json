@@ -1,0 +1,69 @@
+{
+  "page": "About Netpro",
+  "generated_image_method": "OpenAI built-in image_gen",
+  "generated_image_note": "These are illustrative scenes. No pictured person is identified as Netpro staff or as Stanley Poon.",
+  "shared_art_direction": "Navy, ivory, pale gray and pale wood; natural daylight; no logos or star symbols.",
+  "assets": [
+    {
+      "file": "assets/about-hero-v2.webp",
+      "source_path": "C:/Users/Administrator/.codex/generated_images/01a133b5-2cca-7623-9c80-2a3ffed454ad/exec-3ec0d7ef-e49f-4520-9c38-0e9bc4b08991.png",
+      "source_dimensions": "2172x724",
+      "output_dimensions": "2172x724",
+      "format": "WebP, quality 86",
+      "method": "Generated with built-in image_gen; converted and optimized for web at full source resolution.",
+      "usage": "Full-width About hero background; the existing dark overlay and left-copy layout remain in CSS.",
+      "prompt_summary": "Very wide apparel product-planning table with fabric swatches, folded garments and a cap; two generic people are cropped at shoulder level on the right, with clear dark navy negative space on the left."
+    },
+    {
+      "file": "assets/about-production-real-v1.webp",
+      "source_path": "G:/机台图片/图层 3.jpg",
+      "source_dimensions": "2048x2048",
+      "crop": "Pillow crop box [0, 400, 2048, 1684) in source pixel coordinates (2048x1284), chosen to emphasize the embroidery heads, needle areas and hoops while retaining the receding machine row.",
+      "output_dimensions": "2048x1284",
+      "format": "WebP, quality 86",
+      "method": "User-selected real photograph; recropped to match the provided machine-focus reference and optimized at full crop resolution.",
+      "usage": "Wide production equipment banner.",
+      "prompt_summary": null
+    },
+    {
+      "file": "assets/about-craft-v2.webp",
+      "source_path": "C:/Users/Administrator/.codex/generated_images/01a133b5-2cca-7623-9c80-2a3ffed454ad/exec-f5986138-52fc-432a-92b4-f281a3dca3ed.png",
+      "source_dimensions": "1448x1086",
+      "output_dimensions": "1448x1086",
+      "format": "WebP, quality 84",
+      "method": "Generated with built-in image_gen; converted and optimized for web.",
+      "usage": "Superseded by about-product-detail-v3.webp; retained as an unreferenced generated asset.",
+      "prompt_summary": "Close view of generic hands inspecting a navy and ivory embroidered wave patch on a cream garment, with thread and fabric nearby."
+    },
+    {
+      "file": "assets/about-project-v2.webp",
+      "source_path": "C:/Users/Administrator/.codex/generated_images/01a133b5-2cca-7623-9c80-2a3ffed454ad/exec-fd5038e2-0c4e-4bc7-8787-2af0920ab09d.png",
+      "source_dimensions": "1448x1086",
+      "output_dimensions": "1448x1086",
+      "format": "WebP, quality 84",
+      "method": "Generated with built-in image_gen; converted and optimized for web.",
+      "usage": "Project-contact editorial row.",
+      "prompt_summary": "Overhead product coordination table with a laptop showing a digital garment proof, navy cap, cream tee, fabric swatches and paper references; hands point to artwork, no portrait."
+    },
+    {
+      "file": "assets/about-product-detail-v3.webp",
+      "source_path": "C:/Users/Administrator/.codex/generated_images/01a133b5-2cca-7623-9c80-2a3ffed454ad/exec-582622ab-9db8-4011-92ca-d424ef749854.png",
+      "source_dimensions": "1448x1086",
+      "output_dimensions": "1448x1086",
+      "format": "WebP, quality 86",
+      "method": "Generated with built-in image_gen; converted and optimized for web at full source resolution.",
+      "usage": "Superseded by about-product-detail-v4.webp; retained as an unreferenced generated asset.",
+      "prompt_summary": "Anonymous hands inspecting a plain ivory cotton T-shirt side seam and hem with double-needle stitching on a pale wood table, with navy fabric swatches and a measuring tape in natural daylight; navy and ivory palette; no patch, badge, embroidery design, logo, stars or text."
+    },
+    {
+      "file": "assets/about-product-detail-v4.webp",
+      "source_path": "C:/Users/Administrator/.codex/generated_images/01a133b5-2cca-7623-9c80-2a3ffed454ad/exec-6aea47b2-3ab9-4b08-bc87-38a8118db2c5.png",
+      "source_dimensions": "1448x1086",
+      "output_dimensions": "1448x1086",
+      "format": "WebP, quality 86",
+      "method": "Generated with built-in image_gen; converted and optimized for web at full source resolution.",
+      "usage": "First product-detail editorial row; illustrative scene, not a claim about a specific Netpro employee or production site.",
+      "prompt_summary": "Plain ivory crewneck sweatshirt photographed right-side out in a close view of the collar ribbing and shoulder seams, on pale stone with navy fabric swatches and thread; no hands, patch, badge, logo, stars or text."
+    }
+  ]
+}
