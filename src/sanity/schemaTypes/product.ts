@@ -1,6 +1,7 @@
 import { defineField, defineType } from 'sanity';
 import { validateSafeHref } from './validation';
 import { validateSizeHistory } from '../../catalog/size-history-validation';
+import { IMAGE_GUIDANCE } from '../imageGuidance';
 
 const stableId = () => `new-${crypto.randomUUID()}`;
 const validCssSize = (value: unknown): true | string => (
@@ -44,7 +45,7 @@ export const product = defineType({
     defineField({ name: 'description', title: '产品说明', type: 'text', rows: 3, group: 'identity', validation: (rule) => rule.required().max(1000) }),
     defineField({ name: 'isNew', title: '显示为新品', type: 'boolean', group: 'identity', initialValue: false }),
     defineField({
-      name: 'image', title: '产品主图', type: 'image', group: 'images', options: { hotspot: true },
+      name: 'image', title: '产品主图', type: 'image', group: 'images', description: IMAGE_GUIDANCE.product, options: { hotspot: true },
       fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })],
     }),
     defineField({ name: 'legacyImageAssetRef', title: '导入主图素材编号', type: 'string', group: 'images', hidden: true, readOnly: true }),
@@ -59,7 +60,7 @@ export const product = defineType({
     }),
     defineField({ name: 'position', title: '主图显示位置', type: 'string', group: 'images', hidden: true, readOnly: true, initialValue: 'center', validation: (rule) => rule.custom(validCssPosition) }),
     defineField({
-      name: 'hoverImage', title: '悬停展示图片', type: 'image', group: 'images', options: { hotspot: true },
+      name: 'hoverImage', title: '悬停展示图片', type: 'image', group: 'images', description: IMAGE_GUIDANCE.productHover, options: { hotspot: true },
       fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })],
     }),
     defineField({ name: 'legacyHoverImageAssetRef', title: '导入悬停图素材编号', type: 'string', group: 'images', hidden: true, readOnly: true }),

@@ -27,6 +27,7 @@ test('draft preview reports guarded HTTP errors without reloading', async () => 
 
     await pollPreviewRevision(
       'rev-current',
+      'about',
       async (_input, init) => {
         requestOptions.push(init ?? {});
         return new Response(null, { status });
@@ -47,6 +48,7 @@ test('draft preview reloads when the endpoint returns a newer revision', async (
 
   await pollPreviewRevision(
     'rev-current',
+    'about',
     async () => new Response(JSON.stringify({ rev: 'rev-new' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
@@ -57,6 +59,29 @@ test('draft preview reloads when the endpoint returns a newer revision', async (
   assert.deepEqual(result.statuses, ['refreshing']);
   assert.deepEqual(result.revisions, ['rev-new']);
   assert.deepEqual(result.refreshedRevisions, ['rev-new']);
+});
+
+test('draft preview requests the current page scope and does not reload for the same revision', async () => {
+  const result = createCallbacks();
+  const requestUrls: string[] = [];
+
+  await pollPreviewRevision(
+    'rev-current',
+    'custom-ankle-socks',
+    async (input) => {
+      requestUrls.push(String(input));
+      return new Response(JSON.stringify({ rev: 'rev-current' }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    },
+    result.callbacks,
+  );
+
+  assert.deepEqual(requestUrls, ['/api/draft-mode/revision?pageKey=custom-ankle-socks']);
+  assert.deepEqual(result.statuses, ['current']);
+  assert.deepEqual(result.revisions, ['rev-current']);
+  assert.deepEqual(result.refreshedRevisions, []);
 });
 
 test('preview navigation adds a revision while preserving the current URL', () => {

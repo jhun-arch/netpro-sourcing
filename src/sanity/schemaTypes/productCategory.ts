@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+import { IMAGE_GUIDANCE } from '../imageGuidance';
 
 const stableId = () => `new-${crypto.randomUUID()}`;
 
@@ -27,7 +28,7 @@ export const productCategory = defineType({
       validation: (rule) => rule.max(80),
     }),
     defineField({
-      name: 'banner', title: '分类横幅图片', type: 'image', group: 'appearance',
+      name: 'banner', title: '分类横幅图片', type: 'image', group: 'appearance', description: IMAGE_GUIDANCE.categoryBanner,
       options: { hotspot: true },
       fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })],
     }),

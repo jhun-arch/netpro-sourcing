@@ -37,12 +37,12 @@ export default async function LegacyPage({ params }: { params: Promise<{ legacyP
   const scripts = useCatalog
     ? getLegacyScripts(entry.pageKey, { catalogBootstrap: true })
     : sourceScripts;
-  const revision = preview ? await getContentRevision(true) : null;
+  const revision = preview ? await getContentRevision(true, entry.pageKey) : null;
 
   return (
     <>
       {useCatalog && catalogData ? <CatalogBootstrap data={catalogData} /> : null}
-      {preview ? <><PreviewRefresh revision={revision ?? ""} /><DraftVisualEditing /></> : null}
+      {preview ? <><PreviewRefresh revision={revision ?? ""} pageKey={entry.pageKey} /><DraftVisualEditing /></> : null}
       {renderLegacyPageBody(entry.pageKey, page, settings, preview)}
       <LegacyScripts scripts={scripts} />
     </>

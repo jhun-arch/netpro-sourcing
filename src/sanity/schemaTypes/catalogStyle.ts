@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { validateSafeHref } from './validation';
+import { IMAGE_GUIDANCE } from '../imageGuidance';
 
 const stableId = () => `new-${crypto.randomUUID()}`;
 const validCssSize = (value: unknown): true | string => (
@@ -39,7 +40,7 @@ export const catalogStyle = defineType({
     }),
     defineField({ name: 'href', title: '目标页面链接', type: 'string', group: 'identity', validation: (rule) => rule.required().max(500).custom(validateSafeHref) }),
     defineField({
-      name: 'image', title: '卡片图片', type: 'image', group: 'image', options: { hotspot: true },
+      name: 'image', title: '卡片图片', type: 'image', group: 'image', description: IMAGE_GUIDANCE.styleCard, options: { hotspot: true },
       fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })],
       validation: (rule) => rule.required(),
     }),

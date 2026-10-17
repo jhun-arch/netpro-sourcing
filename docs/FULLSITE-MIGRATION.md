@@ -6,10 +6,10 @@
 
 - 目录已导入隔离 Sanity 项目：59 个目录文档（31 product、5 productCategory、23 catalogStyle），41 个去重源图片按内容哈希复用或上传。使用 `createIfNotExists`；既有 `homePage` revision 和内容未变。不要覆盖或重复导入这些内容。
 - 全站页面注册表、旧模板渲染、页面/共享设置 schema、目录投影和旧脚本适配已经进入当前工作树。
-- `sitePage` 与 `siteSettings` 的首次导入仍待主代理确认/执行。页面 seed 默认为 dry-run；任何 apply 都必须先检查隔离目标、已有 published/draft 身份并生成写前备份。不能以 seed 计划代替实际数据状态。
-- 最新目录契约测试 6 项通过，TypeScript 检查通过；主代理运行的 Sanity 目录文档错误级校验返回 0 个错误。页面 agent 仍在修复 SSR/Schema 预检，fullsite:test 和全站预检尚未通过验收；最终构建、真实浏览器检查和新 Preview 验收仍需完成。
-- 已验收的 Preview 快照是较早的首页试点，不含本次全站工作树快照。稳定分支地址为 [实验 Preview](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app)，[Studio](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio)；不要将 alias 或首页历史验收当作全站通过证据。
-- Production 页面、配置和数据没有因本次全站实现而修改或部署。全站实际验收前，文档交付状态保持“待主代理验收”。
+- 37 sitePage 与 1 siteSettings 已完成备份及 createIfNotExists 导入，总计 98 内容文档；官方文档错误级校验全部通过，不重跑 seed。
+- 全站基线 4832c1d 的构建、类型检查和 96 项相关回归已通过 CI；登记页面与 175 个同源资源已通过云端 HTTP 检查。真实 About 标题、正文、图片均能进入正确 Studio 字段，草稿隔离和发布已实测；测试文字已恢复。
+- 全站已部署至稳定分支地址 [实验 Preview](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app)，[Studio](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio)。当前只补验图片提示、中文页面切换、局部 revision 与云端 404，不重复此前全站审计。
+- Production 页面、配置和数据未修改或部署。下一阶段 T 恤需求仅记录于 [开发路线](DEVELOPMENT-ROADMAP.md)，本阶段不实现。
 
 首页试点的历史证据和边界见 [NEXTJS-SANITY-MIGRATION.md](NEXTJS-SANITY-MIGRATION.md)；页面和商品盘点分别见 [FULLSITE-PAGE-AUDIT.md](FULLSITE-PAGE-AUDIT.md)、[FULLSITE-PRODUCT-AUDIT.md](FULLSITE-PRODUCT-AUDIT.md)。
 

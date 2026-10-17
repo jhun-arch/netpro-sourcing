@@ -1,6 +1,8 @@
 import { defineField, defineType } from 'sanity';
 import { validateSlotHref } from './validation';
 import { PAGE_BINDINGS } from '../../fullsite/pageBindings.generated';
+import SitePageImageInput from '../components/SitePageImageInput';
+import { IMAGE_GUIDANCE } from '../imageGuidance';
 
 type TextLinesContext = { parent?: { kind?: string; textMode?: string; slotId?: string } };
 
@@ -29,7 +31,7 @@ const pageSlot = {
     defineField({ name: 'textNodePath', title: '文字位置', type: 'string', hidden: true, readOnly: true }),
     defineField({ name: 'text', title: '文字内容', type: 'text', rows: 4, hidden: ({ parent }) => parent?.kind !== 'text' || parent?.textMode === 'lines', validation: (rule) => rule.max(3000) }),
     defineField({ name: 'textLines', title: '分行标题', description: '保持原版行数与顺序；仅修改各行文字。', type: 'array', options: { sortable: false, disableActions: ['add', 'addBefore', 'addAfter', 'remove', 'duplicate', 'copy'] }, of: [{ type: 'string' }], hidden: ({ parent }) => parent?.kind !== 'text' || parent?.textMode !== 'lines', validation: (rule) => rule.custom((value, context) => validateSitePageTextLines(value, context as TextLinesContext)) }),
-    defineField({ name: 'image', title: '替换图片', type: 'image', options: { hotspot: true }, hidden: ({ parent }) => parent?.kind !== 'image' }),
+    defineField({ name: 'image', title: '替换图片', type: 'image', options: { hotspot: true }, components: { input: SitePageImageInput }, hidden: ({ parent }) => parent?.kind !== 'image' }),
     defineField({ name: 'sourcePath', title: '原始图片路径', type: 'string', hidden: true, readOnly: true }),
     defineField({ name: 'alt', title: '替代文本', type: 'string', hidden: ({ parent }) => parent?.kind !== 'image', validation: (rule) => rule.max(240) }),
     defineField({ name: 'href', title: '链接目标', type: 'string', hidden: ({ parent }) => parent?.kind !== 'link', validation: (rule) => rule.max(500).custom((value, context) => validateSlotHref(value, context as TextLinesContext)) }),
@@ -56,7 +58,7 @@ const seo = defineField({
     defineField({ name: 'description', title: '搜索摘要', type: 'text', rows: 3, validation: (rule) => rule.max(320) }),
     defineField({ name: 'ogTitle', title: '社交分享标题', type: 'string', validation: (rule) => rule.max(120) }),
     defineField({ name: 'ogDescription', title: '社交分享摘要', type: 'text', rows: 3, validation: (rule) => rule.max(320) }),
-    defineField({ name: 'ogImage', title: '社交分享图片', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })] }),
+    defineField({ name: 'ogImage', title: '社交分享图片', type: 'image', description: IMAGE_GUIDANCE.socialShare, options: { hotspot: true }, fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })] }),
   ],
 });
 

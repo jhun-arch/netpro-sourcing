@@ -474,21 +474,38 @@ function nodeToReact(node: AnyNode, key: number): ReactNode {
   return createElement(element.tagName, props, ...children);
 }
 
-/** Render the fixed template as a React DOM tree, filling only allowlisted structured Sanity fields. */
+/** Transform the controlled template into a safe public HTML fragment. CMS values enter only through text, validated hrefs, image URLs, and allowlisted style properties. */
+export function renderLegacyPageHtml(
+  pageKey: string,
+  page: SitePageDocument | null,
+  settings: SiteSettingsDocument | null,
+  preview = false,
+): string {
+  const shell = getLegacyPageShell(pageKey);
+  const bodyHtml = applySiteHeaderAndFooter(shell.bodyHtml, settings, preview);
+  const $ = load(bodyHtml, {}, false);
+  if (page) applyPageContent($, pageKey, page, preview);
+  $('script').remove();
+  $.root().find('*').each((_, element) => {
+    const target = $(element);
+    for (const name of Object.keys((element as DomElement).attribs ?? {})) {
+      if (name.toLowerCase().startsWith('on')) target.removeAttr(name);
+    }
+    if (!preview) target.removeAttr('data-sanity');
+  });
+  return $.root().html() || '';
+}
+
+/** Render the same transformed HTML fragment as React nodes for the App Router page. */
 export function renderLegacyPageBody(
   pageKey: string,
   page: SitePageDocument | null,
   settings: SiteSettingsDocument | null,
   preview = false,
 ): ReactNode {
-  const shell = getLegacyPageShell(pageKey);
-  const bodyHtml = applySiteHeaderAndFooter(shell.bodyHtml, settings, preview);
-  const $ = load(bodyHtml, {}, false);
-  if (page) applyPageContent($, pageKey, page, preview);
-  $('script').remove();
+  const $ = load(renderLegacyPageHtml(pageKey, page, settings, preview), {}, false);
   return createElement(Fragment, null, ...childrenToReact($.root().contents().toArray() as AnyNode[]));
 }
-
 export function renderLegacyHead(pageKey: string): ReactNode {
   return createElement('head', { dangerouslySetInnerHTML: { __html: getLegacyPageShell(pageKey).headHtml } });
 }

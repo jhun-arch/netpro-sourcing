@@ -12,52 +12,65 @@ function request(path: string, method = "GET") {
   return new NextRequest(new URL(path, origin), { method });
 }
 
-test("unknown single-segment GET and HEAD requests transparently render CMS 404 with status 404", () => {
-  for (const method of ["GET", "HEAD"]) {
-    const incoming = request("/this-page-does-not-exist.html?campaign=ignored", method);
-    const response = proxy(incoming);
+test("unknown single and nested GET/HEAD requests rewrite to the same-origin 404 handler", () => {
+  for (const path of [
+    "/this-page-does-not-exist.html?campaign=ignored",
+    "/nested/missing/page",
+    "/nested/missing/page.html?campaign=ignored",
+  ]) {
+    for (const method of ["GET", "HEAD"]) {
+      const incoming = request(path, method);
+      const response = proxy(incoming);
 
-    assert.ok(response, `${method} should be rewritten`);
-    assert.equal(isRewrite(response), true);
-    assert.equal(response.status, 404);
-    assert.equal(getRewrittenUrl(response), `${origin}/404.html`, "the rewrite target must be same-origin and have no query string");
-    assert.equal(incoming.nextUrl.pathname, "/this-page-does-not-exist.html", "the browser-facing URL stays unchanged");
+      assert.ok(response, method + " " + path + " should be rewritten");
+      assert.equal(isRewrite(response), true);
+      assert.equal(response.status, 200, "the Route Handler, not Proxy, supplies the 404 status");
+      assert.equal(getRewrittenUrl(response), origin + "/api/not-found-page", "the rewrite target is same-origin and clears the query string");
+      assert.equal(incoming.nextUrl.pathname, new URL(path, origin).pathname, "the browser-facing URL stays unchanged");
+    }
   }
 });
 
-test("all registered full-site routes and explicit app paths pass through", () => {
-  const knownPagePaths = [
+test("registered pages, aliases, root, API, Studio, and protected prefixes pass through", () => {
+  const passThroughPaths = [
+    "/",
     ...SITE_PAGE_MANIFEST.map((page) => page.route),
     CHECKOUT_REDIRECT_ROUTE.route,
-  ];
-  const passThroughPaths = [
-    ...knownPagePaths,
     "/index.html",
     "/privacy-policy",
     "/terms",
     "/studio",
+    "/studio/structure",
     "/api",
-    "/_next",
+    "/api/contact",
+    "/_next/static/chunks/app.js",
+    "/assets/example.webp",
+    "/data/example.json",
   ];
 
   for (const path of passThroughPaths) {
-    assert.equal(proxy(request(path)), undefined, `${path} must reach its existing route or redirect`);
+    assert.equal(proxy(request(path)), undefined, path + " must reach its existing route or handler");
   }
 });
 
-test("real public root assets bypass the page fallback", () => {
+test("all non-HTML static root extensions bypass the 404 fallback", () => {
   const manifest = JSON.parse(readFileSync(new URL("../scripts/legacy-public-manifest.json", import.meta.url), "utf8")) as { files: string[] };
   for (const filename of ["styles.css", "custom-products.js"]) {
-    assert.ok(existsSync(new URL(`../${filename}`, import.meta.url)), `${filename} source must exist`);
-    assert.ok(manifest.files.includes(filename), `${filename} must be registered for public asset sync`);
-    assert.equal(proxy(request(`/${filename}`)), undefined, `${filename} must remain a static asset`);
+    assert.ok(existsSync(new URL("../" + filename, import.meta.url)), filename + " source must exist");
+    assert.ok(manifest.files.includes(filename), filename + " must be registered for public asset sync");
+    assert.equal(proxy(request("/" + filename)), undefined, filename + " must remain a static asset");
   }
-  assert.equal(proxy(request("/favicon.ico")), undefined, "non-HTML asset extensions pass through even when served by framework metadata");
+  for (const path of ["/favicon.ico", "/font.woff2", "/manifest.webmanifest", "/source.map", "/data.xml", "/image.avif"]) {
+    assert.equal(proxy(request(path)), undefined, path + " must remain a static asset");
+  }
 });
 
-test("non-page methods and nested unknown paths are not intercepted", () => {
-  assert.equal(proxy(request("/missing.html", "POST")), undefined);
-  assert.equal(proxy(request("/missing.html", "OPTIONS")), undefined);
-  assert.equal(proxy(request("/nested/missing/page")), undefined);
-  assert.equal(config.matcher, "/:legacyPage", "the Proxy matcher must remain limited to one root segment");
+test("only page GET/HEAD requests are intercepted, and protected prefixes have path boundaries", () => {
+  for (const method of ["POST", "OPTIONS", "PUT"]) {
+    assert.equal(proxy(request("/missing.html", method)), undefined, method + " must pass through");
+  }
+  assert.ok(proxy(request("/apiary")), "a similarly named page is not the /api prefix");
+  assert.ok(proxy(request("/studio-preview")), "a similarly named page is not the /studio prefix");
+  assert.equal(config.matcher.includes("_next(?:/|$)"), true);
+  assert.equal(config.matcher.includes("api(?:/|$)"), true);
 });

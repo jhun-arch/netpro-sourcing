@@ -165,7 +165,7 @@ test('first full-site seed builds 37 pages and shared settings without touching 
   assert.ok(footer.columns.every((column) => column.links.every((link) => link._key === link.slug)));
 });
 
-test('page data query keeps the complete singleton and public sync excludes migrated HTML', () => {
+test('404 routing, page data query, and public sync exclude migrated HTML', () => {
   assert.match(sitePageQuery, /^\*\[_type == "sitePage" && pageKey == \$pageKey\]\[0\]$/);
   const sync = readFileSync(new URL('../scripts/sync-legacy-public.mjs', import.meta.url), 'utf8');
   assert.match(sync, /migratedHtmlRoutes/);
@@ -179,7 +179,7 @@ test('page data query keeps the complete singleton and public sync excludes migr
 
   const layout = readFileSync(new URL('../app/(legacy)/[legacyPage]/layout.tsx', import.meta.url), 'utf8');
   assert.match(layout, /export const dynamic\s*=\s*["']force-dynamic["']/, 'CMS page render and metadata should run on requests');
-  assert.match(layout, /dynamicParams\s*=\s*false/, 'unknown one-segment paths should reach global-not-found instead of the fallback page');
+  assert.match(layout, /dynamicParams\s*=\s*false/, 'unknown paths are served by the request-time not-found Proxy and API route');
   const staticParamsBody = layout.match(/export function generateStaticParams\(\)\s*\{([\s\S]*?)\n\}/)?.[1];
   assert.ok(staticParamsBody, 'the allowlist should be returned from generateStaticParams');
   assert.match(staticParamsBody, /SITE_PAGE_MANIFEST\.map\(\(\{ route \}\) => \(\{ legacyPage: route\.slice\(1\) \}\)\)/);
@@ -194,19 +194,30 @@ test('page data query keeps the complete singleton and public sync excludes migr
   const metadataBody = layout.slice(metadataStart, layoutBodyStart);
   assert.ok(metadataBody.indexOf('await connection()') >= 0 && metadataBody.indexOf('await connection()') < metadataBody.indexOf('getSitePageData'), 'page metadata CMS reads must be behind the request boundary');
   const nextConfig = readFileSync(new URL('../next.config.ts', import.meta.url), 'utf8');
-  assert.match(nextConfig, /globalNotFound\s*:\s*true/, 'the app has multiple root layouts, so unmatched paths need a complete global 404 document');
-  const globalNotFound = readFileSync(new URL('../app/global-not-found.tsx', import.meta.url), 'utf8');
-  assert.match(globalNotFound, /renderGlobalLegacyNotFoundDocument/);
-  assert.match(globalNotFound, /getLegacyNotFoundData/);
-  const notFoundHelpers = readFileSync(new URL('../app/(legacy)/LegacyNotFound.tsx', import.meta.url), 'utf8');
-  const dataHelperStart = notFoundHelpers.indexOf('export async function getLegacyNotFoundData');
-  const metadataHelperStart = notFoundHelpers.indexOf('export async function getLegacyNotFoundMetadata');
-  const bodyHelperStart = notFoundHelpers.indexOf('export function renderLegacyNotFoundBody');
-  const dataHelper = notFoundHelpers.slice(dataHelperStart, metadataHelperStart);
-  const metadataHelper = notFoundHelpers.slice(metadataHelperStart, bodyHelperStart);
-  assert.ok(dataHelperStart >= 0 && metadataHelperStart > dataHelperStart && bodyHelperStart > metadataHelperStart);
-  assert.ok(dataHelper.indexOf('await connection()') >= 0 && dataHelper.indexOf('await connection()') < dataHelper.indexOf('getSitePageData'), '404 page and settings reads must begin after the request boundary');
-  assert.ok(metadataHelper.indexOf('await connection()') >= 0 && metadataHelper.indexOf('await connection()') < metadataHelper.indexOf('getSitePageData'), '404 metadata reads must begin after the request boundary');
+  assert.doesNotMatch(nextConfig, /globalNotFound\s*:/, 'unknown legacy paths are handled through the request-time 404 Route Handler');
+  const notFoundRoute = readFileSync(new URL('../app/api/not-found-page/route.ts', import.meta.url), 'utf8');
+  assert.match(notFoundRoute, /export const dynamic\s*=\s*['"]force-dynamic['"]/);
+  const routeExports = [...notFoundRoute.matchAll(/^export (?:async function|const)\s+([A-Za-z_$][\w$]*)/gm)].map((match) => match[1]).sort();
+  assert.deepEqual(routeExports, ['GET', 'HEAD', 'dynamic', 'revalidate'], 'Next Route Handler exposes only methods and route configuration');
+  const handlerStart = notFoundRoute.indexOf('async function responseForNotFound');
+  const handlerSource = notFoundRoute.slice(handlerStart);
+  const requestBoundary = handlerSource.indexOf('await connection()');
+  assert.ok(requestBoundary >= 0 && requestBoundary < handlerSource.indexOf('getSitePageData'), 'the 404 Route Handler begins CMS reads after the request boundary');
+  assert.match(notFoundRoute, /getSitePageData\(entry\.pageKey,\s*false\)/);
+  assert.match(notFoundRoute, /getSiteSettingsData\(false\)/);
+  assert.match(notFoundRoute, /getCatalogData\(false\)/);
+  assert.match(notFoundRoute, /createNotFoundPageResponse\(/);
+  const notFoundDocument = readFileSync(new URL('../app/api/not-found-page/document.ts', import.meta.url), 'utf8');
+  assert.match(notFoundDocument, /renderLegacyPageHtml\(pageKey,\s*data\.page,\s*data\.settings,\s*false\)/);
+  assert.match(notFoundDocument, /status:\s*404/);
+  assert.match(notFoundDocument, /Cache-Control.*no-store/);
+  assert.match(notFoundDocument, /X-Robots-Tag.*noindex/);
+  assert.doesNotMatch(notFoundDocument, /react-dom\/server/);  const proxy = readFileSync(new URL('../proxy.ts', import.meta.url), 'utf8');
+  assert.match(proxy, /NextResponse\.rewrite\(destination\)/);
+  assert.match(proxy, /api\/not-found-page/);
+  assert.match(proxy, /request\.method !== ["']GET["'] && request\.method !== ["']HEAD["']/);
+  const legacyNotFound = readFileSync(new URL('../app/(legacy)/[legacyPage]/not-found.tsx', import.meta.url), 'utf8');
+  assert.match(legacyNotFound, /renderLegacyPageBody\(["']404["'],\s*null,\s*null,\s*false\)/);
 });
 
 test('hidden non-link slot hrefs may be absent while link hrefs remain protocol-validated', () => {

@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { validateSafeHref } from './validation';
+import { IMAGE_GUIDANCE } from '../imageGuidance';
 
 const stableSlug = (title = '内容标识') => defineField({
   name: 'slug',
@@ -11,10 +12,11 @@ const stableSlug = (title = '内容标识') => defineField({
   validation: (rule) => rule.required().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
 });
 
-const image = (title = '图片', name = 'image') => defineField({
+const image = (title = '图片', name = 'image', description: string = IMAGE_GUIDANCE.sitePage) => defineField({
   name,
   title,
   type: 'image',
+  description,
   options: { hotspot: true },
   fields: [defineField({ name: 'alt', title: '替代文本', type: 'string', validation: (rule) => rule.max(240) })],
   validation: (rule) => rule.required(),
@@ -48,7 +50,7 @@ export const homePage = defineType({
       name: 'hero', title: '首屏内容', type: 'object', group: 'hero', fields: [
         defineField({ name: 'titleLines', title: '标题行', type: 'array', of: [{ type: 'string' }], validation: (rule) => rule.required().length(2) }),
         defineField({ name: 'body', title: '介绍文字', type: 'text', rows: 3, validation: (rule) => rule.required().max(320) }),
-        defineField({ name: 'slides', title: '轮播图片', type: 'array', of: [{ type: 'object', name: 'heroSlide', title: '轮播图片', fields: [stableSlug(), image()], preview: { select: { title: 'image.alt', media: 'image' }, prepare: ({ title, media }) => ({ title: title || '首屏轮播图', media }) } }], validation: (rule) => rule.required().length(3) }),
+        defineField({ name: 'slides', title: '轮播图片', type: 'array', of: [{ type: 'object', name: 'heroSlide', title: '轮播图片', fields: [stableSlug(), image('图片', 'image', IMAGE_GUIDANCE.homeHero)], preview: { select: { title: 'image.alt', media: 'image' }, prepare: ({ title, media }) => ({ title: title || '首屏轮播图', media }) } }], validation: (rule) => rule.required().length(3) }),
         defineField({ name: 'primaryCta', title: '主要按钮', type: 'homeCta', validation: (rule) => rule.required() }),
         defineField({ name: 'secondaryCta', title: '次要按钮', type: 'homeCta', validation: (rule) => rule.required() }),
       ],
@@ -60,14 +62,14 @@ export const homePage = defineType({
         defineField({ name: 'titleLines', title: '标题行', type: 'array', of: [{ type: 'string' }], validation: (rule) => rule.required().length(2) }),
         defineField({ name: 'body', title: '介绍文字', type: 'text', rows: 3, validation: (rule) => rule.required().max(320) }),
         cta('分类入口按钮'),
-        defineField({ name: 'categories', title: '四类产品', type: 'array', of: [{ type: 'object', name: 'homeCategory', title: '产品分类', fields: [stableSlug(), defineField({ name: 'category', title: '分类标识', type: 'string', options: { list: [{ title: '服装', value: 'clothing' }, { title: '帽饰', value: 'headwear' }, { title: '袜子', value: 'socks' }, { title: '布贴', value: 'patches' }] }, validation: (rule) => rule.required() }), defineField({ name: 'title', title: '名称', type: 'string', validation: (rule) => rule.required().max(60) }), defineField({ name: 'description', title: '说明', type: 'text', rows: 2, validation: (rule) => rule.required().max(200) }), image(), cta('分类按钮')] }], validation: (rule) => rule.required().length(4) }),
+        defineField({ name: 'categories', title: '四类产品', type: 'array', of: [{ type: 'object', name: 'homeCategory', title: '产品分类', fields: [stableSlug(), defineField({ name: 'category', title: '分类标识', type: 'string', options: { list: [{ title: '服装', value: 'clothing' }, { title: '帽饰', value: 'headwear' }, { title: '袜子', value: 'socks' }, { title: '布贴', value: 'patches' }] }, validation: (rule) => rule.required() }), defineField({ name: 'title', title: '名称', type: 'string', validation: (rule) => rule.required().max(60) }), defineField({ name: 'description', title: '说明', type: 'text', rows: 2, validation: (rule) => rule.required().max(200) }), image('图片', 'image', IMAGE_GUIDANCE.homeCategory), cta('分类按钮')] }], validation: (rule) => rule.required().length(4) }),
       ],
     }),
     defineField({
       name: 'process', title: '合作流程', type: 'object', group: 'process', fields: [
         defineField({ name: 'titleLines', title: '标题行', type: 'array', of: [{ type: 'string' }], validation: (rule) => rule.required().length(2) }),
         defineField({ name: 'body', title: '介绍文字', type: 'string', validation: (rule) => rule.required().max(240) }),
-        defineField({ name: 'steps', title: '三个步骤', type: 'array', of: [{ type: 'object', name: 'processStep', title: '流程步骤', fields: [stableSlug(), defineField({ name: 'title', title: '步骤名称', type: 'string', validation: (rule) => rule.required().max(80) }), defineField({ name: 'body', title: '步骤说明', type: 'text', rows: 2, validation: (rule) => rule.required().max(300) }), image()] }], validation: (rule) => rule.required().length(3) }),
+        defineField({ name: 'steps', title: '三个步骤', type: 'array', of: [{ type: 'object', name: 'processStep', title: '流程步骤', fields: [stableSlug(), defineField({ name: 'title', title: '步骤名称', type: 'string', validation: (rule) => rule.required().max(80) }), defineField({ name: 'body', title: '步骤说明', type: 'text', rows: 2, validation: (rule) => rule.required().max(300) }), image('图片', 'image', IMAGE_GUIDANCE.homeProcess)] }], validation: (rule) => rule.required().length(3) }),
         defineField({ name: 'primaryCta', title: '主要按钮', type: 'homeCta', validation: (rule) => rule.required() }),
         defineField({ name: 'secondaryCta', title: '次要按钮', type: 'homeCta', validation: (rule) => rule.required() }),
       ],
@@ -77,7 +79,7 @@ export const homePage = defineType({
         defineField({ name: 'eyebrow', title: '眉题', type: 'string', validation: (rule) => rule.required().max(80) }),
         defineField({ name: 'title', title: '标题', type: 'string', validation: (rule) => rule.required().max(120) }),
         defineField({ name: 'body', title: '介绍文字', type: 'text', rows: 3, validation: (rule) => rule.required().max(320) }),
-        defineField({ name: 'items', title: '两个合作入口', type: 'array', of: [{ type: 'object', name: 'startingPoint', title: '合作入口', fields: [stableSlug(), defineField({ name: 'title', title: '名称', type: 'string', validation: (rule) => rule.required().max(80) }), defineField({ name: 'body', title: '说明', type: 'text', rows: 3, validation: (rule) => rule.required().max(300) }), image(), cta('入口按钮')] }], validation: (rule) => rule.required().length(2) }),
+        defineField({ name: 'items', title: '两个合作入口', type: 'array', of: [{ type: 'object', name: 'startingPoint', title: '合作入口', fields: [stableSlug(), defineField({ name: 'title', title: '名称', type: 'string', validation: (rule) => rule.required().max(80) }), defineField({ name: 'body', title: '说明', type: 'text', rows: 3, validation: (rule) => rule.required().max(300) }), image('图片', 'image', IMAGE_GUIDANCE.homeStartingPoint), cta('入口按钮')] }], validation: (rule) => rule.required().length(2) }),
       ],
     }),
     defineField({
@@ -86,7 +88,7 @@ export const homePage = defineType({
         defineField({ name: 'body', title: '品牌介绍', type: 'text', rows: 3, validation: (rule) => rule.required().max(360) }),
         cta('品牌故事按钮'),
         defineField({ name: 'galleryFilters', title: '图库筛选按钮', type: 'array', of: [{ type: 'object', name: 'galleryFilter', title: '筛选按钮', fields: [stableSlug(), defineField({ name: 'category', title: '类别', type: 'string', options: { list: [{ title: '全部', value: 'all' }, { title: '服装', value: 'clothing' }, { title: '帽饰', value: 'headwear' }, { title: '袜子', value: 'socks' }, { title: '布贴', value: 'patches' }] }, validation: (rule) => rule.required() }), defineField({ name: 'label', title: '按钮文字', type: 'string', validation: (rule) => rule.required().max(60) })] }], validation: (rule) => rule.required().length(5) }),
-        defineField({ name: 'gallery', title: '产品图片长廊', type: 'array', of: [{ type: 'object', name: 'galleryItem', title: '图库图片', fields: [stableSlug(), defineField({ name: 'category', title: '分类标识', type: 'string', options: { list: ['clothing', 'headwear', 'socks', 'patches'] }, validation: (rule) => rule.required() }), defineField({ name: 'caption', title: '图片说明', type: 'string', validation: (rule) => rule.required().max(80) }), defineField({ name: 'href', title: '图片链接', type: 'string', validation: (rule) => rule.required().max(500).custom(validateSafeHref) }), defineField({ name: 'linkLabel', title: '无障碍链接文字', type: 'string', validation: (rule) => rule.required().max(120) }), image()] }], validation: (rule) => rule.required().min(1) }),
+        defineField({ name: 'gallery', title: '产品图片长廊', type: 'array', of: [{ type: 'object', name: 'galleryItem', title: '图库图片', fields: [stableSlug(), defineField({ name: 'category', title: '分类标识', type: 'string', options: { list: ['clothing', 'headwear', 'socks', 'patches'] }, validation: (rule) => rule.required() }), defineField({ name: 'caption', title: '图片说明', type: 'string', validation: (rule) => rule.required().max(80) }), defineField({ name: 'href', title: '图片链接', type: 'string', validation: (rule) => rule.required().max(500).custom(validateSafeHref) }), defineField({ name: 'linkLabel', title: '无障碍链接文字', type: 'string', validation: (rule) => rule.required().max(120) }), image('图片', 'image', IMAGE_GUIDANCE.homeGallery)] }], validation: (rule) => rule.required().min(1) }),
       ],
     }),
     defineField({
@@ -139,7 +141,7 @@ export const homePage = defineType({
         defineField({ name: 'description', title: '搜索摘要', type: 'text', rows: 3, validation: (rule) => rule.required().max(220) }),
         defineField({ name: 'ogTitle', title: '社交分享标题', type: 'string', validation: (rule) => rule.required().max(70) }),
         defineField({ name: 'ogDescription', title: '社交分享摘要', type: 'text', rows: 3, validation: (rule) => rule.required().max(220) }),
-        image('社交分享图片', 'ogImage'),
+        image('社交分享图片', 'ogImage', IMAGE_GUIDANCE.socialShare),
       ],
     }),
   ],

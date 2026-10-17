@@ -1,5 +1,15 @@
 # Handoff：Next.js + Sanity 全站迁移（进行中）
 
+## 最新补充与下一阶段边界（2026-10-17）
+
+- 用户要求继续当前成果，不重新审计、不重复已过的全站测试。当前阶段补齐图片尺寸/比例提示、中文预览页面切换，以及自动刷新原因检查与必要修复；直接相关的必要验证完成后汇报并等待确认。
+- T 恤在线定制器和可扩展 Sanity 商品配置全部记入 [docs/DEVELOPMENT-ROADMAP.md](docs/DEVELOPMENT-ROADMAP.md)，本阶段不得实现。Clothing 仍是多款式分类；未来仅改具体 T 恤商品详情弹窗，不替换分类或其他服装功能。
+- 当前全站代码已推送 `4832c1d8203652eab4047d97c49bb8d5e7c95540`；Preview `dpl_6JpnS7ju8QxV3CrdpM9CsEjJqZtV` 为 READY，GitHub CI `39005622795` 成功。稳定 alias 不变。已有登记页面和 175 个同源资源在云端检查通过，不重复运行全站审计。
+- 外部 Studio 已再次官方 deploy，返回 `action:update`、同一 appId、Schema 1/1；远端 `_.schemas.default` 已含 sitePage/siteSettings/productCategory 等新类型。真实已登录 Studio 已显示中文页面、产品、分类、款式和全站设置入口。
+- 关于页面标题已真实点击 Open in Studio，URL 含 `/studio/presentation/sitePage/sitePage-about/...textLines`，正确定位分行字段。真实 Studio 保存临时草稿，独立认证预览显示该草稿、匿名 HTTP 仍原文；真实发布后匿名 HTTP 显示测试标题。现已用 `_rev` + 固定键 + 预期测试文字 guard 仅恢复首行，业务内容与备份一致，只有 Sanity 原生发布新增 `_system.base` 元数据；无遗留草稿。备份 `output/fullsite-studio-ui-before.json`。后续不重复发布同一临时文字。
+- 云端未知路径仍返回平台默认 404，而原站为自定义错误页；正在完成最小兼容路由。不要把这个未完成项误报为通过，也不要因此重做其他页面。
+- 刷新只读调查已确认：目前全局 revision 包含全部 98 文档，其他页面的后台编辑也会令当前草稿页面刷新；无变更时 hash 相同不会触发。正在收窄为当前 pageKey + 共享导航/页脚/目录，并确保 SSR 初始 revision 与 API 轮询 scope 相同，保留真实相关变更的实时预览。
+
 ## 当前优先任务（2026-10-17 用户已确认）
 
 - 用户明确回复“按全站 Next.js + CMS 迁移继续”，范围扩展到全部现有页面、产品目录及中文 CMS。沿用实验分支和隔离项目，不改 main / Production，不覆盖已有 homePage。
@@ -9,7 +19,7 @@
 - 页面实施与目录实施由两名 Luna Max 分别负责不冲突路径；主代理负责 Studio、首页目录、全站 revision、整合和验收。初次导入必须默认 dry-run、备份并 createIfNotExists，不重跑首页 seed。
 - 目录已实际导入（2026-10-17）：59 个新文档 = 31 product + 5 productCategory + 23 catalogStyle，使用 createIfNotExists；41 个源图片按 sha1 复用或上传。真实 published 查询返回 31 上架商品、5 分类、23 款式，非 fallback。备份为 ignored `output/catalog-seed-backup-2026-10-17T03-37-29-813Z-ca12840b-eef7-471c-91c1-5ae522d4d01b.json`，导入结果记录于 `output/fullsite-import-catalog-result.json`。`homePage` 与 `output/fullsite-before.json` 完全一致，revision 仍 `Inok3TNKzt158wJXIkG13l`，无草稿。不得重新覆盖这些目录文档。
 - 页面已实际导入：37 sitePage + 1 siteSettings，先用官方 documents validate --file 预检，再 createIfNotExists；备份 output/site-pages-seed-backup-2026-10-17T03-54-03-935Z-248f95dd-b584-4152-b866-82b7d9fb6289.json。查询总 98 内容文档，无 draft，homePage 完整 JSON 与 revision 保持原样。真实全部文档官方 validate 已通过零错误。修复 optional CSS/href 与条件标题行数验证，避免隐藏字段阻塞发布。
-- 当前新增代码尚未部署；最新 Preview 仍为上轮首页版本。37 页 SSR/结构/图片/绑定回归、目录 15 项、业务 34 项、契约测试已过；最终构建/HTTP/真实浏览器验收仍需完成。首次 build 在预生成阶段失败；404 公共数据读取的 no-store 动态渲染控制流被应用 catch 包装，已用 connection() 在 CMS 读取前明确请求边界。global-not-found 用于嵌套未知路径；Next 多根动态布局的单段 notFound 无 SSR 内容，现通过范围精确的 proxy.ts 将未知单段 GET/HEAD 同源 rewrite 到现有 /404.html 并保留404状态/浏览器URL；所有已登记页面、API、Studio、资源及非页面方法放行。两类未知路径均已实际HTTP验证返回404和原404标题。最终build通过，fullsite:test 11、cms:test31、catalog15、business34通过，最终本地全站HTTP复验中。主代理补了通用 Sanity history adapter，以同源整页导航替代 Next router 的预览局部切页；已加 jsdom@29.1.1 dev dependency 用于交互测试。
+- 全站代码已部署至上方 4832c1d Preview；此前全站构建、96 项回归、登记页面与 175 个资源检查通过。当前只验收追加的图片提示、页面切换、revision scope 与未知路径兼容修复，不重复全站审计。下方首页阶段记录仅为历史证据。
 - 其后正文保留首页阶段证据和限制；“仅首页 CMS / 其余静态”描述的是本次全站迁移开始前状态。
 
 更新时间：2026-10-17。继续工作前先读本文件、[README.md](README.md)、[docs/NEXTJS-SANITY-MIGRATION.md](docs/NEXTJS-SANITY-MIGRATION.md) 和面向内容编辑者的 [docs/CONTENT-EDITOR-GUIDE.md](docs/CONTENT-EDITOR-GUIDE.md)。后两份记录验收证据与日常操作；不要重复已完成的真实 CMS 验证。

@@ -1,5 +1,5 @@
-import { getLegacyNotFoundData, renderLegacyNotFoundBody } from "../LegacyNotFound";
+import { renderLegacyPageBody } from "../../../src/fullsite/templateRenderer";
 
-export default async function LegacyNotFound() {
-  return renderLegacyNotFoundBody(await getLegacyNotFoundData());
+export default function LegacyNotFound() {
+  return renderLegacyPageBody("404", null, null, false);
 }

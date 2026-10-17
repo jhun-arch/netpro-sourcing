@@ -1,6 +1,6 @@
 import { draftMode } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getContentRevision } from '@/src/cms/revision';
+import { getContentRevision, isRevisionPageKey } from '@/src/cms/revision';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -14,7 +14,8 @@ function responseHeaders(): HeadersInit {
 }
 
 export async function GET(request: Request) {
-  const requestOrigin = new URL(request.url).origin;
+  const url = new URL(request.url);
+  const requestOrigin = url.origin;
   const origin = request.headers.get('origin');
   const fetchSite = request.headers.get('sec-fetch-site');
   if ((origin && origin !== requestOrigin) || fetchSite === 'cross-site') {
@@ -25,8 +26,13 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Draft mode is required.' }, { status: 401, headers: responseHeaders() });
   }
 
+  const pageKey = url.searchParams.get('pageKey');
+  if (!isRevisionPageKey(pageKey)) {
+    return NextResponse.json({ error: 'A registered preview page key is required.' }, { status: 400, headers: responseHeaders() });
+  }
+
   try {
-    const revision = await getContentRevision(true);
+    const revision = await getContentRevision(true, pageKey);
     return NextResponse.json({ rev: revision }, { headers: responseHeaders() });
   } catch {
     return NextResponse.json({ error: 'Content revisions are unavailable.' }, { status: 503, headers: responseHeaders() });

@@ -13,6 +13,7 @@ import { LEGACY_TEMPLATES } from '../src/fullsite/legacyTemplates.generated';
 import { PAGE_BINDINGS, type GeneratedPageBinding } from '../src/fullsite/pageBindings.generated';
 import { SITE_PAGE_MANIFEST } from '../src/fullsite/pageManifest';
 import type { SanityImage } from '../src/cms/types';
+import type { CatalogData } from '../src/catalog/types';
 import type { SitePageDocument, SiteSettingsDocument } from '../src/fullsite/types';
 
 const runtimeRequire = createRequire(path.join(process.cwd(), 'tests', 'fullsite-render.test.ts'));
@@ -20,14 +21,14 @@ const { JSDOM } = runtimeRequire('jsdom') as { JSDOM: new (...args: any[]) => an
 
 type RendererModule = typeof import('../src/fullsite/templateRenderer');
 type ContentModule = typeof import('../src/fullsite/content');
-type LegacyNotFoundModule = typeof import('../app/(legacy)/LegacyNotFound');
+type NotFoundRouteModule = typeof import('../app/api/not-found-page/document');
 let getLegacyPageShell: RendererModule['getLegacyPageShell'];
 let getLegacyScripts: RendererModule['getLegacyScripts'];
 let renderLegacyPageBody: RendererModule['renderLegacyPageBody'];
 let requiresCatalogBootstrap: RendererModule['requiresCatalogBootstrap'];
 let getSitePageMetadata: ContentModule['getSitePageMetadata'];
 let applySiteHeaderSettings: typeof import('../src/fullsite/shared')['applySiteHeaderSettings'];
-let renderGlobalLegacyNotFoundDocument: LegacyNotFoundModule['renderGlobalLegacyNotFoundDocument'];
+let createNotFoundPageResponse: NotFoundRouteModule['createNotFoundPageResponse'];
 
 // The renderer is a server-only module. Replace only that marker during this
 // isolated Node SSR test so React DOM server uses its regular (non-RSC) build.
@@ -43,18 +44,17 @@ registerHooks({
 });
 
 before(async () => {
-  const [renderer, content, shared, legacyNotFound] = await Promise.all([
+  const [renderer, content, shared, notFoundRoute] = await Promise.all([
     import('../src/fullsite/templateRenderer'),
     import('../src/fullsite/content'),
     import('../src/fullsite/shared'),
-    import('../app/(legacy)/LegacyNotFound'),
+    import('../app/api/not-found-page/document'),
   ]);
   ({ getLegacyPageShell, getLegacyScripts, renderLegacyPageBody, requiresCatalogBootstrap } = renderer);
   ({ getSitePageMetadata } = content);
   ({ applySiteHeaderSettings } = shared);
-  ({ renderGlobalLegacyNotFoundDocument } = legacyNotFound);
+  ({ createNotFoundPageResponse } = notFoundRoute);
 });
-
 after(() => rmSync(markerDirectory, { recursive: true, force: true }));
 
 const ORIGINAL_PAGES = buildSitePageDocuments();
@@ -86,6 +86,11 @@ function parseFragment(markup: string) {
   return load(markup, { scriptingEnabled: true }, false);
 }
 
+function rootReference(value: string | undefined): string | undefined {
+  if (value === undefined || !value.trim() || /^(?:\/|#|\/\/|[a-z][a-z0-9+.-]*:)/i.test(value.trim())) return value;
+  const url = new URL(value, 'https://netpro.example.test/');
+  return url.pathname + url.search + url.hash;
+}
 function normalizedStyle(value: string): string {
   return value.split(';').map((entry) => entry.trim()).filter(Boolean).map((entry) => {
     const separator = entry.indexOf(':');
@@ -200,25 +205,64 @@ test('all 37 full-site pages preserve source DOM, body identity, head styles, an
   }
 });
 
-test('global 404 renders the published 404 template as a complete SSR document', () => {
+test('404 Route Handler returns the complete legacy document with noindex and original resources', async () => {
   const page = pageFixture('404');
-  const markup = renderToStaticMarkup(renderGlobalLegacyNotFoundDocument({ page, settings: null, catalogData: null }));
-  const $ = load(markup);
+  const settings = buildSettingsFixture();
   const shell = getLegacyPageShell('404');
+  const metadata = await getSitePageMetadata(page, '/404.html', shell.metadata);
+  const catalogData: CatalogData = { products: [], categories: [], styles: [], revision: '</script><img src=x>' };
+  const response = createNotFoundPageResponse({ page, settings, catalogData, metadata });
+  assert.equal(response.status, 404);
+  assert.equal(response.headers.get('content-type'), 'text/html; charset=utf-8');
+  assert.match(response.headers.get('cache-control') || '', /no-store/);
+  assert.equal(response.headers.get('x-robots-tag'), 'noindex, nofollow, noarchive');
+
+  const markup = await response.text();
+  const $ = load(markup);
   const sourceHead = parseFragment(shell.headHtml);
   assert.equal($('html').attr('lang'), shell.htmlLang);
   assert.equal($('body').attr('class'), shell.bodyClass);
   assert.ok($('body h1').first().text().trim(), '404 should render visible legacy page content');
-  assert.ok($('body').text().includes($('body h1').first().text().trim()));
+  assert.equal($('head link[rel~="canonical"]').length, 1, 'the original canonical path is emitted once');
+  assert.equal(new URL($('head link[rel~="canonical"]').attr('href')!, 'https://netpro.example.test').pathname, shell.metadata.canonicalPath ?? '/404.html');
+  assert.equal($('head meta[name="robots"]').attr('content'), 'noindex, nofollow, noarchive');
+  assert.equal($('head meta[name^="twitter:"]').length > 0, true);
+  assert.equal($('head meta[property^="og:"]').length > 0, true);
+  assert.equal($('[data-sanity]').length, 0, 'public 404 HTML must not contain Visual Editing bindings');
+  assert.equal(markup.includes('<img src=x>'), false, 'catalog JSON must escape script-closing content');
+
   const expectedStyles = sourceHead('link[rel]').toArray()
     .filter((element) => (sourceHead(element).attr('rel') || '').toLowerCase().split(/\s+/).includes('stylesheet'))
-    .map((element) => sourceHead(element).attr('href'));
+    .map((element) => rootReference(sourceHead(element).attr('href')));
   const actualStyles = $('head link[rel]').toArray()
     .filter((element) => ($(element).attr('rel') || '').toLowerCase().split(/\s+/).includes('stylesheet'))
     .map((element) => $(element).attr('href'));
-  assert.deepEqual(actualStyles, expectedStyles, 'global 404 should retain the legacy stylesheet order');
-});
+  assert.deepEqual(actualStyles, expectedStyles, '404 should retain the original stylesheet order');
 
+  const expectedScripts = getLegacyScripts('404', { catalogBootstrap: true }).map((script) => rootReference(script.src));
+  const actualScripts = $('body script[src]').toArray().map((script) => $(script).attr('src'));
+  assert.deepEqual(actualScripts, expectedScripts, 'legacy scripts keep the source order while old product loaders are omitted');
+  const references = $('head [href], body [href], body [src], body [poster]').toArray()
+    .flatMap((element) => ['href', 'src', 'poster'].map((attribute) => $(element).attr(attribute)).filter((value): value is string => value !== undefined));
+  for (const reference of references) {
+    assert.ok(rootReference(reference) === reference, 'local references should already be rooted for nested URLs: ' + reference);
+    if (/^(?:#|\/\/|[a-z][a-z0-9+.-]*:)/i.test(reference.trim())) continue;
+    assert.equal(new URL(reference, 'https://netpro.example.test/nested/missing/page').pathname.startsWith('/nested/'), false, 'nested 404 URLs must not capture local assets or site links');
+  }
+  const cssTexts = $('body [style]').toArray().map((element) => $(element).attr('style') || '')
+    .concat($('style').toArray().map((element) => $(element).text()));
+  for (const css of cssTexts) {
+    for (const match of css.matchAll(/url\(\s*(?:(["'])(.*?)\1|([^)]*?))\s*\)/gi)) {
+      const reference = (match[2] ?? match[3] ?? '').trim();
+      assert.ok(rootReference(reference) === reference, 'inline CSS URLs should be root-relative for nested URLs: ' + reference);
+    }
+  }
+  assert.ok(markup.indexOf('id="netpro-catalog-bootstrap"') < markup.indexOf('src="' + expectedScripts[0] + '"'));
+
+  const headResponse = createNotFoundPageResponse({ page, settings, catalogData, metadata }, false);
+  assert.equal(headResponse.status, 404);
+  assert.equal(await headResponse.text(), '', 'HEAD responses contain no response body');
+});
 test('shared About navigation label reaches desktop and mobile controls with one edit path', () => {
   const settings = buildSettingsFixture();
   const slot = settings.navigation?.slots.find((item) => item.bindingId === 'header-about');

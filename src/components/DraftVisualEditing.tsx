@@ -3,6 +3,7 @@
 import { VisualEditing } from '@sanity/visual-editing/react';
 import type { VisualEditingOptions } from '@sanity/visual-editing';
 import { createFullDocumentHistory } from './fullDocumentHistory';
+import PreviewPageSwitcher from './PreviewPageSwitcher';
 import {
   buildPreviewNavigationUrl,
   PREVIEW_SCROLL_STORAGE_KEY,
@@ -69,6 +70,7 @@ export default function DraftVisualEditing() {
   return (
     <>
       <style data-draft-visual-editing-hit-styles>{DRAFT_VISUAL_EDITING_HIT_STYLES}</style>
+      <PreviewPageSwitcher />
       <VisualEditing portal history={fullDocumentHistory} refresh={handleRefresh} />
     </>
   );

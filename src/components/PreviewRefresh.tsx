@@ -27,11 +27,13 @@ type PollCallbacks = {
 
 export async function pollPreviewRevision(
   revision: string,
+  pageKey: string,
   fetchRevision: typeof fetch,
   callbacks: PollCallbacks,
 ): Promise<void> {
   try {
-    const response = await fetchRevision('/api/draft-mode/revision', {
+    const endpoint = `/api/draft-mode/revision?pageKey=${encodeURIComponent(pageKey)}`;
+    const response = await fetchRevision(endpoint, {
       method: 'GET',
       cache: 'no-store',
       credentials: 'same-origin',
@@ -66,7 +68,7 @@ export async function pollPreviewRevision(
   }
 }
 
-export default function PreviewRefresh({ revision }: { revision: string }) {
+export default function PreviewRefresh({ revision, pageKey }: { revision: string; pageKey: string }) {
   const [status, setStatus] = useState<RefreshStatus>('pending');
   const [lastRevision, setLastRevision] = useState(revision);
   const [refreshTargetUrl, setRefreshTargetUrl] = useState<string | null>(null);
@@ -96,7 +98,7 @@ export default function PreviewRefresh({ revision }: { revision: string }) {
       pollInFlight = true;
 
       try {
-        await pollPreviewRevision(revision, fetch, {
+        await pollPreviewRevision(revision, pageKey, fetch, {
           onStatus: (nextStatus) => {
             if (!disposed) setStatus(nextStatus);
           },
@@ -141,7 +143,7 @@ export default function PreviewRefresh({ revision }: { revision: string }) {
       disposed = true;
       window.clearInterval(timer);
     };
-  }, [revision]);
+  }, [pageKey, revision]);
 
   return (
     <>

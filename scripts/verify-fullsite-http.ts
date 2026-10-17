@@ -118,6 +118,7 @@ function validateLocalContract(): { contentPageCount: number; templateCount: num
     throw new Error('Homepage CSS imports no longer preserve the legacy stylesheet order.');
   }
   assertHomepageStylesheetFontOrderFixture();
+  assertCustomNotFoundContractFixture();
   return { contentPageCount: SITE_PAGE_MANIFEST.length, templateCount: Object.keys(LEGACY_TEMPLATES).length, homeStylesheetCount: homeCssPaths.length };
 }
 
@@ -224,6 +225,173 @@ function isVercelLoginHtml(html: string, $: ReturnType<typeof load>): boolean {
 
 function addFailure(failures: Failure[], scope: string, path: string, check: string, message: string): void {
   failures.push({ scope, path, check, message });
+}
+
+type UnknownUrlChecks = {
+  status404: boolean;
+  html: boolean;
+  notVercelLogin: boolean;
+  h1: boolean;
+  bodyClass: boolean;
+  noindexRobots: boolean;
+  stylesFontsOrder: boolean;
+  visibleContent: boolean;
+  keyReturnLinks: boolean;
+};
+
+function normalizedText(value: string): string {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function isHiddenInMarkup($: ReturnType<typeof load>, element: unknown): boolean {
+  const node = $(element as Parameters<ReturnType<typeof load>>[0]);
+  return node.closest('[hidden], [aria-hidden="true"]').length > 0
+    || /(?:display\s*:\s*none|visibility\s*:\s*hidden)/i.test(node.attr('style') || '');
+}
+
+function checkUnknownUrlResponse(input: {
+  result: PageResult;
+  origin: string;
+  failures: Failure[];
+}): { report: Record<string, unknown>; assetUrls: Array<{ url: URL; kind: ResourceKind }> } {
+  const { result, origin, failures } = input;
+  const path = result.path;
+  const url = new URL(path, origin);
+  const checks: UnknownUrlChecks = {
+    status404: result.status === 404,
+    html: Boolean(result.html && /(?:text\/html|application\/xhtml\+xml)/i.test(result.contentType || '')),
+    notVercelLogin: false,
+    h1: false,
+    bodyClass: false,
+    noindexRobots: false,
+    stylesFontsOrder: false,
+    visibleContent: false,
+    keyReturnLinks: false,
+  };
+  const assetUrls: Array<{ url: URL; kind: ResourceKind }> = [];
+
+  if (!checks.status404) addFailure(failures, 'notFound', path, 'status', `Expected 404; received ${result.status ?? result.error ?? 'no response'}.`);
+  if (!checks.html) {
+    addFailure(failures, 'notFound', path, 'html', `Expected an HTML 404 response; received ${result.contentType || 'no HTML content type'}.`);
+  } else {
+    const html = result.html!;
+    const $ = load(html);
+    const expected = load(LEGACY_TEMPLATES['404']);
+    const main = $('main').first();
+    const expectedMain = expected('main').first();
+    checks.notVercelLogin = !isVercelLoginHtml(html, $);
+    if (!checks.notVercelLogin) addFailure(failures, 'notFound', path, 'notLogin', 'Unknown URL returned a Vercel authentication page.');
+
+    const expectedH1Count = expectedMain.find('h1').length;
+    const h1Values = main.find('h1').toArray()
+      .filter((element) => !isHiddenInMarkup($, element))
+      .map((element) => normalizedText($(element).text()));
+    checks.h1 = expectedH1Count > 0 && h1Values.length === expectedH1Count && h1Values.every(Boolean);
+    if (!checks.h1) addFailure(failures, 'notFound', path, 'h1', 'Expected the legacy not-found main content to render its non-empty H1.');
+
+    const bodyClass = $('body').attr('class') || '';
+    checks.bodyClass = bodyClass === expectedBodyClass('404');
+    if (!checks.bodyClass) addFailure(failures, 'notFound', path, 'bodyClass', 'Body class did not match the registered 404 template.');
+
+    const robots = $('head meta[name]').toArray()
+      .filter((element) => ($(element).attr('name') || '').toLowerCase() === 'robots');
+    checks.noindexRobots = robots.length === 1 && /\bnoindex\b/i.test($(robots[0]).attr('content') || '');
+    if (!checks.noindexRobots) addFailure(failures, 'notFound', path, 'robots', `Expected one noindex robots meta; found ${robots.length}.`);
+
+    const actualHead = orderedHeadReferences(html, url);
+    // Legacy 404 assets are root-relative in the handler so nested unknown URLs keep loading them.
+    const templateRoot = new URL('/', url.origin);
+    const expectedHead = expectedHeadReferences(LEGACY_TEMPLATES['404'], templateRoot);
+    checks.stylesFontsOrder = expectedHead.length > 0 && hasOrderedSubsequence(actualHead, expectedHead);
+    if (!checks.stylesFontsOrder) addFailure(failures, 'notFound', path, 'cssFontOrder', 'Rendered 404 stylesheet/font links did not preserve the original template order.');
+
+    const expectedParagraphCount = expectedMain.find('p').toArray()
+      .filter((element) => normalizedText(expected(element).text())).length;
+    const actualParagraphCount = main.find('p').toArray()
+      .filter((element) => normalizedText($(element).text()) && !isHiddenInMarkup($, element)).length;
+    const mainText = normalizedText(main.text());
+    checks.visibleContent = expectedMain.length > 0
+      && !isHiddenInMarkup($, main.get(0))
+      && mainText.length > 0
+      && expectedParagraphCount > 0
+      && actualParagraphCount >= expectedParagraphCount;
+    if (!checks.visibleContent) addFailure(failures, 'notFound', path, 'visibleContent', 'Legacy 404 main content or its visible descriptive text was missing.');
+
+    const expectedBase = pageBase(expected, url);
+    const actualBase = pageBase($, url);
+    const expectedReturnLinks = expectedMain.find('a[href]').toArray().map((element) => ({
+      href: referenceSignature(expected(element).attr('href') || '', expectedBase),
+    }));
+    const actualReturnLinks = main.find('a[href]').toArray().filter((element) =>
+      normalizedText($(element).text()) && !isHiddenInMarkup($, element)).map((element) =>
+      referenceSignature($(element).attr('href') || '', actualBase));
+    checks.keyReturnLinks = expectedReturnLinks.length > 0
+      && expectedReturnLinks.every((href) => actualReturnLinks.includes(href.href));
+    if (!checks.keyReturnLinks) addFailure(failures, 'notFound', path, 'keyReturnLinks', 'Legacy 404 product/contact return links were missing or changed.');
+
+    assetUrls.push(...collectAssetUrls($, url));
+  }
+
+  return {
+    report: { path, status: result.status, contentType: result.contentType, checks, resourceCount: assetUrls.length },
+    assetUrls,
+  };
+}
+
+function rootRelativeTemplateHead(html: string, origin: string): string {
+  const $ = load(html);
+  $('head link[rel][href]').each((_index, element) => {
+    const node = $(element);
+    const href = node.attr('href') || '';
+    try {
+      const resolved = new URL(href, `${origin}/`);
+      if (resolved.origin === origin && !href.startsWith('/')) {
+        node.attr('href', `${resolved.pathname}${resolved.search}${resolved.hash}`);
+      }
+    } catch {
+      // Keep malformed template references intact so the contract check can reject them.
+    }
+  });
+  return $.html();
+}
+
+function assertCustomNotFoundContractFixture(): void {
+  const origin = 'http://localhost:3000';
+  const nestedRootRelativeHtml = rootRelativeTemplateHead(LEGACY_TEMPLATES['404'], origin);
+  const validFailures: Failure[] = [];
+  const valid = checkUnknownUrlResponse({
+    result: { path: '/nested/path/unknown-fixture', status: 404, contentType: 'text/html; charset=utf-8', html: nestedRootRelativeHtml },
+    origin,
+    failures: validFailures,
+  });
+  if (Object.values(valid.report.checks as UnknownUrlChecks).some((passed) => !passed) || validFailures.length) {
+    throw new Error('The root-relative legacy 404 template failed its nested-path contract fixture.');
+  }
+
+  const misorderedHtml = load(nestedRootRelativeHtml);
+  const stylesheet = misorderedHtml('head link[rel][href]').toArray()
+    .find((element) => relTokens(misorderedHtml(element).attr('rel')).includes('stylesheet'));
+  if (stylesheet) misorderedHtml(stylesheet).remove();
+  const orderFailures: Failure[] = [];
+  const missingStylesheet = checkUnknownUrlResponse({
+    result: { path: '/nested/path/unknown-fixture', status: 404, contentType: 'text/html; charset=utf-8', html: misorderedHtml.html() },
+    origin,
+    failures: orderFailures,
+  });
+  if ((missingStylesheet.report.checks as UnknownUrlChecks).stylesFontsOrder
+    || !orderFailures.some((failure) => failure.check === 'cssFontOrder')) {
+    throw new Error('The nested 404 font/style contract accepted a missing root-relative stylesheet.');
+  }
+
+  const platformFailures: Failure[] = [];
+  const platformDefault = checkUnknownUrlResponse({
+    result: { path: '/unknown-fixture', status: 404, contentType: 'text/html', html: '<html><head><meta name="robots" content="noindex"></head><body><h1>404: NOT_FOUND</h1><main>Not found</main></body></html>' },
+    origin,
+    failures: platformFailures,
+  });
+  if (Object.values(platformDefault.report.checks as UnknownUrlChecks).every(Boolean)) {
+    throw new Error('The local not-found contract fixture accepted a generic platform 404.');
+  }
 }
 
 function checkHtmlPage(input: {
@@ -545,22 +713,18 @@ async function runSmoke(origin: string): Promise<Record<string, unknown>> {
   redirectReports.push(await checkRedirect(origin, '/index.html', '/', failures));
   redirectReports.push(await checkRedirect(origin, CHECKOUT_REDIRECT_ROUTE.route, CHECKOUT_REDIRECT_ROUTE.destination, failures));
 
-  const unknownPath = '/__fullsite-http-smoke-unknown-route__';
-  const unknown = await fetchPage(origin, unknownPath);
-  if (unknown.status !== 404) addFailure(failures, 'notFound', unknownPath, 'status', `Expected 404; received ${unknown.status ?? unknown.error ?? 'no response'}.`);
-  let unknownReport: Record<string, unknown> = { path: unknownPath, status: unknown.status, nextSsrMarker: false };
-  if (unknown.html) {
-    const $ = load(unknown.html);
-    if (isVercelLoginHtml(unknown.html, $)) addFailure(failures, 'notFound', unknownPath, 'notLogin', 'Unknown URL returned a Vercel authentication page.');
-    const h1 = $('h1').toArray().some((element) => $(element).text().trim());
-    if (!h1) addFailure(failures, 'notFound', unknownPath, 'h1', 'The custom not-found HTML did not render a non-empty H1.');
-    const nextSsrMarker = /self\.__next_f\.push\s*\(/.test(unknown.html);
-    if (!nextSsrMarker) addFailure(failures, 'notFound', unknownPath, 'nextSsr', 'Next.js App Router Flight SSR marker was not found on the 404 page.');
-    collectAssetUrls($, new URL(unknownPath, origin)).forEach((candidate) => addResource(resources, candidate, unknownPath));
-    unknownReport = { path: unknownPath, status: unknown.status, h1, nextSsrMarker };
-  } else {
-    addFailure(failures, 'notFound', unknownPath, 'html', 'Unknown URL did not return an HTML body.');
-  }
+  const unknownPaths = [
+    '/__fullsite-http-smoke-unknown-route__',
+    '/__fullsite-http-smoke-unknown-route__/nested/path',
+  ];
+  const unknownResponses = await mapWithConcurrency(unknownPaths, MAX_CONCURRENCY, async (path) => fetchPage(origin, path));
+  const unknownReports = unknownResponses.map((result) => {
+    const checked = checkUnknownUrlResponse({ result, origin, failures });
+    checked.assetUrls.forEach((candidate) => addResource(resources, candidate, result.path));
+    return checked.report;
+  });
+  const allUnknownUrls404 = unknownResponses.length === unknownPaths.length
+    && unknownResponses.every((result) => result.status === 404);
 
   if (resources.size > MAX_RESOURCES) addFailure(failures, 'assets', '/', 'resourceLimit', `Found ${resources.size} unique same-origin resources; limit is ${MAX_RESOURCES}.`);
   const fetchedResources = new Map<string, { result: ResourceResult; cssText?: string }>();
@@ -610,19 +774,22 @@ async function runSmoke(origin: string): Promise<Record<string, unknown>> {
       homepage: 1,
       aliases: 2,
       redirects: 2,
-      unknownUrl404: unknown.status === 404,
+      unknownUrl404: allUnknownUrls404,
+      unknownUrls: unknownReports.length,
       uniqueSameOriginResources: resources.size,
       failures: failures.length,
     },
     pages: pageReports,
     redirects: redirectReports,
-    unknownUrl: unknownReport,
+    unknownUrl: unknownReports[0],
+    unknownUrls: unknownReports,
     resources: resourceReports,
     failures,
     limitations: [
       'This is an anonymous HTTP response and resource check; it does not execute browser JavaScript or validate visual layout/interactions.',
       'External links, external fonts/images, forms, and mail/API POSTs are not requested; no CMS reads or writes are performed by this script.',
       'Homepage styles are bundled by Next.js; runtime accepts one or more CSS bundles before Google Fonts hints, while source stylesheet imports are compared with the legacy order separately.',
+      'The homepage and 37 registered content pages require the Next.js App Router Flight marker. Unknown paths use the custom 404 handler and are checked against the registered legacy 404 contract instead.',
       'CMS-authenticated preview behavior and any Vercel login requirement are outside this anonymous smoke check.',
     ],
   };

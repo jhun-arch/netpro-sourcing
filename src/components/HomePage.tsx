@@ -31,7 +31,7 @@ export default async function HomePage() {
     const [data, catalog, revision, settings] = await Promise.all([
       getHomePageData(preview),
       getCatalogData(preview),
-      preview ? getContentRevision(true) : Promise.resolve(''),
+      preview ? getContentRevision(true, 'home') : Promise.resolve(''),
       getSiteSettingsData(preview),
     ]);
     return (
@@ -40,7 +40,7 @@ export default async function HomePage() {
         {renderHome(data, applySiteHeaderSettings(LEGACY_HOME_BODY_HTML, settings, preview))}
         {preview ? (
           <>
-            <PreviewRefresh revision={revision} />
+            <PreviewRefresh revision={revision} pageKey="home" />
             <DraftVisualEditing />
           </>
         ) : null}
