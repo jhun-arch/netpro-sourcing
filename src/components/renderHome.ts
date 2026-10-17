@@ -8,6 +8,7 @@ import type { Element as DomElement, AnyNode } from 'domhandler';
 import { createElement, Fragment, type CSSProperties, type ReactNode } from 'react';
 import { hotspotPosition, imageUrl } from '../cms/images';
 import type { HomeCta, HomePageSelection, HomeCategory, SanityImage } from '../cms/types';
+import { SANITY_STUDIO_BASE_PATH } from '../sanity/urls';
 import { LEGACY_HOME_BODY_HTML } from './legacyHomeTemplate';
 
 const DATA_ATTRIBUTE_CONFIG = {
@@ -15,6 +16,7 @@ const DATA_ATTRIBUTE_CONFIG = {
   dataset: 'production',
   id: 'homePage',
   type: 'homePage',
+  baseUrl: SANITY_STUDIO_BASE_PATH,
 } as const;
 
 const BOOLEAN_ATTRIBUTES = new Set([

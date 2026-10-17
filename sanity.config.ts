@@ -4,6 +4,12 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { NotMigratedNotice } from './src/sanity/NotMigratedNotice';
 import { schemaTypes } from './src/sanity/schemaTypes';
+import {
+  DRAFT_MODE_DISABLE_PATH,
+  DRAFT_MODE_ENABLE_PATH,
+  PRESENTATION_PREVIEW_PATH,
+  SANITY_STUDIO_BASE_PATH,
+} from './src/sanity/urls';
 
 const projectId = '5mntophk';
 const dataset = 'production';
@@ -13,7 +19,7 @@ export default defineConfig({
   title: 'Netpro 内容管理实验',
   projectId,
   dataset,
-  basePath: '/studio',
+  basePath: SANITY_STUDIO_BASE_PATH,
   releases: { enabled: false },
   scheduledDrafts: { enabled: false },
   plugins: [
@@ -38,10 +44,10 @@ export default defineConfig({
     presentationTool({
       title: '可视化编辑',
       previewUrl: {
-        initial: '/',
+        initial: PRESENTATION_PREVIEW_PATH,
         previewMode: {
-          enable: '/api/draft-mode/enable',
-          disable: '/api/draft-mode/disable',
+          enable: DRAFT_MODE_ENABLE_PATH,
+          disable: DRAFT_MODE_DISABLE_PATH,
         },
       },
       allowOrigins: ({ initialUrl }) => [initialUrl.origin],
