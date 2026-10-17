@@ -358,14 +358,18 @@ function bindCollection($: CheerioAPI, data: HomePageSelection): void {
 
     const photoClass = category === 'patches' ? 'patch-photo' : `${category}-photo`;
     const photo = row.find('.category-photo');
+    const imagePath: PathSegment[] = ['collection', 'categories', { _key: item._key }, 'image'];
     photo.attr('class', `category-photo ${photoClass}`);
     photo.attr('role', 'img');
     photo.attr('aria-label', item.image.alt?.trim() || item.title);
-    bindBackgroundImage(photo as ElementSelection, item.image, ['collection', 'categories', { _key: item._key }, 'image']);
+    bindBackgroundImage(photo as ElementSelection, item.image, imagePath);
 
     const imageLink = row.find('.category-image-link');
-    setHref(imageLink as ElementSelection, item.cta.href, ['collection', 'categories', { _key: item._key }, 'cta', 'href']);
+    // The full-card link sits above the image in the visual stack. Keep its destination,
+    // but let Presentation edit the image field reached by clicking that hit surface.
+    imageLink.attr('href', safeHref(item.cta.href));
     imageLink.attr('aria-label', item.cta.label);
+    setDataPath(imageLink as ElementSelection, imagePath);
 
     const toggle = row.find('.category-toggle');
     const toggleId = `category-${token}`;

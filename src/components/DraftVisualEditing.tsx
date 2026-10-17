@@ -9,6 +9,27 @@ import {
 
 type RefreshHandler = NonNullable<VisualEditingProps['refresh']>;
 
+const DRAFT_VISUAL_EDITING_HIT_STYLES = `
+  .home-page .hero-wash,
+  .home-page .hero-copy {
+    pointer-events: none;
+  }
+
+  .home-page .hero-copy h1,
+  .home-page .hero-copy p,
+  .home-page .hero-copy a {
+    pointer-events: auto;
+  }
+
+  .home-page .hero-slides .hero-photo:not(.is-active) {
+    pointer-events: none;
+  }
+
+  .home-page .hero-slides .hero-photo.is-active {
+    pointer-events: auto;
+  }
+`;
+
 const handleRefresh: RefreshHandler = (payload) => {
   if (payload.source === 'mutation') return false;
 
@@ -38,5 +59,10 @@ const handleRefresh: RefreshHandler = (payload) => {
 };
 
 export default function DraftVisualEditing() {
-  return <VisualEditing refresh={handleRefresh} />;
+  return (
+    <>
+      <style data-draft-visual-editing-hit-styles>{DRAFT_VISUAL_EDITING_HIT_STYLES}</style>
+      <VisualEditing refresh={handleRefresh} />
+    </>
+  );
 }

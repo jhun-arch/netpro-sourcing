@@ -51,6 +51,7 @@
 ## Preview 与长期维护
 
 - Embedded Studio 的路由固定为 `/studio`；`sanity.config.ts` 的 `basePath` 与 renderer 的 `createDataAttribute.baseUrl` 必须共用 `src/sanity/urls.ts` 中的 `SANITY_STUDIO_BASE_PATH`。Presentation `initial` 使用同源相对路径 `/`，让 localhost、Preview 和其他实验分支部署沿用当前 origin；不要硬编码某个 Preview host。
+- 图片编辑绑定须覆盖实际点击面：分类透明图片链接保留原 href，但编辑路径指向图片，可见 CTA 继续编辑链接。Banner 的点击穿透样式只由草稿模式下的 DraftVisualEditing 提供，保持仅活动轮播图可命中，并保留文字与按钮交互；不得把这些预览样式加入公开页面。
 - Sanity 外部 Studio 已注册，`sanity.cli.ts` 的 `deployment.appId` 固定为 `lms1plunpquzbvyrpkqshkyb`，避免创建重复 Studio。变更前先核实 Manage Studios 中的现有注册，不要由代码或 CLI 重复创建。
 - 普通访客只读 published 内容；草稿仅通过认证的 Sanity preview 握手读取。
 - Preview 必须可撤销；退出时清理 draft mode 和临时状态。

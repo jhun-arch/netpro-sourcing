@@ -181,3 +181,26 @@ test('hero title, body, and images produce same-origin Studio edit intents under
     assertOpenInStudioPath(image, `hero.slides[_key=="${slide._key}"].image`);
   });
 });
+
+test('category image hit surfaces edit the image while preserving navigation and CTA bindings', () => {
+  const tree = renderHome(publishedHome);
+  const categories = descendants(elementByClass(tree, 'accordion')).filter((element) => hasClass(element, 'category'));
+  assert.equal(categories.length, publishedHome.collection.categories.length);
+
+  categories.forEach((category, index) => {
+    const item = publishedHome.collection.categories[index];
+    const imagePath = `collection.categories[_key=="${item._key}"].image`;
+    const photo = descendants(category).find((element) => hasClass(element, 'category-photo'));
+    const imageLink = descendants(category).find((element) => hasClass(element, 'category-image-link'));
+    const ctaLink = descendants(category).find((element) => element.type === 'a' && hasClass(element, 'button'));
+
+    assert.ok(photo, `category ${item._key} should render its image`);
+    assert.ok(imageLink, `category ${item._key} should keep its image navigation link`);
+    assert.ok(ctaLink, `category ${item._key} should keep its visible CTA link`);
+    assertOpenInStudioPath(photo, imagePath);
+    assertOpenInStudioPath(imageLink, imagePath);
+    assert.equal(imageLink.props.href, item.cta.href, 'the image hit surface should keep its original navigation target');
+    assertOpenInStudioPath(ctaLink, `collection.categories[_key=="${item._key}"].cta.href`);
+    assert.equal(ctaLink.props.href, item.cta.href, 'the visible CTA should keep its original navigation target');
+  });
+});
