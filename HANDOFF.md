@@ -1,6 +1,6 @@
 # Handoff：Next.js + Sanity 首页试点
 
-更新时间：2026-10-16。继续工作前先读本文件、[README.md](README.md)、[docs/NEXTJS-SANITY-MIGRATION.md](docs/NEXTJS-SANITY-MIGRATION.md) 和面向内容编辑者的 [docs/CONTENT-EDITOR-GUIDE.md](docs/CONTENT-EDITOR-GUIDE.md)。后两份记录验收证据与日常操作；不要重复已完成的真实 CMS 验证。
+更新时间：2026-10-17。继续工作前先读本文件、[README.md](README.md)、[docs/NEXTJS-SANITY-MIGRATION.md](docs/NEXTJS-SANITY-MIGRATION.md) 和面向内容编辑者的 [docs/CONTENT-EDITOR-GUIDE.md](docs/CONTENT-EDITOR-GUIDE.md)。后两份记录验收证据与日常操作；不要重复已完成的真实 CMS 验证。
 
 ## 仓库与隔离基线
 
@@ -29,6 +29,12 @@
 - 草稿自动更新仍不稳定，不得写成通过：初次 Presentation iframe 偶尔等待 15 秒超时，点“重试”后可连接；编辑后的新 revision 曾长时间未被脚本导航反映。已验收功能 Preview 提供绿色原生链接“草稿已更新，点击更新预览”。真实 Edge 实测：将 H1 改为 `CMS 链接刷新验收` 后，出现该链接；点击后约 6.6 秒，iframe H1 更新且状态回到 `current`。自动 `replace` 单独仍不可靠；日常操作按需点击该链接，不要把这项后备验收描述成自动刷新通过。
 
 ## 尚未验证与下一步
+
+- 2026-10-17 Visual Editing 修复已验收的代码快照为 `cc48bcd`，READY Preview `dpl_GSWzoP7xgYB7Q3ubDgiQCQRYBB3J`。原错误链接为根级 `/intent/edit/...`（`baseUrl=/`）并显示 404；现 renderer 与 Studio 共用 `/studio` basePath。真实 Edge 中标题、正文、普通图片、Banner 图片和分类图片均已实际点击 “Open in Studio”，进入 `/studio/presentation/...` 并聚焦正确字段。最新 CI run `38993348617` 成功，包含业务 tests 34、CMS tests 14、renderer tests 4、typecheck、contract 和 build。后续文档提交可能更新 Preview ID，稳定 alias 不变。
+- Banner 原被全屏文字层遮挡，仅草稿预览加入命中穿透样式；原 GSAP 不持续更新 `is-active` 类，正常轮播须按实际变换后的图片框命中，减少动态效果时排除隐藏图片。分类透明导航层改为图片编辑路径，移除父 article 的分类标识编辑绑定，可见 CTA 仍编辑链接；原 href、CSS、动画和业务 JS 未改。匿名公开首页不包含 `data-draft-visual-editing-hit-styles`。不要把分类父容器重新绑定到技术身份字段。
+- 外部 Studio 已使用官方 `sanity deploy --external --url https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio --schema-required --yes --json` 注册，appId `lms1plunpquzbvyrpkqshkyb`，Schema 1/1 成功；`sanity schema list` 显示 `_.schemas.default`、workspace `default`、project `5mntophk`、dataset `production`。Manage Studios 唯一条目显示 Vercel/6.19.0/正常 manifest，点击可进入已登录后台。后续保留此 appId，不创建重复 Studio。注册前后首页原文档（含 revision）完全一致。
+- 集成 editor token 不具备 `sanity.project.deployStudio`；用户已亲自完成官方 CLI 登录后注册成功。不要扩大集成 token 权限或输出 CLI 凭据。NextStudio 已自带官方 `bridge.js`，无需重复注入。
+- 固定 appId 后再次执行官方外部 deploy，返回 `action: update`，Schema 仍 1/1 成功，没有重复 Studio。草稿/发布回归用空补丁创建内容不变的草稿 `C2mJHPGim6sg1UxmDudE5S`，官方预览握手读取该 revision，匿名 revision 接口仍 401；随后真实 Studio 发布按钮成功发布为 `Inok3TNKzt158wJXIkG13l`。最终无 draft，忽略系统字段的完整内容与 `output/studio-url-fix-before.json` 相同，未重置或覆盖内容。首次 Presentation iframe 超时仍存在；独立草稿预览可正常打开。
 
 - 最新 Preview 的 Studio CORS、登录、首页编辑、原生历史还原和原生刷新后备均已实测；脚本自动更新不稳定，仍需如实标记为未通过。若后续改动刷新逻辑，需另行做真实 iframe 验收。
 - 当前最终内容已恢复并发布；下一次写入 CMS 前先由主代理确认无未完成 draft。后续构建按已授权范围核对 `scripts/assert-experiment-target.mjs`、项目、分支与 Preview target；不得触碰 Production。

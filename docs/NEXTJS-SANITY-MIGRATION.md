@@ -1,5 +1,16 @@
 # Next.js App Router + Sanity 首页试点
 
+## 2026-10-17：Studio 跳转与外部注册
+
+- 实际复现的错误链接位于前端根路径 `/intent/edit/mode=presentation;id=homePage;type=homePage;path=hero.titleLines%3A1?baseUrl=%2F...`，浏览器显示 404。原因是 `createDataAttribute()` 未提供 Studio `baseUrl`，SDK 默认使用 `/`。
+- renderer 和 Studio 现在共用 `src/sanity/urls.ts` 的 `/studio`；Presentation 保持同源 `/`，草稿 API 仍为根级 `/api/draft-mode/...`。没有更改 Studio catch-all 路由或引入 `/studio/studio`。官方解码和 `createEditUrl` 回归覆盖标题、正文、轮播图片及分类图片点击面，保留原导航 href。
+- 普通内容图片、标题与正文已在真实 Edge 中打开正确字段。Banner 原先被全屏文字层遮挡；草稿专用命中样式让空白区域穿透，图片按 GSAP 实际变换位置命中，公开页面不包含此样式。不能依赖初始 `is-active` 类判断正常轮播中的可见图，原脚本不会持续更新它。减少动态效果模式仍排除隐藏图片。
+- 最终背景图也已真实验证：Banner 打开 `hero.slides[_key=="k-hero-shop-banner"].image`，分类图片打开 `collection.categories[_key=="k-category-clothing"].image` 并聚焦图片编辑框。分类父 article 的技术标识编辑绑定已移除；透明图片链接编辑图片，可见 CTA 仍编辑链接，导航 href 不变。已验收代码快照 `cc48bcd`，GitHub CI [38993348617](https://github.com/jhun-arch/netpro-sourcing/actions/runs/38993348617) 成功，覆盖 52 项测试、typecheck、contract 和 build。READY Preview 快照 `dpl_GSWzoP7xgYB7Q3ubDgiQCQRYBB3J`；后续文档提交可产生新 Preview，稳定分支 alias 不变。
+- 已使用官方 `sanity deploy --external --url https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio --schema-required --yes --json` 注册现有外部 Studio，项目 `5mntophk`、dataset `production`、workspace `default`，Schema `_.schemas.default` 同步 1/1 成功。`sanity.cli.ts` 固定 appId `lms1plunpquzbvyrpkqshkyb`；后续运行明确返回 `action: update`，不是重复创建。
+- Manage Studios 已真实显示唯一 Vercel 条目、6.19.0 与正常 Manifest，点击可进入已登录后台。NextStudio 已自带官方 bridge 脚本，无需重复注入。注册与外部托管规范见 [Sanity 官方文档](https://www.sanity.io/docs/studio/deployment)。
+- 注册前后首页文档连 revision 均未变。后续发布测试用空补丁创建内容不变的草稿，认证预览读取草稿 revision `C2mJHPGim6sg1UxmDudE5S`，匿名草稿接口仍返回 401；真实后台发布按钮成功，最终 published revision 为 `Inok3TNKzt158wJXIkG13l`。无遗留 draft，完整非系统内容与注册前备份一致。没有重置、迁移或覆盖已有内容。
+- Presentation 首次 iframe 载入偶尔仍会超过 15 秒，属于此前的连接限制；独立认证草稿预览、编辑跳转和发布已验证。不要把 URL 404 修复表述为自动刷新与首次连接问题也已全部解决。
+
 本文记录实验边界、实施方案、已完成验收和后续维护约定。用户已为 localhost 与稳定 Preview origin 设置 CORS 并启用 Allow credentials，真实 Edge Studio 登录、内容编辑、发布、Visual Editing 点选和原生历史还原均已验收。脚本自动刷新仍不稳定，但新 revision 出现后可用绿色原生链接“草稿已更新，点击更新预览”更新 iframe。邮件投递未验证。现有正式站未部署或修改；独立空项目曾触发平台的 Production target，但在 QUEUED 阶段取消且未分配 alias。非技术用户的操作步骤见 [内容编辑指南](CONTENT-EDITOR-GUIDE.md)。
 
 ## 当前实现状态
