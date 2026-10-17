@@ -364,112 +364,123 @@ function inlineBackgroundBindings(pageKey: string, html: string, existing: Bindi
 type TemplateRecord = Record<string, string>;
 type BindingRecord = Record<string, Binding[]>;
 
-const args = new Set(process.argv.slice(2));
-const initialize = args.has('--init-bindings');
-const refreshTemplates = args.has('--refresh-templates');
-const addInlineBackgrounds = args.has('--add-inline-background-bindings');
-const normalizeLinkBindings = args.has('--normalize-link-bindings');
-if ([initialize, refreshTemplates, addInlineBackgrounds, normalizeLinkBindings].filter(Boolean).length > 1) throw new Error('Choose one page-binding migration mode.');
-
-const currentTemplates: TemplateRecord = {};
-for (const page of SITE_PAGE_MANIFEST) {
-  currentTemplates[page.pageKey] = readFileSync(path.join(root, page.route.slice(1)), 'utf8');
+export function templateSnapshotsMatch(snapshotHtml: string, sourceHtml: string): boolean {
+  const normalizeLineEndings = (html: string) => html.replace(/\r\n?/g, '\n');
+  return normalizeLineEndings(snapshotHtml) === normalizeLineEndings(sourceHtml);
 }
 
-function validateBindings(templates: TemplateRecord, bindings: BindingRecord): number {
-  let total = 0;
+function runPageBindingsBuilder() {
+  const args = new Set(process.argv.slice(2));
+  const initialize = args.has('--init-bindings');
+  const refreshTemplates = args.has('--refresh-templates');
+  const addInlineBackgrounds = args.has('--add-inline-background-bindings');
+  const normalizeLinkBindings = args.has('--normalize-link-bindings');
+  if ([initialize, refreshTemplates, addInlineBackgrounds, normalizeLinkBindings].filter(Boolean).length > 1) throw new Error('Choose one page-binding migration mode.');
+
+  const currentTemplates: TemplateRecord = {};
   for (const page of SITE_PAGE_MANIFEST) {
-    const html = templates[page.pageKey];
-    const pageBindings = bindings[page.pageKey];
-    if (!html || !Array.isArray(pageBindings)) throw new Error(`Generated page contract is missing ${page.pageKey}.`);
-    const $ = load(html);
-    const ids = new Set<string>();
-    for (const binding of pageBindings) {
-      total++;
-      if (!binding.slotId || !binding.sectionId || ids.has(binding.slotId)) throw new Error(`${page.pageKey}: missing or duplicate fixed slot/section ID.`);
-      ids.add(binding.slotId);
-      const found = $(binding.selector);
-      if (found.length !== 1) throw new Error(`${page.pageKey}: fixed binding ${binding.slotId} selector matches ${found.length} nodes.`);
-      if (binding.kind === 'text' && binding.textNodePath) {
-        const target = found.get(0)!;
-        const path = binding.textNodePath.split('.').map(Number);
-        let node: any = target;
-        for (const childIndex of path) node = node?.children?.[childIndex];
-        if (node?.type !== 'text') throw new Error(`${page.pageKey}: text-node path for ${binding.slotId} no longer resolves to text.`);
-      }
-      if (binding.kind === 'link' && binding.editableLinkLabel === false && binding.linkLabel !== undefined) {
-        throw new Error(`${page.pageKey}: complex link ${binding.slotId} must not expose a label field.`);
-      }
-    }
+    currentTemplates[page.pageKey] = readFileSync(path.join(root, page.route.slice(1)), 'utf8');
   }
-  return total;
-}
 
-if (initialize) {
-  if (existsSync(bindingsJsonPath)) throw new Error('Fixed page bindings already exist; refusing to regenerate persisted slot identities.');
-  const bindings: BindingRecord = {};
-  for (const page of SITE_PAGE_MANIFEST) bindings[page.pageKey] = buildBindings(page.pageKey, currentTemplates[page.pageKey]);
-  const total = validateBindings(currentTemplates, bindings);
-  writeFileSync(templateJsonPath, `${JSON.stringify(currentTemplates)}\n`, 'utf8');
-  writeFileSync(bindingsJsonPath, `${JSON.stringify(bindings)}\n`, 'utf8');
-  writeFileSync(templatesPath, `/** Controlled snapshot; refresh only with scripts/build-page-bindings.ts --refresh-templates. */\nimport templateData from './legacyTemplates.generated.json';\nexport const LEGACY_TEMPLATES: Record<string, string> = templateData;\n`, 'utf8');
-  writeFileSync(bindingsPath, `/** Persisted fixed selector contract. Slot/section IDs are independent UUIDs and must not be regenerated. */\nimport bindingData from './pageBindings.generated.json';\nexport type GeneratedPageBinding = ${bindingType};\nexport const PAGE_BINDINGS: Record<string, GeneratedPageBinding[]> = bindingData as Record<string, GeneratedPageBinding[]>;\n`, 'utf8');
-  console.log(`Initialized ${Object.keys(bindings).length} fixed page templates with ${total} stable slot IDs.`);
-} else {
-  if (!existsSync(bindingsJsonPath) || !existsSync(templateJsonPath)) {
-    throw new Error('No generated contracts exist. Run once with --init-bindings before CMS import.');
-  }
-  const savedBindings = JSON.parse(readFileSync(bindingsJsonPath, 'utf8')) as BindingRecord;
-  if (addInlineBackgrounds) {
-    let added = 0;
+  function validateBindings(templates: TemplateRecord, bindings: BindingRecord): number {
+    let total = 0;
     for (const page of SITE_PAGE_MANIFEST) {
-      const current = savedBindings[page.pageKey];
-      const additions = inlineBackgroundBindings(page.pageKey, currentTemplates[page.pageKey], current);
-      current.push(...additions);
-      added += additions.length;
-    }
-    const total = validateBindings(currentTemplates, savedBindings);
-    writeFileSync(bindingsJsonPath, `${JSON.stringify(savedBindings)}\n`, 'utf8');
-    writeFileSync(bindingsPath, `/** Persisted fixed selector contract. Slot/section IDs are independent UUIDs and must not be regenerated. */\nimport bindingData from './pageBindings.generated.json';\nexport type GeneratedPageBinding = ${bindingType};\nexport const PAGE_BINDINGS: Record<string, GeneratedPageBinding[]> = bindingData as Record<string, GeneratedPageBinding[]>;\n`, 'utf8');
-    console.log(`Added ${added} inline-background image slots to the persisted binding contract (${total} total slots).`);
-    process.exit(0);
-  }
-  if (normalizeLinkBindings) {
-    let changedLinks = 0;
-    for (const page of SITE_PAGE_MANIFEST) {
-      const $ = load(currentTemplates[page.pageKey]);
-      for (const binding of savedBindings[page.pageKey]) {
-        const beforeLabel = binding.sectionLabel;
-        binding.sectionLabel = chineseSectionLabel(page.pageKey, beforeLabel);
-        if (beforeLabel !== binding.sectionLabel) changedLinks++;
-        if (binding.kind === 'link') {
-          const target = $(binding.selector).get(0);
-          if (!target) throw new Error(`${page.pageKey}: link binding ${binding.slotId} no longer matches the source template.`);
-          const editableLinkLabel = !isComplexLink($, target);
-          const linkLabel = visibleAnchorLabel($, target);
-          const before = JSON.stringify([binding.editableLinkLabel, binding.linkLabel]);
-          binding.editableLinkLabel = editableLinkLabel;
-          if (editableLinkLabel && linkLabel) binding.linkLabel = linkLabel;
-          else delete binding.linkLabel;
-          if (before !== JSON.stringify([binding.editableLinkLabel, binding.linkLabel])) changedLinks++;
+      const html = templates[page.pageKey];
+      const pageBindings = bindings[page.pageKey];
+      if (!html || !Array.isArray(pageBindings)) throw new Error(`Generated page contract is missing ${page.pageKey}.`);
+      const $ = load(html);
+      const ids = new Set<string>();
+      for (const binding of pageBindings) {
+        total++;
+        if (!binding.slotId || !binding.sectionId || ids.has(binding.slotId)) throw new Error(`${page.pageKey}: missing or duplicate fixed slot/section ID.`);
+        ids.add(binding.slotId);
+        const found = $(binding.selector);
+        if (found.length !== 1) throw new Error(`${page.pageKey}: fixed binding ${binding.slotId} selector matches ${found.length} nodes.`);
+        if (binding.kind === 'text' && binding.textNodePath) {
+          const target = found.get(0)!;
+          const path = binding.textNodePath.split('.').map(Number);
+          let node: any = target;
+          for (const childIndex of path) node = node?.children?.[childIndex];
+          if (node?.type !== 'text') throw new Error(`${page.pageKey}: text-node path for ${binding.slotId} no longer resolves to text.`);
+        }
+        if (binding.kind === 'link' && binding.editableLinkLabel === false && binding.linkLabel !== undefined) {
+          throw new Error(`${page.pageKey}: complex link ${binding.slotId} must not expose a label field.`);
         }
       }
     }
-    const total = validateBindings(currentTemplates, savedBindings);
-    writeFileSync(bindingsJsonPath, `${JSON.stringify(savedBindings)}\n`, 'utf8');
-    writeFileSync(bindingsPath, `/** Persisted fixed selector contract. Slot/section IDs are independent UUIDs and must not be regenerated. */\nimport bindingData from './pageBindings.generated.json';\nexport type GeneratedPageBinding = ${bindingType};\nexport const PAGE_BINDINGS: Record<string, GeneratedPageBinding[]> = bindingData as Record<string, GeneratedPageBinding[]>;\n`, 'utf8');
-    console.log(`Normalized ${changedLinks} persisted link/module-label records while preserving all slot and section IDs (${total} total bindings).`);
-    process.exit(0);
+    return total;
   }
-  const total = validateBindings(currentTemplates, savedBindings);
-  const savedTemplates = JSON.parse(readFileSync(templateJsonPath, 'utf8')) as TemplateRecord;
-  const changed = SITE_PAGE_MANIFEST.filter((page) => savedTemplates[page.pageKey] !== currentTemplates[page.pageKey]);
-  if (refreshTemplates) {
+
+  if (initialize) {
+    if (existsSync(bindingsJsonPath)) throw new Error('Fixed page bindings already exist; refusing to regenerate persisted slot identities.');
+    const bindings: BindingRecord = {};
+    for (const page of SITE_PAGE_MANIFEST) bindings[page.pageKey] = buildBindings(page.pageKey, currentTemplates[page.pageKey]);
+    const total = validateBindings(currentTemplates, bindings);
     writeFileSync(templateJsonPath, `${JSON.stringify(currentTemplates)}\n`, 'utf8');
-    console.log(`Refreshed ${changed.length} source snapshots after validating ${total} existing fixed bindings; no slot IDs changed.`);
-  } else if (changed.length) {
-    throw new Error(`Source HTML differs from the controlled snapshot (${changed.map((page) => page.route).join(', ')}); validate old bindings then run --refresh-templates.`);
+    writeFileSync(bindingsJsonPath, `${JSON.stringify(bindings)}\n`, 'utf8');
+    writeFileSync(templatesPath, `/** Controlled snapshot; refresh only with scripts/build-page-bindings.ts --refresh-templates. */\nimport templateData from './legacyTemplates.generated.json';\nexport const LEGACY_TEMPLATES: Record<string, string> = templateData;\n`, 'utf8');
+    writeFileSync(bindingsPath, `/** Persisted fixed selector contract. Slot/section IDs are independent UUIDs and must not be regenerated. */\nimport bindingData from './pageBindings.generated.json';\nexport type GeneratedPageBinding = ${bindingType};\nexport const PAGE_BINDINGS: Record<string, GeneratedPageBinding[]> = bindingData as Record<string, GeneratedPageBinding[]>;\n`, 'utf8');
+    console.log(`Initialized ${Object.keys(bindings).length} fixed page templates with ${total} stable slot IDs.`);
   } else {
-    console.log(`Page contract passed: ${Object.keys(savedBindings).length} pages, ${total} fixed bindings; no files rewritten.`);
+    if (!existsSync(bindingsJsonPath) || !existsSync(templateJsonPath)) {
+      throw new Error('No generated contracts exist. Run once with --init-bindings before CMS import.');
+    }
+    const savedBindings = JSON.parse(readFileSync(bindingsJsonPath, 'utf8')) as BindingRecord;
+    if (addInlineBackgrounds) {
+      let added = 0;
+      for (const page of SITE_PAGE_MANIFEST) {
+        const current = savedBindings[page.pageKey];
+        const additions = inlineBackgroundBindings(page.pageKey, currentTemplates[page.pageKey], current);
+        current.push(...additions);
+        added += additions.length;
+      }
+      const total = validateBindings(currentTemplates, savedBindings);
+      writeFileSync(bindingsJsonPath, `${JSON.stringify(savedBindings)}\n`, 'utf8');
+      writeFileSync(bindingsPath, `/** Persisted fixed selector contract. Slot/section IDs are independent UUIDs and must not be regenerated. */\nimport bindingData from './pageBindings.generated.json';\nexport type GeneratedPageBinding = ${bindingType};\nexport const PAGE_BINDINGS: Record<string, GeneratedPageBinding[]> = bindingData as Record<string, GeneratedPageBinding[]>;\n`, 'utf8');
+      console.log(`Added ${added} inline-background image slots to the persisted binding contract (${total} total slots).`);
+      process.exit(0);
+    }
+    if (normalizeLinkBindings) {
+      let changedLinks = 0;
+      for (const page of SITE_PAGE_MANIFEST) {
+        const $ = load(currentTemplates[page.pageKey]);
+        for (const binding of savedBindings[page.pageKey]) {
+          const beforeLabel = binding.sectionLabel;
+          binding.sectionLabel = chineseSectionLabel(page.pageKey, beforeLabel);
+          if (beforeLabel !== binding.sectionLabel) changedLinks++;
+          if (binding.kind === 'link') {
+            const target = $(binding.selector).get(0);
+            if (!target) throw new Error(`${page.pageKey}: link binding ${binding.slotId} no longer matches the source template.`);
+            const editableLinkLabel = !isComplexLink($, target);
+            const linkLabel = visibleAnchorLabel($, target);
+            const before = JSON.stringify([binding.editableLinkLabel, binding.linkLabel]);
+            binding.editableLinkLabel = editableLinkLabel;
+            if (editableLinkLabel && linkLabel) binding.linkLabel = linkLabel;
+            else delete binding.linkLabel;
+            if (before !== JSON.stringify([binding.editableLinkLabel, binding.linkLabel])) changedLinks++;
+          }
+        }
+      }
+      const total = validateBindings(currentTemplates, savedBindings);
+      writeFileSync(bindingsJsonPath, `${JSON.stringify(savedBindings)}\n`, 'utf8');
+      writeFileSync(bindingsPath, `/** Persisted fixed selector contract. Slot/section IDs are independent UUIDs and must not be regenerated. */\nimport bindingData from './pageBindings.generated.json';\nexport type GeneratedPageBinding = ${bindingType};\nexport const PAGE_BINDINGS: Record<string, GeneratedPageBinding[]> = bindingData as Record<string, GeneratedPageBinding[]>;\n`, 'utf8');
+      console.log(`Normalized ${changedLinks} persisted link/module-label records while preserving all slot and section IDs (${total} total bindings).`);
+      process.exit(0);
+    }
+    const total = validateBindings(currentTemplates, savedBindings);
+    const savedTemplates = JSON.parse(readFileSync(templateJsonPath, 'utf8')) as TemplateRecord;
+    const changed = SITE_PAGE_MANIFEST.filter((page) => !templateSnapshotsMatch(savedTemplates[page.pageKey], currentTemplates[page.pageKey]));
+    if (refreshTemplates) {
+      writeFileSync(templateJsonPath, `${JSON.stringify(currentTemplates)}\n`, 'utf8');
+      console.log(`Refreshed ${changed.length} source snapshots after validating ${total} existing fixed bindings; no slot IDs changed.`);
+    } else if (changed.length) {
+      throw new Error(`Source HTML differs from the controlled snapshot (${changed.map((page) => page.route).join(', ')}); validate old bindings then run --refresh-templates.`);
+    } else {
+      console.log(`Page contract passed: ${Object.keys(savedBindings).length} pages, ${total} fixed bindings; no files rewritten.`);
+    }
   }
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
+  runPageBindingsBuilder();
 }

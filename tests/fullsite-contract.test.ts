@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { load } from 'cheerio';
+import { templateSnapshotsMatch } from '../scripts/build-page-bindings';
 import { buildFullsiteSeedDocuments, buildSitePageDocuments, buildSiteSettingsDocument } from '../scripts/seed-pages';
 import { checkFullsiteContract } from '../src/fullsite/contracts';
 import { LEGACY_TEMPLATES } from '../src/fullsite/legacyTemplates.generated';
@@ -42,6 +43,14 @@ function visibleTextNodeCount($: ReturnType<typeof load>, element: any): number 
   visit(clone.get(0));
   return count;
 }
+
+test('controlled source snapshots ignore line-ending convention only', () => {
+  const windowsHtml = '<main>\r\n  <p>Original copy</p>\r\n</main>\r\n';
+  const linuxHtml = windowsHtml.replace(/\r\n/g, '\n');
+  assert.equal(templateSnapshotsMatch(windowsHtml, linuxHtml), true, 'LF and CRLF source snapshots represent the same HTML');
+  assert.equal(templateSnapshotsMatch(windowsHtml, linuxHtml.replace('Original copy', 'Changed copy')), false, 'real source-text edits must still fail the snapshot check');
+  assert.equal(templateSnapshotsMatch('<main>one\n\nthree</main>', '<main>one\nthree</main>'), false, 'normalization must not collapse whitespace or remove lines');
+});
 
 test('37 fixed page identities and checkout redirect remain registered', () => {
   assert.equal(SITE_PAGE_MANIFEST.length, 37);
