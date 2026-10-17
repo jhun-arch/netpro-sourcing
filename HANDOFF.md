@@ -1,5 +1,14 @@
 # Handoff：Next.js + Sanity 全站迁移（进行中）
 
+## 阶段结束交接（2026-10-17，最新用户指令）
+
+- 当前迁移及后台修复阶段到此结束；不要继续非必要修补、启动 T 恤开发或运行全面集成检查。后续新对话先读取本文件、AGENTS.md 与 docs/DEVELOPMENT-ROADMAP.md，再按用户新的明确指令继续；下方“进行中/待验收”等旧段落不构成继续执行授权。
+- 实验工作树：D:/Users/Administrator/Documents/ChatGPT/NetPro-nextjs-sanity；分支 experiment/nextjs-sanity。交接核对时工作区干净，本地与远端均为 88367cd27214b8dd0fff0ace590a4a694c8936ea；可运行代码提交为 a83c3a84efb7cd42d93d9a36a5906b6deb025663。随后仅补交本段交接文档，不改应用代码。
+- 稳定 Preview：https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/ ；Studio：https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio 。已验收代码快照：https://netprosourcing-ax8dvga2f-junhil.vercel.app/ 。
+- 已完成与遗留问题以上一节序之后的“本阶段交付记录”为准：全站 CMS、图片提示、页面切换、刷新范围与自定义404已完成；Presentation 内嵌连接仍可能超时，独立草稿预览可用；历史图片素材库整理、真实邮件投递及手机专项完善尚未完成。现有商品草稿保留，不自动清理。
+- 下一阶段完整需求见 docs/DEVELOPMENT-ROADMAP.md：Clothing 保持多款式分类，第一期仅改具体 T 恤详情弹窗；Sanity 按每件商品配置定制开关、素材、颜色尺码、区域、工艺与标签；正反面/左右袖独立图案编辑、实时效果图、织唛、完整购物袋与询价数据；模块接口保留扩展其他商品的能力。当前只记录，不实现。
+- 本次交接只核对 Git 与既有文档，不重审代码、不重跑测试，不修改 main、Production 或正式站。所有必要源码已提交推送；凭据和本地验收证据仍按既有规则忽略，不提交 GitHub。
+
 ## 本阶段交付记录（2026-10-17，优先于下方历史记录）
 
 - 运行代码提交 a83c3a84efb7cd42d93d9a36a5906b6deb025663；READY Preview dpl_GTuWdTogjtNEGE8qBv2nXnX2DYhF，快照 https://netprosourcing-ax8dvga2f-junhil.vercel.app，稳定 Preview / Studio 地址不变。GitHub CI 39020074335 success；本地一次最终 build、类型检查、30 项受影响 CMS/预览测试、5 项 404/路由测试与共享 renderer 的 37 页 DOM 等价单项检查通过。没有手工重跑全站 HTTP 或业务审计。
