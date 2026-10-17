@@ -15,6 +15,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 const manifestPath = path.join(root, "scripts", "legacy-public-manifest.json");
+const pageManifestPath = path.join(root, "src", "fullsite", "pageManifest.ts");
 
 if (publicDir !== path.join(root, "public") || publicDir === root || !existsSync(path.join(root, "package.json"))) {
   throw new Error("Refusing to sync legacy files outside the project public directory.");
@@ -63,7 +64,27 @@ if (manifest?.version !== 1 || !Array.isArray(manifest.files)) {
   throw new Error("The legacy public manifest has an unsupported format.");
 }
 
-const filesToCopy = manifest.files;
+const pageManifestSource = readFileSync(pageManifestPath, "utf8");
+const routeMatches = [...pageManifestSource.matchAll(/route:\s*['"]\/([^'"]+\.html)['"]/g)];
+const migratedHtmlRoutes = new Set(routeMatches.map((match) => match[1].toLowerCase()));
+const legacyRootHtmlFiles = manifest.files.filter((file) =>
+  typeof file === "string" && !file.includes("/") && file.toLowerCase().endsWith(".html") && file.toLowerCase() !== "index.html",
+).map((file) => file.toLowerCase());
+if (migratedHtmlRoutes.size === 0 || legacyRootHtmlFiles.length === 0) {
+  throw new Error("The migrated HTML route set or legacy root HTML manifest is empty; refusing to copy potentially conflicting pages.");
+}
+if (!migratedHtmlRoutes.has("checkout.html")) {
+  throw new Error("The checkout redirect is missing from the migrated route set; refusing to copy legacy HTML.");
+}
+const uncoveredHtml = legacyRootHtmlFiles.filter((file) => !migratedHtmlRoutes.has(file));
+if (uncoveredHtml.length > 0) {
+  throw new Error(`Root HTML files are not covered by the App Router manifest: ${uncoveredHtml.join(", ")}. Update src/fullsite/pageManifest.ts before syncing public assets.`);
+}
+function isMigratedHtml(file) {
+  return migratedHtmlRoutes.has(path.posix.basename(file.replaceAll("\\", "/")).toLowerCase());
+}
+
+const filesToCopy = manifest.files.filter((file) => !isMigratedHtml(file));
 if (!filesToCopy.every((file) => typeof file === "string" && isAllowedLegacyFile(file))) {
   throw new Error("The legacy public manifest includes a path outside the approved static file list.");
 }

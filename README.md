@@ -1,25 +1,36 @@
 # Netpro Sourcing
 
-Legacy static HTML/CSS/JavaScript B2B catalogue plus an isolated Next.js App Router + Sanity homepage pilot; existing Vercel Node.js enquiry endpoints remain in place.
+Netpro Sourcing 的旧版静态网站与隔离的 Next.js + Sanity 实验工作树。当前实验代码已扩展到全站页面、商品目录、分类、定制款式和共享导航/页脚；旧询价 API、邮件处理与页面交互仍沿用原有实现。
 
-> **Next.js + Sanity pilot:** this worktree is the isolated `experiment/nextjs-sanity` branch. The verified functional Preview snapshot is source SHA `41f354710fc3fbeea2b77b35680e41e3187edb51`, deployment `dpl_BDTSNEjS2VQGKtciUVnkZwpN7uea`, at `https://netprosourcing-bgl0z7dhz-junhil.vercel.app`; the stable branch alias remains `https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app`. Production remains the legacy site at `https://netprosourcing-qqoyodtgw-junhil.vercel.app` (`dpl_ErniJL5W5ypaPdUE6kmAidi91uMF`, source SHA `9341d2eec51667abd334ec5064b9db6b992af1bf`). The homepage is the only CMS pilot; product and mail flows are not declared migrated. CORS, Edge Studio login, editing, publish, Visual Editing selection and native history restore have been verified. Scripted draft auto-refresh is unreliable; the green native “草稿已更新，点击更新预览” link was verified in the real iframe. See [the content editor guide](docs/CONTENT-EDITOR-GUIDE.md) for daily use and [the migration record](docs/NEXTJS-SANITY-MIGRATION.md) for evidence and boundaries.
+> **当前交付状态（2026-10-17）：**目录内容已导入隔离 Sanity 项目（31 件产品、5 个分类、23 张款式卡及去重后的源图）；首页原有 CMS 内容未覆盖。37 个页面和共享设置已安全导入，总计 98 个内容文档，全部通过官方 Sanity 校验；本地构建、模板及业务测试通过。主代理正在完成未知路由与全站 Preview 浏览器验收。稳定 Preview 链接目前不能作为全站代码已上线的证明。Production 未修改或部署。
 
-## Development
+- [稳定 Preview 地址](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app)
+- [Studio 地址](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio)（应在主代理确认全站版本已部署并完成验收后使用）
+- [中文内容编辑指南](docs/CONTENT-EDITOR-GUIDE.md)
+- [全站迁移状态与实施约束](docs/FULLSITE-MIGRATION.md)
+- [页面盘点](docs/FULLSITE-PAGE-AUDIT.md) · [产品与目录盘点](docs/FULLSITE-PRODUCT-AUDIT.md)
+- [首页试点迁移记录](docs/NEXTJS-SANITY-MIGRATION.md)（记录历史首页验收，不代表全站已验收）
 
-The Next.js + Sanity experiment lives at `D:\Users\Administrator\Documents\ChatGPT\NetPro-nextjs-sanity` on `experiment/nextjs-sanity`. Run `npm run dev` for the App Router pilot; `npm run typecheck`, `npm run test`, `npm run cms:test`, and `npm run cms:render-test` run local checks. The renderer test needs `NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET`; locally, load them with `node --env-file=.env.local --conditions=react-server --import tsx --test tests/cms-render.test.ts` or set those public project/dataset values in the shell. CI provides them. `npm run build` includes a guard that rejects an unsafe Vercel target. The ignored local `.env.local` uses `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_API_READ_TOKEN`, and `SANITY_API_WRITE_TOKEN`; write access is only needed for the controlled seed/live-verification scripts. Never copy token values into docs or client code. For non-technical editing steps, see [docs/CONTENT-EDITOR-GUIDE.md](docs/CONTENT-EDITOR-GUIDE.md); see [the migration guide](docs/NEXTJS-SANITY-MIGRATION.md) for boundaries, status, and validation evidence.
+## 开发
 
-For the legacy static pages, `python -m http.server 8765` still serves the source tree. `node --test tests/quote.test.js` verifies attachment validation and quote integration without sending email.
+全站实验位于隔离工作树的 `experiment/nextjs-sanity` 分支。常用本地检查：
 
-## Enquiry flow
-Shop product details → choose Ready stock or Custom request → Add to Enquiry → edit requests → submit one Quote. Customization pages add custom requests directly; headwear and socks overviews first offer a style picker. Both paths use the shared `enquiry-state.js` module and existing `netpro-b2b-enquiry` browser storage. Legacy records default to stock; stock and custom requirements remain separate lines. A project brief is optional when the shortlist contains products. Product prices are requested through quotation. Retired checkout bookmarks redirect to the quote page.
+```powershell
+npm run dev
+npm run typecheck
+npm run test
+npm run cms:test
+npm run catalog:test
+npm run fullsite:test
+npm run fullsite:http
+```
 
-Contact and Quote retain existing QQ SMTP / Resend delivery and idempotency. Artwork is submitted with the quote and attached to the internal notification. JPG/JPEG, PNG, PDF and ZIP: maximum 3 files, 2 MB combined. The server checks size, extension and file signature; attachments are included in the submission hash. Larger artwork can use the reference-link field. No new environment variables are needed. Existing values are managed in Vercel; never commit secrets.
+页面与共享设置的初次 seed 在不带参数时只做 dry-run；只有在目标、备份和状态经过主代理确认后，工程维护者才可显式 apply。目录文档此前已导入，不要为了重跑而覆盖或重建现有内容。真实全站 HTTP 检查脚本见 `scripts/verify-fullsite-http.ts`；fullsite:test 已由主代理执行；HTTP 检查已确认登记页面与 169 个同源资源，未知路由仍在复验。后者仅访问 allowlisted localhost 或稳定 Preview，HTTP 只读，不写 CMS、不发送邮件。不要把实际密钥写进文档、客户端代码、报告或提交。
 
-## Deployment
-The legacy static source is `D:/Users/Administrator/Documents/ChatGPT/NetPro-sourcing-dev2`, on `codex/shared-enquiry-flow`. This experiment uses the worktree and Preview URL listed above. Commit, push, or deploy only when the current task explicitly authorizes it. Production deployment, promotion, and merges to `main` require explicit authorization.
+本地旧版静态页面仍可通过 `python -m http.server 8765` 浏览。询价接口回归可运行 `node --test tests/quote.test.js`，该检查不会发送邮件。
 
-See AUDIT.md for baseline, FACTORY-IMAGES.md for photo provenance, and QA.md for checks. Original source imagery is retained; web pages reference WebP copies.
+## 询价和正式环境
 
-## Mail attachment references
-- https://nodemailer.com/message/attachments
-- https://resend.com/docs/send-with-attachments
+旧目录页面仍使用共享的 `enquiry-state.js` 浏览器存储与既有 quote API。产品 CMS 会保留稳定产品编号和历史尺码，归档产品不会删除已保存询价识别所需的身份。实际邮件投递仍需单独的安全验收；本次没有发送邮件。
+
+Production 仍为旧站。未经明确授权，不合并到 `main`、不更改正式环境、不部署或提升 Production。

@@ -17,6 +17,10 @@ type StudioConfig = {
   projectId: string;
   dataset: string;
   basePath: string;
+  document: {
+    newDocumentOptions: (options: Array<{templateId: string}>) => Array<{templateId: string}>;
+    actions: (actions: Array<{action: string}>, context: {schemaType: string}) => Array<{action: string}>;
+  };
   plugins: Array<{
     name?: string;
     tools?: Array<{ options?: { structure?: unknown } }>;
@@ -41,7 +45,19 @@ const config = configImport.default ?? configImport;
 const cliConfigImport = sanityCliConfigModule as unknown as { default?: SanityCliConfig } & SanityCliConfig;
 const cliConfig = cliConfigImport.default ?? cliConfigImport;
 
-test('Studio structure serializes and exposes the homepage singleton and migration notice', () => {
+test('Studio keeps fixed page identities and archives catalog records without unpublishing', () => {
+  const templates = ['homePage', 'sitePage', 'siteSettings', 'product', 'productCategory', 'catalogStyle']
+    .map((templateId) => ({ templateId }));
+  assert.deepEqual(config.document.newDocumentOptions(templates).map((option) => option.templateId),
+    ['product', 'productCategory', 'catalogStyle']);
+  const actions = ['publish', 'discardChanges', 'duplicate', 'delete', 'unpublish'].map((action) => ({ action }));
+  for (const schemaType of templates.map((template) => template.templateId)) {
+    assert.deepEqual(config.document.actions(actions, { schemaType }).map((action) => action.action),
+      ['publish', 'discardChanges'], schemaType);
+  }
+});
+
+test('Studio structure serializes and exposes pages, catalog, and shared settings', () => {
   const structureTool = config.plugins.find((plugin) => plugin.name === 'sanity/structure');
   const structureResolver = structureTool?.tools?.[0]?.options?.structure;
   assert.equal(typeof structureResolver, 'function');
@@ -51,8 +67,13 @@ test('Studio structure serializes and exposes the homepage singleton and migrati
     title: config.title,
     projectId: config.projectId,
     dataset: config.dataset,
-    schema: { get: () => undefined, getTypeNames: () => [] },
+    schema: {
+      get: (name: string) => ({ name, title: name, type: { name: 'document' }, fields: [], orderings: [] }),
+      getTypeNames: () => ['homePage', 'sitePage', 'siteSettings', 'product', 'productCategory', 'catalogStyle'],
+    },
     templates: [],
+    document: { resolveNewDocumentOptions: () => [] },
+    i18n: { t: (key: string) => key },
     getClient: () => {
       throw new Error('The structure serializer should not request a Sanity client');
     },
@@ -75,9 +96,14 @@ test('Studio structure serializes and exposes the homepage singleton and migrati
   assert.equal(homePageItem.child?.options?.id, 'homePage');
   assert.equal(homePageItem.child?.options?.type, 'homePage');
 
-  const migrationNoticeItem = pageManagementList.items?.find((item) => item.id === 'pages-not-migrated');
-  assert.equal(migrationNoticeItem?.child?.type, 'component');
-  assert.equal(migrationNoticeItem?.child?.id, 'not-migrated-notice');
+  const otherPages = pageManagementList.items?.find((item) => item.id === 'site-pages');
+  assert.equal(otherPages?.child?.type, 'documentList');
+  for (const id of ['products', 'product-categories', 'catalog-styles']) {
+    assert.equal(root.items?.find((item) => item.id === id)?.child?.type, 'documentList');
+  }
+  const settings = root.items?.find((item) => item.id === 'site-settings');
+  assert.equal(settings?.child?.options?.id, 'siteSettings');
+  assert.equal(settings?.child?.options?.type, 'siteSettings');
 });
 
 test('Studio, Presentation, draft routes, and external app registration share the configured URLs', () => {

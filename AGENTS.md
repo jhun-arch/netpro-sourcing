@@ -2,7 +2,7 @@
 
 ## 实验与生产边界
 
-- 当前工作树服务于 Next.js App Router + Sanity 首页试点，分支为 experiment/nextjs-sanity。
+- 当前工作树服务于 Next.js App Router + Sanity 实验，分支为 experiment/nextjs-sanity。用户于 2026-10-17 授权从首页扩展到全站及产品 CMS；下列原首页试点说明不限制这次明确授权的全站迁移。
 - 试点以源码 SHA 9341d2eec51667abd334ec5064b9db6b992af1bf 为基线。
 - 只在实验分支开展已授权的试点工作。
 - 未经用户明确授权，不得改动 main、连接或写入 Production、发布 Production 部署或迁移 Production 数据。
@@ -30,14 +30,14 @@
 - 首页由 App Router 提供；保留现有 DOM class、id、aria 属性、data-* 值、语义结构、CSS 和 GSAP/ScrollTrigger 行为。
 - CMS 管理文案、图片、替代文本、CTA 链接和经审核的 SEO 文本。
 - CSS、布局、断点、动画参数、DOM 选择器和业务行为由代码维护，不建成 CMS 字段。
-- 其余根级 .html 页面和静态资源须保持原 URL 与互链。
+- 其余根级 .html 页面迁移到 Next 时须保持原 URL、资源与互链；按模块和页面族渐进迁移，不整体重设计。
 - /api/contact、/api/quote、/api/purchase 继续复用现有 Node handler，优先用 Pages API 薄包装。
 - 首页试点不代表商品目录、库存、定制或询价业务已迁移或完成。
 - 后续商品管理必须用唯一稳定 productId 关联库存、stock/custom 意图和 enquiry 记录。
 
 ## Schema 与内容安全
 
-- 首页文档类型和 singleton _id 固定为 homePage；Studio 只提供一个首页编辑入口。
+- 首页文档类型和 singleton _id 固定为 homePage；Studio 只提供一个首页编辑入口。全站可新增按实际页面组织的编辑入口与独立产品/分类管理，禁止复制或覆盖已有首页内容。
 - 重复项保留 Sanity _key，并有不随标题和顺序改变的稳定 slug。
 - _key 和 slug 不可按标题、数组索引或文案 hash 重建。
 - 字段变更必须同一改动更新 schema、GROQ query、类型、renderer、fixtures、contract check 和相关 tests。
@@ -49,6 +49,12 @@
 - CI 至少执行 typecheck、Next build 和既有业务 tests。
 
 ## Preview 与长期维护
+
+- 全站页面布局保留于受控源码模板；`sitePage` 内容字段与模板选择器的绑定清单是长期契约。不得按标题、文案 hash、当前数组顺序或运行时 DOM 位置重建已有 slot/section 身份。布局调整须更新绑定和测试，内容字段沿用稳定身份。
+- 页面内容只允许结构化文字、图片、链接和 SEO；不向编辑者开放 HTML、CSS、JS 或 DOM 选择器。增加可编辑模块须同时调整 schema、类型、查询、绑定、初始内容或非破坏 migration、测试与编辑指南。
+- 商品 `productId` 是原始业务身份（如 `tee-white`），不能用 Sanity `_id`、标题或邮件中的 `TEE-WHITE` 替代。公开目录与历史询价身份解析分开；下架、归档或移除当前尺码不得静默丢弃已有询价。保留历史规格，不物理删除公开过的身份。
+- 新分类须同时贯通 CMS、数据投影、前端筛选/标题/banner/款式入口，不能只增加 schema 后宣称可用。既有邮件 API 与 stock/custom payload 契约不因 CMS 迁移而重写。
+- 普通内链继续使用全文档导航以兼容旧脚本生命周期；引入客户端路由前，必须先完成并验证旧脚本的清理及重复初始化。
 
 - Embedded Studio 的路由固定为 `/studio`；`sanity.config.ts` 的 `basePath` 与 renderer 的 `createDataAttribute.baseUrl` 必须共用 `src/sanity/urls.ts` 中的 `SANITY_STUDIO_BASE_PATH`。Presentation `initial` 使用同源相对路径 `/`，让 localhost、Preview 和其他实验分支部署沿用当前 origin；不要硬编码某个 Preview host。
 - 图片编辑绑定须覆盖实际点击面：分类透明图片链接保留原 href，但编辑路径指向图片，可见 CTA 继续编辑链接。Banner 的点击穿透样式只由草稿模式下的 DraftVisualEditing 提供，保持仅活动轮播图可命中，并保留文字与按钮交互；不得把这些预览样式加入公开页面。

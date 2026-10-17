@@ -188,6 +188,22 @@
   const products = Array.isArray(window.NETPRO_PRODUCTS) ? window.NETPRO_PRODUCTS : [];
   const isShop = document.body.classList.contains("shop-page");
   const isHome = document.body.classList.contains("home-page");
+  const legacyCategories = [
+    { id: 'clothing', label: 'Clothing', banner: 'assets/banner-clothing.webp?v=20260914-banner4', bannerAlt: 'Plain everyday clothing in blue, white and cream' },
+    { id: 'socks', label: 'Socks', banner: 'assets/banner-socks.webp?v=20260914-banner4', bannerAlt: 'Basic ribbed crew socks in coordinated colors' },
+    { id: 'headwear', label: 'Headwear', banner: 'assets/banner-headwear.webp?v=20260914-banner4', bannerAlt: 'Plain baseball caps in blue, navy and cream' },
+    { id: 'bags', label: 'Bags', banner: 'assets/banner-bags.webp?v=20260914-banner4', bannerAlt: 'Cream canvas tote with navy handles and a navy backpack on pale blue studio plinths' },
+    { id: 'patches', label: 'Ready-Made Patches', banner: 'assets/banner-patches.webp?v=20260914-banner4', bannerAlt: 'A collection of custom patch styles in blue and cream' }
+  ];
+  const catalogCategories = (Array.isArray(window.NETPRO_CATEGORIES) ? window.NETPRO_CATEGORIES : legacyCategories)
+    .filter(category => category && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(category.id || '') && !['all', 'new'].includes(category.id))
+    .slice()
+    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0) || a.id.localeCompare(b.id));
+  const categoryById = new Map(catalogCategories.map(category => [category.id, category]));
+  const activeProducts = products.filter(product => product && product.isActive !== false);
+  const currentSizesFor = product => Array.isArray(product?.currentSizes)
+    ? product.currentSizes
+    : (Array.isArray(product?.sizes) ? product.sizes : []);
   const pageHeading = (homeTitle, innerTitle) => isHome ? homeTitle : innerTitle;
   const navigationEntry = performance.getEntriesByType('navigation')[0];
   const shouldResetHomeReload = isHome
@@ -203,18 +219,113 @@
   const money = value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
   const arrow = '<svg aria-hidden="true"><use href="#i-arrow"/></svg>';
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-  const customizationKey = href => String(href || '').replace(/\.html(?=#|$)/, '').replace(/^\.\//, '');
+  const customizationKey = href => String(href || '')
+    .replace(/\.html(?=#|$)/, '')
+    .replace(/^\.\//, '')
+    .replace(/^\/(?!\/)/, '');
   const customStyleLabel = href => customizationKey(href).split('/').pop().replace(/^custom-/, '').replace(/[-_]+/g, ' ').replace(/\b[a-z]/g, letter => letter.toUpperCase());
-  const styleKeys = new Set(products.map(product => customizationKey(product.customizationHref)));
+  const styleKeys = new Set(activeProducts.map(product => customizationKey(product.customizationHref)));
   const enquiryState = window.NetproEnquiryState;
   let activeFilter = isShop ? (new URLSearchParams(location.search).get('category') || 'all') : 'all';
-  if (!['all','clothing','socks','headwear','bags','patches'].includes(activeFilter)) activeFilter = 'all';
+  if (!['all', 'new'].includes(activeFilter) && !categoryById.has(activeFilter)) activeFilter = 'all';
+  function ensureCategoryControls() {
+    if (!isShop) return;
+    const select = $('#category-select');
+    const options = $('#category-options');
+    if (!select || !options) return;
+
+    const wanted = new Set(catalogCategories.map(category => category.id));
+    [...select.options].forEach(option => {
+      if (option.value !== 'all' && !wanted.has(option.value)) option.remove();
+    });
+    [...options.querySelectorAll('input[name="category"]')].forEach(input => {
+      if (input.value !== 'all' && !wanted.has(input.value)) input.closest('label')?.remove();
+    });
+
+    catalogCategories.forEach(category => {
+      let selectOption = [...select.options].find(option => option.value === category.id);
+      if (!selectOption) {
+        selectOption = document.createElement('option');
+        selectOption.value = category.id;
+        select.append(selectOption);
+      }
+      selectOption.textContent = category.label;
+
+      let input = [...options.querySelectorAll('input[name="category"]')].find(option => option.value === category.id);
+      if (!input) {
+        const label = document.createElement('label');
+        input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'category';
+        input.value = category.id;
+        label.append(input, document.createTextNode(category.label));
+        options.append(label);
+      } else {
+        const label = input.closest('label');
+        if (label) {
+          const text = [...label.childNodes].find(node => node.nodeType === Node.TEXT_NODE);
+          if (text) text.textContent = category.label;
+          else label.append(document.createTextNode(category.label));
+        }
+      }
+    });
+
+    const allSelectOption = [...select.options].find(option => option.value === 'all');
+    if (allSelectOption) select.append(allSelectOption);
+    catalogCategories.forEach(category => {
+      const option = [...select.options].find(item => item.value === category.id);
+      if (option) select.append(option);
+    });
+    const allLabel = [...options.querySelectorAll('input[name="category"]')]
+      .find(input => input.value === 'all')?.closest('label');
+    if (allLabel) options.append(allLabel);
+    catalogCategories.forEach(category => {
+      const label = [...options.querySelectorAll('input[name="category"]')]
+        .find(input => input.value === category.id)?.closest('label');
+      if (label) options.append(label);
+    });
+  }
+  function ensureCatalogFilterOptions() {
+    if (!isShop) return;
+    const colorSelect = $('[data-shop-filter="color"]');
+    if (colorSelect) {
+      const knownColors = new Set([...colorSelect.options].map(option => option.value));
+      [...new Set(activeProducts.map(product => product.color).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b))
+        .forEach(color => {
+          if (knownColors.has(color)) return;
+          const option = document.createElement('option');
+          option.value = color;
+          option.textContent = color;
+          colorSelect.append(option);
+        });
+    }
+    const firstSize = $('[data-size]');
+    const sizeOptions = firstSize?.parentElement;
+    if (sizeOptions) {
+      const knownSizes = new Set($$('[data-size]', sizeOptions).map(button => button.dataset.size));
+      const currentSizes = [...new Set(activeProducts
+        .filter(product => product.category !== 'patches')
+        .flatMap(currentSizesFor))];
+      currentSizes.forEach(size => {
+        if (knownSizes.has(size)) return;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.size = size;
+        button.setAttribute('aria-pressed', 'false');
+        button.textContent = size;
+        sizeOptions.append(button);
+      });
+    }
+  }
+  ensureCategoryControls();
+  ensureCatalogFilterOptions();
   const normalizeStyleKey = href => customizationKey(href).replace(/^customization(?=#)/, 'custom-patches');
   const requestedStyle = isShop ? normalizeStyleKey(new URLSearchParams(location.search).get('style')) : null;
   let activeStyle = requestedStyle && styleKeys.has(requestedStyle) ? requestedStyle : null;
   function clearIncompatibleStyle() {
     if (!activeStyle || activeFilter === 'all') return;
-    const matches = products.filter(product => customizationKey(product.customizationHref) === activeStyle);
+    const matches = activeProducts.filter(product => customizationKey(product.customizationHref) === activeStyle);
     if (!matches.length || !matches.some(product => activeFilter === 'new' ? product.isNew : product.category === activeFilter)) activeStyle = null;
   }
   clearIncompatibleStyle();
@@ -233,13 +344,15 @@
     const imageStyle = p.image
       ? ` style="background-image:url('${escape(p.image)}');background-size:${escape(p.imageSize || 'cover')};background-position:${escape(p.position || 'center')}"`
       : '';
+    const editingImage = p.editing?.image ? ` data-sanity="${escape(p.editing.image)}"` : '';
     const imageAlt = p.imageAlt || `${p.color} ${p.name}`;
-    return `<div class="product-art ${p.art ? `art-${p.art}` : ''} ${extra}"${imageStyle} role="img" aria-label="${escape(imageAlt)}"></div>`;
+    return `<div class="product-art ${p.art ? `art-${p.art}` : ''} ${extra}"${imageStyle}${editingImage} role="img" aria-label="${escape(imageAlt)}"></div>`;
   }
   function productHover(p) {
     if (p.hoverImage) {
       const imageAlt = p.hoverImageAlt || `${p.name} worn by model`;
-      return `<span class="product-model product-model--onbody" role="img" aria-label="${escape(imageAlt)}" style="background-image:url('${escape(p.hoverImage)}');background-size:${escape(p.hoverImageSize || 'cover')};background-position:${escape(p.hoverImagePosition || 'center')}"></span>`;
+      const editingImage = p.editing?.hoverImage ? ` data-sanity="${escape(p.editing.hoverImage)}"` : '';
+      return `<span class="product-model product-model--onbody"${editingImage} role="img" aria-label="${escape(imageAlt)}" style="background-image:url('${escape(p.hoverImage)}');background-size:${escape(p.hoverImageSize || 'cover')};background-position:${escape(p.hoverImagePosition || 'center')}"></span>`;
     }
     return p.art ? `<span class="product-model model-${p.art}" role="img" aria-label="${escape(p.name)} ${p.category === 'patches' ? 'in use' : 'on model'}"></span>` : '';
   }
@@ -392,13 +505,13 @@
     const labels = { headwear: 'Headwear', socks: 'Socks' };
     const label = labels[family];
     if (!label) return;
-    const familyProducts = products.filter(product => product.category === family);
+    const familyProducts = activeProducts.filter(product => product.category === family);
     const uniqueStyles = [...new Map(familyProducts.map(product => [customizationKey(product.customizationHref), product])).values()];
     const dialog = ensureFamilyDialog();
     $('#custom-family-title', dialog).textContent = `Choose a ${label.toLowerCase()} style`;
     $('#custom-family-options', dialog).innerHTML = uniqueStyles.map(product => `<button type="button" class="custom-family-option" data-family-product="${escape(product.id)}"><span>${escape(customStyleLabel(product.customizationHref))}</span><span aria-hidden="true">${arrow}</span></button>`).join('');
     $$('[data-family-product]', dialog).forEach(button => button.addEventListener('click', () => {
-      const product = products.find(candidate => candidate.id === button.dataset.familyProduct);
+      const product = activeProducts.find(candidate => candidate.id === button.dataset.familyProduct);
       if (!product) return;
       showProduct(product.id, { intent: 'custom' });
     }));
@@ -566,7 +679,7 @@
   });
 
   function styleFilterLabel(key) {
-    const product = products.find(item => customizationKey(item.customizationHref) === key);
+    const product = activeProducts.find(item => customizationKey(item.customizationHref) === key);
     const name = key === 'customization#patches'
       ? 'Blank Shape Patches'
       : (product?.name || 'Product style').replace(/^Custom\s+/i, '');
@@ -581,42 +694,41 @@
       $('#product-grid').innerHTML = '<p class="empty-results" role="status">Product details are temporarily unavailable. Your saved enquiry list remains in this browser.</p>';
       return;
     }
-    let items = products.filter(p => activeFilter === 'all' || (activeFilter === 'new' ? p.isNew : p.category === activeFilter));
+    let items = activeProducts.filter(p => activeFilter === 'all' || (activeFilter === 'new' ? p.isNew : p.category === activeFilter));
     if (isShop && activeStyle) items = items.filter(p => customizationKey(p.customizationHref) === activeStyle);
     if (isShop) {
-      const colorSelect = $('[data-shop-filter="color"]');
-      if (!colorSelect.dataset.catalogOptions) {
-        const colors = [...new Set(products.map(p => p.color))].sort((a, b) => a.localeCompare(b));
-        colorSelect.insertAdjacentHTML('beforeend', colors.filter(color => ![...colorSelect.options].some(option => option.value === color)).map(color => `<option>${escape(color)}</option>`).join(''));
-        colorSelect.dataset.catalogOptions = 'true';
-      }
-      const colors=new Set(items.map(p=>p.color)),sizes=new Set(items.filter(p=>p.category!=='patches').flatMap(p=>p.sizes));
+      const colors=new Set(items.map(p=>p.color)),sizes=new Set(items.filter(p=>p.category!=='patches').flatMap(currentSizesFor));
       const sizeFilter = $('[data-size]')?.closest('.filter-group');
       if (sizeFilter) sizeFilter.hidden = !sizes.size;
       if(!colors.has(shopState.color))shopState.color="all";
       shopState.size=shopState.size.filter(size=>sizes.has(size));
       $$('[data-shop-filter="color"] option').forEach(o=>o.hidden=o.value!=="all"&&!colors.has(o.value));
       $$("[data-size]").forEach(b=>b.hidden=!sizes.has(b.dataset.size));
-      items = items.filter(p => (shopState.color === 'all' || p.color === shopState.color) && (!shopState.size.length || (p.category!=='patches' && shopState.size.some(size=>p.sizes.includes(size)))));
+      items = items.filter(p => (shopState.color === 'all' || p.color === shopState.color) && (!shopState.size.length || (p.category!=='patches' && shopState.size.some(size=>currentSizesFor(p).includes(size)))));
       if (shopState.sort === 'name') items.sort((a,b)=>a.name.localeCompare(b.name));
       const total=items.length, pages=Math.max(1,Math.ceil(total/6)); shopState.page=Math.min(shopState.page,pages);
       $('#shop-count').textContent = total ? `Showing ${(shopState.page-1)*6+1}–${Math.min(shopState.page*6,total)} of ${total} products` : 'No products match your filters';
       $('#pagination').innerHTML = pages>1 ? Array.from({length:pages},(_,i)=>`<button data-page="${i+1}" aria-label="Page ${i+1}" ${i+1===shopState.page?'aria-current="page"':''}>${i+1}</button>`).join('') : '';
-      const label={all:'All Products',new:'New Arrivals',clothing:'Clothing',socks:'Socks',headwear:'Headwear',bags:'Bags',patches:'Ready-Made Patches'}[activeFilter];
+      const label=activeFilter==='all'?'All Products':activeFilter==='new'?'New Arrivals':(categoryById.get(activeFilter)?.label || 'Products');
       $('#shop-title').textContent=label; $('#breadcrumb-current').textContent=label;
       const banner=$('.shop-banner-photo');
-      const bannerImages={all:'banner-new.webp',new:'banner-new.webp',clothing:'banner-clothing.webp',socks:'banner-socks.webp',headwear:'banner-headwear.webp',bags:'banner-bags.webp',patches:'banner-patches.webp'};
-      const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics',clothing:'Plain everyday clothing in blue, white and cream',socks:'Basic ribbed crew socks in coordinated colors',headwear:'Plain baseball caps in blue, navy and cream',bags:'Cream canvas tote with navy handles and a navy backpack on pale blue studio plinths',patches:'A collection of custom patch styles in blue and cream'};
-      const bannerSrc='assets/'+bannerImages[activeFilter]+'?v=20260914-banner4';
+      const bannerImages={all:'banner-new.webp',new:'banner-new.webp'};
+      const bannerAlts={all:'Blue, white and cream everyday basics',new:'Discover the latest everyday basics'};
+      const category=categoryById.get(activeFilter);
+      const bannerSrc=category?.banner || (category ? 'assets/banner-new.webp?v=20260914-banner4' : `assets/${bannerImages[activeFilter] || bannerImages.all}?v=20260914-banner4`);
+      const bannerAlt=category?.bannerAlt || category?.label || bannerAlts[activeFilter] || bannerAlts.all;
       banner.dataset.category=activeFilter;
-      banner.alt=bannerAlts[activeFilter];
+      banner.alt=bannerAlt;
+      if (category?.editing?.banner) banner.setAttribute('data-sanity', category.editing.banner);
+      else banner.removeAttribute('data-sanity');
       if(banner.dataset.requestedSrc!==bannerSrc){
         banner.dataset.requestedSrc=bannerSrc;
         const nextBanner=new Image();
         nextBanner.className='shop-banner-photo';
-        nextBanner.alt=bannerAlts[activeFilter];
+        nextBanner.alt=bannerAlt;
         nextBanner.dataset.category=activeFilter;
         nextBanner.dataset.requestedSrc=bannerSrc;
+        if (category?.editing?.banner) nextBanner.setAttribute('data-sanity', category.editing.banner);
         nextBanner.onload=()=>{
           const current=$('.shop-banner-photo');
           if(current.dataset.requestedSrc!==bannerSrc)return;
@@ -633,16 +745,16 @@
       $('#category-select').value=activeFilter;
       $$('#category-options input').forEach(input=>input.checked=input.value===activeFilter);
       const tags=[...(activeFilter!=='all'?[['category',activeFilter,label]]:[]),...(activeStyle?[['style',activeStyle,styleFilterLabel(activeStyle)]]:[]),...(shopState.color!=='all'?[['color',shopState.color,shopState.color]]:[]),...shopState.size.map(v=>['size',v,v])];
-      $('#active-filters').innerHTML=tags.length?tags.map(([kind,value,text])=>`<button class="filter-tag" data-remove-filter="${kind}" data-value="${value}" aria-label="Remove ${text} filter">${text}<span aria-hidden="true">×</span></button>`).join(''):'<span class="no-filters">All products</span>';
+      $('#active-filters').innerHTML=tags.length?tags.map(([kind,value,text])=>`<button class="filter-tag" data-remove-filter="${escape(kind)}" data-value="${escape(value)}" aria-label="Remove ${escape(text)} filter">${escape(text)}<span aria-hidden="true">×</span></button>`).join(''):'<span class="no-filters">All products</span>';
       $('#clear-filter-tags').hidden=!tags.length;
       $$('[data-size]').forEach(el=>el.setAttribute('aria-pressed',String(shopState.size.includes(el.dataset.size))));
       $$('[data-price]').forEach(el=>el.checked=shopState.price.includes(el.dataset.price));
       $$('[data-shop-filter]').forEach(el=>el.value=shopState[el.dataset.shopFilter]);
       items=items.slice((shopState.page-1)*6,shopState.page*6);
-    } else items=(activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>products.find(p=>p.id===id)) : items.slice(0,4)).filter(Boolean);
-    $('#product-grid').innerHTML = items.map(p => `<article class="product-card" data-product="${p.id}">
-      <button class="product-image" data-detail="${p.id}" aria-label="View ${escape(p.name)} details">${art(p)}${productHover(p)}</button>
-      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : isShop ? 'READY STOCK · CUSTOMIZABLE' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${p.id}">${escape(p.name)}</button></h3><p class="product-color"><span class="color-dot" style="--swatch:${p.swatch}"></span>${escape(p.color)}</p></div>
+    } else items=(activeFilter==='all' ? ['hoodie','socks','cap','patch'].map(id=>activeProducts.find(p=>p.id===id)) : items.slice(0,4)).filter(Boolean);
+    $('#product-grid').innerHTML = items.map(p => `<article class="product-card" data-product="${escape(p.id)}">
+      <button class="product-image" data-detail="${escape(p.id)}" aria-label="View ${escape(p.name)} details">${art(p)}${productHover(p)}</button>
+      <div class="product-meta"><span class="new-label">${p.category === 'patches' ? 'READY-MADE PATCHES' : isShop ? 'READY STOCK · CUSTOMIZABLE' : 'BASIC · CUSTOMIZABLE'}</span><h3><button class="product-name" data-detail="${escape(p.id)}"><span${p.editing?.name ? ` data-sanity="${escape(p.editing.name)}"` : ''}>${escape(p.name)}</span></button></h3><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p></div>
     </article>`).join('') || '<p class="empty-results">Try another category or clear your filters to explore more basics.</p>';
     $$('.filters button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter)));
   }
@@ -659,7 +771,7 @@
     const customRequest = e.target.closest('[data-custom-request]');
     if (customRequest) {
       const target = customizationKey(customRequest.dataset.customRequest);
-      const product = products.find(candidate => customizationKey(candidate.customizationHref) === target);
+      const product = activeProducts.find(candidate => customizationKey(candidate.customizationHref) === target);
       if (product) {
         e.preventDefault();
         showProduct(product.id, { intent: 'custom' });
@@ -692,7 +804,7 @@
     if (product.category === 'patches') {
       return `<section class="detail-specifications" aria-label="Patch details"><dl><div><dt>Stock design</dt><dd>${escape(product.name)}</dd></div><div><dt>Specifications &amp; availability</dt><dd>Dimensions, backing and current availability are confirmed for your enquiry.</dd></div></dl></section>`;
     }
-    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>Reference size options</dt><dd>${escape(product.sizes.join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before artwork approval and production.</p></section>`;
+    return `<section class="detail-specifications" aria-label="Product specifications"><dl><div><dt>Reference size options</dt><dd>${escape(currentSizesFor(product).join(', '))}</dd></div><div><dt>Measurements</dt><dd>To be confirmed for your project.</dd></div><div><dt>Materials &amp; finish</dt><dd>Confirmed against the selected product, artwork and intended use.</dd></div></dl><p>Final measurements, construction and tolerances are confirmed before artwork approval and production.</p></section>`;
   }
 
   function showProduct(id, request = {}) {
@@ -705,7 +817,10 @@
     const customFields = isPatchProduct ? '' : `<div class="detail-custom-fields" id="detail-custom-fields" ${initialIntent === 'custom' ? '' : 'hidden'}><fieldset class="detail-custom-options"><legend>What would you like to explore? <span>(optional)</span></legend><label><input type="checkbox" data-request-option value="logo">Add a logo</label><label><input type="checkbox" data-request-option value="material">Change color or material</label><label><input type="checkbox" data-request-option value="style">Develop a style</label></fieldset><label class="detail-notes-label" for="detail-request-notes">Project note <span>(optional)</span></label><textarea id="detail-request-notes" maxlength="500" rows="3" placeholder="Add a short note about your request"></textarea></div>`;
     const customizationHref = p.externalCustomizationHref || p.customizationHref;
     const stylesLinkLabel = isPatchProduct ? 'Need custom patches? Visit NetproPatches ↗' : 'View styles &amp; techniques ↗';
-    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy" tabindex="0" aria-label="Product details and request options"><span class="new-label" id="detail-request-badge">${initialIntent === 'custom' ? 'CUSTOM REQUEST' : (isPatchProduct ? 'READY-MADE PATCHES' : 'READY STOCK')}</span><h2>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p>${requestMode}${sizeOptionsMarkup}<div class="detail-quantity"><label for="detail-quantity">Quantity</label><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div>${customFields}<button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button><a id="detail-styles-link" class="text-link detail-styles-link" href="${escape(customizationHref)}" ${isPatchProduct || initialIntent === 'custom' ? '' : 'hidden'}>${stylesLinkLabel}</a>${requestSpecifications(p)}</div></div>`;
+    const stylesLinkMarkup = customizationHref
+      ? `<a id="detail-styles-link" class="text-link detail-styles-link" href="${escape(customizationHref)}" ${isPatchProduct || initialIntent === 'custom' ? '' : 'hidden'}>${stylesLinkLabel}</a>`
+      : '';
+    $('#product-detail').innerHTML = `<div class="detail-layout"><div class="detail-gallery"><div class="gallery-thumbs" aria-label="Product images"></div><div class="detail-visual">${art(p)}</div></div><div class="detail-copy" tabindex="0" aria-label="Product details and request options"><span class="new-label" id="detail-request-badge">${initialIntent === 'custom' ? 'CUSTOM REQUEST' : (isPatchProduct ? 'READY-MADE PATCHES' : 'READY STOCK')}</span><h2${p.editing?.name ? ` data-sanity="${escape(p.editing.name)}"` : ''}>${escape(p.name)}</h2><div class="detail-price">Request Pricing</div><p${initialIntent !== 'custom' && p.editing?.description ? ` data-sanity="${escape(p.editing.description)}"` : ''}>${escape(p.description)}</p><p class="product-color"><span class="color-dot" style="--swatch:${escape(p.swatch)}"></span>${escape(p.color)}</p>${requestMode}${sizeOptionsMarkup}<div class="detail-quantity"><label for="detail-quantity">Quantity</label><div><button id="quantity-less" aria-label="Decrease quantity">−</button><input id="detail-quantity" type="number" min="1" max="100000" value="1" aria-label="Requested quantity"><button id="quantity-more" aria-label="Increase quantity">+</button></div></div>${customFields}<button id="add-to-bag" class="button primary">Add to Enquiry ${arrow}</button>${stylesLinkMarkup}${requestSpecifications(p)}</div></div>`;
     const detailDescription = $('.detail-copy > p:not(.product-color)');
     detailDescription.id = 'detail-description';
     const detailColor = $('.detail-copy .product-color');
@@ -716,6 +831,7 @@
     detailColor.replaceChildren(colorSwatch, colorLabel);
     if (initialIntent === 'custom') {
       detailDescription.textContent = 'Use this style as a starting point. Share your preferred colors, materials and artwork; final specifications are confirmed with your quote.';
+      detailDescription.removeAttribute('data-sanity');
     }
     const gallery=[{name:'Product view',html:art(p)},...(p.id==='hoodie'?[{name:'On-model illustration',html:'<div class="story-art story-art-0" role="img" aria-label="Sky blue hoodie on model"></div>'},{name:'Stitching illustration',html:'<div class="story-art story-art-1" role="img" aria-label="Hoodie stitching detail"></div>'},{name:'Fabric illustration',html:'<div class="story-art story-art-2" role="img" aria-label="Blue fabric close-up"></div>'}]:[{name:'Detail zoom',html:art(p,'gallery-zoom')}])];
     $('.gallery-thumbs').innerHTML=gallery.map((item,i)=>`<button class="gallery-thumb" aria-label="${item.name}" aria-pressed="${i===0}" data-gallery="${i}">${item.html}</button>`).join('');
@@ -724,13 +840,18 @@
     productDialog.classList.toggle('is-custom-request', initialIntent === 'custom');
     productDialog.classList.toggle('is-patch-stock', isPatchProduct);
     let intent = initialIntent;
-    let selectedSize = isPatchProduct ? 'Not specified' : intent === 'custom' ? 'To be confirmed' : p.sizes[0];
+    const currentSizes = currentSizesFor(p);
+    const enquirySizes = Array.isArray(p.sizes) ? p.sizes : currentSizes;
+    let selectedSize = isPatchProduct
+      ? (enquirySizes.includes('Not specified') ? 'Not specified' : currentSizes[0])
+      : intent === 'custom' ? 'To be confirmed' : currentSizes[0];
     let quantity=1;
     const sizeOptions = $('#detail-size-options');
     function renderSizeOptions() {
       if (isPatchProduct) return;
-      const values = intent === 'custom' ? [...p.sizes, 'To be confirmed'] : p.sizes;
-      if (!values.includes(selectedSize)) selectedSize = intent === 'custom' ? 'To be confirmed' : p.sizes[0];
+      const currentSizes = currentSizesFor(p);
+      const values = intent === 'custom' ? [...currentSizes, 'To be confirmed'] : currentSizes;
+      if (!values.includes(selectedSize)) selectedSize = intent === 'custom' ? 'To be confirmed' : currentSizes[0];
       sizeOptions.innerHTML = values.map(size => `<button type="button" data-detail-size="${escape(size)}" aria-pressed="${size === selectedSize}">${escape(size)}</button>`).join('');
       $$('[data-detail-size]', sizeOptions).forEach(button => button.addEventListener('click', () => {
         selectedSize = button.dataset.detailSize;
@@ -740,7 +861,7 @@
     function setIntent(nextIntent) {
       const previousIntent = intent;
       intent = nextIntent === 'custom' ? 'custom' : 'stock';
-      if (intent === 'stock' && !p.sizes.includes(selectedSize)) selectedSize = p.sizes[0];
+      if (intent === 'stock' && !currentSizesFor(p).includes(selectedSize)) selectedSize = currentSizesFor(p)[0];
       if (previousIntent === 'custom' && intent === 'stock') {
         $$('[data-request-option]').forEach(input => { input.checked = false; });
         $('#detail-request-notes').value = '';
@@ -748,9 +869,12 @@
       $('#detail-description').textContent = intent === 'custom'
         ? 'Use this style as a starting point. Share your preferred colors, materials and artwork; final specifications are confirmed with your quote.'
         : p.description;
+      if (intent === 'custom') $('#detail-description').removeAttribute('data-sanity');
+      else if (p.editing?.description) $('#detail-description').setAttribute('data-sanity', p.editing.description);
       $('#detail-color-value').textContent = `${intent === 'custom' ? 'Reference color: ' : ''}${p.color}`;
       $('#detail-custom-fields').hidden = intent !== 'custom';
-      $('#detail-styles-link').hidden = !isPatchProduct && intent !== 'custom';
+      const stylesLink = $('#detail-styles-link');
+      if (stylesLink) stylesLink.hidden = !customizationHref || (!isPatchProduct && intent !== 'custom');
       $('#detail-request-badge').textContent = intent === 'custom' ? 'CUSTOM REQUEST' : (p.category === 'patches' ? 'READY-MADE PATCHES' : 'READY STOCK');
       productDialog.classList.toggle('is-custom-request', intent === 'custom');
       renderSizeOptions();
@@ -952,8 +1076,8 @@
     const q = $('#search-input').value.trim().toLowerCase();
     const aliases = { sock: 'socks', hats: 'cap', hat: 'cap', sweatshirt: 'hoodie' };
     const query = aliases[q] || q;
-    const results = products.filter(p => `${p.name} ${p.category} ${p.color}`.toLowerCase().includes(query));
-    $('#search-results').innerHTML = results.length ? results.map(p => `<button class="result-item" data-detail="${p.id}">${art(p)}<span><strong>${p.name}</strong><small>${p.color}</small></span><span>Request pricing</span></button>`).join('') : '<p class="search-empty">No matches yet. Try “hoodie”, “cap” or “patch”.</p>';
+    const results = activeProducts.filter(p => `${p.name} ${p.category} ${p.color}`.toLowerCase().includes(query));
+    $('#search-results').innerHTML = results.length ? results.map(p => `<button class="result-item" data-detail="${escape(p.id)}">${art(p)}<span><strong${p.editing?.name ? ` data-sanity="${escape(p.editing.name)}"` : ''}>${escape(p.name)}</strong><small>${escape(p.color)}</small></span><span>Request pricing</span></button>`).join('') : '<p class="search-empty">No matches yet. Try “hoodie”, “cap” or “patch”.</p>';
   }
   $('#search-input').addEventListener('input', searchProducts);
   $$('[data-open]').forEach(button => button.addEventListener('click', () => {

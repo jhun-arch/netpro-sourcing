@@ -1,13 +1,16 @@
 'use client';
 
-import { VisualEditing, type VisualEditingProps } from 'next-sanity/visual-editing';
+import { VisualEditing } from '@sanity/visual-editing/react';
+import type { VisualEditingOptions } from '@sanity/visual-editing';
+import { createFullDocumentHistory } from './fullDocumentHistory';
 import {
   buildPreviewNavigationUrl,
   PREVIEW_SCROLL_STORAGE_KEY,
   type SavedPreviewScroll,
 } from './previewNavigation';
 
-type RefreshHandler = NonNullable<VisualEditingProps['refresh']>;
+type RefreshHandler = NonNullable<VisualEditingOptions['refresh']>;
+const fullDocumentHistory = createFullDocumentHistory(() => window);
 
 const DRAFT_VISUAL_EDITING_HIT_STYLES = `
   .home-page .hero-wash,
@@ -66,7 +69,7 @@ export default function DraftVisualEditing() {
   return (
     <>
       <style data-draft-visual-editing-hit-styles>{DRAFT_VISUAL_EDITING_HIT_STYLES}</style>
-      <VisualEditing refresh={handleRefresh} />
+      <VisualEditing portal history={fullDocumentHistory} refresh={handleRefresh} />
     </>
   );
 }

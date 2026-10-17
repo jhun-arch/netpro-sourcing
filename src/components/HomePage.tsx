@@ -2,6 +2,12 @@ import type { ReactNode } from 'react';
 import { draftMode } from 'next/headers';
 import { getHomePageData, HomeContentError } from '../cms/home';
 import { SanitySetupError } from '../cms/client';
+import { getContentRevision } from '../cms/revision';
+import { getCatalogData } from '../catalog/catalog';
+import CatalogBootstrap from '../catalog/CatalogBootstrap';
+import { getSiteSettingsData } from '../fullsite/content';
+import { applySiteHeaderSettings } from '../fullsite/shared';
+import { LEGACY_HOME_BODY_HTML } from './legacyHomeTemplate';
 import DraftVisualEditing from './DraftVisualEditing';
 import PreviewRefresh from './PreviewRefresh';
 import { HomeRendererError, renderHome } from './renderHome';
@@ -22,13 +28,19 @@ export default async function HomePage() {
   const preview = (await draftMode()).isEnabled;
 
   try {
-    const data = await getHomePageData(preview);
+    const [data, catalog, revision, settings] = await Promise.all([
+      getHomePageData(preview),
+      getCatalogData(preview),
+      preview ? getContentRevision(true) : Promise.resolve(''),
+      getSiteSettingsData(preview),
+    ]);
     return (
       <>
-        {renderHome(data)}
+        <CatalogBootstrap data={catalog} />
+        {renderHome(data, applySiteHeaderSettings(LEGACY_HOME_BODY_HTML, settings, preview))}
         {preview ? (
           <>
-            <PreviewRefresh revision={data._rev} />
+            <PreviewRefresh revision={revision} />
             <DraftVisualEditing />
           </>
         ) : null}

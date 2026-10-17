@@ -10,3 +10,9 @@ export function validateSafeHref(value: unknown): true | string {
   if (/[\u0000-\u0020\\]/.test(href)) return '链接不能包含空格、反斜线或控制字符。';
   return true;
 }
+
+export function validateSlotHref(value: unknown, context: { parent?: { kind?: unknown } }): true | string {
+  const empty = value === undefined || value === null || (typeof value === 'string' && !value.trim());
+  if (context.parent?.kind !== 'link' && empty) return true;
+  return validateSafeHref(value);
+}

@@ -20,6 +20,9 @@
       view.style.backgroundSize = (view === dialogView ? slide.dataset.lightboxSize : '') || slide.dataset.imageSize || 'cover';
       view.setAttribute('role', 'img');
       view.setAttribute('aria-label', slide.dataset.alt || 'Product reference image');
+      const editPath = slide.getAttribute('data-sanity');
+      if (editPath) view.setAttribute('data-sanity', editPath);
+      else view.removeAttribute('data-sanity');
     }
 
     function select(index) {
@@ -94,6 +97,9 @@
       image.style.backgroundSize = tab.dataset.optionSize || 'cover';
       image.style.backgroundPosition = tab.dataset.optionPosition || 'center';
       image.setAttribute('aria-label', tab.dataset.optionAlt || tab.dataset.optionTitle);
+      const editPath = tab.getAttribute('data-sanity');
+      if (editPath) image.setAttribute('data-sanity', editPath);
+      else image.removeAttribute('data-sanity');
       if (moveFocus) tab.focus();
     }
     tabs.forEach((tab, index) => {

@@ -1,6 +1,6 @@
 import { draftMode } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getSanityClient } from '@/src/cms/client';
+import { getContentRevision } from '@/src/cms/revision';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -26,14 +26,9 @@ export async function GET(request: Request) {
   }
 
   try {
-    const revision = await getSanityClient(true).fetch<string | null>(
-      '*[_type == "homePage" && _id == "homePage"][0]._rev',
-      {},
-      { cache: 'no-store' },
-    );
-    if (!revision) throw new Error('The homepage revision is unavailable.');
+    const revision = await getContentRevision(true);
     return NextResponse.json({ rev: revision }, { headers: responseHeaders() });
   } catch {
-    return NextResponse.json({ error: 'The homepage revision is unavailable.' }, { status: 503, headers: responseHeaders() });
+    return NextResponse.json({ error: 'Content revisions are unavailable.' }, { status: 503, headers: responseHeaders() });
   }
 }

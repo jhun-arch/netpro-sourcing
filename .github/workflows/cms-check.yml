@@ -21,6 +21,12 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run cms:test
+      - run: npm run catalog:test
+      - name: Verify all page templates, image replacements, and legacy interactions
+        run: npm run fullsite:test
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: 5mntophk
+          NEXT_PUBLIC_SANITY_DATASET: production
       - name: Verify homepage renderer against published Sanity content
         run: npm run cms:render-test
         env:

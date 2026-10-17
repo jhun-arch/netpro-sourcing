@@ -1,4 +1,16 @@
-# Handoff：Next.js + Sanity 首页试点
+# Handoff：Next.js + Sanity 全站迁移（进行中）
+
+## 当前优先任务（2026-10-17 用户已确认）
+
+- 用户明确回复“按全站 Next.js + CMS 迁移继续”，范围扩展到全部现有页面、产品目录及中文 CMS。沿用实验分支和隔离项目，不改 main / Production，不覆盖已有 homePage。
+- 开始全站工作时 HEAD 为 `3c166d16fc50e76554537165094bde3f5768ddbf`，最新 READY Preview 为 `dpl_dwiTcX88uKGzs38PJsfEnEw3QosH`，稳定 alias 不变。
+- 已盘点 39 个根 HTML、31 件现货商品、23 张定制风格卡；实际没有 quality.html。`case-studies.html` 实际为 Product 展示页，不能按旧名称重写业务。
+- 方案与接口见 `docs/FULLSITE-MIGRATION.md`，审计见 `docs/FULLSITE-PAGE-AUDIT.md`、`docs/FULLSITE-PRODUCT-AUDIT.md`。实施正在进行，不能把方案当成已交付。
+- 页面实施与目录实施由两名 Luna Max 分别负责不冲突路径；主代理负责 Studio、首页目录、全站 revision、整合和验收。初次导入必须默认 dry-run、备份并 createIfNotExists，不重跑首页 seed。
+- 目录已实际导入（2026-10-17）：59 个新文档 = 31 product + 5 productCategory + 23 catalogStyle，使用 createIfNotExists；41 个源图片按 sha1 复用或上传。真实 published 查询返回 31 上架商品、5 分类、23 款式，非 fallback。备份为 ignored `output/catalog-seed-backup-2026-10-17T03-37-29-813Z-ca12840b-eef7-471c-91c1-5ae522d4d01b.json`，导入结果记录于 `output/fullsite-import-catalog-result.json`。`homePage` 与 `output/fullsite-before.json` 完全一致，revision 仍 `Inok3TNKzt158wJXIkG13l`，无草稿。不得重新覆盖这些目录文档。
+- 页面已实际导入：37 sitePage + 1 siteSettings，先用官方 documents validate --file 预检，再 createIfNotExists；备份 output/site-pages-seed-backup-2026-10-17T03-54-03-935Z-248f95dd-b584-4152-b866-82b7d9fb6289.json。查询总 98 内容文档，无 draft，homePage 完整 JSON 与 revision 保持原样。真实全部文档官方 validate 已通过零错误。修复 optional CSS/href 与条件标题行数验证，避免隐藏字段阻塞发布。
+- 当前新增代码尚未部署；最新 Preview 仍为上轮首页版本。37 页 SSR/结构/图片/绑定回归、目录 15 项、业务 34 项、契约测试已过；最终构建/HTTP/真实浏览器验收仍需完成。首次 build 在预生成阶段失败；404 公共数据读取的 no-store 动态渲染控制流被应用 catch 包装，已用 connection() 在 CMS 读取前明确请求边界。global-not-found 用于嵌套未知路径；Next 多根动态布局的单段 notFound 无 SSR 内容，现通过范围精确的 proxy.ts 将未知单段 GET/HEAD 同源 rewrite 到现有 /404.html 并保留404状态/浏览器URL；所有已登记页面、API、Studio、资源及非页面方法放行。两类未知路径均已实际HTTP验证返回404和原404标题。最终build通过，fullsite:test 11、cms:test31、catalog15、business34通过，最终本地全站HTTP复验中。主代理补了通用 Sanity history adapter，以同源整页导航替代 Next router 的预览局部切页；已加 jsdom@29.1.1 dev dependency 用于交互测试。
+- 其后正文保留首页阶段证据和限制；“仅首页 CMS / 其余静态”描述的是本次全站迁移开始前状态。
 
 更新时间：2026-10-17。继续工作前先读本文件、[README.md](README.md)、[docs/NEXTJS-SANITY-MIGRATION.md](docs/NEXTJS-SANITY-MIGRATION.md) 和面向内容编辑者的 [docs/CONTENT-EDITOR-GUIDE.md](docs/CONTENT-EDITOR-GUIDE.md)。后两份记录验收证据与日常操作；不要重复已完成的真实 CMS 验证。
 
