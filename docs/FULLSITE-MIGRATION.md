@@ -8,7 +8,7 @@
 - 全站页面注册表、旧模板渲染、页面/共享设置 schema、目录投影和旧脚本适配已经进入当前工作树。
 - 37 sitePage 与 1 siteSettings 已完成备份及 createIfNotExists 导入，总计 98 内容文档；官方文档错误级校验全部通过，不重跑 seed。
 - 全站基线 4832c1d 的构建、类型检查和 96 项相关回归已通过 CI；登记页面与 175 个同源资源已通过云端 HTTP 检查。真实 About 标题、正文、图片均能进入正确 Studio 字段，草稿隔离和发布已实测；测试文字已恢复。
-- 全站已部署至稳定分支地址 [实验 Preview](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app)，[Studio](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio)。当前只补验图片提示、中文页面切换、局部 revision 与云端 404，不重复此前全站审计。
+- 全站已部署至稳定分支地址 [实验 Preview](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app)，[Studio](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio)。追加的图片提示、中文页面切换、局部 revision 与云端 404 已部署验收，CI 39020074335 success；未重复此前全站审计。
 - Production 页面、配置和数据未修改或部署。下一阶段 T 恤需求仅记录于 [开发路线](DEVELOPMENT-ROADMAP.md)，本阶段不实现。
 
 首页试点的历史证据和边界见 [NEXTJS-SANITY-MIGRATION.md](NEXTJS-SANITY-MIGRATION.md)；页面和商品盘点分别见 [FULLSITE-PAGE-AUDIT.md](FULLSITE-PAGE-AUDIT.md)、[FULLSITE-PRODUCT-AUDIT.md](FULLSITE-PRODUCT-AUDIT.md)。

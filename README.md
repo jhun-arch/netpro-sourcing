@@ -2,7 +2,7 @@
 
 Netpro Sourcing 的旧版静态网站与隔离的 Next.js + Sanity 实验工作树。当前实验代码已扩展到全站页面、商品目录、分类、定制款式和共享导航/页脚；旧询价 API、邮件处理与页面交互仍沿用原有实现。
 
-> **当前状态（2026-10-17）：**首页、37 内页、共享设置和商品目录已安全导入，共 98 个真实内容文档。4832c1d 全站 Preview 构建与相关回归已通过；当前收尾图片提示、页面切换、预览刷新范围与云端 404。Production 未修改或部署。
+> **当前状态（2026-10-17）：**首页、37 内页、共享设置和商品目录已安全导入，共 98 个真实内容文档。4832c1d 全站 Preview 构建与相关回归已通过；图片提示、中文页面切换、预览刷新范围与云端 404 已完成并部署；CI 39020074335 通过。Production 未修改或部署。
 
 - [稳定 Preview 地址](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app)
 - [Studio 地址](https://netprosourcing-git-experiment-nextjs-sanity-junhil.vercel.app/studio)
@@ -26,7 +26,7 @@ npm run fullsite:test
 npm run fullsite:http
 ```
 
-页面与共享设置的初次 seed 在不带参数时只做 dry-run；只有在目标、备份和状态经过主代理确认后，工程维护者才可显式 apply。目录文档此前已导入，不要为了重跑而覆盖或重建现有内容。真实全站 HTTP 检查脚本见 `scripts/verify-fullsite-http.ts`；fullsite:test 已由主代理执行；云端 HTTP 检查已确认登记页面与 175 个同源资源，未知路由兼容补丁正在定向验收。后者仅访问 allowlisted localhost 或稳定 Preview，HTTP 只读，不写 CMS、不发送邮件。不要把实际密钥写进文档、客户端代码、报告或提交。
+页面与共享设置的初次 seed 在不带参数时只做 dry-run；只有在目标、备份和状态经过主代理确认后，工程维护者才可显式 apply。目录文档此前已导入，不要为了重跑而覆盖或重建现有内容。真实全站 HTTP 检查脚本见 `scripts/verify-fullsite-http.ts`；fullsite:test 已由主代理执行；云端 HTTP 检查已确认登记页面与 175 个同源资源，未知路由兼容补丁的云端定向验收已通过。后者仅访问 allowlisted localhost 或稳定 Preview，HTTP 只读，不写 CMS、不发送邮件。不要把实际密钥写进文档、客户端代码、报告或提交。
 
 本地旧版静态页面仍可通过 `python -m http.server 8765` 浏览。询价接口回归可运行 `node --test tests/quote.test.js`，该检查不会发送邮件。
 

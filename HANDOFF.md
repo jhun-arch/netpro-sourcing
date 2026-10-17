@@ -1,5 +1,19 @@
 # Handoff：Next.js + Sanity 全站迁移（进行中）
 
+## 本阶段交付记录（2026-10-17，优先于下方历史记录）
+
+- 运行代码提交 a83c3a84efb7cd42d93d9a36a5906b6deb025663；READY Preview dpl_GTuWdTogjtNEGE8qBv2nXnX2DYhF，快照 https://netprosourcing-ax8dvga2f-junhil.vercel.app，稳定 Preview / Studio 地址不变。GitHub CI 39020074335 success；本地一次最终 build、类型检查、30 项受影响 CMS/预览测试、5 项 404/路由测试与共享 renderer 的 37 页 DOM 等价单项检查通过。没有手工重跑全站 HTTP 或业务审计。
+- 图片上传提示已覆盖首页、内页、产品、分类横幅、款式和 SEO：建议像素、比例、裁切安全区；普通内页使用轻型输入组件按素材用途提示，不改变已有数据/校验、不搬动原图。
+- 草稿页右上角中文“切换预览”列出首页与 37 内页；真实浏览器完成 About → 首页 → Shop → About，草稿模式保留，匿名 HTML 没有编辑工具栏。原设计与旧脚本生命周期继续使用全文档导航。
+- 原全站 revision 监听会因编辑无关页面而刷新。现 SSR/API 共用当前 pageKey + 全站设置/目录的 scope，3 秒轮询不变；相关变更仍刷新，无关页面变更不再触发。SDK/history 只响应手动/真实消息，没有查到周期循环；手动更新和退出入口保留。Presentation 首次连接偶发超时仍存在，本次也观察到重试后仍可能超时；独立草稿预览可用，不宣称已消除该已知连接问题。
+- 云端未知单段和嵌套页面均已返回原站完整自定义错误页及404；Proxy 仅rewrite到受控Route Handler，由handler提供404状态。CSS/资源与内链根相对化，API/Studio/资源/非页面方法放行。定向 HTTP 8 项零失败，报告 output/final-focused-http.json。
+- 官方 sanity deploy --external --url .../studio --schema-required 再次成功：action update，同一 appId lms1plunpquzbvyrpkqshkyb、Schema 1/1；远端 _.schemas.default 更新时间 2026-10-17T09:10:09Z，包含图片提示与全站模型。真实 Manage Studios 仅一项、显示 Vercel，点击能打开已登录中文后台；没有新项目或重复 Studio。
+- 真实 UI 已确认首页首屏1920×1080(16:9)与内页4:3/横幅/方图提示可见；标题、正文、图片 Open in Studio 正确定位证据沿用本阶段已完成测试，最终新版标题覆盖链接仍含 /studio。
+- 最终空闲观察：About 预览跨多个3秒轮询保持相同revision、current状态和URL，未出现更新提示；作用域测试同时确认无关页面不触发、当前页面/共享目录变化仍触发。
+- 只读内容安全复核：首页完整JSON与首次全站备份完全相同。98 published 内容文档仍在。发现已有 drafts.catalog-product-varsity-jacket（2026-10-17T06:35:03Z，业务字段与published相同），本次未创建/编辑/删除它；不要把它当作可自动清理的测试草稿。About临时标题已按字段安全恢复；不要重置整页。
+- Production 仍为 dpl_ErniJL5W5ypaPdUE6kmAidi91uMF / 9341d2e；main与Production配置未修改。未发送邮件、未实现T恤定制。后续要求完整记录 docs/DEVELOPMENT-ROADMAP.md；当前阶段汇报后等待用户确认。
+- 证据均 ignored：output/final-studio-registration.json、final-schema-list.json、final-content-safety.json、fullsite-studio-ui-final.json；截图 output/playwright/studio-registration-final.png、image-guidance-final.png。
+
 ## 最新补充与下一阶段边界（2026-10-17）
 
 - 用户要求继续当前成果，不重新审计、不重复已过的全站测试。当前阶段补齐图片尺寸/比例提示、中文预览页面切换，以及自动刷新原因检查与必要修复；直接相关的必要验证完成后汇报并等待确认。
@@ -7,8 +21,8 @@
 - 当前全站代码已推送 `4832c1d8203652eab4047d97c49bb8d5e7c95540`；Preview `dpl_6JpnS7ju8QxV3CrdpM9CsEjJqZtV` 为 READY，GitHub CI `39005622795` 成功。稳定 alias 不变。已有登记页面和 175 个同源资源在云端检查通过，不重复运行全站审计。
 - 外部 Studio 已再次官方 deploy，返回 `action:update`、同一 appId、Schema 1/1；远端 `_.schemas.default` 已含 sitePage/siteSettings/productCategory 等新类型。真实已登录 Studio 已显示中文页面、产品、分类、款式和全站设置入口。
 - 关于页面标题已真实点击 Open in Studio，URL 含 `/studio/presentation/sitePage/sitePage-about/...textLines`，正确定位分行字段。真实 Studio 保存临时草稿，独立认证预览显示该草稿、匿名 HTTP 仍原文；真实发布后匿名 HTTP 显示测试标题。现已用 `_rev` + 固定键 + 预期测试文字 guard 仅恢复首行，业务内容与备份一致，只有 Sanity 原生发布新增 `_system.base` 元数据；无遗留草稿。备份 `output/fullsite-studio-ui-before.json`。后续不重复发布同一临时文字。
-- 云端未知路径仍返回平台默认 404，而原站为自定义错误页；正在完成最小兼容路由。不要把这个未完成项误报为通过，也不要因此重做其他页面。
-- 刷新只读调查已确认：目前全局 revision 包含全部 98 文档，其他页面的后台编辑也会令当前草稿页面刷新；无变更时 hash 相同不会触发。正在收窄为当前 pageKey + 共享导航/页脚/目录，并确保 SSR 初始 revision 与 API 轮询 scope 相同，保留真实相关变更的实时预览。
+- 云端未知路径兼容已由上方交付记录完成；不要重做已通过页面。
+- 刷新只读调查已确认：目前全局 revision 包含全部 98 文档，其他页面的后台编辑也会令当前草稿页面刷新；无变更时 hash 相同不会触发。已收窄为当前 pageKey + 共享导航/页脚/目录，并确保 SSR 初始 revision 与 API 轮询 scope 相同，保留真实相关变更的实时预览。
 
 ## 当前优先任务（2026-10-17 用户已确认）
 
