@@ -21,12 +21,16 @@ const DRAFT_VISUAL_EDITING_HIT_STYLES = `
     pointer-events: auto;
   }
 
-  .home-page .hero-slides .hero-photo:not(.is-active) {
-    pointer-events: none;
+  /* GSAP moves/fades the slides without changing their initial is-active class.
+     Let the on-screen slide's transformed box receive the hit during transitions. */
+  .home-page .hero-slides .hero-photo {
+    pointer-events: auto;
   }
 
-  .home-page .hero-slides .hero-photo.is-active {
-    pointer-events: auto;
+  @media (prefers-reduced-motion: reduce) {
+    .home-page .hero-slides .hero-photo:not(.is-active) {
+      pointer-events: none;
+    }
   }
 `;
 
