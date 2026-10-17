@@ -197,6 +197,8 @@ test('category image hit surfaces edit the image while preserving navigation and
     assert.ok(photo, `category ${item._key} should render its image`);
     assert.ok(imageLink, `category ${item._key} should keep its image navigation link`);
     assert.ok(ctaLink, `category ${item._key} should keep its visible CTA link`);
+    assert.equal(category.props['data-sanity'], undefined, 'the category article should not expose its technical identity field for editing');
+    assert.equal(category.props['data-category'], item.category, 'the category identity used by the existing UI should remain intact');
     assertOpenInStudioPath(photo, imagePath);
     assertOpenInStudioPath(imageLink, imagePath);
     assert.equal(imageLink.props.href, item.cta.href, 'the image hit surface should keep its original navigation target');

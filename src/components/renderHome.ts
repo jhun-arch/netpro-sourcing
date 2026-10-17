@@ -353,7 +353,6 @@ function bindCollection($: CheerioAPI, data: HomePageSelection): void {
     const token = idToken(item.slug || category, category);
     row.attr('class', `category${active ? ' is-active' : ''}`);
     row.attr('data-category', category);
-    setDataPath(row, ['collection', 'categories', { _key: item._key }, 'category']);
     setReactKey(row, item._key);
 
     const photoClass = category === 'patches' ? 'patch-photo' : `${category}-photo`;
